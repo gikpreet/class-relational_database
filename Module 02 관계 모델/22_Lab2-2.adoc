@@ -56,7 +56,7 @@ SELECT database();
 +
 [source, sql]
 ----
-use Module02;
+mysql> use Module02;
 ----
 +
 명령의 실행 결과는 아래와 같습니다.
