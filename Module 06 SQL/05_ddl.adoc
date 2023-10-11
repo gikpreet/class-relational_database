@@ -1,0 +1,11 @@
+== DDL: Data Definition Language
+
+DDL은 사용자 또는 응용 프로그램이 컴퓨터의 데이터를 정의하는 컴퓨터 언어 또는 프로그램 언어 요소로, SQL에서는 관계 데이터베이스의 구조를 정의하는 SQL 언어의 부분집합입니다. 이 장에서는 관계 데이터베이스의 구조를 정의하는 SQL언어를 공부합니다.
+
+== Table of Contents
+
+1. DDL: Data Definition Language
+2. DDL 구문
+3. 테이블 생성, 수정, 삭제 DDL 문
+
+link:./06_ddl.adoc[다음: DDL: Data Definition Language란?]

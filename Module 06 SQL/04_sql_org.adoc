@@ -1,0 +1,59 @@
+= SQL 구성
+
+•	데이터 조작어(Data Manipulation Language – DML)
+**	데이터베이스의 데이터를 조회하거나 검색하기 위한 명령 및 데이터베이스 테이블의 데이터에 변형(삽입, 수정, 삭제)을 가하는 질의어
+•	데이터 정의어(Data Definition Language – DDL)
+**	테이블, 무결성 등의 데이터 구조를 정의하는데 사용되는 명령어들로 데이터 구조와 관련된 질의어
+•	데이터 제어어(Data Control Language – DCL)
+**	데이터베이스에 접근하고 개체들을 사용하도록 권한을 주고 회수하는 질의어
+•	트랜잭션 제어어(Transaction Control Language – TCL)
+**	논리적인 작업의 단위를 묶어서 DML에 의해 조작된 결과를 트랜잭션별로 제어하는 질의어
+
+---
+
+SQL 언어는 다음과 같이 몇 가지 부분으로 구성됩니다.
+
+•	**데이터 정의 언어(DDL – Data Definition Language)** +
+릴레이션 스키마를 정의하고, 릴레이션을 삭제하고, 릴레이션 스키마를 수정하는 명령어들을 제공합니다. 데이터베이스에 저장될 데이터가 만족해야 할 무결정 제약조건을 명시하는 명령어와 릴레이션과 뷰 등에 액세스하는 권한을 명시하는 명령을 포함합니다.
+•	**데이터 조작 언어(DML – Data Manipulation Language)** +
+관계 대수와 투플 관계 해석에 기반한 질의 언어를 포함합니다. 데이터베이스에 투플을 삽입, 삭제하며 수정하는 명령어로 포함합니다.
+•	**데이터 제어 언어(DCL – Data Control Language)** +
+테이블이나 뷰등의 데이터 객체에 대한 사용자의 접근을 제어하는 명령어를 포함합니다.
+•	**트랜잭션 제어 언어(TCL – Transaction Control Language)** +
+트랜잭션의 시작과 끝을 명시하는 명령어를 포함합니다.
+•	**내장 SQL(Embedded SQL)** +
+C++, Java, C#, Cobol, Pascal, Fortan등과 같은 범용 프로그래밍 언어에서 내장되어 사용할 수 있습니다.
+
+[cols="1,1a,3" options=header]
+|===
+|명령어 |종류	|명령어	
+|DML	
+|SELECT + 
+INSERT + 
+UPDATE + 
+DELETE 
+|데이터베이스의 데이터를 조회하거나 검색하기 위한 질의 모음으로 RETRIEVE라고도 함 +
+데이터베이스 테이블의 데이터에 변형을 가하는 종류(삽입, 수정, 삭제)등의 질의어 
+
+|DDL	
+|CREATE +
+ALTER +
+DROP +
+RENAME +
+TRUNCATE +
+|테이블, 뷰, 저장 프로시저 등의 데이터 구조를 정의하는데 사용되는 명령어로, 생성, 변경, 삭제, 이름 변경등의 데이터 구조와 관련된 질의어
+
+|DCL
+|GRANT +
+REVOKE +
+DENY +
+|데이터베이스에 접근하고 객체들을 사용하도록 권한을 주고 회수하는 질의어
+
+|TCL
+|COMMIT +
+ROLLBACK +
+SAVEPOINT +	
+|논리적인 작업 단위를 묶어서 DML에 의해 조작된 결과를 트랜잭션별로 제어하는 질의어
+|===
+
+link:./05_ddl.adoc[다음: DDL: Data Definition Language]

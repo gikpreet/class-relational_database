@@ -1,0 +1,25 @@
+= SQL 개요
+
+•	SQL(Structured Query Language)는 가장 널리 사용되는 상용 관계 데이터베이스 언어
+•	IBM에서 수행한 System-R 프로젝트의 수행 결과
+•	SQL이 발표된 후 많은 RDBMS 벤더들이 SQL을 자사 제품에 구현, 현재는 표준으로 사용됨
+**	RDBMS 뿐만 아닌 비 관계 데이터베이스에서도 SQL을 구현
+**	ANSI/ISO등의 표준 기관에서 SQL 표준을 정의
+
+---
+
+SQL(Structured Query Language)는 현재 가장 널리 사용되는 상용 관계 데이터베이스 언어입니다. SQL은 IBM 산호세 연구소에서 최초 버전이 개발되었습니다. IBM은 1970년대 초반 System-R 프로젝트의 일부분으로 SEQUEL(Structured English QUEry Language)라고 불리는 언어를 구현했습니다. 그 후 SQL(Structured Query Language)로 이름이 변경되었으며, 많은 상용 DBMS들이 SQL을 자사 제품에 구현하고 지원하게 되어 SQL은 표준 관계 데이터베이스 질의 언어로 사용됩니다.
+
+1986년 ANSI(American National Standard Institute)와 ISO(International Standard Organization for Standard)등의 표준 기관에서 SQL-86이라고 불리는 SQL 표준을 출간하였습니다. IBM은 1987년에 SAA-SQL(System Application Architecture Database Interface)라는 자체적인 기업 SQL 표준을 발행했습니다. ANSI는 1989년에 확장된 SQL 표준인 SQL-89를 발행하였고, 1992년 SQL-92를 발행하였으며, 이후에도 SQL 표준을 발표하고 있습니다. 
+
+많은 데이터베이스 시스템이 1999년 발표된 SQL:1999의 새로운 요소들을 지원하지만, 모든 요소들을 지원하는 DBMS는 없습니다. DBMS는 ANSI 표준 SQL을 준수하려 노력하지만, 모든 표준을 다 준수하지는 않으며 비 표준적은 기능도 제공하고 있습니다.
+
+== 비 절차적 언어
+
+비 절차적(nonprocedural)이란 ‘어떻게’ 보다는 ‘무엇’을 말하는 것입니다. SQL은 어떻게 작업을 수행할 것인가 보다는 어떤 데이터를 구하고, 삭제하고, 삽입할 것인가를 서술합니다.
+
+== 프로그램에 구애 받지 않는 언어
+
+단일 사용자 환경에서 실행되는 Microsoft Access나 수 천명의 사용자가 접속해 있는 Oracle 서버와 같은 환경에서 같은 언어의 사용이 가능합니다. SQL의 큰 이점 중 하나는 플랫폼과 프로그램에 구애받지 않는 언어라는 것인데, 프로그래머가 고수준 언어 또는 4GL 언어에서 해야 할 많은 작업을 단 몇 줄의 코드로 수행할 수 있도록 해 줍니다.
+
+link:./04_sql_org.adoc[다음: SQL 구성]

@@ -1,0 +1,10 @@
+= SQL 개요
+
+SQL(Structured Query Language)는 현재 가장 널리 사용되는 상용 관계 데이터베이스 언어로, IBM에서 수행한 SEQUEL-XRM 및 System-R 프로젝트의 수행 결과입니다. 이 장에서는 SQL의 개요에 대해 알아봅니다.
+
+== Table of Contents
+
+1.	SQL 개요
+2.	SQL 분류
+
+link:./03_introduction_to_sql.adoc[다음: SQL 개요]
