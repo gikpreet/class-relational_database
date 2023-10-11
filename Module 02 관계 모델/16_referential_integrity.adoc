@@ -1,0 +1,39 @@
+= 참조 무결성
+
+* 한 릴레이션에 저장된 정보와 다른 릴레이션에 저장된 정보가 연결되는 경우가 대부분
+* 참조 관계에 있는 두 릴레이션의 데이터는 항상 일관된 값으로 유지되어야 함
+** 한 릴레이션의 데이터가 수정될 경우 참조 관계에 있는 데이터 역시 수정되어야 함
+** 한 릴레이션의 데이터가 삭제될 경우 참조 관계에 있는 데이터 역시 삭제되어야 함
+* 외래 키 제약조건(Foreign Key Constraint)으로 참조 무결성을 유지
+** 한 릴레이션의 필드가 다른 릴레이션의 키를 참조
+** 참조하는 릴레이션의 데이터 변경에 따른 무결성을 유지
+* 외래 키(Foreign Key)
+** 한 릴레이션의 키 중에서 다른 릴레이션의 투플을 유일하게 식별할 수 있는 키
+** 한 릴레이션의 투플에서 다른 릴레이션의 투플을 참조하기 위해 사용
+
+---
+
+관계 모델은 데이터 간에 관계를 정의하고 관계를 사용하여 데이터베이스를 모델링하는 기법입니다. 관계 모델에서 한 릴레이션에 저장된 데이터는 대부분 다른 릴레이션에 저장된 정보와 연결됩니다. 이 경우, 한 릴레이션의 데이터를 수정하면 해당 릴레이션의 데이터를 참조하는 릴레이션의 데이터 또한 수정되어야 합니다. B 릴레이션이 A 릴레이션의 A1 필드를 참조하는 경우, B 릴레이션에서는 A 릴레이션의 A1 필드에 존재하지 않는 데이터가 존재할 수 없습니다.
+
+DBMS는 이런 점검을 수행하기 위해 무결성 제약조건을 명세해야 합니다. 이런 두 개의 릴레이션을 포함하는 제약조건을 `외래 키 
+제약조건(Foreign Key Constraint)` 이라고 합니다.
+
+아래 `Product` 릴레이션은 상품 정보를 저장하고, `ProductNo` 필드를 기본 키로 지정했습니다.
+
+_Product(**ProductNo: Integer**, ModelNumber: String, ProductName: String, Price: float)_
+
+아래 `Category` 릴레이션은 상품의 카테고리 정보를 저장하기 위해 설계되었으며, `CategoryNo` 필드를 기본키로 지정했습니다.
+
+_Category(**CategoryNo: Integer**, CategoryName: String)_
+
+`Product` 릴레이션은 상품의 카테고리 정보를 `Product` 릴레이션의 각 투플에 적용하기 위해 `Category` 릴레이션을 참조할 수 있습니다. `Product` 릴레이션은 상품의 카테고리 분류를 위해 참조하기 위해 `Category` 릴레이션의 `CategoryNo` 필드를 참조합니다.
+
+_Product(**ProductNo: Integer**, ModelNumber: String, ProductName: String, Price: float, CategoryNo: Integer)_
+
+이때 `Category` 데이터의 무결성을 위해, `Category` 릴레이션에 존재하지 않는 데이터는 `Product` 릴레이션에 존재하지 않아야 합니다. 만약 `Category` 릴레이션에 `Science` 라는 분류가 없다면, `Product` 릴레이션에는 `Science` 분류가 없는 데이터가 존재할 수 없어야 합니다. 또한 `Category` 릴레이션의 데이터가 변경되었다면 `Product` 릴레이션에서 `Category` 릴레이션의 해당 데이터를 참조하는 모든 데이터 역시 수정되어야 합니다.
+
+외래 키 제약조건은 이런 두 릴레이션 간의 관계에서 발생할 수 있는 데이터의 불일치를 방지하고 데이터의 무결성을 지킵니다. `Category` 릴레이션과 `Product`` 릴레이션의 관계를 그림으로 도식하면 아래와 같습니다.
+
+image:./images/image09.png[]
+
+link:./17_domain_integrity.adoc[다음: 도메인 무결성]

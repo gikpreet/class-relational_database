@@ -1,0 +1,28 @@
+= SQL
+
+* 구조적 쿼리 언어
+* 관계형 데이터베이스 관리 시스템의 데이터를 관리하기 위해 설계
+* 특수목적의 대화식 프로그래밍 언어
+** 1970년대 초 Donald D. Chamberlain과 Redmond F. Boyce에 의해 개발
+** 1986년 ANSI에 의해 표준화 시도
+** 1992년 ISO 9075로 개정된 SQL 92가 가장 널리 쓰임
+** Oracle, Informix, Sybase, IBM등 데이터베이스 벤더들은 자사의 관리 시스템에 맞는 SQL을 만들어 적용
+
+---
+
+SQL(Structured Query Language)는 관계형 데이터베이스 관리 시스템(RDBMS)의 데이터를 관리하기 위해 설계된 특수 목적의 프로그래밍 언어입니다. RDBMS에서 자료의 검색과 관리, 데이터베이스 스키마 생성과 수정, 데이터베이스 객체 접근 조정 관리를 위해 고안되었으며, 거의 모든 데이터베이스 관리 프로그램들이 SQL을 표준으로 선택하고 있습니다.
+
+SQL은 1970년대 초에 Donald D. Chamberlain과 Redmond F. Boyce가 개발했으며, 관계형 데이터베이스 관리 시스템의 데이터를 관리하기 위해 설계된 특수 목적의 표준 대화식 프로그래밍 언어이며, 대부분의 데이터베이스 관리 시스템이 SQL을 표준으로 채택하고 있습니다. 처음 만들어질 때의 이름은 SEQUEL(Standard English QUEry Language) 이었으며, 나중에 SQL로 바뀌었습니다.
+
+SQL은 ANSI에 의해 1986년 최초의 표준화가 시도 되었으며, 1992년 ISO 9075로 메이저 개정된 SQL-92가 현재 널리 쓰이고 있습니다. 가장 최근의 표준 개정은 2011년의 SQL 2011로, 임시 데이터베이스 지원에 대한 표준화가 이루어 졌습니다. 하지만 표준보다 상품의 발전이 항상 빠릅니다. Oracle, Informix, Sybase, IBM등 앞서나가던 데이터베이스 벤더들은 자사의 관리 시스템에 맞는 SQL을 만들어 상품에 적용하기 시작했고, 그에 따라 각 상용 데이터베이스 관리 시스템이 사용하는 SQL 언어는 조금씩 다릅니다. Oracle은 자사의 데이터베이스 관리 시스템에 적용한 SQL을 PL-SQL이라고 부르며, Sybase는 T-SQL을 이라고 부릅니다. Informix등의 유명한 데이터베이스 관리시스템의 SQL 또한 표준 및 타사 SQL 언어와 조금씩 다릅니다. Sybase에 뿌리를 두고 있는 Microsoft SQL Server는 T-SQL을 사용합니다.
+
+Dr. Codd의 법칙 5번에 따라, SQL의 문법은 아래와 같은 세 가지로 구분됩니다.
+
+* **데이터 정의 언어(DDL, Data Definition Language)** +
+데이터 정의 언어는 테이블과 인덱스 구조를 관리합니다. DDL의 가장 기본적인 요소는 `CREATE`, `ALTER`, `DROP` 등입니다.
+* **데이터 조작 언어(DML, Data Manipulation Language)** +
+데이터 검색, 등록, 삭제, 갱신을 위해 사용되며, 가장 기본적인 요소는 `SELECT`, `INSERT`, `UPDATE`, `DELETE` 입니다. 가장 많이 사용되는 데이터베이스 언어 요소입니다.
+* **데이터 제어 언어(DCL, Data Control Language)** +
+데이터베이스에서 데이터에 대한 액세스를 제어하기 위한 데이터베이스 언어 또는 데이터베이스 언어 요소이며, 기본적인 요소는 `GRANT`, `DENY`, `REVOKE` 입니다.
+
+link:./22_Lab2-2.adoc[다음: Lab 2-2 SQL을 사용한 무결성 제약조건 설정]

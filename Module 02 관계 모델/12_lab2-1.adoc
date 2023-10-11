@@ -1,0 +1,298 @@
+= Lab 2-1 : SQL을 사용한 릴레이션 생성 및 수정
+
+== 연습 1 SQL을 사용한 릴레이션 생성
+
+이 연습에서는 SQL을 사용하여 릴레이션을 생성합니다. 이 연습에서는 아래와 같은 릴레이션 스키마를 가진 두 릴레이션을 생성합니다.
+
+_Category(CategoryNo: Integer, CategoryName: String) +
+Product(ProductNo: Integer, ModelNumber: String, ProductName: String, Price: float, CategoryNo: Integer)_
+
+이 연습은 두 가지 단계로 구성됩니다.
+
+1.	MySQL 콘솔에서 Category 릴레이션 생성
+2.	MySQL Workbench를 사용하여 Product 릴레이션 생성
+
+=== MySQL Console에서 Category 릴레이션 생성
+
+. macOS에서는 터미널, Windows에서는 명령 프롬프트를 실행합니다.
+. 아래 명령을 실행하여 MySQL 콘솔에 접근합니다.
++
+----
+$ mysql -U root -P
+Enter password:
+----
++
+. 아래 명령을 수행하여 DBMS에 생성된 데이터베이스를 확인합니다.
++
+----
+mysql> show databases;
+----
++
+명령의 실행 결과는 아래와 유사할 것입니다:
++
+----
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+----
++
+. 아래 질의를 실행하여 `Module02` 데이터베이스를 생성합니다.
++
+[source, sql]
+----
+mysql> CREATE DATABASE Module02;
+----
++
+질의가 성공적으로 수행되면, 아래와 유사한 메시지가 표시됩니다.
++
+----
+Query OK, 1 row affected (0.04 sec)
+----
+. 아래 명령을 실행하여 콘솔의 데이터베이스 컨텍스트를 생성한 Module02 데이터베이스로 변경합니다.
++
+[source, sql]
+----
+mysql> use Module02;
+----
++
+명령이 성공적으로 수행되면, 아래와 같은 메시지가 표시됩니다.
++
+----
+Database changed
+----
++
+. 아래 명령을 실행하여 생성한 `Module02` 데이터베이스의 릴레이션(물리적 데이터베이스 관점에서 테이블)을 확인합니다.
++
+[source, sql]
+----
+mysql> show tables;
+----
++
+명령이 실행되면, 아래와 같은 메시지가 표시됩니다.
++
+----
+Empty set (x.xx sec)
+----
++
+. 아래 질의를 수행하여 `Category` 릴레이션을 생성합니다.
++
+[source, sql]
+----
+mysql> CREATE TABLE Category (
+    -> CategoryNo INTEGER,
+    -> CategoryName VARCHAR(20)
+);
+----
++
+질의가 성공적으로 수행되면, 아래와 같은 메시지가 표시됩니다.
++
+----
+Query OK, 0 rows affected (x.xx sec)
+----
+. 아래 명령을 실행하여 `Module02` 데이터베이스에 생성된 릴레이션(물리적 데이터베이스 관점에서 테이블)을 확인합니다.
++
+[source, sql]
+----
+mysql> show tables;
+----
++
+명령이 성공적으로 수행되면, 아래와 같은 메시지가 표시됩니다.
+----
++--------------------+
+| Tables_in_Module02 |
++--------------------+
+| Category           |
++--------------------+
+1 row in set (x.xx sec)
+----
+
+=== MySQL Workbench에서 Product 릴레이션 생성
+
+. MySQL Workbench를 실행합니다.
+. 시작 화면에서 localhost 연결을 클릭합니다.
++
+image:./images/image03.png[]
++
+. 패스워드를 입력하고 MySQL 인스턴스에 접속합니다.
++
+image:./images/image04.png[]
++
+. `Navigator` 창에서, `SCHEMA` 탭을 클릭하고 데이터베이스를 확인합니다.
+. `Module02` 데이터베이스를 더블 클릭합니다. 현재 데이터베이스가 선택되고 굵은 글씨체로 변경됩니다.
++
+image:./images/image05.png[]
++
+. 쿼리 창에서, 아래 질의를 입력하고 `Execute` 버튼을 클릭합니다.
++
+[source, sql]
+----
+CREATE TABLE Product (
+ProductNo	INTEGER,
+ProductName	NVARCHAR(30),
+    Price		DECIMAL,
+    CategoryNo	INTEGER
+);
+----
++
+image:./images/image06.png[]
++
+. `Navigator` 창의 `SCHEMA` 탭에서, `Module02` 데이터베이스를 마우스 오른쪽 클릭하고 `Refresh All` 을 클릭합니다.
++
+image:./images/image07.png[]
++
+. `Module02`` 데이터베이스의 `Table` 탭을 확장하고 생성된 릴레이션을 확인합니다.
++
+image:./images/image08.png[]
+
+== 연습 2 릴레이션에서 데이터 삽입/조회/수정
+
+이 연습에서는 생성한 릴레이션에 SQL 구문을 사용하여 데이터를 삽입, 조회하고 수정합니다. 아래 절차를 따릅니다.
+
+. MySQL 콘솔에서 아래 질의를 수행하여 `Category` 테이블의 데이터를 조회합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Category; 
+----
++
+명령이 수행되면, 아래와 같이 릴레이션이 비어있다는 메시지가 출력됩니다.
++
+----
+Empty set (x.xx sec)
+----
++
+. 다음 두 질의를 수행하여 `Category` 테이블에 데이터를 입력합니다.
++
+[source, sql]
+----
+mysql> INSERT INTO Category VALUES (1, 'Novel');
+mysql> INSERT INTO Category VALUES (2, 'Poem');
+----
++
+명령이 성공적으로 수행되면 아래와 같은 메시지가 출력됩니다.
++
+----
+Query OK, 1 row affected (x.xx sec)
+----
++
+. 다음 질의를 수행하여 삽입한 데이터를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Category;
+----
++
+명령이 성공적으로 수행되면 아래와 같은 메시지가 출력됩니다.
++
+----
++-------------+--------------+
+| CartegoryNo | CategoryName |
++-------------+--------------+
+|           1 | Novel        |
+|           2 | Poem         |
++-------------+--------------+
+2 rows in set (x.xx sec)
+----
++
+. 다음 질의를 수행하여 `Category` 릴레이션에 데이터를 삽입합니다.
++
+[source, sql]
+----
+mysql> INSERT INTO Category VALUES (3, 'History / Religion and Magazine');
+----
++
+명령은 성공적으로 수행되지 않습니다. 아래와 같은 오류 메시지가 출력됩니다.
++
+----
+ERROR 1406 (22001): Data too long for column 'CategoryName' at row 1
+----
++
+. 다음 질의를 수행하여 Category 릴레이션의 데이터를 수정합니다.
++
+[source, sql]
+----
+mysql> UPDATE Category SET
+-> CategoryName = 'History'
+----
++
+명령이 성공적으로 수행되면 아래와 같은 메시지를 출력합니다.
++
+----
+Query OK, 2 rows affected (0.05 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+----
++
+. 아래 질의를 수행하여 Category 릴레이션의 수정된 데이터를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Category;
+----
++
+명령이 수행되면 아래와 같은 결과를 반환합니다.
++
+----
++------------+--------------+
+| CategoryNo | CategoryName |
++------------+--------------+
+|          1 | History      |
+|          2 | History      |
++------------+--------------+
+2 rows in set (0.00 sec)
+----
++
+. 아래 질의를 수행하여 Category 릴레이션의 데이터를 다시 수정합니다.
++
+[souce, sql]
+----
+mysql> UPDATE Category SET
+    -> CategoryName = Novel
+    -> WHERE CategoryNo = 1;
+----
++
+명령이 성공적으로 수행되면 아래와 같은 결과를 반환합니다.
++
+----
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+----
++
+. 아래 질의를 수행하여 Category 테이블의 CategoryNo 필드의 데이터를 수정합니다.
++
+[source, sql]
+----
+mysql> UPDATE Category SET
+    -> CategoryNo = 3
+    -> WHERE CategoryNo = 2;
+----
++
+명령이 성공적으로 수행되면 아래와 같은 결과를 반환합니다.
++
+----
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+----
+. 아래 질의를 수행하여 Category 릴레이션의 수정된 데이터를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Category;
+----
++
+명령이 성공적으로 수행되면 아래와 같은 결과를 반환합니다.
++
+----
++------------+--------------+
+| CategoryNo | CategoryName |
++------------+--------------+
+|         1  | Novel        |
+|         3  | History      |
++------------+--------------+
+----
+
+link:./13_integrity_constraint.adoc[다음: 무결성 제약조건]
