@@ -1,0 +1,33 @@
+= 관계형 데이터베이스 시스템 역사 (1)
+
+* 1970년 IBM의 Edgar Frank Codd에 의해 이론적 배경이 제시됨
+** 논문 “A Relational Model of Data for Large Shared Data Banks”
+** 엔지니어 관점이 아닌 수학자 관점에서 관계 대수 원리에 기반한 데이터 저장 및 조회 이론 발표
+** SQL 최초 구현, 비용 기반 쿼리 최적화기, 트랜잭션 아키텍처 구현
+** 파일럿 프로젝트인 System R을 시작, SQL/DS에 이어 DB2로 발전됨
+* Ingres 프로젝트
+** 버클리 대학의 Michael Stonebraker에 의해 E.F Codd의 논문과 System R에 기반한 RDBMS 프로젝트
+** Codd의 12법칙을 구현한 최초의 RDBMS, 오픈 소스로 코드가 공개됨
+* Oracle
+** Bob Miner, Larry Ellison, Ed Oates가 SDL을 설립, E.F Codd의 논문을 기반으로 Oracle Version 1을 구현
+** 버전 3에서 C언어로 포팅되어 다양한 서버 플랫폼 지원
+** 1992년 Version 7에서 관계형 데이터베이스의 주요 아키텍처를 모두 완성
+
+---
+
+== System R 프로젝트
+
+IBM 연구소의 수학자인 E.F Codd 박사는 수학자의 관점에서 효율적인 데이터 관리를 위해 관계 대수의 원리를 이용하는 이론을 논문 “A Relational Model of Data for Large Shared Data Banks”를 발표합니다. 이 논문은 관계형 데이터베이스 시스템의 구현에 관한 획기적인 아이디어를 포함하고 있었습니다. 당시 IBM은 계층형 데이터 모델 기반의 IMS/DB로 데이터베이스 시장을 석권하고 있었으므로 상용화에 대한 고려는 하지 않았으나, W. F. King, Jim Gray등에 의해 System R이라는 프로젝트를 시작했습니다. 
+
+System R 프로젝트는 관계형 데이터베이스 관리 시스템이 가져야 하는 대부분의 아키텍처가 설계되었습니다. System R 프로젝트에서 데이터 질의 언어인 SQL(Structured Query Language)가 처음 만들어졌고, 비용 기반 쿼리 최적화기(Cost based Query Optimizer)가 만들어졌으며 트랜잭션을 위한 다양한 아키텍처가 설계되고 테스트 되었습니다.
+System R은 이후 SQL/DS라는 시스템으로 상용화 되었으며, 이어 DB2로 발전합니다.
+
+== Ingres 프로젝트
+미국 캘리포니아 버클리 대학교의 Michael Stonebraker 교수는 E.F Codd의 논문과 System R의 정보에 기반해 대학 프로젝트인 Ingres 프로젝트를 시작합니다. Ingres 프로젝트는 이후 오픈 소스가 되어 많은 관계형 데이터베이스 관리 시스템의 모태가 됩니다. Ingres는 Dr. Codd의 ‘관계형 데이터베이스의 12 법칙’을 구현한 최초의 관계형 데이터베이스 관리 시스템이었으며, Ingres 프로젝트에 참여헀던 여러 엔지니어들이 Sybase등의 데이터베이스를 개발하는 등 많은 공헌을 합니다.
+
+== Oracle
+1970년대 중반 Ampex에서 국책 프로젝트에 참여중이던 Bob Miner, Larry Ellison, Ed Oates가 Dr. Codd의 논문을 읽고 관계형 데이터베이스 시스템의 성공을 확신한 후 SDL이라는 회사를 설립합니다. Bob Minor는 어셈블리 언어로 Oracle의 첫 번째 버전을 개발합니다.
+
+Oracle DBMS는 3번쨰 버전에서 C언어로 포팅되면서 다양한 플랫폼을 지원하게 되었고, 1996년 버전 7에서 RDBMS가 가져야하는 주요 아키텍처를 모두 완성합니다. 그 후 Oracle은 관계형 데이터베이스 시장에서 부동의 1위를 지키고 있습니다.
+
+link:./06_history02.adoc[다음: 관계형 데이터베이스 시스템 역사 2]

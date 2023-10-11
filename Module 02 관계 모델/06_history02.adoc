@@ -1,0 +1,24 @@
+= 관계형 데이터베이스 시스템 역사 (2)
+
+* Informix
+** System R에 기초를 둔 DBMS로 2001년 IBM에 인수됨
+** 객체 관계 데이터 모델로 발전
+* Sybase
+** Ingres 프로젝트에 참여한 Bob Ebstain과 Mark Hoffman이 1984년 설립
+** 클라이언트/서버 환경에서 최적의 DBMS를 제공하여 Oracle의 가장 강력한 경쟁자가 됨
+* Microsoft SQL Server
+** Sybase를 기반으로 Microsoft가 1989년 개발한 관계형 데이터베이스 시스템
+** 2019년 Microsoft SQL Server 2019 발표
+
+---
+
+== Informix
+1981년, System R 프로젝트를 기반으로 RDS에 의해 개발되었으며 1986년 회사 이름을 Informix로 변경한 후 세계에서 가장 널리 쓰이는 데이터베이스 시스템 중의 하나로 성장했습니다. 1997년 IBM에 흡수 된 후 에센셜 소프트웨어로 이름이 변경되었습니다.
+
+== Sybase
+버클리 대학교에서 Ingres 프로젝트에 참여했던 Bob Ebstain은 1984년 Mark Hoffman과 Sybase를 설립합니다. Sybase는 1980년대 중반의 대표적인 네트워크 환경이었던 클라이언트/서버 환경에 최적화된 관계형 데이터베이스 관리 시스템을 제공하여 Oracle의 강력한 경쟁자로 떠올랐고, 이후 많은 관계형 데이터베이스 시스템에 영향을 주었습니다.
+
+== Microsoft SQL Server
+Microsoft는 1980년대 중반부터 Sybase 데이터베이스의 기술 지원을 담당했으며, 이를 위해서 Sybase에서 관계형 데이터베이스 관리 시스템의 기술을 이전 받았습니다. Microsoft 1989년 Sybase로부터 모든 기술을 이전 받았으며, 이 기술을 기반으로 Microsoft SQL Server를 개발하였으며, 현재 상용 솔루션으로 Oralce, DB2와 함께 가장 많은 점유율을 가지고 있습니다.
+
+link:./06_history03.adoc[다음: 관계형 데이터베이스 시스템 역사 3]

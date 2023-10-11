@@ -1,0 +1,36 @@
+= 관계형 데이터베이스 시스템 역사 (오픈소스)
+
+* MySQL
+** 스웨덴의 TcX에서 ISAM 기반 저장구조를 가진 Unireg라는 리포팅 툴로 시작
+** 웹에서 사용되기 시작하면서 SQL 지원을 시작해 1996년 버전 1.0 발표
+** 2008년 Sun Microsystems에 인수, 2010년 Oracle이 Sun Microsystems 인수
+* InnoDB
+** 1995년 핀란드의 Innobase사에서 트랜잭션 ACID를 지원하는 InnoDB 발표
+** 2000년 MySQL과 협력하여 오픈소스로 공개, 2001년 MySQL/InnoDB 출시
+** 2005년 Oracle에 인수
+* PostgreSQL
+** Ingres 프로젝트에서 시작, Ingres 상용화 후 Michael Stonebreker에 의해 Postgres 프로젝트 시작
+** 1995년 SQL 해석기를 추가, 1996년 PostgreSQL로 이름 변경
+** Greenplum, IBM Netezza, Amazon Redshift의 기반 데이터베이스
+
+---
+
+== MySQL과 InnoDB
+
+MySQL은 1985년 스웨덴의 TcX라는 회사에서 몬티 와이드니어스(Monty Widenius)에 의해 Unireg라는 ISAM 기반의 저장 구조를 가진 리포팅 도구로 시작됐다. 1990년대에 웹에서 사용되기 시작하면서 SQL 지원이 필요해졌고 MSQL을 참고해 MySQL 버전 1.0을 발표합니다.
+
+핀란드의 헤이키 튜리(Heikki Tuuri)가 1995년 설립한 이노베이스(Innobase Oy)는 트랜잭션 ACID를 지원하는 InnoDB를 개발하고 2000년 MySQL과 협럭하여 2001년 MySQL 버전 4.0에서 처음으로 MySQL/이노DB를 출시합니다.
+
+2005년 InnoDB는 Oracle에 인수됐고, 2008년에는 MySQL이 Sun Microsystems에 인수됐다가 2010년 Sun Microsystems가 Oracle에 인수됩니다. Oracle이 InnoDB와 MySQL 모두를 인수하게 되면서 2010년에 MySQL 5.5에서 InnoDB를 MySQL의 기본 스토리지 엔진으로 탑재합니다.
+
+== PostgreSQL
+
+PostgreSQL은 Ingres 프로젝트를 만든 Michael Stornbraker가 Ingres의 상용화 후 학교로 돌아와 1985년에 진행한 Ingres의 후속작 프로젝트입니다. Postgres에 SQL 해석기를 추가하여 Postgres 95를 만들고, 이후 이름을 PostgreSQL로 변경합니다.
+
+PostgreSQL은 오픈소스로, 다양한 데이터베이스 관리 시스템의 시초가 되었으며, 특히 분산형 데이터웨어하우스 시스템으로 많이 이식되었습니다. Greenplum, IBM의 Netezza, Amazon Web Service의 Redshift, 등의 데이터 웨어하우스 제품이 Postgres를 기반으로 하고 있습니다.
+
+관계형 데이터베이스 관리 시스템의 계보는 아래와 같습니다.
+ 
+image:./images/image01.png[]
+
+link:./07_relation.adoc[다음: 릴레이션]
