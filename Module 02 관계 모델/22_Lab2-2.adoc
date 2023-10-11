@@ -372,11 +372,13 @@ mysql> SELECT * FROM Product;
 ----
 +
 . 아래 질의를 수행하여 `Product` 테이블에 데이터를 삽입합니다.
++
 [source, sql]
 ----
 mysql> INSERT INTO Product (ProductNo, ProductName, Price, CategoryNo) VALUES (97422537, 'Hobbit', 28800, 1);
 mysql> INSERT INTO Product (ProductNo, ProductName, Price, CategoryNo) VALUES (97422515, 'Lord of the Rings 1', 28800, 1);
 ----
++
 . 아래 질의를 수행하여 Product 테이블의 데이터를 확인합니다.
 +
 [source, sql]
@@ -388,11 +390,11 @@ mysql> SELECT * FROM Product;
 +
 ----
 +-----------+-------------+----------------------+-------+------------+
-| ProductNo | ModelNumber | ProductName           | Price | CategoryNo |
+| ProductNo | ModelNumber | ProductName          | Price | CategoryNo |
 +-----------+-------------+----------------------+-------+------------+
-|  20101927 | NULL         | The Second World War | 37800 |           3 |
-|  97422515 | NULL         | Lord of the Rings 1  | 28800 |           1 |
-|  97422537 | NULL         | Hobbit                | 28800 |           1 |
+|  20101927 | NULL        | The Second World War | 37800 |          3 |
+|  97422515 | NULL        | Lord of the Rings 1  | 28800 |          1 |
+|  97422537 | NULL        | Hobbit               | 28800 |          1 |
 +-----------+-------------+----------------------+-------+------------+
 3 rows in set (0.00 sec)
 ----
