@@ -366,7 +366,7 @@ mysql> SELECT * FROM Product;
 +-----------+-------------+-------------+-------+------------+
 | ProductNo | ModelNumber | ProductName | Price | CategoryNo |
 +-----------+-------------+-------------+-------+------------+
-|  20101927 | NULL         | 2            | 37800 |           3 |
+|  20101927 | NULL        | 2           | 37800 |          3 |
 +-----------+-------------+-------------+-------+------------+
 1 row in set (0.00 sec)
 ----
@@ -379,7 +379,7 @@ mysql> INSERT INTO Product (ProductNo, ProductName, Price, CategoryNo) VALUES (9
 mysql> INSERT INTO Product (ProductNo, ProductName, Price, CategoryNo) VALUES (97422515, 'Lord of the Rings 1', 28800, 1);
 ----
 +
-. 아래 질의를 수행하여 Product 테이블의 데이터를 확인합니다.
+. 아래 질의를 수행하여 `Product` 테이블의 데이터를 확인합니다.
 +
 [source, sql]
 ----
