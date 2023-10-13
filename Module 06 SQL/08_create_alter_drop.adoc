@@ -369,8 +369,8 @@ CREATE TABLE Category (
 [source, sql]
 ----
 CREATE TABLE Category (
-	CategoryNo		int		PRIMARY KEY,
-	CategoryName	nvarchar(20)
+    CategoryNo		int		PRIMARY KEY,
+    CategoryName	nvarchar(20)
 );
 ----
 
