@@ -382,7 +382,7 @@ CREATE TABLE Category (
 	CategoryNo	int,
 	CategoryName	nvarchar(20),
     
-    	CONSTRAINT pk_Category PRIMARY KEY(CategoryNo)
+    CONSTRAINT pk_Category PRIMARY KEY(CategoryNo)
 );
 ----
 
@@ -392,16 +392,16 @@ CREATE TABLE Category (
 ----
 CREATE TABLE Product (
 	ProductNo 	int, 
-    SerialKey	char(12),
-    ProductName	nvarchar(30),
-    Price		int,
-    State		nvarchar(4),
-    Detail		text,
-    Stock		int,
-    TaxRate		int,
-    CategoryNo	int,
+	SerialKey	char(12),
+	ProductName	nvarchar(30),
+	Price		int,
+	State		nvarchar(4),
+	Detail		text,
+	Stock		int,
+	TaxRate		int,
+	CategoryNo	int,
     
-    CONSTRAINT pk_Product PRIMARY KEY(ProductNo)
+	CONSTRAINT pk_Product PRIMARY KEY(ProductNo)
 );
 ----
 
