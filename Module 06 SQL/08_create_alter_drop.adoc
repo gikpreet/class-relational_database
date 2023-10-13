@@ -453,11 +453,11 @@ CREATE TABLE Product (
     SerialKey	char(12)      NOT NULL,
     ProductName	nvarchar(30)  NOT NULL,
     Price       int	          NOT NULL,
-    State		nvarchar(4)   NOT NULL,
-    Detail		text,
-    Stock		int	          NOT NULL,
-    TaxRate		int	          NOT NULL,
-    CategoryNo	int,
+    State       nvarchar(4)   NOT NULL,
+    Detail      text,
+    Stock       int	          NOT NULL,
+    TaxRate     int	          NOT NULL,
+    CategoryNo  int,
     
     CONSTRAINT pk_Product PRIMARY KEY(ProductNo),
     CONSTRAINT uq_ProductSerial UNIQUE(SerialKey)
