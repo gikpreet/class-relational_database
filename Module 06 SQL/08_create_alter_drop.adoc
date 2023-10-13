@@ -429,18 +429,18 @@ CREATE TABLE Product (
 [source, sql]
 ----
 CREATE TABLE Product (
-    ProductNo 	int, 
-    SerialKey	char(12),
-    ProductName	nvarchar(30),
-    Price		int,
-    State		nvarchar(4),
-    Detail		text,
-    Stock		int,
-    TaxRate		int,
-    CategoryNo	int,
+    ProductNo   int, 
+    SerialKey   char(12),
+    ProductName nvarchar(30),
+    Price       int,
+    State       nvarchar(4),
+    Detail      text,
+    Stock       int,
+    TaxRate     int,
+    CategoryNo  int,
     
     CONSTRAINT pk_Product PRIMARY KEY(ProductNo),
-	CONSTRAINT uq_ProductSerial UNIQUE(SerialKey)
+    CONSTRAINT uq_ProductSerial UNIQUE(SerialKey)
 );
 ----
 
