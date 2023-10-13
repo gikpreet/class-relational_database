@@ -1,0 +1,11 @@
+= 집합 연산
+
+SQL은 집합 조작 연산 세가지를 제공하여 기본 질의를 확장합니다. SQL 질의의 결과는 릴레이션, 투플의 집합이기 때문에 합집합, 교집합, 차집합 등의 집합 연산을 사용하는 것은 자연스러운 일입니다. SQL에서는 UNION, INTERSECT, EXCEPT 세 가지 집합 연산을 지원합니다. 이 장에서는 SQL의 집합 연산에 대해 공부합니다.
+
+== Table of Contents
+
+1.	UNION
+2.	INTERSECT
+3.	EXCEPT
+
+link:./18_union.adoc[다음: 집합 연산]

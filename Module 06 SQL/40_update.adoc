@@ -1,0 +1,9 @@
+= 갱신
+데이터베이스에서 데이터의 갱신은 매우 빈번하게 일어납니다. DBMS는 데이터의 갱신을 위해 UPDATE 문을 사용합니다. 이 단원에서는 UPDATE 구문을 사용한 데이터 갱신에 대해 학습합니다.
+
+== Table of Contents
+
+1.	UPDATE문
+2.	SQL1999 표준
+
+link:./41_update_clause.adoc[다음: UPDATE 문]

@@ -1,0 +1,39 @@
+= EXCEPT
+
+* 관계 대수식의 차집합에 대응
+* 두 SQL 질의의 결과가 합병 가능 조건이면 EXCEPT 연산 가능
+* SELECT 절과는 다르게 기본적으로 중복을 제거함
+* EXCEPT ALL을 사용하여 모든 중복을 유지할 수 있음
+
+---
+
+`EXCEPT` 는 관계 대수식의 합집합에 대응하며, 두 질의의 결과가 합병 가능 조건이면 `EXCEPT` 연산이 가능합니다. `SELECT`` 절과는 다르게 기본적으로 중복을 제거하며, 중복을 유지하고자 한다면 `EXCEPT ALL` 을 사용하여야 합니다.
+
+> 대한항공을 이용한 승객 중 다른 항공을 한번도 이용하지 않은 승객의 이름과 등급을 구하라
+
+위 질의는 아래와 같은 관계 대수식으로 작성할 수 있습니다.
+
+_ρ(aFlight, (σAirline=대한항공Aircraft⋈Flight⋈Reservation) - (σAirline≠대한항공Aircraft⋈Flight⋈Reservation)) +
+πPassengerName, Age(tempFlight ⋈ Passenger)_
+
+위 관계 대수식은 SQL 질의로 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT Passenger.PassengerName, Grade FROM 
+(SELECT Reservation.PassengerNo FROM 
+Aircraft INNER JOIN Flight ON Aircraft.AircraftNo = Flight.AircraftNo 
+INNER JOIN Reservation ON Flight.FlightNo = Reservation.FlightNo 
+WHERE Airline = '대한항공'
+EXCEPT
+SELECT Reservation.PassengerNo FROM 
+Aircraft INNER JOIN Flight ON Aircraft.AircraftNo = Flight.AircraftNo 
+INNER JOIN Reservation ON Flight.FlightNo = Reservation.FlightNo 
+WHERE Airline <> '대한항공') AS tempFlight
+INNER JOIN Passenger ON tempFlight.PassengerNo = Passenger.PassengerNo
+----
+
+**_주의_** +
+ MySQL은 릴레이션 집합간의 차집합을 산출하는 EXCEPT 연산을 지원하지 않습니다. 
+
+link:./21_subquery.adoc[다음: 서브쿼리]

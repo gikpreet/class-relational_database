@@ -1,0 +1,55 @@
+= 인라인 뷰 (Inline View)
+
+* 서브 쿼리가 FROM 절 안에서 사용되는 경우 인라인 뷰(Inline View)라고 함
+* FROM 절에서 사용된 서브 쿼리의 결과가 하나의 테이블에 대한 뷰 처럼 사용됨
+** 서브 쿼리와 테이블 조인이 이루어질 경우 쿼리의 가독성이 떨어짐
+** 전체 테이블을 비교하는 것 보다 일부 테이블만을 불러와 그 중에서 셀렉션하는 것이 비교 횟수가 적음
+
+---
+
+서브 쿼리가 `FROM` 절 안에서 사용되는 경우, 해당 서브 쿼리를 '인라인 뷰'라고 부르기도 합니다. (주로 Oracle 사용자에게서 흔히 사용되지만 일반적인 의미에서도 같습니다). `FROM` 절에서 사용된 서브 쿼리의 결과가 하나의 테이블에 대한 뷰처럼 사용됩니다. 
+
+쿼리의 효율 측면에서 전체 테이블의 데이터를 조회 대상으로 하는 것 보다 테이블의 일부 데이터를 대상으로 하는 것이 효율이 좋은 경우가 많습니다.
+또한, 인라인 뷰를 사용하면 조인을 회피하거나 개별 쿼리를 단일 쿼리로 통합하여 복잡한 쿼리를 단순화할 수 있습니다. 서브 쿼리와 테이블을 조인할 경우 검색 대상 필드명은 `[테이블명].[필드명]` 형태로 표시되어야 하며, 쿼리의 방향에 따라 질의가 복잡해지고 가독성이 떨어지게 됩니다. 이런 경우 인라인 뷰 별칭을 사용하여 쿼리를 간단하게 합니다.
+
+> 인천에서 출발하고 샌프란시스코에 도착하는 항공기의 종류를 구하시오
+
+위 질의는 조인을 이용한 SQL 쿼리로 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT DISTINCT KindOfAircraft
+FROM Aircraft AS A INNER JOIN Flight AS F ON A.AircraftNo = F.AircraftNo
+WHERE Depareture = '인천' AND Arrival = '샌프란시스코';
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="1" width=20%]
+|===
+|KindOfAircraft
+|보잉747
+|===
+
+인라인 뷰 서브 쿼리로는 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT DISTINCT KindOfAircraft
+FROM Aircraft AS A,
+	(SELECT * FROM Flight WHERE Depareture = '인천' AND Arrival = '샌프란시스코') AS F
+WHERE
+	A.AircraftNo = F.AircraftNo;
+----
+
+두 쿼리의 실행 계획과 속도는 거의 모든 DBMS에서 동일합니다.
+
+결과는 아래와 같습니다.
+
+[%header, cols="1" width=20%]
+|===
+|KindOfAircraft
+|보잉747
+|===
+
+link:./25_scalar_subquery.adoc[다음: 스칼라 서브쿼리]

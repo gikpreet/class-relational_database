@@ -1,0 +1,12 @@
+= 서브 쿼리
+SQL의 강력한 기능중의 하나는 포함된 질의입니다. 쿼리에 포함된 쿼리를 서브 쿼리(Subquery)라고 합니다. 질의를 작성하다 보면 어떤 릴레이션을 계산해내고 그 릴레이션에 질의를 할 경우가 필요할 때가 있습니다. 이런 중간 단계 테이블을 만들어내는 질의가 서브 쿼리이고 이를 포함하여 전체 쿼리를 구성할 수 있습니다. 서브 쿼리는 WHERE절, FROM절, HAVING 절 등에 쓸 수 있습니다. 이 장에서는 서브 쿼리에 대해 공부합니다.
+
+== Table of Contents
+
+1. 서브 쿼리 개요
+2. 포함된 서브쿼리(Nested subquery)
+3. 인라인 뷰(Inline view)
+4. 스칼라 서브쿼리(Scalar subquery)
+5. 상호 연관 서브쿼리(Correlated Subquery)
+
+link:./22_introduction_2_subquery.adoc[다음: 서브쿼리 개요]

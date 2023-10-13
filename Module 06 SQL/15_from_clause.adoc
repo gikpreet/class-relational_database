@@ -1,0 +1,90 @@
+= FROM 절
+
+* FROM절에 있는 리스트는 질의에 대한 결과를 생성하기 위해 참여하는 릴레이션 목록
+
+[source, sql]
+----
+SELECT [DISTINCT] A1, A2 … An
+FROM r1 A, r2 B, … rm M
+WHERE P
+----
+
+* 범위 변수를 사용하여 릴레이션의 별칭을 정의할 수 있음
+* 리스트에 있는 릴레이션들의 카티션 프로덕트를 정의
+** 자연 조인은 카티션 프로덕트, 셀렉션 연산, 프로젝션 연산으로 수행됨
+** FROM절에서 간단히 자연 조인을 SQL 연산으로 표현할 수 있음
+* 하나 이상의 릴레이션 스키마에서 나타나는 속성의 모호성을 피하기 위해 relation-name.attribute.com 표기법을 사용
+* FROM 절에서 외부 조인을 수행할 수 있는 확장을 포함함
+
+---
+
+`FROM`` 절에 있는 리스트는 질의에 대한 결과를 생성하기 위해 참여하는 릴레이션 목록으로, 리스트에 있는 릴레이션들의 카티션 프로덕트에 해당합니다.
+
+릴레이션 이름 뒤에 범위 변수(Range Variable)가 나올 수도 있는데, 이를 사용하여 릴레이션의 별칭을 정의하여 사용할 수 있습니다. 이는 `FROM` 절의 리스트에 동일한 테이블 이름이 여러 번 나올 때 특히 유용합니다.
+
+`FROM` 절 그 자체만으로 그 절에 포함될 릴레이션의 카티션 프로덕트를 정의할 수 있습니다. `자연 조인(Natural Join)` 이 `카티션 프로덕트`, `셀렉션 연산`, `프로젝션 연산` 으로 수행되므로 `자연 조인` 은 SQL 표현으로 비교적 간단하게 작성할 수 있습니다.
+
+또한, 하나 이상의 릴레이션 스키마에서 나타나는 속성의 모호성을 피하기 위해 `relation-name.attribute`` 표기법을 사용할 수 있습니다.
+
+> 운항에 참여하는 모든 비행기의 종류와 항공사, 운항 날짜를 구하라
+
+라는 질의의 관계 대수식은 아래와 같이 작성될 수 있습니다.
+
+_π KindOfAircraft, Airline, FlightDate(Aircraft ⋈ Flight)_
+
+SQL에서는 위 질의를 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT KindOfAircraft, Airline, FlightDate
+FROM Aircraft AS A JOIN Flight AS F ON A.AircraftNo = F.AircraftNo;
+----
+
+결과는 다음과 같습니다.
+
+[%header, cols="1,1,2" width=60%]
+|===
+|KindOfAircraft |Airline    |FlightDate
+|보잉 747	    |대한항공	    |2022-10-23 10:20:00
+|보잉 747	    |대한항공	|2022-10-26 13:00:00
+|보잉 737-800	|제주항공	|2022-11-23 09:00:00
+|에어버스 A300	|대한항공	|2022-11-12 17:30:00
+|에어버스 A380	|아시아나 항공	|2022-12-01 18:00:00
+|에어버스 A380	|아시아나 항공	|2022-12-10 10:00:00
+|에어버스 A300	|대한항공	|2022-11-13 11:00:00
+|보잉 747	    |대한항공	|2022-11-15 10:00:00
+|===
+
+SQL은 `FROM` 절에서 `자연 조인` 과 `외부 조인(Outer Join)` 을 수행할 수 있는 확장을 포함합니다. 위의 자연조인 관계 대수식
+
+_π KindOfAircraft, Airline, FlightDate(Aircraft ⋈ Aircraft.AircrraftNo=Flight.AircraftNoFlight)_
+
+을 왼쪽 외부 조인으로 작성하면 아래와 같이 됩니다.
+
+_π KindOfAircraft, Airline, FlightDate(Aircraft   Aircraft.AircrraftNo=Flight.AircraftNoFlight)_
+
+위의 외부 조인 대수식을 SQL로 작성하면 아래와 같이 됩니다.
+
+[source, sql]
+----
+SELECT PilotName, Age, AircraftNo
+FROM Pilot LEFT OUTER JOIN Flight ON Pilot.PilotNo = Flight.PilotNo
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="1,1,2" width=60%]
+|===
+|KindOfAircraft	|Airline	|FlightDate
+|보잉 747	|대한항공	|2022-10-23 10:20:00
+|보잉 747	|대한항공	|2022-10-26 13:00:00
+|보잉 747	|대한항공	|2022-11-15 10:00:00
+|보잉 727	|대한항공	|NULL
+|에어버스 A380	|아시아나 항공	|2022-12-01 18:00:00
+|에어버스 A380	|아시아나 항공	|2022-12-10 10:00:00
+|에어버스 A300	|대한항공	|2022-11-12 17:30:00
+|에어버스 A300	|대한항공	|2022-11-13 11:00:00
+|보잉 737-800	|제주항공	|2022-11-23 09:00:00
+|===
+
+link:./16_where_clause.adoc[다음: WHERE 절]

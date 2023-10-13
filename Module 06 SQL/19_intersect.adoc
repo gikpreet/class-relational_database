@@ -1,0 +1,47 @@
+= INTERSECT
+
+* 관계 대수식의 교집합에 대응
+* 두 SQL 질의의 결과가 합병 가능 조건이면 `INTERSECT` 연산 가능
+* `SELECT` 절과는 다르게 기본적으로 중복을 제거함
+** `INTERSECT ALL` 을 사용하여 모든 중복을 유지할 수 있음
+
+---
+
+`INTERSECT` 는 관계 대수식의 교집합에 대응하며, 두 질의의 결과가 합병 가능 조건이면 `INTERSECT` 연산이 가능합니다. `SELECT` 절과는 다르게 기본적으로 중복을 제거하며, 중복을 유지하고자 한다면 `INTERSECT ALL` 을 사용하여야 합니다.
+
+> 인천에서 탑승한 승객 중 제주에서 내린 승객의 이름과 나이를 구하라”
+
+위 질의는 관계 대수식으로 아래와 같이 작성할 수 있습니다.
+
+_ρ(tempFlight, (σDepareture=인천Flight) ∪ (σArrivals=제주Flight))
+πPassengerName, Age(tempFlight ⋈ Reservation ⋈ Passenger)_
+
+위 관계 대수식은 SQL 쿼리로 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT DISTINCT PassengerName, Age FROM 
+(SELECT * FROM Flight WHERE Depareture = '김포'
+INTERSECT
+SELECT * FROM Flight WHERE Arrival = '제주') AS tempFlight
+INNER JOIN Reservation AS R ON tempFlight.FlightNo = R.FlightNo
+INNER JOIN Passenger AS P ON R.PassengerNo = P.PassengerNo
+----
+
+**_주의_** +
+MySQL은 릴레이션 집합 간의 교집합을 산출하는 INTERSECT 연산을 지원하지 않습니다. MySQL에서 위 쿼리는 집합 연산을 사용하지 않는, 아래와 같은 형식의 SQL 쿼리를 사용해야 합니다.
+
+[source, sql]
+----
+SELECT PassengerName, Age 
+FROM
+Passenger INNER JOIN Reservation ON Passenger.PassengerNo = Reservation.PassengerNo
+INNER JOIN Flight ON Reservation.FlightNo = Flight.FlightNo
+INNER JOIN Aircraft ON Flight.AircraftNo = Aircraft.AircraftNo
+WHERE
+Flight.Depareture = '김포'
+AND
+Flight.Arrival = '제주'
+----
+
+link:./20_except.adoc[다음: EXCEPT]

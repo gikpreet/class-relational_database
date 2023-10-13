@@ -1,0 +1,72 @@
+= 하나의 INSERT 문으로 여러 행 삽입
+
+* 삽입될 데이터의 형식을 지정한 후, 여러 데이터를 삽입
+
+[source, sql]
+----
+INSERT INTO <Table Name> 
+[(Column Name 1, Column Name2, … Column Name n)]
+VALUES (Value 1, Value 2 … Value n),
+(Value 1, Value 2 … Value n),
+(Value 1, Value 2 … Value n)
+----
+
+* SELECT 질의의 결과로 산출되는 결과를 테이블에 삽입
+
+[source, sql]
+----
+INSERT INTO <Table Name> 
+[(Column Name 1, Column Name2, … Column Name n)]
+SELECT <Column 1, Column 2, Column n>
+FROM <Table Name>
+[WHERE clause]
+----
+
+---
+
+Dr. Codd의 12법칙에는 아래와 같은 항목이 있습니다.
+
+> 규칙 7. "고급 삽입, 갱신, 제거" – 시스템은 집합에 대해 한번에 삽입, 갱신, 제거를 지원해야 한다. +
+관계 데이터베이스는 집합에 대해 한번에 삽입하는 질의를 지원합니다. 아래와 같은 형식으로 여러 투플을 한번에 삽입할 수 있습니다.
+
+아래와 같은 형식으로 한 번에 여러 투플을 삽입할 수 있습니다.
+
+[source, sql]
+----
+INSERT INTO Aircraft
+(AircraftNo, KindOfAircraft, Airline)
+VALUES
+(106, '에어버스 A330', '대한항공'),
+(107, '에어버스 A321', '아시아나 항공'),
+(108, '보잉 737', '제주항공');
+----
+
+`SELECT` 질의의 결과로 산출되는 결과를 테이블에 바로 삽입할 수 있습니다. 아래와 같이 승객의 이름과 등급만을 포함하는 테이블이 있을 경우,
+
+_PassengerGrade(PassengerName: String, Grade: Integer)_
+
+아래와 같은 쿼리로 `Passenger` 테이블에서 데이터를 조회한 결과를 `PassengerGrade` 테이블에 삽입할 수 있습니다.
+
+[source, sql]
+----
+INSERT INTO PassengerGrade  
+SELECT PassengerName, Grade FROM Passenger;
+----
+
+비행기를 예약한 적 있는 모든 승객의 데이터를 테이블에 삽입하고자 하는데, 대상 테이블이 없을 경우, MySQL에서는 아래와 같은 쿼리로 SELECT 쿼리의 반환 결과에 해당하는 테이블을 즉시 생성하여 데이터를 삽입할 수 있습니다.
+
+[source, sql]
+----
+CREATE TABLE tempPassenger
+SELECT P.PassengerNo, PassengerName Grade, Age, FlightNo, ReservedDate
+FROM Passenger AS P INNER JOIN Reservation AS R ON P.PassengerNo = R.PassengerNo;
+----
+
+생성된 테이블의 데이터는 다음과 같습니다.
+
+[source, sql]
+----
+SELECT * FROM tempPassenger;
+----
+
+link:./36_sql92_standard.adoc[다음: SQL 92 표준]

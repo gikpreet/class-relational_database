@@ -1,0 +1,92 @@
+== UNION
+
+* 관계 대수식의 합집합에 대응
+* 두 SQL 질의의 결과가 합병 가능 조건이면 `UNION` 연산 가능
+* `SELECT` 절과는 다르게 기본적으로 중복을 제거함
+** `UNION ALL` 을 사용하여 모든 중복을 유지할 수 있음
+
+---
+
+SQL은 집합 조작 연산 세 가지를 제공하여 기본 질의 형식을 확장합니다. 질의의 결과가 투플의 집합이기 떄문에 합집합, 교집합, 차집합등의 집합 연산을 사용하는 것은 자연스럽습니다. SQL은 이들 연산을 `UNION`, `INTERSECT`, `EXCEPT` 라는 이름으로 지원합니다. 
+`UNION` 은 관계 대수식의 합집합에 대응하며, 두 질의의 결과가 합병 가능 조건이면 `UNION` 연산이 가능합니다. `SELECT` 절과는 다르게 기본적으로 중복을 제거하며, 중복을 유지하고자 한다면 `UNION ALL` 을 사용해야 합니다.
+
+> 모든 비행기의 종류, 항공사를 구하라
+
+위 질의를 관계 대수식으로 구하면 아래와 같이 됩니다.
+
+_π KindOfAircraft,Airline(Aircraft)_
+
+같은 릴레이션을 반환하는 두 관계 대수식의 합집합을 관계 대수식으로 구하면 다음과 같습니다.
+
+_π KindOfAircraft,Airline(Aircraft) ∪ π KindOfAircraft,Airline(Aircraft)_
+
+위 관계 대수식을 SQL로 작성하면 아래와 같습니다.
+
+[source, sql]
+----
+SELECT KindOfAircraft, Airline 
+FROM Aircraft
+UNION 
+SELECT KindOfAircraft, Airline 
+FROM Aircraft
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="2,2", width=50%]
+|===
+|KindOfAircraft	|Airline
+|보잉747	|대한항공
+|보잉 727	|대한항공
+|에어버스 A380	|아시아나 항공
+|에어버스 A300	|대한항공
+|보잉 737-800	|제주항공
+|===
+
+`UNION` 은 기본적으로 중복을 제거합니다. 중복을 유지하고자 한다면 `UNION ALL` 을 사용합니다.
+
+[source, sql]
+----
+SELECT PilotName, Grade, Age 
+FROM Pilot
+UNION ALL
+SELECT PilotName, Grade, Age
+FROM Pilot
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="2,2", width=50%]
+|===
+|KindOfAircraft	|Airline
+|보잉747	|대한항공
+|보잉 727	|대한항공
+|에어버스 A380	|아시아나 항공
+|에어버스 A300	|대한항공
+|보잉 737-800	|제주항공
+|보잉747	|대한항공
+|보잉 727	|대한항공
+|에어버스 A380	|아시아나 항공
+|에어버스 A300	|대한항공
+|보잉 737-800	|제주항공
+|===
+
+> 인천에서 출발하는 비행기와 제주에 도착하는 비행기의 비행기 번호와 항공사를 구하라
+
+라는 질의는 관계 대수식으로 아래와 같이 작성할 수 있습니다.
+
+_ρ(tempFlight, (σDepareture=인천Flight) ∪ (σArrivals=제주Flight))
+πAircraftNo, Airline(tempFlight ⋈ Aircraft)_
+
+위의 관계 대수식은 SQL 질의로 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT DISTINCT A.AircraftNo, A.Airline FROM
+(SELECT * FROM Flight WHERE Depareture='인천'
+UNION
+SELECT * FROM Flight WHERE Arrival='제주') AS tempFlight
+INNER JOIN Aircraft AS A ON tempFlight.AircraftNo = A.AircraftNo;
+----
+
+link:./19_intersect.adoc[다음: INTERSECT]

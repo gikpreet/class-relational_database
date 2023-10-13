@@ -1,0 +1,10 @@
+= 삽입
+
+데이터베이스에서 질의의 응답으로 데이터를 산출하기 위해서는 SELECT 문을 사용합니다. 반대로 데이터를 삽입하기 위해서는 INSERT 문을 사용합니다. 이번 단원에서는 INSERT 문을 사용하여 데이터를 삽입하는 방법을 학습합니다.
+
+== Table of Contents
+
+1. INSERT 문
+2. 하나의 INSERT 문으로 여러 행 삽입
+
+link:./34_insert_clause.adoc[다음: INSERT 문]

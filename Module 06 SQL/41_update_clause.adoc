@@ -1,0 +1,89 @@
+= UPDATE 문
+
+* 테이블의 데이터를 갱신하기 위해 사용
+* 투플 전체가 아닌 데이터 단위(셀 단위)로 데이터를 갱신
+* 테이블 내에서 조건에 해당하는 모든 투플의 지정된 데이터를 모두 갱신
+
+[source, sql]
+----
+UPDATE <Table Name> SET
+[(Column Name 1 = VALUE, 
+Column Name2 = VALUE, … 
+Column Name n = VALUE)]
+[WHERE Clause]
+----
+
+---
+
+데이터 갱신작업은 시스템을 다루는 과정에서 빈번하게 발생합니다. SQL에서는 UPDATE 문을 사용하여 데이터를 갱신합니다. UPDATE은 삽입, 삭제의 경우와 다르게 투플 전체가 아닌 투플이 포함하는 데이터 단위(셀 단위)로 데이터를 갱신합니다. 
+
+UPDATE의 기본 구문은 아래와 같습니다.
+
+[source, sql]
+----
+UPDATE <Table Name> SET
+[(Column Name 1 = VALUE, 
+Column Name2 = VALUE, … 
+Column Name n = VALUE)]
+[WHERE Clause]
+----
+
+> 안중근 승객의 등급을 9로 갱신하시오
+
+위 질의에서, 안중근 승객의 등급은 `Passenger` 테이블에서 `PassengerNo` 컬럼(기본 키)의 값이 3인 투플의 등급(Grade) 데이터(셀)에 해당합니다. 
+
+아래 SQL 쿼리로 질의를 수행할 수 있습니다.
+
+[source, sql]
+----
+UPDATE Passenger SET
+Grade = 9
+WHERE PassengerNo = 3;
+----
+
+> 이외수 승객의 등급을 10으로, 나이를 60으로 갱신하시오”
+
+UPDATE 문은 단일 쿼리에서 두 개의 데이터(셀)을 갱신할 수 있습니다. 이외수 승객의 등급과 나이는 `Passenger` 테이블에서 `PassengerNo` 컬럼(기본 키)의 값이 9인 투플의 등급(Grade)과 나이(Age) 셀을 의미합니다.
+
+아래 SQL 질의로 수행할 수 있습니다.
+
+[source, sql]
+----
+UPDATE Passenger SET
+Grade = 10,
+AGE = 60
+WHERE PassengerNo = 9;
+----
+
+> 항공편을 한 번이라도 이용한 적 있는 고객의 등급을 1씩 증가하여 갱신하시오
+
+Dr. Codd의 12법칙에는 아래와 같은 항목이 있습니다.
+
+> 규칙 7. "고급 삽입, 갱신, 제거" - 시스템은 집합에 대해 한번에 삽입, 갱신, 제거를 지원해야 한다. +
+관계 데이터베이스는 집합에 대해 한번에 갱신하는 질의를 지원합니다. 아래와 같은 형식으로 여러 투플을 한번에 갱신할 수 있습니다.
+
+[source, sql]
+----
+SET SQL_SAFE_UPDATES = 0;
+UPDATE Passenger SET
+Grade = Grade + 1
+WHERE PassengerNo IN 
+(SELECT DISTINCT PassengerNo FROM
+(SELECT p.PassengerNo
+FROM Passenger AS p INNER JOIN Reservation AS r ON p.PassengerNo = r.PassengerNo) tmp);
+---- 
+
+위 쿼리는 아래와 같은 형식으로 동작해야 합니다.
+
+[source, sql]
+----
+UPDATE Passenger SET
+Grade = Grade + 1
+WHERE PassengerNo IN 
+(SELECT DISTINCT p.PassengerNo
+FROM Passenger AS p INNER JOIN Reservation AS r ON p.PassengerNo = r.PassengerNo)
+----
+
+MySQL의 업데이트하려는 테이블은 자신 테이블의 `SELECT` 결과로 업데이트 할 수 없다는 제약을 가지고 있습니다. 그런 제약으로 인해 위와 같이 임시 테이블을 만들어 업데이트하는 방법을 사용해야 합니다.
+
+link:./42_sql92_standard.adoc[다음: SQL 1992 표준]

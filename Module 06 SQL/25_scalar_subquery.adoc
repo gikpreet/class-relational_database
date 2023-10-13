@@ -1,0 +1,81 @@
+= 스칼라 서브쿼리 (Scalar Subquery)
+
+* SELECT 절에 포함된 서브 쿼리를 스칼라 서브 쿼리(Scala Sub Query)라고 함
+* 스칼라 서브 쿼리의 반환 값은 하나의 레코드에서 단일 컬럼이어야 함
+* 테이블의 조인이 많아 실행 계획의 제어가 어려울 경우 사용
+** 결과 집합이 대량인 경우 효율이 저하됨
+** 소량의 테이블에서 명칭만 가져올 경우 유리함
+
+---
+
+`SELECT` 절의 컬럼 목록에 서브 쿼리가 사용되는 경우 스칼라 서브 쿼리라고 합니다. 스칼라 서브 쿼리는 그 이름 그대로 하나의 레코드로부터 한 개 컬럼으로부터 하나의 컬럼 값 만을 반환해야 합니다. 
+
+`SELECT`` 절에서 스칼라 서브 쿼리는 `FROM` 절의 테이블과 연계되어 데이터를 반환하도록 작성할 수 있습니다. 아래와 같이 항공 편명의 항공사를 알기 위한 스칼라 서브 쿼리를 `SELECT` 절에서 사용할 경우,
+
+[source, sql]
+----
+SELECT flightno, (SELECT airline as a FROM aircraft … )
+----
+
+해당 스칼라 서브 쿼리에서 원하는 항공사 정보를 얻어 단일 값으로 반환하기 위해 `FROM` 절에서 사용하는 테이블의 레코드 컬럼과 연계하도록 작성할 수 있습니다.
+
+[source, sql]
+----
+select flightno, (SELECT airline FROM aircraft as a where a.AircraftNo = f.AircraftNo)
+FROM flight as f;
+----
+
+스칼라 서브 쿼리는 아래와 같은 경우에 유리합니다.
+
+* 스칼라 서브 쿼리를 수행할 결과 집합이 대량이 아닌 경우
+* 코드 테이블의 조인이 많이 실행 계획이 복잡해지는 경우
+* 코드 테이블에서 명칭만 가져오는 경우 (대량의 데이터 조회가 아닌 경우)
+
+> 항공 편명의 출발지와 도착지, 운영 항공사를 구하시오
+
+위 질의는 조인을 이용한 SQL 쿼리로 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT flightNo, depareture, arrival, airline
+FROM flight as f INNER JOIN aircraft as a ON f.aircraftNo = a.aircraftNo;
+----
+
+결과는 다음과 같습니다.
+
+[%header, cols="1,2,2,2", width:60%]
+|===
+|flightNo	|depareture	|arrival	|Airline
+|1	|인천	|샌프란시스코	|대한항공
+|2	|샌프란시스코	|인천	|대한항공
+|3	|김포	|제주	|제주항공
+|4	|김포	|김해	|대한항공
+|5	|인천	|프랑크푸르트	|아시아나 항공
+|6	|프랑크푸르트	|인천	|아시아나 항공
+|7	|김해	|김포	|대한항공
+|8	|인천	|샌프란시스코	|대한항공
+|===
+
+스칼라 서브 쿼리로는 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+select flightno, depareture, arrival, (SELECT airline FROM aircraft as a where a.AircraftNo = f.AircraftNo) as airline
+FROM flight as f;
+----
+
+[%header, cols="1,2,2,2", width:60%]
+|===
+|flightNo	|depareture	|arrival	|Airline
+|1	|인천	|샌프란시스코	|대한항공
+|2	|샌프란시스코	|인천	|대한항공
+|3	|김포	|제주	|제주항공
+|4	|김포	|김해	|대한항공
+|5	|인천	|프랑크푸르트	|아시아나 항공
+|6	|프랑크푸르트	|인천	|아시아나 항공
+|7	|김해	|김포	|대한항공
+|8	|인천	|샌프란시스코	|대한항공
+|===
+
+link:./26_correlated_Subquery.adoc[다음: 상호 연관 서브쿼리]
+

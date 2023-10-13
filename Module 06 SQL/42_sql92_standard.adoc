@@ -1,0 +1,51 @@
+= SQL 1999 표준
+
+* SQL1999에서 UPDATE문의 표준을 정의
+* 구현은 각 DBMS마다 조금씩 다름
+
+[source, sql]
+----
+<update statement: searched> ::=
+UPDATE <target table>
+SET <set clause list>
+[ WHERE <search condition> ]
+----
+
+---
+
+SQL 1999 표준은 DBMS의 UPDATE문 구현에 대한 권고를 제안하고 있습니다. SQL 1999의 UPDATE 문 표준은 다음과 같습니다.
+
+[source, sql]
+----
+<update statement: searched> ::=
+UPDATE <target table>
+SET <set clause list>
+[ WHERE <search condition> ]
+SQL 1999 표준은 Cursor를 사용하는 포지션에 대한 UPDATE 구문에 대한 권고도 포함합니다.
+<update statement: positioned> ::=
+UPDATE <target table>
+SET <set clause list>
+WHERE CURRENT OF <cursor name>
+<set clause list> ::=
+<set clause> [ { <comma> <set clause> }... ]
+<set clause> ::=
+<update target> <equals operator> <update source>
+| <mutated set clause> <equals operator> <update source>
+<update target> ::=
+<object column>
+| ROW
+| <object column>
+<left bracket or trigraph> <simple value specification> <right bracket or trigraph>
+<object column> ::= <column name>
+<mutated set clause> ::=
+<mutated target> <period> <method name>
+<mutated target> ::=
+<object column>
+| <mutated set clause>
+<update source> ::=
+<value expression>
+| <contextually typed value specification>
+----
+
+link:./43_delete.adoc[다음: 삭제]
+

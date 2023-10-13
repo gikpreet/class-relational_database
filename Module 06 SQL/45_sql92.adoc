@@ -1,0 +1,34 @@
+= SQL 1999 표준
+
+* SQL1999에서 DELETE문의 표준을 정의
+* 구현은 각 DBMS마다 조금씩 다름
+
+[source, sql]
+----
+<delete statement: searched> ::=
+DELETE FROM <target table>
+[ WHERE <search condition> ]
+----
+
+---
+
+SQL 1999 표준은 DBMS의 DELETE문 구현에 대한 권고를 제안하고 있습니다. SQL 1999의 UPDATE 문 표준은 다음과 같습니다.
+
+[source, sql]
+----
+<delete statement: searched> ::=
+DELETE FROM <target table>
+[ WHERE <search condition> ]
+----
+
+SQL 1999 표준은 Cursor를 사용하는 포지션에 대한 DELETE 구문에 대한 권고도 포함합니다.
+
+[source, sql]
+----
+<delete statement: positioned> ::=
+DELETE FROM <target table>
+WHERE CURRENT OF <cursor name>
+<target table> ::= [ ONLY ] <left paren> <table name> <right paren>
+----
+
+link:./46_review.adoc[다음: 검토]

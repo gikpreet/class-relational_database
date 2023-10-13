@@ -1,0 +1,88 @@
+= 포함된 서브 쿼리 (Nested Subquery)
+
+* 단일 질의 안에 질의가 포함된 형태의 일반적인 쿼리로, 서비 쿼리의 결과를 변수처럼 사용
+* 단일행 서브 쿼리(Single Row Subquery)
+** 쿼리의 결과가 하나의 Row만을 산출
+* 다중행 서브 쿼리(Multi Row Subquery)
+** 쿼리 결과가 여러 Row를 산출
+* 다중 컬럼 서브 쿼리(Multi Column Subquery)
+** 전체 테이블을 비교하는 것 보다 일부 테이블만을 불러와 그 중에서 셀렉션하는 것이 비교 횟수가 적음
+
+---
+
+쿼리 안에서 다른 쿼리가 형태의 쿼리를 서브 쿼리라고 부르지만, 세부적으로 분류할 경우 가장 많이 사용되는 형태인 쿼리가 WHERE 절에서 데이터를 필터링 하기 위한 값을 산출하는 형태의 쿼리로 쓰일때를 서브 쿼리라고 부르기도 합니다. 이런 형태의 서브 쿼리는 주 쿼리의 `WHERE` 절에서 산출할 데이터를 필터링 하기위한 목적으로 사용됩니다.
+
+> 대한항공에서 운항하는 항공편의 항공편 번호, 비행기 번호, 출발지, 도착지, 가격을 구하라
+
+위 질의의 답을 구하려면 일반적으로 Join을 사용합니다. `Flight` 테이블과 `Aircraft` 테이블을 `AircraftNo` 기준으로 조인한 후, 조인된 결과 릴레이션에서 `Aircraft` 테이블의 `Airline` 필드의 값이 대한항공인 열들을 필터링합니다. 아래와 같이 작성될 수 있습니다.
+
+[source, sql]
+----
+SELECT 
+	flight.flightNo, flight.AircraftNo, Depareture, Arrival, Price
+FROM 
+	flight INNER JOIN aircraft ON flight.AircraftNo = aircraft.AircraftNo
+WHERE
+	Airline = '대한항공';
+----
+
+이를 서브 쿼리로 작성하면 아래와 같이 됩니다.
+
+[source, sql]
+----
+SELECT flight.flightNo, flight.AircraftNo, Depareture, Arrival, Price
+FROM flight
+WHERE aircraftNo IN (SELECT AircraftNo
+FROM aircraft
+WHERE airline = '대한항공');
+----
+
+관계 데이터베이스와 SQL 질의의 원칙은, 질의의 실행 결과는 항상 릴레이션으로 반환된다는 점입니다. 위 쿼리에서 서브 쿼리는 결과는 `Aircraft` 테이블에서 `airline` 컬럼의 값이 '대한항공'인 `AircraftNo` 컬럼의 여러 행을 포함하는 릴레이션입니다.
+
+위 쿼리에서 주 쿼리는 `WHERE` 절에서 서브 쿼리가 반환하는 릴레이션에 포함된 값과 `Flgiht` 테이블의 `AircraftNo` 값을 순서대로 비교합니다. `WHERE` 절에서 한 집합의 값이 있는지를 비교하는 연산과 동일합니다. 이 경우에는 `IN` 연산을 사용합니다.
+
+관계 데이터베이스는 집합내의 다중 값을 비교할 수 있는 연산자를 제공합니다.
+
+*IN* +
+다수의 비교값과 비교하여 비교값 중 하나라도 같은 값이 있으면 결과를 반환합니다.
+
+*ANY* +
+IN 연산과 동일하나, 비교 연산을 사용할 수 있습니다.
+
+[%header, cols="1, 2" width=60%]
+|===
+|비교 형식|	설명
+|=ANY	|하나라도 만족하는 값이 있으면 결과를 반환합니다.
+|>ANY	|값들 중 최소값보다 크면 결과를 반환합니다.
+|>=ANY	|값들 중 최소값보다 크거나 같으면 결과를 반환합니다.
+|<ANY	|값들 중 최대값보다 작으면 결과를 반환합니다.
+|<=ANY	|값들 중 최대값보다 작거나 같으면 결과를 반환합니다.
+|<> ANY	|모든 값들 중 다른 값만 반환합니다. 
+|===
+
+[%header, cols="2, 1, 2" width=60%]
+|===
+|조건	|결과	|설명
+|1000>ANY (500, 1000, 2000)	|TRUE	|ANY 값에 1000보다 작은 500이 있으므로 TRUE
+|1000=ANY(500, 1000, 2000)	|TRUE	|ANY 값에 같은 값 1000이 있으므로 TRUE
+|2000<ANY(500, 1000, 2000)	|FALSE	|ANY 값에 2000보다 큰 값이 없으므로 FALSE
+|===
+
+*ALL* +
+ANY 연산과 유사하나, 모든 값을 만족해야 합니다.
+
+[%header, cols="1, 2" width=60%]
+|===
+|비교 형식|	설명
+|=ALL	|값들 중 최대 값 보다 크면 결과를 반환합니다.
+|>ALL	|값들 중 최대 값보다 크거나 같으면 결과를 반환합니다.
+|>=ALL	|값을 중 최소 값보다 작으면 결과를 반환합니다.
+|<ALL	|값들 중 최소 값보다 작거나 같으면 결과를 반환합니다.
+|=ALL	|모든 값들과 같으면 결과를 반환합니다.
+|<> ALL	|모든 값들과 다르면 결과를 반환합니다.
+|===
+
+*EXISTS* +
+값이 존재하는 경우 TRUE를, 반대의 경우 FALSE를 반환합니다.
+
+link:./24_inlineview.adoc[다음: 인라인 뷰]

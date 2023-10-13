@@ -1,0 +1,48 @@
+= SQL 1999 표준
+
+* SQL1999에서 Insert문의 표준을 정의
+* 구현은 각 DBMS마다 조금씩 다름
+
+[source, sql]
+----
+<insert statement> ::=
+INSERT INTO <insertion target>
+<insert columns and source>
+<insertion target> ::=
+<table name>
+<insert columns and source> ::=
+<Queries>
+----
+
+---
+
+SQL 1999 표준은 DBMS의 INSERT 문 구현에 대한 권고를 제안하고 있습니다. SQL 1999의 INSERT 문 표준은 다음과 같습니다.
+
+[source, sql]
+----
+<insert statement> ::=
+INSERT INTO <insertion target>
+<insert columns and source>
+<insertion target> ::=
+<table name>
+<insert columns and source> ::=
+<from subquery>
+| <from constructor>
+| <from default>
+<from subquery> ::=
+[ <left paren> <insert column list> <right paren> ]
+[ override clause> ]
+<query expression>
+<from constructor> ::=
+[ <left paren> <insert column list> <right paren> ]
+[ <override clause> ]
+<contextually typed table value constructor>
+<override clause> ::=
+OVERRIDING USER VALUE
+| OVERRIDING SYSTEM VALUE
+<from default> ::=
+DEFAULT VALUES
+<insert column list> ::= <column name list>
+----
+
+link:./40_update.adoc[다음: 갱신]

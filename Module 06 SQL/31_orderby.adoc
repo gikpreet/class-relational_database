@@ -1,0 +1,72 @@
+= ORDER BY
+
+* 데이터베이스 질의의 결과는 테이블 내의 투플의 위치(삽입된 순서)대로 산출됨
+* `ORDER BY` 절에 사용되는 컬럼을 기준으로 데이터를 정렬
+** 오름차순(DESC)와 내림차순(ASC – 기본 값)으로 데이터를 정렬 함
+
+---
+
+데이터베이스에서 테이블에 대한 질의를 수행하면 기본적으로 테이블의 내의 투플의 위치를 기준으로 산출됩니다. 이는 테이블에 데이터가 삽입된 순서와 일치합니다.
+때때로, 질의의 결과가 컬럼을 기준으로 정렬되어야 하는 경우가 있습니다. 
+
+> 가장 나이가 많은 승객의 이름과 등급, 나이를 구하시오
+
+위와 같은 질의는 아래와 같이 서브 쿼리를 사용하는 방식으로 구할 수 있습니다.
+
+[source, sql]
+----
+SELECT PassengerName, Grade, Age
+FROM Passenger
+WHERE Age = (SELECT MAX(age) FROM Passenger);
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="2,1,1" width="50%"]
+|===
+|PassengerName	|Grade	|Age
+|천상병	|8	|55
+|===
+
+이와 같은 형태의 쿼리의 경우, 결과 집합을 원하는 컬럼으로 정렬 한 후 한 행만 산출하는 방식으로 구할 수 있습니다. 관계 데이터베이스는 `ORDER BY` 절을 통해 지정된 컬럼에 대한 오름차순, 내림차순 정렬을 지원합니다.
+
+아래 쿼리는 `ORDER BY` 절에 지정된 `age` 컬럼을 기준으로 내림차순 정렬합니다.
+
+[source, sql]
+----
+SELECT PassengerName, Grade, Age 
+FROM Passenger
+ORDER BY age;
+----
+
+[%header, cols="2,1,1" width="50%"]
+|===
+|PassengerName	|Grade	|Age
+|안중근	|7	|NULL
+|윤동주	|10	|26
+|홍길동	|1	|44
+|이순신	|10	||44
+|김소월	|9	|45
+|김영량	|9	|54
+|천상벙	|8	|55
+|===
+
+아래 쿼리는 `Passenger` 컬럼의 모든 열을 `age` 컬럼을 기준으로 오름차순 정렬한 후 최 상위 1개 열을 산출합니다.
+
+[source, sql]
+----
+SELECT PassengerName, Grade, Age 
+FROM Passenger
+ORDER BY age DESC
+LIMIT 1;
+----
+
+[%header, cols="2,1,1" width="50%"]
+|===
+|PassengerName	|Grade	|Age
+|천상병	|8	|55
+|===
+
+link:./32_order_by_index.adoc[다음: 인덱스를 이용한 정렬]
+
+

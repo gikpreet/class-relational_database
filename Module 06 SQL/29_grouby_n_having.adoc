@@ -1,0 +1,99 @@
+= GROUP BY절과 HAVING 절
+
+* 릴레이션의 투플들을 여러 그룹으로 나누어서 각 그룹별로 집단 연산을 수행
+* 그룹의 수는 릴레이션의 인스턴스에 따라 좌우됨
+* `GROUP BY` +
+컬럼의 값을 기준으로 투플을 그룹화 함
+* `HAVING` +
+그룹에 대한 조건식을 지정
++
+[source, sql]
+----
+SELECT [DISTINCT]	select-list
+FROM			from-list
+WHERE			conditional statement
+GROUP BY		grouping-list
+HAVING			group conditional statement
+----
+
+---
+
+`AVG`, `MIN`, `MAX`등의 집계 합수는 한 릴레이션의 모든(또는 조건에 맞는) 투플들에 대해 적용됩니다. 릴레이션의 투플들을 여러 그룹으로 나누어 각 연산별로 집계 함수를 적용해야 하는 경우가 자주 발생하는데, 이때 사용자는 릴레이션에서 투플을 그룹 지을 수 있는 조건만 알 뿐 그룹의 수는 알 수 없습니다. 
+
+> 각 등급별로 가장 적은 나이를 구하라
+
+위와 같은 질의를 작성하고자 할 때, 사용자는 등급이라는 조건만 알 뿐 릴레이션에서 그룹의 몇 개가 될지 알 수 없습니다. 사용자가 등급이 1에서 10까지 10개의 등급이 존재한다는 것을 알 수 있다면 아래와 같은 형식의 쿼리를 작성하고, 10회 반복하여 결과를 산출할 수 있습니다.
+
+[source, sql]
+----
+SELECT MIN(Age)
+FROM Passenger
+WHERE Grade = i;
+----
+
+이런 형식의 질의는 `GROUP BY` 절을 사용해서 작성할 수 있습니다. 아래와 같이 투플을 그룹화할 조건이 되는 `Grade` 컬럼으로 그룹화하여 처리할 수 있습니다.
+
+[source, sql]
+----
+SELECT MIN(Age)
+FROM Passenger
+GROUP BY Grade;
+----
+
+[%header, cols=1 width=20%]
+|===
+|MIN(age)
+|44
+|26
+|NULL
+|45
+|55
+|===
+
+`GROUP BY` 절을 사용하면 결과에 해당하는 다른 정보를 결과에 포함할 수 있습니다. 
+
+[%header, cols="1, 2" width=30%]
+|===
+|Grade	|MIN(age)
+|1	|44
+|10	|26
+|7	|NULL
+|9	|45
+|8	|55
+|===
+
+집계 함수를 사용한 집단 연산 결과에 대해 연산을 적용하려면 `HAVING` 절을 사용합니다.
+
+[source, sql]
+----
+SELECT Grade, MIN(Age)
+FROM Passenger
+GROUP BY Grade
+HAVING MIN(Age) > 40;
+----
+
+[%header, cols="1, 2" width=30%]
+|===
+|Grade	|MIN(age)
+|1	|44
+|10	|26
+|7	|NULL
+|===
+
+살펴본 집단 연산의 구문은 아래와 같습니다.
+
+[source, sql]
+----
+SELECT [DISTINCT]	select-list
+FROM			from-list
+WHERE			conditional statement
+GROUP BY		grouping-list
+HAVING		group conditional statement
+----
+
+* `SELECT`` 절의 select=list는 (1) 필드 이름 리스트와, (2) “집계 함수(필드 이름) AS 새 이름” 형식을 가진 항들의 리스트로 구성됩니다. AS t새 이름은 선택 사항으로, 결과로 산출되닌 필드에 이름을 부여합니다. +
+(1)에 나타나는 모든 필드들은 select-list에도 나타나야 합니다. 그 이유는 질의의 결과로 나오는 각 투플들은 하나의 그룹에 해당하는데, 그 그룹에는 select-list에 나타나는 필드들의 값이 같은 여러 투플들이 모여있기 때문입니다. select-list에는 나타나지 않는데 (1) 리스트에는 나타나는 필드 이름이 존재한다면 결과 투플에서 그 필드에 어떠한 값을 넣어 주어야 하는지 불분명해 집니다.
+* `HAVING` 절에 있는 group conditional statement내의 각 식들은 그룹당 하나의 값 만을 만들어 내어야 합니다. 직관적으로 볼 때 `HAVING` 절은 주어진 그룹에 대해서 결과 투플을 만들 것인지 아닌 지를 결정하게 됩니다. 그러므로 group conditional statement에 나타나는 필드들은 집계 함수의 파라미터 형태로 나타나거나, select-list에 나타나는 것들이어야 합니다.
+* `GROUP BY` 절이 생략되면 테이블 전체가 하나의 그룹으로 간주됩니다.
+
+link:./30_order.adoc[다음: 정렬]

@@ -1,0 +1,167 @@
+= 집계 함수
+
+* SELECT절에서 산출되는 컬럼의 값에 대한 집계를 위해 사용됨
+* COUNT([DISTINCT] A) +
+A 필드에 있는 [유일한] 값들의 수
+* SUM([DISTINCT] A) +
+A 필드에 있는 [유일한] 값들의 합
+* AVG(DISTINCT] A) +
+A 필드에 있는 [유일한] 값들의 평균
+* MAX (A) +
+A 필드에 있는 최대값
+* MIN (A) +
+A 필드에 있는 최소값
+
+---
+
+데이터를 검색할 뿐만 아니라 계산이나 통계를 원하는 경우도 많이 있습니다. 이를 위해 SQL은 산술식을 사용할 수 있도록 MIN이나 SUM과 같이 집단 값(Aggregate Value)를 계산할 수 있는 강력한 구문을 지원합니다. 이 기능은 관계 대수를 상당히 확장한 것입니다. SQL은 기본적으로 다섯 가지의 집단 연산을 제공하는데, 어떤 릴레이션 필드 A에 대해 다음과 같이 적용할 수 있습니다.
+
+* COUNT([DISTINCT] A): A 필드에 있는 [유일한] 값들의 수
+* SUM([DISTINCT] A): A 필드에 있는 [유일한] 값들의 합
+* AVG(DISTINCT] A): A 필드에 있는 [유일한] 값들의 평균
+* MAX (A): A 필드에 있는 최대값
+* MIN (A): A 필드에 있는 최소값
+
+> 승객의 평균 나이를 구하라
+
+위 질의는 아래와 같은 SQL로 결과를 구할 수 있습니다.
+
+[source, sql]
+----
+SELECT AVG(age)
+FROM Passenger;
+----
+
+결과는 다음과 같습니다.
+
+[%header, col=1, width=20%]
+|===
+|AVG(age)
+|44.6667
+|===
+
+`WHERE` 절을 붙여서 승객의 등급이 10인 승객들로 제한할 수도 있습니다.
+
+[source, sql]
+----
+SELECT AVG(age)
+FROM Passenger
+WHERE Grade = 10;
+----
+
+결과는 다음과 같습니다.
+
+[%header, col=1, width=20%]
+|===
+|AVG(age)
+|35.0000
+|===
+
+위의 질의에서 AVG 대신에 MAX와 MIN을 사용하면 컬럼의 가장 큰 또는 작은 값을 구할 수 있습니다. 
+
+[source, sql]
+----
+SELECT MAX(age)
+FROM Passenger;
+----
+
+결과는 다음과 같습니다.
+
+[%header, col=1, width=20%]
+|===
+|MAX(age)
+|55
+|===
+
+[source, sql]
+----
+SELECT MIN(age)
+FROM Passenger;
+----
+
+[%header, col=1, width=20%]
+|===
+|MIN(age)
+|26
+|===
+
+> 나이가 가장 많은 승객의 이름과 나이를 구하라
+
+위와 같은 질의를 아래와 같은 SQL로 작성하면 틀린 결과를 반환합니다.
+
+[source, sql]
+----
+SELECT PassengerName, MAX(age)
+FROM Passenger;
+----
+
+[%header, col=2, width=20%]
+|===
+|PassengerName	|MAX(age)
+|홍길동	|55
+|===
+
+`SELECT` 절에 집단 연산이 발생할 때는, 질의에 `GROUP BY` 절이 나오지 않는 한 집단 연산 이외의 어떤 것도 나올 수 없습니다. 이런 질의를 SQL로 작성하기 위해서는 서브 쿼리를 사용해야 합니다.
+
+
+[source, sql]
+----
+SELECT PassengerName, age
+FROM Passenger
+WHERE age = (SELECT MAX(age) 
+		FROM Passenger);
+----
+
+위 질의는 서브 쿼리에서 집계 함수로 구한 결과를 비교 연산의 피 연산자로 사용하고 있습니다. 하나의 나이값을 서브 쿼리의 결과와 비교하고 있는데, 서브 쿼리의 결과는 값이 아니라 릴레이션입니다. 이 경우 집단 연산을 사용하기 때문에 하나의 값이 반환된다는 것이 보장되어 원하는 결과를 얻을 수 있습니다. SQL-92에서는 아래와 같은 연산을 사용할 수 있도록 합니다. 
+
+[source, sql]
+----
+SELECT PassengerName, age
+FROM Passenger
+WHERE age = (SELECT MAX(age) 
+		FROM Passenger);
+----
+
+COUNT 함수를 사용하면 행의 개수를 집계할 수 있습니다.
+
+[source, sql]
+----
+SELECT COUNT(PassengerName)
+FROM Passenger;
+----
+
+[%header, col=1, width=20%]
+|===
+|COUNT(PassengerName)
+|7
+|===
+
+COUNT 함수는 값이 NULL인 행은 집계에 포함하지 않습니다.
+
+[source, sql]
+----
+SELECT COUNT(age)
+FROM Passenger;
+----
+
+[%header, col=1, width=20%]
+|===
+|COUNT(age)
+|6
+|===
+
+모든 투플의 개수를 집계하기 위해, 와일드 카드를 사용할 수 있습니다.
+
+[source, sql]
+----
+SELECT COUNT(*)
+FROM Passenger;
+----
+
+[%header, col=1, width=20%]
+|===
+|COUNT(*)
+|26
+|===
+
+link:./29_grouby_n_having.adoc[다음: GROUP BY와 HAVING 절]

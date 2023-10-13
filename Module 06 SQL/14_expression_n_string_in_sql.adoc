@@ -1,0 +1,158 @@
+= SELECT 명령 내의 수식과 문자열
+
+* SELECT 절의 속성 목록은 보다 일반적인 형태를 지원함
+* SELECT 절의 각 항은 [수식 AS 필드이름]의 형식으로 사용할 수 있음
+* 수식은 필드 이름 및 상수들로 구성된 산술식 또는 문자열 서식
+* 각 항에는 SUM이나 COUNT와 같은 집계 함수도 포함할 수 있음
+* SUM 함수: 지정된 필드에 포함된 값 집합의 합계를 반환
+* COUNT 함수: 쿼리의 결과로 반환되는, NULL을 제외한 투플의 수를 반환
+
+---
+
+SELECT 절의 속성 목록은 단순한 속성 이름의 목록이 아니라 그 보다 일반적인 형태를 지원합니다. 속성 목록의 각 항은 _수식 AS 필드 이름_ 형식으로 될 수 있는데 여기에서 수식은 속성 이름 및 상수들로 구성된 산술식 또는 문자열 수식입니다.
+
+각 항에는 `SUM` 이나 `COUNT`` 같은 집계 함수들도 포함될 수 있습니다. SQL-92 표준에서는 날짜와 시간 변수에 대한 수식도 허용합니다. 많은 RDBMS는 SQRT, SIN, MOD와 같은 내장 함수도 지원합니다.
+
+SQL에서 PilotName을 질의하고자 한다면 관계 대수식으로 아래와 같이 작성할 수 있습니다.
+
+_(π(ρ(승객이름(PassengerName(Passenger))_
+
+위 관계 대수식을 SQL로 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT PassengerName AS 승객이름
+FROM Passenger
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="1" width=20%]
+|===
+|승객이름
+|홍길동
+|이순신
+|안중근
+|김영랑
+|김소월
+|윤동주
+|천상병
+|===
+
+== SUM 함수
+
+SUM 함수는 쿼리의 지정된 필드에 포함된 값 집합의 합계를 반환합니다.
+
+모든 승객의 나이의 합을 구하고 싶다면 SQL로 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT SUM(Age)
+FROM Passenger;
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="1" width=20%]
+|===
+|SUM(age)
+|300
+|===
+
+== COUNT 함수
+
+`COUNT` 함수는 쿼리의 결과로 반환되는 투플의 수를 반환하며, 단일 컬럼이 `NULL` 인 투플의 수는 제와합니다.
+
+나이가 40세 이상인 파일럿의 수를 구하고 싶다면 SQL로 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT COUNT(PassengerNo)
+FROM Passenger
+WHERE Age >= 40;
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="1" width=20%]
+|===
+|COUNT(PilotNo)
+|5
+|===
+
+항공권을 예매한적 있는 모든 승객의 수는 SQL로 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+SELECT COUNT(P.PassengerNo)
+FROM 	Passenger AS P INNER JOIN Reservation AS R ON P.PassengerNo = R.PassengerNo;
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="1" width=20%]
+|===
+|COUNT(P.PassengerNo)
+|5
+|===
+
+`COUNT` 함수는 결과에 `NULL` 값을 가지는 투플의 수를 계산하지 않습니다. 예를 들면 아래 `LEFT OUTER JOIN` 쿼리는 항공권을 예약하지 않은 승객을 포함하는 8개의 투플을 반환합니다.
+
+[source, sql]
+----
+SELECT P.PassengerName, R.*
+FROM 	Passenger AS P LEFT OUTER JOIN Reservation AS R ON P.PassengerNo = R.PassengerNo;
+----
+
+결과는 아래와 같습니다.
+
+
+[%header, cols="2,1,1,2" width=20%]
+|===
+|PassengerName	|PassengerNo	|FlightNo	|ReservedDate
+|홍길동	|1	|4	|2022-10-22
+|이순신	|2	|1	|2022-10-11
+|이순신	|2	|2	|2022-10-11
+|안중근	|3	|1	|2022-10-20
+|김영랑	|4	|7	|2022-10-11
+|김소월	|NULL	|NULL	|NULL
+|윤동주	|6	|6	|2022-10-21
+|천상병	|7	|3	|2022-09-11
+|===
+
+이 경우, `NULL` 을 포함하는 `R.PassengerNo` 컬럼에 대해 `COUNT` 집계 함수를 적용하면 8이 아닌 7을 반환합니다.
+
+[source, sql]
+----
+SELECT COUNT(R.PassengerNo)
+FROM 	Passenger AS P LEFT OUTER JOIN Reservation AS R ON P.PassengerNo = R.PassengerNo;
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="1" width=20%]
+|===
+|COUNT(R.PassengerNo)
+|7
+|===
+
+== AVG 함수
+`AVG` 함수는 쿼리의 지정된 필드에 포함된 값 집합의 평균을 계산합니다. 대상 집합이 `NULL` 을 포함할 경우 `NULL` 을 제외하고 평균을 계산합니다.
+
+모든 승객 나이의 평균을 구하고 싶다면 SQL로 아래와 같이 작성할 수 있습니다. 
+
+[source, sql]
+----
+SELECT AVG(Age)
+FROM Passenger
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols="1" width=20%]
+|===
+|AVG(Age)
+|44.6667
+|===
+
+link:./15_from_clause.adoc[다음: FROM 절]
