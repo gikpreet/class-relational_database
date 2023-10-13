@@ -1,6 +1,7 @@
 == 테이블 생성, 수정, 삭제 DDL 문
 
-•	생성
+* 생성
+
 [source, sql]
 ----
 CREATE TABLE {Table Name} (
@@ -8,7 +9,8 @@ CREATE TABLE {Table Name} (
 	{Constraint List} [Constraint definition]
 )
 ----
-•	수정
+* 수정
+
 [source, sql]
 ----
 ALTER TABLE [TableName] 
@@ -16,7 +18,9 @@ ALTER TABLE [TableName]
 	{ADD} (Column | Constraints} {ADD Option}
 	{DROP} (Column | Constraints} {DROP Option}
 ----
-•	삭제
+
+* 삭제
+
 [source, sql]
 ----
 DROP TABLE [TableName]
@@ -24,11 +28,11 @@ DROP TABLE [TableName]
 
 ---
 
-관계 데이터베이스에서 데이터가 저장되는 유일한 객체인 테이블은 CREATE 문을 사용해 생성되고, ALTER 문을 통해 수정되며 DROP 문을 통해 삭제됩니다.
+관계 데이터베이스에서 데이터가 저장되는 유일한 객체인 테이블은 `CREATE`` 문을 사용해 생성되고, `ALTER` 문을 통해 수정되며 `DROP` 문을 통해 삭제됩니다.
 
 == 테이블 생성
 
-CREATE 문으로 테이블을 생성합니다. SQL 1999에 정의된 테이블 정의 구문은 아래와 같습니다.
+`CREATE` 문으로 테이블을 생성합니다. SQL 1999에 정의된 테이블 정의 구문은 아래와 같습니다.
 
 [source, sql]
 ----
