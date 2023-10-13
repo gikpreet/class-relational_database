@@ -44,7 +44,11 @@ where절은 관계 대수에서 선택 조건에 해당합니다. from 절에 �
 [stem]
 ++++
 \pi "Passenger", "Age"(σ"Age" >= 40("Passenger"))
+
+\$\pi "Passenger", "Age"(σ"Age" >= 40("Passenger"))\$
 ++++
+
+\$\pi "Passenger", "Age"(σ"Age" >= 40("Passenger"))\$
 
 이를 투플 관계 해석으로 표현하면 아래와 같습니다.
 
