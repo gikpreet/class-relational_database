@@ -1,0 +1,73 @@
+== SQL 질의 형식
+
+* SQL 표현의 기본 구조는 SELECT, FROM, WHERE 세 개의 절로 이러우짐
+* SELECT
+** 관계 대수에서 프로젝션(Projection - π) 연산과 일치, 결과에 나타날 속성을 나열하는데 사용됨
+* FROM
+** 관계 대수의 카티션 프로덕트에 해당하며, 질의에서 조회할 릴레이션을 나열
+* WHERE
+** 관계대수에서 셀렉션(Selection - σ) 연산과 일치, FROM 절에 나타나는 릴레이션 속성들의 조건으로 구성
+
+[source, sql]
+----
+SELECT [DISTINCT] A1, A2 … An
+FROM r1, r2… rm
+WHERE P
+----
+
+---
+
+SQL 표현의 기본 구조는 SELECT, FROM, WHERE 세 개의 절로 구성됩니다.
+
+[source, sql]
+----
+SELECT [DISTINCT] select-리스트
+FROM   from-리스트
+WHERE  조건식
+----
+
+* SELECT +
+select절은 관계 대수에서 프로젝션(π) 연산과 일치합니다. 질의의 결과에 나타나기를 바라는 속성들을 나열하는데 사용됩니다.
+* FROM +
+from절은 관계 대수의 카티션 프로덕트에 해당합니다. 질의문에서 찾아보기를 원하는 릴레이션을 나열합니다.
+* WHERE +
+where절은 관계 대수에서 선택 조건에 해당합니다. from 절에 나타나는 릴레이션들의 속성들의 조건으로 구성되어 집니다.
+
+릴레이션 인스턴스 `Passenger` 에 아래와 같은 질의를 수행하고자 할 경우
+
+> “나이가 40세 이하인 승객의 이름과 나이를 구하라”
+
+관계 대수식으로 이를 표현하면 아래와 같습니다.
+
+:stem: asciimath
+
+[stem]
+++++
+\pi "Passenger", "Age"(σ"Age" >= 40("Passenger"))
+++++
+
+이를 투플 관계 해석으로 표현하면 아래와 같습니다.
+
+[stem]
+++++
+{ S."PassengerName", S."Age" | ∃S ∈ "Passenger" ∧ S."Age" >= 40) }
+++++
+
+이를 SQL 질의로 표현하면 아래와 같습니다.
+
+[source, sql]
+----
+SELECT DISTINCT PilotName, Age
+FROM Pilot P
+WHERE P.Age <= 40
+----
+
+쿼리의 실행 결과로 만들어지는 릴레이션은 아래와 같습니다.
+
+[cols="1, 1" options=header]
+|===
+|PilotName	|Age
+|윤동주	|26
+|===
+
+link:./13_select_clause.adoc[다음: SELECT 절]
