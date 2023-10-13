@@ -379,8 +379,8 @@ CREATE TABLE Category (
 [source, sql]
 ----
 CREATE TABLE Category (
-	CategoryNo	int,
-	CategoryName	nvarchar(20),
+    CategoryNo	int,
+    CategoryName	nvarchar(20),
     
     CONSTRAINT pk_Category PRIMARY KEY(CategoryNo)
 );
