@@ -452,7 +452,7 @@ CREATE TABLE Product (
     ProductNo 	int, 
     SerialKey	char(12)      NOT NULL,
     ProductName	nvarchar(30)  NOT NULL,
-    Price       int	          NOT NULL,
+    Price       int           NOT NULL,
     State       nvarchar(4)   NOT NULL,
     Detail      text,
     Stock       int	          NOT NULL,

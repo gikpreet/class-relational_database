@@ -9,7 +9,7 @@ Reservation(PassengerNo: Integer, FlightNo: Integer, ReservedDate: Datem FlightN
 
 == 연습 1: Module06 데이터베이스 생성
 
-이 연습에서는 Passenger 테이블을 생성합니다. 아래 절차에 따릅니다.
+이 연습에서는 `Passenger`테이블을 생성합니다. 아래 절차에 따릅니다.
 
 . macOS에서는 터미널, Windows에서는 명령 프롬프트를 실행합니다.
 . 아래 명령을 실행하여 MySQL 콘솔에 접근합니다.
@@ -104,11 +104,11 @@ mysql> SELLECT database();
 
 == 연습 2: Passenger 테이블 생성
 
-이 연습에서는 Passenger 테이블을 생성합니다. Passenger 테이블은 Reservation 테이블과 관계를 가지며, 개체 무결성을 위한 PRIMARY KEY 제약 조건과 CHECK 제약 조건을 가집니다. Passenger 테이블의 스키마는 아래와 같습니다.
+이 연습에서는 `Passenger` 테이블을 생성합니다. `Passenger` 테이블은 `Reservation` 테이블과 관계를 가지며, 개체 무결성을 위한 `PRIMARY KEY 제약 조건` 과 `CHECK 제약 조건` 을 가집니다. `Passenger` 테이블의 스키마는 아래와 같습니다.
 
 _Passenger(PassengerNo: Integer, PassengerName: String, Grade: Integer, Age: Integer)_
 
-승객 이름을 나타내는 PassengerName 컬럼은 가변 길이 문자열로, 2 바이트 문자 10자로 제한하며, 승객 등급을 표현하는 Grade는 1에서 10까지의 정수형 숫자로 제한합니다.
+승객 이름을 나타내는 `PassengerName` 컬럼은 가변 길이 문자열로, 2 바이트 문자 10자로 제한하며, 승객 등급을 표현하는 `Grade` 는 1에서 10까지의 정수형 숫자로 제한합니다.
 
 아래 절차에 따릅니다.
 
