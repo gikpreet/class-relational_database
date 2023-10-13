@@ -361,7 +361,7 @@ mysql> SELECT * FROM Passenger;
 
 _Aircraft(AircraftNo: Integer, KindOfAircraft: String, Airline: String)_
 
-비행기 종류를 나타내는 `KindOfAircraft`` 컬럼은 가변 길이 문자열로, 문자 20자로 제한하며, 소유 항공사를 나타내는 `Airline`` 컬럼은 2 바이트 문자열 10자로 제한합니다. 아래 절차에 따릅니다.
+비행기 종류를 나타내는 `KindOfAircraft` 컬럼은 가변 길이 문자열로, 문자 20자로 제한하며, 소유 항공사를 나타내는 `Airline` 컬럼은 2 바이트 문자열 10자로 제한합니다. 아래 절차에 따릅니다.
 
 1. MySQL 콘솔에서, 아래 명령을 수행하여 현재 연결 컨텍스트를 확인합니다.
 +
@@ -479,7 +479,7 @@ Records: 0  Duplicates: 0  Warnings: 0
 mysql> desc Aircraft
 ----
 +
-결과는 아래와 같을 것입니다. KindOfAircraft 컬럼이 NULL을 허용하지 않는 것을 확인합니다.
+결과는 아래와 같을 것입니다. `KindOfAircraft` 컬럼이 `NULL` 을 허용하지 않는 것을 확인합니다.
 +
 ----
 +----------------+-------------+------+-----+---------+-------+
@@ -517,7 +517,7 @@ mysql> SELECT * FROM Aircraft;
 +------------+----------------+----------+
 1 row in set (0.00 sec)
 ----
-11.	아래 네 질의를 수행하여 Aircraft 테이블에 데이터를 삽입합니다.
+11.	아래 네 질의를 수행하여 `Aircraft` 테이블에 데이터를 삽입합니다.
 +
 [source, sql]
 ----
@@ -530,7 +530,8 @@ Query OK, 1 row affected (0.00 sec)
 mysql> INSERT INTO Aircraft VALUES (105, ‘Boeing 737-800’, ‘제주항공’);
 Query OK, 1 row affected (0.00 sec)
 ----
-12.	아래 질의를 수행하여 Aircraft 테이블의 데이터를 확인합니다.
++
+12.	아래 질의를 수행하여 `Aircraft` 테이블의 데이터를 확인합니다.
 +
 [source, sql]
 ----
@@ -664,10 +665,11 @@ mysql> SELECT * FROM Flight;
 +----------+------------+-------------+--------------+---------+---------------+
 | FlightNo | AircraftNo | Deparetures | Arrival      | Price   | FlightDate    |
 +----------+------------+-------------+--------------+---------+---------------+
-|        1 |      101   | 인천         | 샌프란시스코   | 1230000 |    2022-10-23 |
+|        1 |      101   | 인천        | 샌프란시스코  | 1230000 |    2022-10-23 |
 +----------+------------+-------------+--------------+---------+---------------+
 1 row in set (0.00 sec)
 ----
++
 7. 아래 질의를 수행하여 Flight 테이블에 데이터를 삽입합니다.
 +
 [source, sql]
