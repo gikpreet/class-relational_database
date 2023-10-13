@@ -394,12 +394,12 @@ CREATE TABLE Product (
     ProductNo 	int, 
     SerialKey	char(12),
     ProductName	nvarchar(30),
-    Price		int,
-    State		nvarchar(4),
-    Detail		text,
-    Stock		int,
-    TaxRate		int,
-    CategoryNo	int,
+    Price       int,
+    State       nvarchar(4),
+    Detail      text,
+    Stock       int,
+    TaxRate     int,
+    CategoryNo  int,
     
     CONSTRAINT pk_Product PRIMARY KEY(ProductNo)
 );
@@ -411,14 +411,14 @@ CREATE TABLE Product (
 ----
 CREATE TABLE Product (
     ProductNo 	int, 
-    SerialKey	char(12)		UNIQUE,
+    SerialKey	char(12)    UNIQUE,
     ProductName	nvarchar(30),
-    Price		int,
-    State		nvarchar(4),
-    Detail		text,
-    Stock		int,
-    TaxRate		int,
-    CategoryNo	int,
+    Price       int,
+    State       nvarchar(4),
+    Detail      text,
+    Stock       int,
+    TaxRate     int,
+    CategoryNo  int,
     
     CONSTRAINT pk_Product PRIMARY KEY(ProductNo)
 );
@@ -429,9 +429,9 @@ CREATE TABLE Product (
 [source, sql]
 ----
 CREATE TABLE Product (
-    ProductNo   int, 
-    SerialKey   char(12),
-    ProductName nvarchar(30),
+    ProductNo 	int, 
+    SerialKey	char(12),
+    ProductName	nvarchar(30),
     Price       int,
     State       nvarchar(4),
     Detail      text,
@@ -450,13 +450,13 @@ CREATE TABLE Product (
 ----
 CREATE TABLE Product (
     ProductNo 	int, 
-    SerialKey	char(12)		NOT NULL,
-    ProductName	nvarchar(30)	NOT NULL,
-    Price		int		NOT NULL,
-    State		nvarchar(4)	NOT NULL,
+    SerialKey	char(12)      NOT NULL,
+    ProductName	nvarchar(30)  NOT NULL,
+    Price       int	          NOT NULL,
+    State		nvarchar(4)   NOT NULL,
     Detail		text,
-    Stock		int		NOT NULL,
-    TaxRate		int		NOT NULL,
+    Stock		int	          NOT NULL,
+    TaxRate		int	          NOT NULL,
     CategoryNo	int,
     
     CONSTRAINT pk_Product PRIMARY KEY(ProductNo),
@@ -470,14 +470,14 @@ CREATE TABLE Product (
 ----
 CREATE TABLE Product (
     ProductNo 	int, 
-    SerialKey	char(12)		NOT NULL,
-    ProductName	nvarchar(30)	NOT NULL,
-    Price		int		NOT NULL,
-    State		nvarchar(4)	NOT NULL,
-    Detail		text,
-    Stock		int		DEFAULT 0,
-    TaxRate		int		NOT NULL,
-    CategoryNo	int,
+    SerialKey   char(12)      NOT NULL,
+    ProductName nvarchar(30)  NOT NULL,
+    Price       int	          NOT NULL,
+    State       nvarchar(4)   NOT NULL,
+    Detail      text,
+    Stock       int	          DEFAULT 0,
+    TaxRate	    int	          NOT NULL,
+    CategoryNo  int,
     
     CONSTRAINT pk_Product PRIMARY KEY(ProductNo),
     CONSTRAINT uq_ProductSerial UNIQUE(SerialKey)
