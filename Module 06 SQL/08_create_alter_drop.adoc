@@ -410,7 +410,7 @@ CREATE TABLE Product (
 [source, sql]
 ----
 CREATE TABLE Product (
-	ProductNo 	int, 
+    ProductNo 	int, 
     SerialKey	char(12)		UNIQUE,
     ProductName	nvarchar(30),
     Price		int,
