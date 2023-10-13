@@ -359,8 +359,8 @@ Product(ProductNo: Integer, SerialKey: String, ProductName: String, Price: Integ
 [source, sql]
 ----
 CREATE TABLE Category (
-    CategoryNo		int,
-    CategoryName	nvarchar(20)
+    CategoryNo      int,
+    CategoryName    nvarchar(20)
 );
 ----
 
@@ -369,8 +369,8 @@ CREATE TABLE Category (
 [source, sql]
 ----
 CREATE TABLE Category (
-    CategoryNo		int		PRIMARY KEY,
-    CategoryName	nvarchar(20)
+    CategoryNo      int    PRIMARY KEY,
+    CategoryName    nvarchar(20)
 );
 ----
 
@@ -379,14 +379,14 @@ CREATE TABLE Category (
 [source, sql]
 ----
 CREATE TABLE Category (
-    CategoryNo	int,
-    CategoryName	nvarchar(20),
+    CategoryNo    int,
+    CategoryName  nvarchar(20),
     
     CONSTRAINT pk_Category PRIMARY KEY(CategoryNo)
 );
 ----
 
-기본 키가 `ProductNo`인 `Product` 테이블을 생성하는 SQL 구문은 아래와 같이 작성할 수 있습니다. 
+기본 키가 `ProductNo` 인 `Product` 테이블을 생성하는 SQL 구문은 아래와 같이 작성할 수 있습니다. 
 
 [source, sql]
 ----
