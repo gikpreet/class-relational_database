@@ -1,0 +1,62 @@
+= 제 2정규형(Second Normal Form)
+
+* 완전 함수 종속 개념에 기반을 둠
+* 한 릴레이션이 1NF이고 기본 키에 속하지 않은 속성이 기본 키에 완전 함수 종속되는 경우
+
+---
+
+제 2정규형은 완전 함수 종속 개념에 기반을 둡니다. **완전 함수 종속(Full functional dependency)**의 정의는 아래와 같습니다.
+
+함수 종속 X → Y에서, 
+* X로부터 임의의 속성 A를 제거하면 X → Y가 성립되지 않는 경우
+* 즉, 임의의 속성 A ∈ X에 대해서 Y가 (X {A})에 함수 종속하지 않는 경우
+
+제 2 정규형 검사는 함수 종속의 왼편의 속성들이 기본 키의 일부인지 검사하는 것을 수반합니다. 만약 기본키가 단일 속성이라면 검사를 건너뛰어도 무방합니다. 릴레이션 스키마 R의 모든 속성이 R의 기본키에 대해서 완전 함수 종속이면 R을 제 2정규형(Second Normal Form - 2NF)이라고 합니다. 
+아래와 같은 릴레이션 스키마 Grade가 있고,
+
+----
+Grade(StudentNo, Professor, Department, SubjectID, Grade)
+          S          P          D           J        G
+----
+릴레이션 인스턴스가 아래와 같다고 할 때,
+
+[%header, cols="1,2,2,2,2", width=60%]
+|===
+|StudentNo	|Professor	|Department	|SubjectID	|Grade
+|100	|이순신	|컴퓨터공학과	|C102	|A
+|100	|이순신	|컴퓨터공학과	|C103	|B
+|200	|홍길동	|컴퓨터공학과	|C102	|B
+|300	|윤동주	|기계공학과	|D102	|A
+|400	|김영랑	|수학과	|F201	|C
+|===
+
+릴레이션 스키마 Grade는 아래와 같은 함수 종속을 가집니다.
+
+_FD1: S → PD_ +
+_FD2: J → G_
+
+릴레이션 스키마가 제 2 정규형이 아니라면 여러 개의 제 2정규형 릴레이션으로 정규화 할 수 있습니다. 속성이 그들이 완전 함수 종속관계가 있는 기본 키의 일부 속성들과만 연관되도록 구성됩니다.
+
+_Student(StudentNo, Professor, Department)_
+_Grade(StudentNo, Grade)_
+
+[%header, cols="1,2,2", width=50%]
+|===
+|StudentNo	|Professor	|Department
+|100	|이순신	|컴퓨터공학과
+|200	|홍길동	|컴퓨터공학과
+|300	|윤동주	|기계공학과
+|400	|김영랑	|수학과
+|===
+
+[%header, cols="1,1,1", width=50%]
+|===
+|StudentNo	|SubjectID	|Grade
+|100	|C102	|A
+|100	|C103	|B
+|200	|C102	|B
+|300	|D102	|A
+|400	|F201	|C
+|===
+
+link:./12_3nf.adoc[다음: 제 3정규화(Third Normal Form)]

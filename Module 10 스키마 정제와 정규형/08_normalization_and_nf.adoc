@@ -1,0 +1,13 @@
+= 정규화와 정규형
+
+어떤 릴레이션 스키마가 주어지면, 스키마의 설계가 올바른지 아니면 여러 개의 더 작은 릴레이션들로 분해하여야 하는지 판단하여야 합니다. 이에 대한 판단 기준으로 정규형들이 제안되었으며, 해당 릴레이션이 어떤 정규형에 속하는지에 따라 어떤 문제를 일으킬 수 있는지 알 수 있습니다. 이 단원에서는 정규형으로 릴레이션을 분해하는 과정인 정규화에 대해 알아봅니다.
+
+== Table of Contents
+
+1.	정규화(Normalization)
+2.	제 1정규형(First Normal Form)
+3.	제 2정규형(Second Normal Form)
+4.	제 3정규형(Third Normal Form)
+5.	BCNF(Boyce-Code Normal Form)
+
+link:./09_normalization.adoc[다음: 정규화]

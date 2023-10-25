@@ -1,0 +1,69 @@
+= 함수 종속 이해
+
+* 암스트롱의 공리
+** **반사(Reflexivity)**: X ⊇ Y 이면 X → Y
+** **첨가(Augmentation)**: X → Y 이면 어떠한 Z에 대해서도 XZ → YZ
+** **이행(Transitivity)**: X → Y이고 X → Z 이면 X → Z
+* 이외의 규칙
+** **결합(Union)**: X → Y이고 X → Z 이면 X → YZ
+** **분해(Decomposition)**: X → YZ이면, X → Y 이고 X → Z
+
+---
+:stem: asciimath
+
+릴레이션 스키마 R에 대해 어떤 함수 종속의 집합이 주어진다면, 일반적으로 R에 대해 만족하는 다른 함수 종속들이 존재하게 됩니다. 아래와 같은 릴레이션 스키마가 있을 때,
+
+_Employee(EmpID, Name, ParkingSlot, DepartmentID, JoinDate)_
+
+각 부서는 하나의 공유하는 주차공간(ParkingSlot)을 가진다고 할 때, 다음과 같은 함수 종속을 생각할 수 있습니다. EmpID가 키이므로 EmpID → DepartmentID가 만족되며, FD DepartmentID → ParkingSlot도 만족되어야 합니다. 직원에 대한 적법한 인스턴스 내에서는 EmpID의 값이 동일한 투플들은 DepartmentID의 값도 동일해야 하며, 동일한 DepartmentID를 같는다면 동일한 ParkingSlot의 값도 동일해야 합니다. 따라서 EmpID → ParkingSlot도 만족됩니다.
+
+_f_ 를 하나의 FD라고 하고, F를 어떤 FD의 집합이라고 합시다. 만일 F에 속한 모든 종속을 만족하는 어떤 릴레이션 인스턴스에서도 _f_ 가 만족한다면, 즉 F에 속하는 모든 함수 종속 관계가 만족할 때에는 언제나 _f_ 도 만족한다면 _f_ 는 FD의 집합 F에 의해 **암시된다(implied)**라고 합니다. 
+
+== FD 집합에 대한 폐쇄
+
+FD의 집합 F에 의해 암시되는 모든 FD의 집합을 F의 **폐쇄(Closure)**라고 하며 F+로 표시합니다. FD의 집합 F에 대해 폐쇄를 구하는 작업을 추론(Inference)한다고 합니다. 암스트롱의 공리(Armstring’s Axioms)라고 불리는 세 법칙을 반복해서 적용하면 FD의 집합 F에 의해 암시되는 모든 FD들을 추론할 수 있습니다.
+
+X, Y, Z는 릴레이션 스키마 R에 존재하는 속성의 집합들이라고 할 때,
+
+* **반사(Reflexivity)**: X ⊇ Y 이면 X → Y
+* **첨가(Augmentation)**: X → Y 이면 어떠한 Z에 대해서도 XZ → YZ
+* **이행(Transitivity)**: X → Y이고 X → Z 이면 X → Z 
+
+FD의 한 집합 F가 적용될 때에는 F+에 속하는 FD들만 생성되기 때문에 암스트롱의 공리들은 정당(Sound)합니다. 또한 이 세 가지 법칙을 반복해서 적용하면 폐쇄 F+에 속하는 모든 FD들을 만들어 낼 수 있으므로 암스트롱의 공리들은 완전(Complete)합니다. 아래와 같은 규칙들도 알아두는 것이 좋습니다.
+
+* **결합(Union)**: X → Y이고 X → Z 이면 X → YZ
+* **분해(Decomposition)**: X → YZ이면, X → Y 이고 X → Z 
+
+이 두 법칙은 꼭 필요한 것은 아닌데, 암스트롱의 공리들을 사용해서 이들의 정당성을 증명할 수 있습니다.
+
+이런 FD 추론 법칙들을 살펴보기 위해 어떤 릴레이션 스키마 ABC가 A → B이고 B → C인 FD들을 가지고 있다고 생각해봅시다. 화살표 오른쪽에 나타나는 속성들은 모두 왼쪽에도 있는 FD를 평범한 FD(Trivial FD)라고 하는데, 이런 종속 관계는 항상 만족됩니다. 반사 법칙을 사용하면 평범한 종속 관계를 모두 만들어낼 수 있는데, 그 형태는 다음과 같습니다.
+
+_X → Y, 이때 Y ⊆ X, X ⊆ ABC, Y ⊆ ABC이다_
+
+이행 법칙에 따라 A → C를 얻을 수 있습니다. 첨가 법칙을 사용하면 다음과 같은 비평범 종속 관계를 얻게 됩니다.
+
+_AC → BC, AB → AC, AB → CB_
+
+다음과 같이 구체화된 Contract 릴레이션을 살펴봅시다.
+
+_Contract(ContractNo, SupplierID, SubjectID, DepartmentID, PartNo, Quantity, ValuePrice)_
+
+Contract 릴레이션의 스키마를 CSJDPQV로 나타냅시다. 이 릴레이션에 속하는 한 투플의 의미는 공급자 S(SupplierID)가 부품 P(PartNo)를 Q(Quantity)개 만큼 부서(DepartmentID)가 수행하는 과제 J(SujectID)에 공급하기로 계약번호 C(ContractID)의 계약을 체결했음을 의미하고 이 계약의 금액 V는 ValuePrice 속성입니다.
+
+다음의 무결성 제약조건이 만족된다는 것은 이미 알고 있습니다.
+
+1.	ContractID C는 키입니다. 따라서 C → CSJDPQV
+2.	어떤 과제에서 어떤 부품을 구매하는 것은 하나의 계약으로 이루어집니다. JP → C
+3.	각 부서는 각 공급자로부터 하나의 물품만을 구매할 수 있습니다. SD → P
+
+이렇게 주어진 FD들의 집합에 대한 폐쇄에는 다음과 같은 FD들이 추론됩니다.
+
+* JP → C, C → CSJDPQV, 이행 법칙으로부터 JP → CSJDPQV가 추론됩니다.
+* SD → P, 첨가 법칙으로부터 SDJ → JP가 추론됩니다.
+* SDJ → JP, JP → CSJDPQV, 이행 법칙으로부터 SDK → CSJDPQV가 추론된다.
+
+첨가 법칙이나 분해 법칙을 사용하면 이 폐쇄 안에 들어가는 FD들을 더 만들어 낼 수 있습니다. C → CSJDPQV에 분해 법칙을 적용하면 다음을 추론할 수 있습니다.
+
+C → C, C → S, C → K, C → D 등
+
+link:./08_normalization_and_nf.adoc[다음: 정규화와 정규형]
