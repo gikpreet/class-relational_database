@@ -9,4 +9,4 @@
 4.	이름 바꾸기
 5.	조인
 
-link:./02_algebra_overview.adoc[다음: 관계대수 개요]
+link:./03_algebra_overview.adoc[다음: 관계대수 개요]
