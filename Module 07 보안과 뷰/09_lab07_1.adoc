@@ -1,0 +1,227 @@
+= Lab 07-1 : 사용자 생성 및 권한 제어
+
+이 연습에서는 데이터베이스에 사용자 개체를 생성하고 권한을 부여합니다. 아래 절차에 따릅니다.
+
+== 사용자 생성
+
+1.	터미널을 실행하고 mysql 데이터베이스 관리 시스템이 root 사용자로 로그인합니다.
+2.	아래 질의를 수행하여 시스템의 기존 사용자를 확인합니다.
++
+----
+mysql> SELECT host, user FROM mysql.User;
++-----------+------------------+
+| host      | user             |
++-----------+------------------+
+| localhost | mysql.infoschema |
+| localhost | mysql.session    |
+| localhost | mysql.sys        |
+| localhost | root             |
++-----------+------------------+
+----
++
+3.	아래 명령을 수행하여 Michael이라는 사용자를 생성합니다. Michael 사용자의 패스워드는 ‘P@ssw0rd’로 지정합니다.
+----
+mysql> CREATE USER Michael IDENTIFIED BY 'P@ssword'
+----
++
+4.	아래 질의를 수행하여 새로 생성된 사용자를 확인합니다.
++
+----
+mysql> SELECT host, user FROM mysql.User;
++-----------+------------------+
+| host      | user             |
++-----------+------------------+
+| %         | Michael          |
+| localhost | mysql.infoschema |
+| localhost | mysql.session    |
+| localhost | mysql.sys        |
+| localhost | root             |
++-----------+------------------+
+----
+
+== 새 사용자로 로그인
+
+1.	새 터미널을 실행합니다. (실습을 위해 두 개의 터미널을 사용합니다). 이전 터미널(root 사용자로 MySQL DBMS에 로그인한 터미널)을 터미널 1, 새로 실행한 터미널을 터미널 2라고 부릅니다.
+2.	터미널 2에서, 아래 명령으로 터미널 2에 접속합니다.
++
+----
+% mysql -u Michael -p 
+<Password>
+----
++
+3.	터미널 1에서, 아래 명령을 실행하여 접속 가능한 데이터베이스를 확인합니다.+
+결과는 아래와 유사할 것입니다.
+----
+mysql> show databases;
++-------------------------+
+| Database                |
++-------------------------+
+| datamotionmoviedatabase |
+| information_schema      |
+| module02                |
+| module03                |
+| module04                |
+| module06                |
+| mysql                   |
+| performance_schema      |
+| sys                     |
++-------------------------+
+----
+4.	터미널 2에서, 아래 명령을 실행하여 접속 가능한 데이터베이스를 확인합니다.
+결과는 아래와 같을 것입니다.
++
+mysql> show databases;
++-------------------------+
+| Database                |
++-------------------------+
+| information_schema      |
+| performance_schema      |
++-------------------------+
+
+== Michael 사용자에게 특권 부여
+
+1.	터미널 1에서, 아래 질의를 수행하여 Michael 사용자에게 Module06 테이블의 Passenger 테이블에 대한 SELECT 특권을 부여합니다.
++
+----
+mysql> GRANT SELECT ON Module06.Aircraft TO Michael
+----
++
+2.	터미널 2에서, 아래 질의를 수행하여 Michael 사용자가 접근할 수 있는 데이터베이스를 확인합니다.
++
+----
+mysql> show databases;
++-------------------------+
+| Database                |
++-------------------------+
+| information_schema      |
+| module06                |
+| performance_schema      |
++-------------------------+
+----
++
+3.	터미널 2에서, 아래 질의를 수행하여 Module06 데이터베이스의 Aircraft 테이블의 모든 데이터를 읽습니다.
++
+----
+mysql> SELECT * FROM Module06.Aircraft;
++------------+----------------+---------------+
+| AircraftNo | KindOfAircraft | Airline       |
++------------+----------------+---------------+
+|       101  | 보잉 747       | 대한항공       |
+|       103  | 에어버스 A380   | 아시아나 항공  |
+|       104  | 에어버스 A300   | 대한항공       |
+|       105  | 보잉 737-800   | 제주항공       |
++------------+----------------+---------------+
+----
++
+4.	터미널 2에서, 아래 질의를 수행합니다.
++
+----
+mysql> SELECT AircraftNo, Airline 
+-> FROM Module06.Aircraft AS a INNER JOIN Module06.Flight AS f
+-> ON a.AircraftNo = f.AircraftNo;
+ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for table 'flight'
+----
++
+질의는 수행되지 않습니다. Michael 사용자는 Flight 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
++
+5.	터미널 1에서, 아래 질의를 수행하여 Michael 사용자에게 Flight 테이블의 FlightNo 컬럼에 대한 읽기 특권을 허여합니다.
++
+----
+mysql> GRANT SELECT(FlightNo) ON Module06.Flight TO Michael;
+----
++
+6.	터미널 2에서, 아래 질의를 수행하여 Flight 테이블의 FlightNo 컬럼의 데이터를 조회합니다.
+----
+mysql> SELECT FlightNo FROM Module06.Flight;
++----------+
+| FlightNo |
++----------+
+|        1 |
+|        2 |
+|        8 |
+|        5 |
+|        6 |
+|        4 |
+|        7 |
+|        3 |
++----------+
+----
++
+7.	터미널 2에서, 아래 질의를 수행하여 Flight 테이블의 모든 데이터를 조회합니다.
++
+----
+mysql> SELECT * FROM Module06.Flight
+ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for table 'flight'
+----
++
+질의는 수행되지 않습니다. Michael 사용자는 Flight 테이블의 FlightNo 컬럼을 제외한 다른 컬럼에 대한 SELECT 특권을 가지고 있지 않습니다.
+
+== Michael 사용자에게서 특권 제거
+
+1.	터미널 1에서, 아래 명령을 실행하여 Michael 사용자에게 부여된 특권을 확인합니다.
++
+----
+mysql> show grants for Michael;
++-------------------------------------------------------------------+
+| Grants for Michael@%                                              |
++-------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `Michael`@`%`                               |
+| GRANT SELECT ON `module06`.`aircraft` TO `Michael`@`%`            |
+| GRANT SELECT (`FlightNo`) ON `module06`.`flight` TO `Michael`@`%` |
++-------------------------------------------------------------------+
+----
++
+2.	터미널 1에서, 아래 질의를 수행하여 Michael 사용자의 Aircraft 테이블에 대한 SEELECT 특권을 제거합니다.
++
+----
+mysql> REVOKE SELECT ON Module06.Aircraft FROM Michael;
+----
++
+3.	터미널 2에서, 아래 질의를 수행합니다.
++
+----
+mysql> SELECT * FROM Module06.Aircraft;
+ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for table 'aircraft'
+----
++
+질의는 수행되지 않습니다. Michael 사용자는 Flight 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
++
+4.	터미널 1에서, 아래 질의를 수행하여 Michael 사용자에게 Module06 데이터베이스의 모든 개체에 대해 모든 특권을 부여합니다.
++
+----
+mysql> GRANT ALL privileges ON Module06.* TO Michael;
+----
++
+5.	터미널 2에서, 아래 질의를 수행하여 Flight 테이블의 모든 데이터를 읽습니다.
++
+----
+mysql> SELECT * FROM Module06.Flight;
++----------+------------+------------+-------------+----------+---------------------+
+| FlightNo | AircraftNo | Depareture | Arrival     | Price    | FlightDate          |
++----------+------------+------------+-------------+----------+---------------------+
+|        1 |        101 | 인천        | 샌프란시스코 |  1230000 | 2022-10-23 10:20:00 |
+|        2 |        101 | 샌프란시스코 | 인천        |  1320000 | 2022-10-26 13:00:00 |
+|        3 |        105 | 김포        | 제주        |    72000 | 2022-11-23 09:00:00 |
+|        4 |        104 | 김포        | 김해        |    68000 | 2022-11-12 17:30:00 |
+|        5 |        103 | 인천        | 프랑크푸르트 |  1480000 | 2022-12-01 18:00:00 |
+|        6 |        103 | 프랑크푸르트 | 인천        |  1560000 | 2022-12-10 10:00:00 |
+|        7 |        104 | 김해        | 김포        |    70000 | 2022-11-13 11:00:00 |
+|        8 |        101 | 인천        | 샌프란시스코 | 12300000 | 2022-11-15 10:00:00 |
++----------+------------+-------------+-------------+----------+--------------------+
+----
++
+6.	터미널 1에서, 아래 질의를 수행하여 Michal 사용자에게 부여된 Module06 데이터베이스의 모든 특권을 제거합니다.
++
+----
+mysql> REVOKE ALL privileges ON Module06.* FROM Michael;
+----
++
+7.	터미널 2에서, 아래 질의를 수행하여 Flight 테이블의 모든 데이터를 읽습니다.
+----
+mysql> SELECT * FROM Module06.Flight;
+ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for table 'flight'
+----
++
+질의는 수행되지 않습니다. Michael 사용자는 Flight 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
++
+8.	연습이 종료되었습니다.

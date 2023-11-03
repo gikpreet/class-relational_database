@@ -1,0 +1,57 @@
+= 특권 (Privilege)
+
+* 특정 조치 또는 작업을 실행하는데 필요한 권한
+* 권한이 부여된 사용자에는 개체를 작성하고, 소유한 개체에 접근하며, GRANT 문을 사용해 소유한 개체에 대한 권한을 다른 사용자에게 전달할 수 있음
+
+---
+
+데이터베이스 관리 시스템은 데이터베이스 개체에 대한 재량 접근 제어를 위해 특권(Privilege)를 사용합니다. 데이터베이스와 지원되는 다른 데이터베이스 개체(스키마, 테이블, 뷰 등)에 대한 액세스 권한을 특권으로 캡슐화하여 사용자에게 부여합니다. 
+
+SQL 1999 표준에 명시된 특권은 아래와 같습니다.
+
+[source, sql]
+----
+<privileges> ::=
+<object privileges> ON <object name>
+
+<object name> ::=
+[ TABLE ] <table name>
+| DOMAIN <domain name>
+| COLLATION <collation name>
+| CHARACTER SET <character set name>
+| TRANSLATION <translation name>
+| TYPE <user-defined type name>
+| <specific routine designator>
+
+<object privileges> ::=
+ALL PRIVILEGES
+| <action> [ { <comma> <action> }... ]
+
+<action> ::=
+SELECT
+| SELECT <left paren> <privilege column list> <right paren>
+| SELECT <left paren> <privilege method list> <right paren>
+| DELETE
+| INSERT [ <left paren> <privilege column list> <right paren> ]
+| UPDATE [ <left paren> <privilege column list> <right paren> ]
+| REFERENCES [ <left paren> <privilege column list> <right paren> ]
+| USAGE
+| TRIGGER
+| UNDER
+| EXECUTE
+
+<privilege method list> ::=
+<specific routine designator> [ { <comma> <specific routine designator> }... ]
+
+<privilege column list> ::= <column name list>
+
+<grantee> ::=
+PUBLIC
+| <authorization identifier>
+
+<grantor> ::=
+CURRENT_USER
+| CURRENT_ROLE
+----
+
+link:./08_nece.adoc[다음: 필수 특권 제어]
