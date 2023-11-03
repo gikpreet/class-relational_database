@@ -1,0 +1,133 @@
+= 뷰 생성과 삭제
+
+* DDL 구문을 사용해 뷰 생성
+* 읽기 전용 또는 업데이트 가능 상태로 정의
+
+[source, sql]
+----
+CREATE VIEW <뷰 이름>
+AS
+<쿼리 식>
+----
+
+* DROP 문을 사용해 제거
+
+[source, sql]
+----
+DROP VIEW <뷰 이름>
+----
+
+---
+
+뷰의 생성은 테이블과 같은 다른 데이터베이스 개체와 마찬가지로 DDL 구문을 사용합니다. VIEW를 정의하기 위한 기본 구문은 아래와 같습니다.
+
+[source, sql]
+---
+CREATE VIEW <뷰 이름>
+AS
+<쿼리 식>
+---
+
+항공권 예약 정보를 표시하는 뷰를 만드려면 아래와 같이 할 수 있습니다.
+
+[source, sql]
+----
+CREATE VIEW ReservationInfo
+AS
+SELECT p.PassengerNo, PassengerName, ReservedDate, Deparetures, Arrival, FlightDate
+FROM
+	Passenger AS p INNER JOIN Reservation AS R ON p.PassengerNo = r.PassengerNo
+      INNER JOIN Flight AS f ON f.FlightNo = r.FlightNo;
+----
+
+_“이순신 고객이 예약한 항공권의 출발지와 도착지, 출발 시간을 구하시오”_
+
+위의 DDL 문으로 ReservationView 뷰를 생성했다면, 테이블에 대한 직접적인 접근 없이 뷰에 테이블에서와 같은 형식의 질의를 수행하여 결과를 산출할 수 있습니다.
+
+[source, sql]
+----
+SELECT * FROM ReservationInfo
+WHERE PassengerName = '이순신';
+----
+
+결과는 아래와 같습니다.
+
+[%header, cols=6, width-80%]
+|===
+|PassengerNo	|PassengerName	|ReservedDate	|Deparetures	|Arrival	|FlightDate
+|2	|이순신	|2022-10-11	|인천	|샌프란시스코	|2022-10-23 
+|2	|이순신	|2022-10-11	|샌프란시스코	|인천	|2022-10-26
+|===
+
+뷰를 생성할 때, 테이블의 컬럼 이름을 정의할 수 있습니다. 아래 쿼리는 테이블의 컬럼 이름을 대신하는 뷰의 컬럼 이름을 정의합니다.
+
+[source, sql]
+----
+CREATE VIEW FlightInfo (No, Aircraft, Airline, FromPort, InPort, Price)
+AS
+SELECT a.AircraftNo, KindOfAircraft, Airline, Deparetures, Arrival, Price
+FROM Flight AS f INNER JOIN Aircraft AS a ON f.AircraftNo = a.AircraftNo;
+----
+
+아래 쿼리는 테이블의 컬럼 이름이 아닌 뷰 생성시 정의한 컬럼 이름으로 결과를 산출합니다.
+
+[source, sql]
+----
+SELECT * FROM FlightInfo;
+----
+
+[%header, cols=6, width=90%]
+|===
+|No	|Aircraft	|Airline	|FromPort	|ToPort	|Price
+|1	|Boeing |747	|대한항공	|인천	|샌프란시스코	|1230000
+|2	|Boeing |747	|대한항공	|샌프란시스코	|인천	|1320000
+|3	|Boeing |737-800	|제주항공	|김포	|제주	|72000
+|4	|Boeing |737-800	|제주항공	|김포	|김해	|68000
+|5	|Airbus |A380	|아시아나항공	|인천	|프랑크푸르트	|1480000
+|6	|Airbus |A380	|아시아나항공	|프랑크푸르트	|인천	|1560000
+|7	|Airbus |A300	|대한항공	|김해	|김포	|70000
+|8	|Boeing |747	|대한항공	|인천	|샌프란시스코	|1230000
+|===
+
+SQL 1999 표준에 정의된 뷰 정의 구문은 아래와 같습니다.
+
+[source, sql]
+----
+<view definition> ::=
+CREATE [ RECURSIVE ] VIEW <table name>
+<view specification>
+AS <query expression>
+[ WITH [ <levels clause> ] CHECK OPTION ]
+
+<view specification> ::=
+<regular view specification>
+| <referenceable view specification>
+
+<regular view specification> ::=
+[ <left paren> <view column list> <right paren> ]
+
+<referenceable view specification> ::=
+OF <user-defined type>
+[ <subview clause> ]
+[ <view element list> ]
+
+<subview clause> ::= UNDER <table name>
+
+<view element list> ::=
+<left paren>
+[ <self-referencing column specification> <comma> ]
+<view element> [ { <comma> <view element> }... ]
+<right paren>
+
+<view element> ::= <view column option>
+
+<view column option> ::= <column name> WITH OPTIONS <scope clause>
+
+<levels clause> ::=
+CASCADED
+| LOCAL
+
+<view column list> ::= <column name list>
+----
+
+link:./13_view_update.adoc[다음: 뷰에 대한 갱신]
