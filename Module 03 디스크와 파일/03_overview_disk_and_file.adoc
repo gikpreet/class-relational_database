@@ -1,4 +1,4 @@
-=== 디스크와 파일 개요
+= 디스크와 파일 개요
 
 image:./images/image01.png[]
 
