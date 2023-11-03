@@ -225,3 +225,5 @@ ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for tabl
 질의는 수행되지 않습니다. Michael 사용자는 Flight 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
 +
 8.	연습이 종료되었습니다.
+
+link:./10_view.adoc[다음: 뷰(View)]
