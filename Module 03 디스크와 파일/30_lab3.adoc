@@ -1,0 +1,310 @@
+= Lab 3 : 테이블 생성
+
+== 연습 1 MySQL 콘솔에서 테이블 생성
+
+이 연습에서는 아래와 같은 스키마를 가진 릴레이션(테이블)을 생성합니다.
+
+_Category(CategoryNo: 정수, CategoryName 문자열) +
+Product(ProductNo: 정수,: ProductName:문자열, UnitPrice: 정수, Description: 문자열, CategoryNo: 정수) +
+Customer(CustomerNo: 정수, CustomerName: 문자열, email: 문자열, Password: 문자열)_
+
+아래 절차에 따릅니다.
+
+=== MySQL 콘솔에 접속하고 데이터베이스 생성
+
+1.	macOS에서는 터미널, Windows에서는 명령 프롬프트를 실행합니다.
+2.	아래 명령을 실행하여 MySQL 콘솔에 접근합니다.
++
+----
+$ mysql -U root -P
+Enter password:
+----
+3.	아래 명령을 수행하여 DBMS에 생성된 데이터베이스를 확인합니다.
++
+----
+mysql> show databases;
+----
+명령의 실행 결과는 아래와 유사할 것입니다:
++
+----
++--------------------+
+| Database           |
++--------------------+
+| Module02           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+----
+4.	아래 질의를 실행하여 Module03 데이터베이스를 생성합니다.
++
+----
+mysql> CREATE DATABASE Module03;
+----
++
+질의가 성공적으로 수행되면, 아래와 유사한 메시지가 표시됩니다.
++
+----
+Query OK, 1 row affected (0.04 sec)
+----
+5.	아래 명령을 실행하여 콘솔의 데이터베이스 컨텍스트를 생성한 Module02 데이터베이스로 변경합니다.
++
+----
+mysql> use Module03;
+----
++
+명령이 성공적으로 수행되면, 아래와 같은 메시지가 표시됩니다.
++
+----
+Database changed
+----
+6.	아래 명령을 실행하여 생성한 Module02 데이터베이스의 릴레이션(물리적 데이터베이스 관점에서 테이블)을 확인합니다.
++
+----
+mysql> show tables;
+----
++
+명령이 실행되면, 아래와 같은 메시지가 표시됩니다.
++
+----
+Empty set (x.xx sec)
+----
+
+=== Category 테이블 생성
+
+1.	MySQL 콘솔에서 아래 명령을 실행합니다.
++
+----
+mysql> CREATE TABLE Category (
+-> CategoryNo int,
+    -> CategoryName varchar(50) NOT NULL,
+    -> CONSTRAINT pk_Category PRIMARY KEY(CategoryNo)
+);
+----
++
+명령이 성공적으로 실행되면, 결과는 아래와 같을 것입니다.
++
+----
+Query OK, 0 rows affected (0.03 sec)
+----
++
+2.	아래 명령을 수행하여 생성된 테이블 정보를 확인합니다.
++
+----
+mysql> desc Category;
+----
++
+명령이 실행되면, 결과는 아래와 같을 것입니다.
++
+----
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| CategoryNo   | int         | NO    | PRI | NULL   |       |
+| CategoryName | varchar(50) | NO    |     | NULL   |       |
++--------------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+----
++
+3.	아래 명령을 실행하여 Category 테이블 생성의 자세한 정보를 확인합니다.
++
+----
+mysql> show create table Category;
+----
++
+명령이 실행되면, 결과는 아래와 같을 것입니다. +
+ENGINE이 InnoDB 인것을 확인합니다.
++
+----
++----------+-------------------------------------------------------------------+
+| Table    | CreateTable                                                       |
++----------+-------------------------------------------------------------------+
+| Category | CREATE TABLE `Category` (
+  `CategoryNo` int NOT NULL,
+  `CategoryName` varchar(50) NOT NULL,
+  PRIMARY KEY (`CategoryNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++----------+-------------------------------------------------------------------+
+1 row in set (0.00 sec)
+----
+
+=== Product 테이블 생성
+1.	MySQL 콘솔에서 아래 명령을 실행합니다.
++
+----
+mysql> CREATE TABLE Product (
+    -> ProductNo int PRIMARY KEY,
+    -> ProductName varchar(100) NOT NULL,
+    -> UnitPrice int DEFAULT 0 NOT NULL,
+    -> Description text,
+    -> CategoryNo int,
+    -> CONSTRAINT fk_Product_CategoryID FOREIGN KEY(CategoryNo) REFERENCES Category(CategoryNo)
+    -> );
+----
++
+명령이 성공적으로 실행되면, 결과는 아래와 유사할 것입니다.
++
+----
+Query OK, 0 rows affected (0.07 sec)
+----
++
+2.	다음 명령을 실행하여 생성된 테이블의 스키마를 확인합니다.
++
+----
+mysql> desc Product;
+----
++
+명령이 실행되면 결과는 아래와 같습니다.
++
+----
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| ProductNo   | int          | NO   | PRI | NULL    |       |
+| ProductName | varchar(100) | NO   |     | NULL    |       |
+| UnitPrice   | int          | NO   |     | 0       |       |
+| Description | text         | YES  |     | NULL    |       |
+| CategoryNo  | int          | YES  | MUL | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+----
+
+=== Customer 테이블 생성
+
+1.	MySQL 콘솔에서 아래 명령을 실행합니다.
++
+----
+mysql> CREATE TABLE Customer (
+    -> CustomerNo int,
+    -> CustomerName nvarchar(10),
+    -> Email varchar(40),
+    -> Password varchar(16),
+    -> CONSTRAINT pk_Customer PRIMARY KEY(CustomerNo)
+    -> ) ENGINE=MyISAM CHARSET=utf8;
+----
++
+명령이 성공적으로 실행되면, 결과는 아래와 유사할 것입니다.
++
+----
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+----
++
+2. 다음 명령을 실행하여 생성한 테이블의 생성 스키마를 확인합니다.
++
+----
+mysql> show create table Customer;
+----
++
+명령이 실행되면, 결과는 아래와 같습니다.
++
+----
++----------+-------------------------------------------------------------------+
+| Table    | Create Table                                                      |
++----------+-------------------------------------------------------------------+
+| Customer | CREATE TABLE `Customer` (
+  `CustomerNo` int NOT NULL,
+  `CustomerName` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `Email` varchar(40) DEFAULT NULL,
+  `Password` varchar(16) DEFAULT NULL,
+  PRIMARY KEY (`CustomerNo`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 |
++----------+-------------------------------------------------------------------+
+1 row in set (0.00 sec)
+----
+
+== 연습 2 MySQL Workbench에서 테이블 생성
+
+이 연습에서는 아래와 같은 스키마를 가진 릴레이션(테이블)을 연습 1에 이어 생성합니다.
+
+_Orders(OrderNo: 정수, OrderDate: 날짜, CustomerNo: 정수) +
+OrderDetail(ProductNo: 숫자, OrderNo:정수 Quantity: 숫자)_
+
+아래 절차에 따릅니다.
+
+=== Orders 테이블 생성
+1.	MySQL Workbench를 실행합니다.
+2.	시작 화면에서 localhost 연결을 클릭합니다.
+3.	패스워드를 입력하고 MySQL 인스턴스에 접속합니다.
+4.	Navigator 창에서, SCHEMA 탭을 클릭하고 데이터베이스를 확인합니다.
+5.	Module03 데이터베이스를 더블 클릭합니다. 현재 데이터베이스가 선택되고 굵은 글씨체로 변경됩니다.
+6.	쿼리 창에서, 아래 질의를 입력하고 Ctrl + Enter 키를 누릅니다.
++
+[source, sql]
+----
+CREATE TABLE Orders (
+	OrderNo int,
+     OrderDate Date, 
+     CustomerNo int,
+    
+     CONSTRAINT pk_Order PRIMARY KEY(OrderNo),
+     CONSTRAINT fk_Order_Customer FOREIGN KEY(CustomerNo) REFERENCES Customer(CustomerNo)
+);
+----
++
+실행하면 아래와 같은 오류가 발생합니다.
++
+----
+Error Code: 1824. Failed to open the referenced table 'Customer'
+----
++
+7.	쿼리 창에서 아래 질의를 입력하고 실행합니다.
++
+[source, sql]
+----
+ALTER TABLE Customer ENGINE=INNODB;
+----
++
+명령이 실행되면, 아래와 같은 메시지가 출력됩니다.
++
+----
+0 row(s) effected Records: 0 Duplicates: 0 Warnings: 0
+----
++
+8.	쿼리 창에서 아래 질의를 입력하고 다시 실행합니다.
++
+[source, sql]
+---
+CREATE TABLE Orders (
+	OrderNo int,
+     OrderDate Date, 
+     CustomerNo int,
+    
+     CONSTRAINT pk_Order PRIMARY KEY(OrderNo),
+     CONSTRAINT fk_Order_Customer FOREIGN KEY(CustomerNo) REFERENCES Customer(CustomerNo)
+);
+---
++
+테이블이 생성됩니다. 메시지는 아래와 같습니다.
++
+----
+0 row(s) affected
+----
+
+=== OrderDetail 테이블 생성
+1.	쿼리 창에서, 아래 질의를 입력하고 Ctrl + Enter 키를 누릅니다.
++
+[source, sql]
+----
+CREATE TABLE OrderDetail (
+	ProductNo	int,
+     OrderNo	int,
+     Quantity int,
+    
+     CONSTRAINT pk_OrderDetail PRIMARY KEY(ProductNo, OrderNo),
+     CONSTRAINT fk_OrderDetail_Order FOREIGN KEY(OrderNo) REFERENCES Orders(OrderNo)
+);
+----
++
+쿼리가 실행되면, 메시지는 아래와 같습니다.
++
+----
+0 row(s) affected
+----
+
+=== 생성된 개체 확인
+1.	Navigator창의 SCHEMA 탭에서, Module03 데이터베이스를 마우스 오른쪽 클릭하고 Refresh All을 클릭합니다.
+2.	생성된 테이블을 확인합니다.
+3.	테이블을 확장하여 생성된 테이블의 정보를 확인합니다.
+ 
+link:./31_review.adoc[다음: 검토]
