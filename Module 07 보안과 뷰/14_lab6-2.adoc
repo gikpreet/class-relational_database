@@ -1,0 +1,377 @@
+= Lab 07-2 : 뷰의 생성과 사용 및 보안 설정
+
+이 연습에서는 뷰를 생성하고, 생성된 뷰를 사용하며, 뷰를 기반으로 보안을 적용하여 사용자에게 릴레이션의 존재를 숨기는 형식의 외부 스키마를 구성하여 보안을 설정합니다.
+
+== 로그인 및 기존 뷰 삭제
+
+1. 터미널을 실행하고 mysql 데이터베이스 관리 시스템이 root 사용자로 로그인합니다.
+2. 아래 명령을 수행하여 연결 컨텍스트를 Module06으로 변경합니다.
++
+----
+mysql> USE Module06;
+----
++
+3. 아래 명령을 수행하여 Module06 데이터베이스에 생성된 뷰를 확인합니다.
++
+----
+mysql> show full tables in module06 where TABLE_TYPE LIKE 'VIEW';
++--------------------+------------+
+| Tables_in_module06 | Table_type |
++--------------------+------------+
+| flightinfo         | VIEW       |
+| reservationinfo    | VIEW       |
++--------------------+------------+
+----
++
+4.	아래 쿼리를 수행하여 생성된 뷰를 삭제합니다.
++
+----
+mysql> DROP VIEW flightInfo, reservationinfo;
+----
++
+5. 아래 명령을 수행하여 Module06 데이터베이스의 뷰를 확인합니다.
++
+----
+mysql> show full tables in module06 where TABLE_TYPE LIKE 'VIEW';
+Empty set (0.00 sec)
+----
+
+== 갱신 가능 뷰 생성
+
+1.	아래 질의를 수행하여 Aircraft 테이블의 데이터를 확인합니다.
++
+----
+mysql> SELECT * FROM Aircraft;
++------------+----------------+---------------+
+| AircraftNo | KindOfAircraft | Airline       |
++------------+----------------+---------------+
+|        101 | Boeing 747     | 대한항공       |
+|        102 | Boeing 727     | 대한항공       |
+|        103 | Airbus A380    | 아시아나 항공  |
+|        104 | Airbus A300    | 대한항공       |
+|        105 | Boeing 737-800 | 제주항공       |
++------------+----------------+---------------+
+----
++
+2.	아래 질의를 수행하여 대한항공이 소유한 비행기에 대한 뷰를 생성합니다.
++
+----
+mysql> CREATE VIEW KoreanAir (No, Type)
+    -> AS
+    -> SELECT AircraftNo, KindOfAircraft FROM Aircraft
+    -> WHERE Airline = '대한항공';
+----
++
+3.	아래 질의를 수행하여 생성한 뷰의 데이터를 확인합니다.
++
+----
+mysql> SELECT * FROM KoreanAir;
++-----+-------------+
+| No  | Type        |
++-----+-------------+
+| 101 | Boeing 747  |
+| 102 | Boeing 727  |
+| 104 | Airbus A300 |
++-----+-------------+
+----
++
+4.	아래 질의를 수행하여 KoreanAir 뷰에 데이터를 삽입합니다.
++
+----
+mysql> INSERT INTO KoreanAir VALUES(106,'Airbus A220');
+----
++
+5. 아래 질의를 수행하여 KoreanAir 뷰의 데이터를 확인합니다. 삽입한 데이터는 조회되지 않습니다.
++
+----
+mysql> SELECT * FROM KoreanAir;
++-----+-------------+
+| No  | Type        |
++-----+-------------+
+| 101 | Boeing 747  |
+| 102 | Boeing 727  |
+| 104 | Airbus A300 |
++-----+-------------+
+----
++
+6.	아래 질의를 수행하여 Aircraft 테이블의 데이터를 확인합니다.
++
+----
+mysql> SELECT * FROM Aircraft;
++------------+----------------+---------------+
+| AircraftNo | KindOfAircraft | Airline       |
++------------+----------------+---------------+
+|        101 | Boeing 747     | 대한항공       |
+|        102 | Boeing 727     | 대한항공       |
+|        103 | Airbus A380    | 아시아나 항공  |
+|        104 | Airbus A300    | 대한항공       |
+|        105 | Boeing 737-800 | 제주항공       |
+|        106 | Airbus A220    | NULL          | 
++------------+----------------+---------------+
+----
++
+7.	아래 질의를 KoreanAir 뷰에서 수행하여 106번 비행기의 운항사를 대한항공으로 업데이트합니다.
++
+----
+mysql> UPDATE KoreanAir SET
+    -> Airline = '대한항공'
+    -> WHERE No = 106;
+ERROR 1054 (42S22): Unknown column 'Airline' in 'field list'
+----
++
+질의는 수행되지 않습니다. KoreanAir 뷰는 Airline 컬럼을 포함하지 않습니다.
++
+8. 아래 질의를 Aircraft 테이블에서 수행하여 106번 비행기의 운항사를 대한항공으로 업데이트합니다.
++
+----
+mysql> UPDATE Aircraft SET
+    -> Airline = '대한항공'
+    -> WHERE AircraftNo = 106;
+----
++
+9. 아래 질의를 수행하여 KoreanAir 뷰의 데이터를 확인합니다.
++
+----
+mysql> SELECT * FROM KoreanAir;
++-----+-------------+
+| No  | Type        |
++-----+-------------+
+| 101 | Boeing 747  |
+| 102 | Boeing 727  |
+| 104 | Airbus A300 |
+| 106 | Airbus A220 |
++-----+-------------+
+----
++
+10.	아래 질의를 수행하여 아시아나 항공 항공기에 대한 뷰를 생성합니다.
++
+----
+mysql> CREATE VIEW AsianaAir (No, Type)
+    -> AS
+    -> SELECT AircraftNo, KindOfAircraft FROM Aircraft
+    -> WHERE Airline = '아시아나 항공';
+----
++
+11.	아래 질의를 수행하여 제주항공 항공기에 대한 뷰를 생성합니다.
++
+----
+mysql> CREATE VIEW JejuAir (No, Type)
+    -> AS
+    -> SELECT AircraftNo, KindOfAircraft FROM Aircraft
+    -> WHERE Airline = '제주항공';
+----
++
+12.	아래 질의를 수행하여 전체 데이터를 확인합니다.
++
+----
+mysql> SELECT * FROM KoreanAir
+    -> UNION
+    -> SELECT * FROM AsianaAir
+    -> UNION
+    -> SELECT * FROM JejuAir;
++-----+----------------+
+| No  | Type           |
++-----+----------------+
+| 101 | Boeing 747     |
+| 102 | Boeing 727     |
+| 104 | Airbus A300    |
+| 106 | Airbus A220    |
+| 103 | Airbus A380    |
+| 105 | Boeing 737-800 |
++-----+----------------+
+----
+
+== 항공편과 예약 정보 뷰 생성
+
+1.	아래 질의를 수행하여 항공편에 대한 뷰를 생성합니다.
++
+[source, sql]
+----
+CREATE VIEW FlightInfo (No, Departures, Arrivals, Price, Date, AircraftNo, AirCraftType, Airline)
+AS
+SELECT f.FlightNo, Deparetures, Arrival, Price, FlightDate, a.AircraftNo, KindOfAircraft, Airline
+FROM Flight AS f INNER JOIN Aircraft AS a ON f.AircraftNo = a.AircraftNo;
+----
++
+2.	아래 질의를 수행하여 예약에 대한 뷰를 생성합니다.
++
+[source, sql]
+----
+CREATE VIEW ReservationInfo (No, Name, Grade, ReservedDate, FlightNo)
+AS
+SELECT p.PassengerNo, PassengerName, Grade, ReservedDate, f.FlightNo
+FROM
+	Passenger AS p INNER JOIN Reservation AS R ON p.PassengerNo = r.PassengerNo
+    INNER JOIN Flight AS f ON f.FlightNo = r.FlightNo;
+----
++
+3.	아래 명령을 수행하여 ReservationInfo 뷰의 정보를 확인합니다.
++
+----
+mysql> desc ReservationInfo;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| No           | int         | NO   |     | NULL    |       |
+| Name         | varchar(10) | NO   |     | NULL    |       |
+| Grade        | int         | YES  |     | 1       |       |
+| ReservedDate | date        | YES  |     | NULL    |       |
+| FlightNo     | int         | NO   |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+----
++
+4.	아래 명령을 수행하여 FlightInfo 뷰의 정보를 확인합니다.
++
+----
+mysql> desc FlightInfo;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| No           | int         | NO   |     | NU      |       |
+| Departures   | varchar(10) | NO   |     | NULL    |       |
+| Arrivals     | varchar(10) | NO   |     | NULL    |       |
+| Price        | int         | YES  |     | 0       |       |
+| Date         | datetime    | NO   |     | NULL    |       |
+| AircraftNo   | int         | NO   |     | NULL    |       |
+| AirCraftType | varchar(20) | NO   |     | NULL    |       |
+| Airline      | varchar(10) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
++
+----
+5.	아래 질의를 수행하여 이순신 승객의 예약 정보를 확인합니다.
++
+----
+mysql> SELECT name, ReservedDate, Departures, Arrivals, Date
+    -> FROM ReservationInfo AS r INNER JOIN FlightInfo AS f
+    -> ON r.FlightNo = f.No
+    -> WHERE r.name = '이순신';
++--------+--------------+--------------+--------------+---------------------+
+| Name   | ReservedDate | Departures   | Arrivals     | Date                |
++--------+--------------+--------------+--------------+---------------------+
+| 이순신  | 2022-10-11   | 인천         | 샌프란시스코    | 2022-10-23 10:20:00 |
+| 이순신  | 2022-10-11   | 샌프란시스코  | 인천           | 2022-10-26 13:00:00 |
++--------+--------------+--------------+--------------+---------------------+
+----
+6.	아래 질의를 수행하여 대한항공에서 운항하는 항공편 정보를 확인홥니다.
++
+----
+mysql> SELECT Departures, Arrivals, Price, Date, Type
+    -> FROM FlightInfo AS f INNER JOIN KoreanAir AS k
+    -> ON f.AircraftNo = k.no;
++--------------+--------------+---------+---------------------+-------------+
+| Departures   | Arrivals     | Price   | Date                | Type        |
++--------------+--------------+---------+---------------------+-------------+
+| 인천          | 샌프란시스코  | 1230000 | 2022-10-23 10:20:00 | Boeing 747  |
+| 샌프란시스코   | 인천         | 1320000 | 2022-10-26 13:00:00 | Boeing 747  |
+| 인천          | 샌프란시스코  | 1230000 | 2022-11-15 10:00:00 | Boeing 747  |
+| 김해          | 김포         |   70000 | 2022-11-13 11:00:00 | Airbus A300 |
++--------------+--------------+---------+---------------------+-------------+
+----
+
+== 보안 설정
+
+1. 새 터미널을 실행합니다. (실습을 위해 두 개의 터미널을 사용합니다). 이전 터미널(root 사용자로 MySQL DBMS에 로그인한 터미널)을 터미널 1, 새로 실행한 터미널을 터미널 2라고 부릅니다.
+2. 터미널 2에서, 아래 명령으로 터미널 2에 접속합니다.
++
+----
+% mysql -u Michael -p 
+<Password>
+----
++
+3.	터미널 2에서, 아래 명령을 실행하여 접속 가능한 데이터베이스를 확인합니다.
++
+----
+mysql> show databases;
+----
++
+결과는 아래와 같을 것입니다.
++
+----
++-------------------------+
+| Database                |
++-------------------------+
+| information_schema      |
+| performance_schema      |
++-------------------------+
+----
++
+4.	터미널 1에서, 아래 명령을 실행하여 다섯개의 뷰에 대한 SELECT 특권을 부여합니다.
++
+----
+mysql> GRANT SELECT ON Module06.Asianaair TO Michael;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> GRANT SELECT ON Module06.FlightInfo TO Michael;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> GRANT SELECT ON Module06.JejuAir TO Michael;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> GRANT SELECT ON Module06.KoreanAir TO Michael;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> GRANT SELECT ON Module06.ReservationInfo TO Michael;
+Query OK, 0 rows affected (0.00 sec)
+----
++
+5. 터미널 2에서, 아래 명령을 실행하여 접속 가능한 데이터베이스를 확인합니다.
++
+----
+mysql> show databases;
+----
++
+결과는 아래와 같을 것입니다.
++
+----
++-------------------------+
+| Database                |
++-------------------------+
+| information_schema      |
+| module06                |
+| performance_schema      |
++-------------------------+
+----
++
+6. 터미널 2에서, 아래 명령을 수행하여 연결 컨텍스트를 Module06 데이터베이스로 변경합니다.
++
+----
+mysql> USE Module06;
+----
++
+7. 터미널 2에서, 아래 명령을 수행하여 접근 가능한 테이블을 확인합니다.
++
+----
+mysql> show tables;
++--------------------+
+| Tables_in_module06 |
++--------------------+
+| asianaair          |
+| flightinfo         |
+| jejuair            |
+| koreanair          |
+| reservationinfo    |
++--------------------+
+----
++
+8. 아래 질의를 수행하여 홍길동 승객의 예약 정보를 확인합니다.
++
+----
+mysql> SELECT Name, ReservedDate, Departures, Arrivals, Date
+    -> FROM ReservationInfo AS r INNER JOIN FlightInfo AS f
+    -> ON r.FlightNo = f.No
+    -> WHERE r.name = '홍길동';
++--------+--------------+------------+----------+---------------------+
+| Name   | ReservedDate | Departures | Arrivals | Date                |
++--------+--------------+------------+----------+---------------------+
+| 홍길동  | 2022-11-09   | 김포       | 제주       | 2022-11-23 09:00:00 |
+| 홍길동  | 2022-10-22   | 김포       | 김해       | 2022-11-12 17:30:00 |
++--------+--------------+------------+----------+---------------------+
+----
++
+9.	아래 질의를 수행하여 릴레이션에 접근이 불가함을 확인합니다.
++
+----
+mysql> SELECT * FROM Passenger;
+ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for table 'passenger'
+----
+10.	연습이 종료되었습니다.
