@@ -47,4 +47,4 @@ image:./images/image01.png[]
 
 따라서 중복성이 발생하며 문제를 일으키게 됩니다. 이런 상황을 해결하려면 계약 릴레이션을 두 릴레이션으로 분해하여 하나는 CPSD, 하나는 SDP가 되게 해야 합니다. 릴레이션 SDP는 공급자가 부서에게 공급하는 부품을 기록하며 릴레이션 CPSD는 각 계약에 대한 추가 정보들을 기록합니다. ER 모델링 만으로는 이렇게 설계하기 어렵습니다.
 
-link:./06_functional_dependency.adoc[다음: 함수 종속 이해]
+link:./07_functional_dependency.adoc[다음: 함수 종속 이해]
