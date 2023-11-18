@@ -4,7 +4,7 @@
 
 _Passenger(PassengerNo: Integer, PassengerName: String, Grade: Integer, Age: Integer) +
 Aircraft(AircraftNo: Integer, KindOfAircraft: String, Airline: String) +
-Flight(FlightNo: Integer, AircraftNo: Integer, Departure: Int, Arrival:  +String, FlightDate: Date, AircraftNo: Integer)
+Flight(FlightNo: Integer, AircraftNo: Integer, Departure: Int, Arrival:String, FlightDate: Date, AircraftNo: Integer) +
 Reservation(PassengerNo: Integer, FlightNo: Integer, ReservedDate: Datem FlightNo: Integer, PassengerNo: Integer)_
 
 == 연습 1: Module06 데이터베이스 생성
