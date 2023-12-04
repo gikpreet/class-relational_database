@@ -1,0 +1,27 @@
+= 트랜잭션과 스케줄
+
+* DBMS 관점에서 트랜잭션 하나는 단위 작업(action - read와 write)들의 나열
+** 트랜잭션은 부분적으로 순서화 된(partially ordered) 집합으로 정의할 수 있음
+** 단위작업의 리스트로 취급할 수 있음
+* 트랜잭션 T에서 객체 O를 읽는 작업에서,
+** 판독 단위 작업 RT(O), 기록 단위 작업 WT(O), 철회 작업 AT, 완결 작업 CT
+* 트랜잭션 스케줄
+** 어떤 트랜잭션에 있는 단위작업의 리스트
+** DBMS가 보는 트랜잭션의 단위 작업들을 기술
+** 각 트랜잭션에 Abort와 Commit 연산을 넣은 스케줄을 완전한 스케줄(Complete Schedule)로 부름
+** 다른 단위 작업이 인터리빙 되지 않는 경우 직렬 스케줄(Serial Schedule)로 부름
+
+[%header, cols="a1, a1" width="30%"]
+|===
+|T1 | T2
+|R(A) + 
+W(A) |
+||R(B) + 
+W(B)
+|R\(C) +
+W\(C)|
+|===
+
+---
+
+link:./06_lab12-1_transaction_control.adoc[다음: 연습 12-1 트랜잭션 제어 ]

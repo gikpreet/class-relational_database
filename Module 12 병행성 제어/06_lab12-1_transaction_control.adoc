@@ -1,0 +1,163 @@
+= Lab 12-1: 트랜잭션 제어
+
+이 연습에서는 MySQL에서 제공하는 트랜잭션 문법을 사용하여 명시적/암시적 트랜잭션을 제어하는 것을 연습합니다. 아래 절차에 따릅니다.
+
+1. macOS에서는 터미널, Windows에서는 명령 프롬프트를 실행합니다.
+2. 아래 명령을 실행하여 MySQL 콘솔에 접근합니다.
++
+----
+$ mysql -u root -p
+Enter password:
+----
++
+3. 아래 명령을 실행하여 데이터베이스 서버의 트랜잭션 커밋 모드를 확인합니다.
++
+[source, sql]
+----
+mysql> show variables like 'autocommit';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| autocommit    | ON    |
++---------------+-------+
+1 row in set, 1 warning (0.00 sec)
+----
++
+**암시적 트랜잭션**
++
+4. 아래 명령을 수행하여 안중근 승객의 나이를 30으로 업데이트 합니다.
++
+[source, sql]
+----
+mysql> UPDATE passenger SET Age = 30 WHERE PassengerNo = 3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+----
++
+5. 아래 질의를 수행하여 수정된 안중근 승객의 나이를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM passenger WHERE PassengerNo = 3;
++-------------+---------------+-------+------+
+| PassengerNo | PassengerName | Grade | Age  |
++-------------+---------------+-------+------+
+|           3 | 안중근        |    10 |   30 |
++-------------+---------------+-------+------+
+1 row in set (0.00 sec)
+----
++
+**명시적 트랜잭션**
++
+6. 아래 명령을 수행하여 명시적 트랜잭션을 시작합니다.
++
+[source, sql]
+----
+mysql> START TRANSACTION;
+Query OK, 0 rows affected (0.00 sec)
+----
++
+7. 아래 질의를 수행하여 안중근 고객의 나이를 40으로 업데이트 합니다.
++
+[source, sql]
+----
+mysql> UPDATE passenger SET Age = 40 WHERE PassengerNo = 3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+----
++
+8. 아래 질의를 수행하여 수정된 안중근 승객의 나이를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM passenger WHERE PassengerNo = 3;
++-------------+---------------+-------+------+
+| PassengerNo | PassengerName | Grade | Age  |
++-------------+---------------+-------+------+
+|           3 | 안중근        |    10 |   40 |
++-------------+---------------+-------+------+
+1 row in set (0.00 sec)
+----
++
+9.	아래 질의를 수행하여 명시적으로 시작된 트랜잭션을 Rollback 합니다.
++
+[source, sql]
+----
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+----
++
+10.	아래 질의를 수행하여 취소된 트랜잭션을 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM passenger WHERE PassengerNo = 3;
++-------------+---------------+-------+------+
+| PassengerNo | PassengerName | Grade | Age  |
++-------------+---------------+-------+------+
+|           3 | 안중근        |    10 |   40 |
++-------------+---------------+-------+------+
+1 row in set (0.00 sec)
+----
++
+**트랜잭션 모드 변경**
++
+11.	아래 명령을 실행하여 트랜잭션 모드를 변경합니다.
++
+[source, sql]
+----
+mysql> SET Autocommit = 0;
+Query OK, 0 rows affected (0.00 sec)
+----
++
+12.	아래 명령을 실행하여 데이터베이스 서버의 트랜잭션 커밋 모드를 확인합니다.
++
+[source, sql]
+----
+mysql> show variables like ‘autocommit’;
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| autocommit    | OFF   |
++---------------+-------+
+1 row in set, 1 warning (0.00 sec)
+----
+13.	아래 질의를 수행하여 안중근 고객의 나이를 40으로 업데이트 합니다.
++
+[source, sql]
+----
+mysql> UPDATE passenger SET Age = 40 WHERE PassengerNo = 3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+----
++
+14.	아래 질의를 수행하여 수정된 안중근 승객의 나이를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM passenger WHERE PassengerNo = 3;
++-------------+---------------+-------+------+
+| PassengerNo | PassengerName | Grade | Age  |
++-------------+---------------+-------+------+
+|           3 | 안중근        |    10 |   40 |
++-------------+---------------+-------+------+
+1 row in set (0.00 sec)
+----
++
+15.	아래 질의를 수행하여 트랜잭션을 롤백합니다.
++
+[source, sql]
+----
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+16.	아래 질의를 수행하여 취소된 트랜잭션을 확인합니다.
+mysql> SELECT * FROM passenger WHERE PassengerNo = 3;
++-------------+---------------+-------+------+
+| PassengerNo | PassengerName | Grade | Age  |
++-------------+---------------+-------+------+
+|           3 | 안중근        |    10 |   40 |
++-------------+---------------+-------+------+
+row in set (0.00 sec)
+----
+
+link:./07_consistency.adoc[다음: 일관성]

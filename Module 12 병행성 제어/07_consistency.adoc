@@ -1,0 +1,11 @@
+= 일관성
+
+== Table of Contents
+
+* 직렬 가능성
+* 교차수행에 의한 이상
+* 기록-판독 충돌(WR Conflict)
+* 판독-기록 충돌(RW Conflict)
+* 기록-기록 충돌(WW Conflict)
+
+link:./08_serializable.adoc[다음: 직렬가능성]
