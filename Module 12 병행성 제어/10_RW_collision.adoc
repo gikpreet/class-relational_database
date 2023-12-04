@@ -1,0 +1,25 @@
+= 기록-판독 충돌(WR 충돌)
+
+* 미 완결된 데이터를 읽는 경우
+* 기록-판독 충돌(WR 충돌)
+**트랜잭션 T1이 수정한 데이터베이스 객체 A를, T1이 Commit되기 전에 트랜잭션 T2가 판독(Read)하는 경우
+** 이러한 판독을 **오손 판독(Dirty Read)**라고 부름
+
+[%header, cols="a1, a1" width="30%"]
+|===
+|T1 | T2
+|R(A) + 
+W(A) |
+||R(A) + 
+W(A) +
+R(B) +
+R(B) +
+Commit
+|R(B) +
+W(B)
+Commit|
+|===
+
+---
+
+link:./11_serialized_transaction.adoc[다음: 순차적 트랜잭션]

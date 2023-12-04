@@ -1,0 +1,7 @@
+== 순차적 트랜잭션
+
+image:./images/image01.png[]
+
+---
+
+link:./12_wr_collision.adoc[다음: 기록-판독 충돌(WR 충돌)]
