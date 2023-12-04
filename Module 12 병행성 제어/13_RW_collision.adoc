@@ -7,4 +7,4 @@
 
 ---
 
-link:./13_
+link:./14_rw_collision.adoc[다음: 판독-기록 충돌]

@@ -1,0 +1,14 @@
+= Lock Mode
+
+* 직렬성을 보장하기 위한 방법으로, 데이터 객체들이 상호 배타적으로 액세스 되도록 함
+* 한 트랜잭션이 한 데이터 객체에 액세스 했을 때 다른 트랜잭션이 해당 객체를 수정하지 못하도록 함
+* 다중 트랜잭션 환경에서 데이터베이스의 일관성과 무결성을 유지하기 위한 순차적 진행을 보장
+* 잠금 모드
+** Shared Lock Mode(Read Lock)
+*** 트랜잭션 _T~i~_ 가 데이터 객체 A에 Shared Lock을 가지고 있다면 _T~i~_ 는 A를 읽을 수 있지만 갱신할 수 없음
+** Exclusive Lock Mode(Write Lock – X로 표시)
+*** 트랜잭션 _T~i~_ 가 데이터 객체 A에 Exclusive Lock을 가지고 있다면 _T~i~_ 는 A를 읽을 수도, 갱신할 수도 없음
+
+---
+
+link:./18_shared_lock_mode.adoc[다음: Shared Lock Mode]

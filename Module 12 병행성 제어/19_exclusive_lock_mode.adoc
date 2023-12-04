@@ -1,0 +1,12 @@
+= Exclusive Lock Mode
+
+* Write Lock – X로 표시함
+* 다른 트랜잭션에서 데이터를 읽을 수도, 쓸 수도 없는 잠금 모드
+** Exclusive Lock은 다른 트랜잭션의 접근을 허용하지 않음
+* 트랜잭션 T1이 객체 A에 Exclusive Lock을 가지고 있을 경우, Ti는 A에서 Shared Lock을 가질 수 없음
+* 트랜잭션 T1이 객체 A에 Exclusive Lock을 가지고 있을 경우, Ti는 A에서 Exclusive Lock을 가질 수 없음
+* UPDATE, DELETE, INSERT 등의 갱신 쿼리에 적용됨
+
+---
+
+link:./20_strict_2_phase_lock.adoc[다음: Strict 2 Phase Lock]

@@ -1,0 +1,14 @@
+= Isolation Level
+
+[%header, cols=4, width=90%]
+|===
+|Level|Dirty Read|Non-Repeatable Read|Phantom
+|READ UNCOMMITTED|가능성 있음|가능성있음|가능성있음
+|READ COMMITTED|불가|가능성 있음|가능성 있음
+|REPEATABLE READ|불가|불가|가능성 있음
+|SERIALIZABLE|불가|불가|불가
+|===
+
+---
+
+link:./35_lab12-3.adoc[다음: 연습 12-3 트랜잭션 격리 수준과 잠금]

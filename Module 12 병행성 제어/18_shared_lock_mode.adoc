@@ -1,0 +1,13 @@
+= Shared Lock Mode
+
+* Shared Lock 또는 Read Lock - S로 표시함
+* 다른 트랜잭션에서 데이터를 읽을 수 있는 Lock Mode
+** Shared Lock은 다른 트랜잭션에 대한 읽기 시도를 허용
+* 동일 데이터베이스 객체에 여러 Shared Lock이 적용될 수 있음
+** 트랜잭션 T1이 객체 A에 Shared Lock을 가지고 있으면, 트랜잭션 Ti에 대해 Shared Lock을 허용
+** 트랜잭션 T1이 객체 A에 Shared Lock을 가지고 있으면, 트랜잭션 Ti에 대해 Exclusive Lock을 허용하지 않음
+* SELECT 쿼리에 적용됨
+
+---
+
+link:./19_exclusive_lock_mode.adoc[다음: Exclusive Lock Mode]

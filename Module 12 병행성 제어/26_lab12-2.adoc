@@ -1,0 +1,265 @@
+= Lab 12-2: Deadlock
+
+이 연습에서는 같은 데이터베이터 객체에 두 트랜잭션이 접근하여 잠금 해제를 기다리는 관계에 사이클이 생기는 경우에 발생하는 DeadLock이 발생하는 상황을 시뮬레이션하고 살펴봅니다.
+
+1. macOS에서는 터미널, Windows에서는 명령 프롬프트를 실행합니다. (터미널 1로 호칭합니다)
+2. 아래 명령을 실행하여 MySQL 콘솔에 접근합니다.
++
+----
+$ mysql -u root -p
+Enter password:
+----
++
+3. 아래 명령을 수행하여 Deadlock 감지를 수행하지 않도록 설정합니다.
++
+[source, sql]
+----
+mysql> set global innodb_deadlock_detect = off;
+Query OK, 0 rows affected (0.01 sec)
+----
++
+4. 아래 명령을 수행하여 터미널 1의 프로세스가 가진 잠금을 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM performance_schema.data_locks;
+Empty set (0,00 sec)
+----
++
+5. macOS에서는 터미널, Windows에서는 명령 프롬프트를 하나 더 실행합니다. (터미널 2로 호칭합니다)
+6. 터미널 2에서 아래 명령을 실행하여 MySQL 콘솔에 접근합니다.
++
+----
+$ mysql -u root -p
+Enter password:
+----
++
+**터미널 1에서 잠금 수행**
++
+7. 터미널 1에서 아래 명령을 수행하여 트랜잭션을 시작합니다.
++
+[source, sql]
+----
+mysql> START TRANSACTION;
+Query OK, 0 rows affected (0.00 sec)
+----
++
+8. 아래 질의를 시작하여 데이터에 대해 잠금을 수행합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Passenger WHERE Grade = 10 FOR UPDATE;
++-------------+---------------+-------+------+
+| PassengerNo | PassengerName | Grade | Age  |
++-------------+---------------+-------+------+
+|           3 | 안중근        |    10 |    30 |
+|           4 | 김영랑        |    10 |    54 |
++-------------+---------------+-------+------+
+2 rows in set (0.00 sec)
+----
++
+9. 아래 명령을 수행하여 터미널 1의 프로세스 ID를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT connection_id();
++-----------------+
+| connection_id() |
++-----------------+
+|               8 |
++-----------------+
+1 row in set (0.00 sec)
+----
++
+10.	아래 명령을 수행하여 터미널 1의 프로세스가 잠근 객체를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT engine, engine_transaction_ID, Thread_ID, Object_schema, object_name, Lock_type, Lock_Mode, Lock_data FROM performance_schema.data_locks;
++--------+-----------------------+-----------+---------------+-------------+-----------+---------------+-----------+
+| engine | engine_transaction_ID | Thread_ID | Object_schema | object_name | Lock_type | Lock_Mode     | Lock_data |
++--------+-----------------------+-----------+---------------+-------------+-----------+---------------+-----------+
+| INNODB |                 26148 |        49 | module06      | passenger   | TABLE     | IX            | NULL      |
+| INNODB |                 26148 |        49 | module06      | passenger   | RECORD    | X             | 10, 3     |
+| INNODB |                 26148 |        49 | module06      | passenger   | RECORD    | X             | 10, 4     |
+| INNODB |                 26148 |        49 | module06      | passenger   | RECORD    | X,REC_NOT_GAP | 4         |
+| INNODB |                 26148 |        49 | module06      | passenger   | RECORD    | X,REC_NOT_GAP | 3         |
+| INNODB |                 26148 |        49 | module06      | passenger   | RECORD    | X,GAP         | 11, 2     |
++--------+-----------------------+-----------+---------------+-------------+-----------+---------------+-----------+
+6 rows in set (0.00 sec)
+----
++
+**터미널 2에서 잠금 수행**
++
+11.	터미널 2에서, 아래 명령을 수행하여 트랜잭션을 시작합니다.
++
+[source, sql]
+----
+mysql> START TRANSACTION;
+Query OK, 0 rows affected (0.00 sec)
+----
++
+12.	터미널 2에서, 아래 질의를 수행하여 데이터에 대해 잠금을 수행합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Passenger WHERE Grade = 9 FOR UPDATE;
++-------------+---------------+-------+------+
+| PassengerNo | PassengerName | Grade | Age  |
++-------------+---------------+-------+------+
+|            5 | 김소월          |     9 |   45 |
+|            7 | 천상병          |     9 |   55 |
+|            8 | 조지훈          |     9 |   43 |
++-------------+---------------+-------+------+
+3 rows in set (0.00 sec)
+----
++
+13.	아래 명령을 수행하여 터미널 2의 프로세스가 잠근 객체를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT engine, engine_transaction_ID, Thread_ID, Object_schema, object_name, Lock_type, Lock_Mode, Lock_data FROM performance_schema.data_locks;
++--------+-----------------------+-----------+---------------+-------------+-----------+---------------+-----------+
+| engine | engine_transaction_ID | Thread_ID | Object_schema | object_name | Lock_type | Lock_Mode     | Lock_data |
++--------+-----------------------+-----------+---------------+-------------+-----------+---------------+-----------+
+| INNODB |                 26149 |        60 | module06      | passenger   | TABLE     | IX            | NULL      |
+| INNODB |                 26149 |        60 | module06      | passenger   | RECORD    | X             | 9, 5      |
+| INNODB |                 26149 |        60 | module06      | passenger   | RECORD    | X             | 9, 8      |
+| INNODB |                 26149 |        60 | module06      | passenger   | RECORD    | X             | 9, 7      |
+| INNODB |                 26149 |        60 | module06      | passenger   | RECORD    | X,REC_NOT_GAP | 5         |
+| INNODB |                 26149 |        60 | module06      | passenger   | RECORD    | X,REC_NOT_GAP | 7         |
+| INNODB |                 26149 |        60 | module06      | passenger   | RECORD    | X,REC_NOT_GAP | 8         |
+| INNODB |                 26149 |        60 | module06      | passenger   | RECORD    | X,GAP         | 10, 3     |
+| INNODB |                 26148 |        49 | module06      | passenger   | TABLE     | IX            | NULL      |
+| INNODB |                 26148 |        49 | module06      | passenger   | RECORD    | X             | 10, 3     |
+| INNODB |                 26148 |        49 | module06      | passenger   | RECORD    | X             | 10, 4     |
+| INNODB |                 26148 |        49 | module06      | passenger   | RECORD    | X,REC_NOT_GAP | 4         |
+| INNODB |                 26148 |        49 | module06      | passenger   | RECORD    | X,REC_NOT_GAP | 3         |
+| INNODB |                 26148 |        49 | module06      | passenger   | RECORD    | X,GAP         | 11, 2     |
++--------+-----------------------+-----------+---------------+-------------+-----------+---------------+-----------+
+14 rows in set (0.00 sec)
+----
++
+14.	터미널 1에서, 아래 질의를 수행하여 현재 실행중인 트랜잭션을 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT trx_id, trx_state, trx_mysql_thread_id, trx_query FROM information_schema.innodb_trx;
++--------+-----------+---------------------+---------------------------------------------------------------------------------------------+
+| trx_id | trx_state | trx_mysql_thread_id | trx_query                                                                                   |
++--------+-----------+---------------------+---------------------------------------------------------------------------------------------+
+|  26149 | RUNNING   |                  19 | NULL                                                                                        |
+|  26148 | RUNNING   |                   8 | SELECT trx_id, trx_state, trx_mysql_thread_id, trx_query FROM information_schema.innodb_trx |
++--------+-----------+---------------------+---------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+----
++
+15.	터미널 2에서, 아래 질의를 수행하여 현재 실행중인 트랜잭션을 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT trx_id, trx_state, trx_mysql_thread_id, trx_query FROM information_schema.innodb_trx;
++--------+-----------+---------------------+---------------------------------------------------------------------------------------------+
+| trx_id | trx_state | trx_mysql_thread_id | trx_query                                                                                   |
++--------+-----------+---------------------+---------------------------------------------------------------------------------------------+
+|  26149 | RUNNING   |                  19 | SELECT trx_id, trx_state, trx_mysql_thread_id, trx_query FROM information_schema.innodb_trx |
+|  26148 | RUNNING   |                   8 | NULL                                                                                        |
++--------+-----------+---------------------+---------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+----
++
+**모니터링을 위한 터미널 실행**
++
+16.	macOS에서는 터미널, Windows에서는 명령 프롬프트를 하나 더 실행합니다. (터미널 3로 호칭합니다)
+17.	터미널 3에서 아래 명령을 실행하여 MySQL 콘솔에 접근합니다.
++
+----
+$ mysql -u root -p
+Enter password:
+----
++
+**터미널 1에서 터미널 2가 잠그고 있는 데이터에 액세스**
++
+18.	터미널 1에서, 아래 쿼리를 수행하여 터미널 2의 프로세스가 잠금중인 객체에 잠금을 시도합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Passenger WHERE Grade = 9 FOR UPDATE;
+----
++
+**DeadLock 발생**
++
+19.	터미널 2에서, 아래 쿼리를 수행하여 터미널 1의 프로세스가 잠금중인 객체에 잠금을 시도합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Passenger WHERE Grade = 10 FOR UPDATE;
+----
++
+20.	터미널 3에서, 아래 쿼리를 수행하여 프로세스를 확인합니다.
++
+[source, sql]
+----
+mysql> show processlist;
++----+-----------------+-----------------+----------+---------+--------+------------------------+-----------------------------------------------------+
+| Id | User            | Host            | db       | Command | Time   | State                  | Info                                                |
++----+-----------------+-----------------+----------+---------+--------+------------------------+-----------------------------------------------------+
+|  5 | event_scheduler | localhost       | NULL     | Daemon  | 311635 | Waiting on empty queue | NULL                                                |
+|  8 | root            | localhost:62924 | module06 | Query   |     12 | executing              | SELECT * FROM Passenger WHERE Grade = 9 FOR UPDATE  |
+| 19 | root            | localhost:55794 | module06 | Query   |      8 | executing              | SELECT * FROM Passenger WHERE Grade = 10 FOR UPDATE |
+| 20 | root            | localhost:56150 | NULL     | Query   |      0 | init                   | show processlist                                    |
++----+-----------------+-----------------+----------+---------+--------+------------------------+-----------------------------------------------------+
+4 rows in set (0.00 sec)
+----
++
+21. 터미널 3에서, 아래 명령을 수행하여 터미널 1에서 수행중인 프로세스를 kill 합니다.
++
+----
+mysql> kill 8;
+Query OK, 0 rows affected (0.00 sec)
+----
++
+22.	터미널 1의 상태를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Passenger WHERE Grade = 9 FOR UPDATE;
+ERROR 2013 (HY000): Lost connection to MySQL server during query
+No connection. Trying to reconnect...
+Connection id:    21
+Current database: module06
+----
++
+23.	터미널 2의 상태를 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Passenger WHERE Grade = 10 FOR UPDATE;
++-------------+---------------+-------+------+
+| PassengerNo | PassengerName | Grade | Age  |
++-------------+---------------+-------+------+
+|           3 | 안중근        |     10 |   30 |
+|           4 | 김영랑        |     10 |   54 |
++-------------+---------------+-------+------+
+2 rows in set (7.81 sec)
+----
++
+**Deadlock 감지기능 활성화**
++
+24.	아래 명령을 수행하여 Deadlock 감지기능을 활성화 합니다.
++
+[source, sql]
+----
+mysql> set global innodb_deadlock_detect = on;
+Query OK, 0 rows affected (0.01 sec)
+----
++
+25.	연습을 처음부터 다시 수행하여, Deadlock이 방지되는지 확인합니다.
++
+[source, sql]
+----
+mysql> SELECT * FROM Passenger WHERE Grade = 10 FOR UPDATE;
+ERROR 1213 (40001): Deadlock found when trying to get lock; try restarting transaction
+----
+
+link:./27_special_lock.adoc[다음: 특수한 잠금 기법]

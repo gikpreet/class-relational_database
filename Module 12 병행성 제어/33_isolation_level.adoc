@@ -1,0 +1,18 @@
+= Isolation Level
+
+* SERIALIZABLE (Level 3)
+** 다른 트랜잭션이 읽고 있는 데이터는 다른 트랜잭션에서 수정/삭제/삽입 불가능
+** 모든 이상현상 방지
+* REPEATABLE READ (Level 2)
+** 다른 트랜잭션에서 읽고 있는 데이터는 다른 트랜잭션에서 수정/삭제 불가능
+Phantom Read 발생
+* READ COMMITTED (Level 1)
+** Commit 된 데이터만 다른 트랜잭션에서 읽을 수 있음
+** Non-Repeatable Read, Phantom Read 발생
+* READ UNCOMITTED (Level 0)
+** Commit 되지 않은 데이터를 다른 트랜잭션에서 읽을 수 있음
+** Dirty Read, Non-Repeatable Read, Phantom Read 발생
+
+---
+
+link:./34_isolation_level.adoc[다음: Isolation Level]

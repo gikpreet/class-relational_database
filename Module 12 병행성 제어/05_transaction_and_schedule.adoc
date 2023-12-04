@@ -24,4 +24,4 @@ W\(C)|
 
 ---
 
-link:./06_lab12-1_transaction_control.adoc[다음: 연습 12-1 트랜잭션 제어 ]
+link:./06_lab12-1_transaction_control.adoc[다음: 연습 12-1 트랜잭션 제어]

@@ -1,0 +1,7 @@
+= 판독 - 기록 충돌
+
+image:./images/image03.png[][]
+
+---
+
+link:./15_ww_collision.adoc[다음: 기록-기록 충돌]

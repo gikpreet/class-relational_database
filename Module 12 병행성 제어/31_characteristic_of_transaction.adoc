@@ -1,0 +1,10 @@
+= 트랜잭션 특성
+
+* 트랜잭션은 세 가지 특성을 가짐
+** Access Mode: UNSPECIFIED, READ ONLY, READ/WRITE 
+** Diagnostics-size: 기록할 수 있는 오류 조건의 수
+** Isolation Level: 동시에 실행되고 있는 다른 트랜잭션의 작업들에 대해 주어진 트랜잭션이 노출되는 정도를 제어
+
+---
+
+link:./32_isolation_level.adoc[다음: Isolation Level]

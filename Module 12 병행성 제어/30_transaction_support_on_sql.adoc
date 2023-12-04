@@ -1,0 +1,8 @@
+= SQL의 트랜잭션 지원
+
+* 트랜잭션 특성
+* Isolation Level
+
+---
+
+link:./31_characteristic_of_transaction.adoc[다음: 트랜잭션 특성]

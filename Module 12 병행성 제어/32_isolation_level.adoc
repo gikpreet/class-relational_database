@@ -1,0 +1,17 @@
+= Isolation Level
+
+* SERIALIZABLE (Level 3)
+** 트랜잭션 T는 완결된 트랜잭션들이 만들어 놓은 변경만 판독
+** T가 판독하거나 기록한 값은 T가 종료된 후에 변경할 수 있음
+* REPEATABLE READ (Level 2)
+** 트랜잭션 T는 완결된 트랜잭션들이 만들어 놓은 변경만 판독
+** T가 판독하거나 기록한 값은 T가 종료된 후에 변경할 수 있으나, Index Locking은 하지 않음
+* READ COMMITTED (Level 1)
+** 트랜잭션 T는 완결된 트랜잭션들이 만들어 놓은 변경만 판독
+** T가 판독하거나 기록한 값은 T가 종료된 후에 변경할 수 있으나, T가 판독한 Row는 다른 트랜잭션이 접근가능
+* READ UNCOMITTED (Level 0)
+** 트랜잭션 T는 진행중인 트랜잭션이 만들어 놓은 변경도 판독할 수 있음
+
+---
+
+link:./33_isolation_level.adoc[다음: Isolation Level]
