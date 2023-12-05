@@ -14,4 +14,15 @@
 
 ---
 
+트랜잭션 격리 수준(Transaction Isolation Level)은 트랜잭션들이 얼마나 고립되어 있는지를 나타내는 것으로, 특정 트랜잭션이 다른 트랜잭센에 의해 변경된 데이터를 볼 수 있도록 허용할 지 말지를 결정합니다.
+
+트랜잭션 격리 수준은 4가지로 나눕니다.
+
+* SERIALIZABLE (Transaction Level 3)
+* REPEATABLE READ (Transaction Level 2)
+* READ UNCOMMITTE (Transaction Level 1)
+* READ COMMITTED (Transaction Level 0)
+
+트랜잭션 격리 수준은 트랜잭션 수준 읽기 일관성(Transaction-Level Read Consistency)를 지키기 위해서입니다. 즉, 
+
 link:./33_isolation_level.adoc[다음: Isolation Level]
