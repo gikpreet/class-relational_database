@@ -1,0 +1,47 @@
+= 반복문
+
+PL/SQL(Oracle)
+
+[source, sql]
+----
+DECLARE NUM1 NUMBER :=1;
+
+BEGIN
+    WHILE(NUM1 <= 10) --NUM 10보다 작을때까지 LOOP실행
+    LOOP
+    DBMS_OUTPUT.PUT_LINE(NUM1);
+    NUM1 := NUM1+1; --NUM = NUM +1
+    END LOOP;
+END;
+----
+
+T-SQL(MS-SQL Server)
+[source, sql]
+----
+DECLARE @i int
+SELECT @i = 0
+
+BEGIN
+	WHILE(@i < 10)
+	BEGIN
+		PRINT(@i)
+		SELECT @i = @i + 1
+	END
+END
+----
+
+MySQL (Stored Procedure)
+[source, sql]
+----
+DELIMITER $$
+CREATE PROCEDURE whiletest()
+BEGIN
+	DECLARE i int;
+    WHILE i < 10 DO
+		SELECT i;
+        SET i = i + 1;
+	END WHILE;
+    SELECT 'a';
+END $$
+DELIMITER ;
+----
