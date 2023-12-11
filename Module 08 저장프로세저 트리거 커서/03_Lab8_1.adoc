@@ -107,6 +107,7 @@ SQL> show user;
 SQL> SELECT * FROM tab;
 ----
 12. DBeaver를 실행합니다.
+13. 왼쪽 위의 **새 데이터베이스 연결**을 클릭합니다.
 
 
 == MS-SQL 실습 환경 구축
