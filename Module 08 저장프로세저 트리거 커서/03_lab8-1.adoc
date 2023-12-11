@@ -6,3 +6,15 @@
 
 1. 터미널(또는 명령 프롬프트)를 실행합니다.
 2. 아래 명령을 실행하여 oracle-xe 컨테이너 이미지를 검색합니다.
++
+----
+$ docker search jaspeen/oracle-xe-11g
+NAME                    DESCRIPTION                                      STARS     OFFICIAL   AUTOMATED
+jaspeen/oracle-xe-11g   Fork from sath89/docker-oracle-xe-11g - smal…   8                    [OK]
+----
++
+3. 아래 명령을 실행하여 oracle-xe 컨테이너 이미지를 pull 합니다.
++
+----
+$ docker pull jaspeen/oracle-xe-11g
+----
