@@ -75,7 +75,9 @@ $ docker run --name oracle11g -d -p 1521:1521 jaspeen/oracle-xe-11g
 +
 6. 아래 명령을 실행하여 실행중인 컨테이너를 확인합니다.
 +
+----
 $ docker ps
+----
 +
 7. 아래 명령을 실행하여 실행중인 컨테이너에 액세스합니다.
 +
@@ -108,7 +110,38 @@ SQL> SELECT * FROM tab;
 ----
 12. DBeaver를 실행합니다.
 13. 왼쪽 위의 **새 데이터베이스 연결**을 클릭합니다.
++
+image:./images/image01.png[]
++
+14. **select your database** 창에서 **Oracle**을 선택하고 **다음** 버튼을 클릭합니다.
++
+image:./images/image02.png[]
++
+15. 아래와 같이 연결 정보를 입력하고 **완료** 버튼을 클릭합니다.
++
+image:./images/image03.png[]
++
+    a. host: **localhost**
+    b. port: 1521
+    c. Database: **xe**
+    d. Authentication: **Oracle Database Native**
+    e. Username: HR
+    f. Password: P@ssw0rd
 
+16. 메뉴바에서 **SQL 편집기 열기** 버튼을 클릭하여 새 SQL 편집기를 엽니다.
++
+image:./images/image04.png[]
++
+17. SQL 편집기에서 아래 쿼리를 입력하고 **SQL 문 실행** 버튼을 클릭합니다.
++
+[source, sql]
+----
+SELECT * FROM tab;
+----
++
+18. 결과를 확인합니다.
++
+image:./images/image05.png[]
 
 == MS-SQL 실습 환경 구축
 
@@ -134,6 +167,9 @@ $ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=P@ssw0rd" -p 1433:1433 --n
 ----
 $ docker ps
 ----
++
+6. DBeaver를 실행하고 왼쪽 위의 **새 데이터베이스 연결**을 클릭합니다.
+
 
 == PostgreSQL 실습 환경 구성
 
