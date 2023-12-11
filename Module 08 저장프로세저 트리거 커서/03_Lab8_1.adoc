@@ -8,6 +8,13 @@
 
 === Windows 운영체제
 
+1. 터미널을 실행합니다.
+2. 아래 명령을 실행하여 DBeaver를 설치합니다.
++
+----
+> winget install -e --id dbeaver.dbeaver
+----
+
 === macOS 운영체제
 
 1. 터미널을 실행합니다.
@@ -15,6 +22,28 @@
 +
 ----
 % brew install -cask dbaever-community
+----
+
+=== Ubuntu 운영체제
+
+1. 터미널을 실행합니다.
+2. 아래 명령을 실행하여 DBeaver 저장소를 추가합니다.
++
+----
+$ curl -fsSL https://dbeaver.io/debs/dbeaver.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/dbeaver.gpg
+$ echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+----
++
+3. 아래 명령을 실행하여 apt 목록을 업데이트합니다.
++
+----
+$ sudo apt update
+----
++
+4. 아래 명령을 실행하여 DBeaver Community 버전을 설치합니다.
++
+----
+$ sudo apt install dbeaver-ce
 ----
 
 == Oracle 실습 환경 구축
@@ -49,6 +78,36 @@ $ docker run --name oracle11g -d -p 1521:1521 jaspeen/oracle-xe-11g
 $ docker ps
 +
 7. 아래 명령을 실행하여 실행중인 컨테이너에 액세스합니다.
++
+----
+$ docker exec -it oracle11g sqlplus
+----
++
+8. Oracle sqlplus에서, 아래 명령을 실행하여 HR 사용자의 잠금을 해제하고 패스워드를 변경합니다.
++
+----
+SQL> ALTER USER HR IDENTIFIED BY P@ssw0rd ACCOUNT UNLOCK;
+---- 
++
+9. 아래 명령을 실행하여 현재 사용자를 HR 사용자로 전환합니다.
++
+----
+SQL> CONNECT HR/P@ssw0rd;
+----
++
+10. 아래 명령을 실행하여 현재 접속한 사용자를 확인합니다.
++
+----
+SQL> show user;
+----
++
+11. 아래 명령을 실행하여 테이블을 확인합니다.
++
+----
+SQL> SELECT * FROM tab;
+----
+12. DBeaver를 실행합니다.
+
 
 == MS-SQL 실습 환경 구축
 
