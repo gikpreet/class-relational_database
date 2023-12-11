@@ -169,7 +169,28 @@ $ docker ps
 ----
 +
 6. DBeaver를 실행하고 왼쪽 위의 **새 데이터베이스 연결**을 클릭합니다.
-
+7. **select your database** 창에서 **SQL Server**를 선택하고 다음 버튼을 클릭합니다.
+8. 아래와 같이 연결 정보를 입력하고 완료 버튼을 클릭합니다.
++
+image:./images/image06.png[]
++
+    a. Connect by: **Host**
+    b. Host: **localhost**
+    c. Database/Schema: **master**
+    d. Authentication: **SQL Server Authentication**
+    e. Username: **sa**
+    f. Password: **P@ssa0rd**
++
+9. 메뉴바에서 SQL 편집기 열기 버튼을 클릭하여 새 SQL 편집기를 엽니다.
+10. 아래 질의를 입력하고 **SQL 쿼리 문 실행** 버튼을 클릭합니다.
++
+[source, sql]
+----
+CREATE DATABASE Test
+GO
+USE Test
+GO
+----
 
 == PostgreSQL 실습 환경 구성
 
@@ -196,12 +217,55 @@ $ docker run -e "POSTGRES_PASSWORD=P@ssw0rd" -p 5432:5432 --name postgres -d pos
 $ docker ps
 ----
 +
-6. DBeaver를 실행하고 왼쪽 위의 **새 데이터베이스 연결** 버튼을 클릭합니다.
-7. **Select your database**창에서, PostgreSQL을 선택하고 **다음** 버튼을 클릭합니다.
-8. **DB 연결 설정** 창에서 아래와 같이 정보를 입력하고 **완료** 버튼을 클릭합니다.
+6. 아래 명령을 실행하여 실행중인 컨테이너에 접속합니다.
++
+----
+$ docker exec -it postgres bash
+----
++
+7. 아래 명령을 실행하여 postgres DBMS에 액세스 합니다.
++
+----
+# psql -U postgres
+----
++
+8. 아래 질의를 실행하여 test 데이터베이스를 생성합니다.
++
+----
+postgres=# create database test;
+----
++
+9. 아래 명령을 실행하여 데이터베이스 연결을 test 데이터베이스로 변경합니다.
++
+----
+\c test
+----
++
+10. 아래 명령을 실행하여 현재 데이터베이스를 확인합니다.
++
+----
+test=# select current_database();
+----
++
+11. DBeaver를 실행하고 왼쪽 위의 **새 데이터베이스 연결** 버튼을 클릭합니다.
+12. **Select your database**창에서, PostgreSQL을 선택하고 **다음** 버튼을 클릭합니다.
+13. **DB 연결 설정** 창에서 아래와 같이 정보를 입력하고 **완료** 버튼을 클릭합니다.
++
+image:./images/image07.png[]
++
     a. Connect by: **Host**
     b. Host: **localhost**
     c. Port: **5432**
-    d. Database: **postgres**
+    d. Database: **test**
     e. Authentication: **Database Native**
     f. Password: **P@ssw0rd**
++
+14. 메뉴바에서 SQL 편집기 열기 버튼을 클릭하여 새 SQL 편집기를 엽니다.
+15. 아래 질의를 생성하여 테이블을 확인합니다.
++
+[source, sql]
+----
+select * from pg_tables where schemaname = 'public';
+----
+
+== MySQL 실습 환경 설정
