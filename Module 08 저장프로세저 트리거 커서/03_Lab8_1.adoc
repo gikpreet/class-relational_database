@@ -269,3 +269,4 @@ select * from pg_tables where schemaname = 'public';
 ----
 
 == MySQL 실습 환경 설정
+
