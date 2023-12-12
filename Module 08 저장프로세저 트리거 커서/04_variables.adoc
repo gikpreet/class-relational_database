@@ -31,6 +31,7 @@ SET @<variable_name> := expression
 
 PL/SQL은 상용 관계 데이터베이스 관리 시스템인 Oracle이 SQL 언어를 확장하여 만든 언어입니다. PL/SQL 에서 변수를 선언하는 방법은 아래와 같습니다.
 
+_**DECLARE**_ 사용
 [source, sql]
 ----
 --변수 선언
@@ -72,5 +73,13 @@ mysql> SELECT @i;
 
 == PostgreSQL
 
-PostgreSQL은 PL/pgSQL이라고 불리는 SQL 언어를 제공합니다. 이름에서 알 수 있듯이 Oracle의 PL/SQL과 상당히 비슷합니다.
+PostgreSQL은 PL/pgSQL이라고 불리는 SQL 언어를 제공합니다. 이름에서 알 수 있듯이 Oracle의 PL/SQL과 상당히 비슷합니다. PL/pgSQL은 declare를 제공하지 않아, WITH 문을 사용하여 임시 테이블 형태로 변수를 만들어 사용할 수 있습니다.
 
+[source, sql]
+----
+WITH myvar (var1) AS (values(1))  
+
+SELECT var1 FROM myvar;  
+----
+
+link:./05_flow_control.adoc[다음: 흐름 제어]

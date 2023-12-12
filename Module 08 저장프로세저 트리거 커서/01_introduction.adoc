@@ -13,4 +13,4 @@
 3. 트리거
 4. 커서
 
-link:./02_sql_statememt.adoc[다음: SQL 구문]
+link:./02_psm.adoc[다음: Persistant Stored Module]
