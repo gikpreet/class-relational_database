@@ -318,4 +318,4 @@ image:./images/image08.png[]
 show tables;
 ----
 
-link:./04_variables.adoc[다음: 변수 사용]
+link:./04_introduction_psm.adoc[다음: Persistant Stored Module 소개]
