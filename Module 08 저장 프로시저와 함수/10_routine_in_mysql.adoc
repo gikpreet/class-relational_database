@@ -1,6 +1,6 @@
-= Lab 8-1: MS SQL Server에서 SQL 루틴 작성
+= Lab 8-1: MySQL 에서 SQL 루틴 작성
 
-이 연습에서는 Microsoft SQL Server에서 SQL 루틴을 작성하고 호출합니다. 이 연습에서는 아래와 같은 릴레이션 스키마를 가진 데이터베이스를 사용합니다. 
+이 연습에서는 MySQL에서 SQL 루틴을 작성하고 호출합니다. 이 연습에서는 아래와 같은 릴레이션 스키마를 가진 데이터베이스를 사용합니다. 
 
 _Users(UserNo:Integer, UserID:String, UserName:String, UserEmail:String, UserNickName:String) +
 Board(BoardNo:Integer, BoardName:String, Description:String, CreateDate:Date) +
@@ -8,17 +8,16 @@ Article(ArticlaNo:Integer, Title:String, Contents:String, WriteDate:Date, Update
 
 데이터베이스 생성 스크립트는 아래에서 다운로드 할 수 있습니다.
 
-https://github.com/gikpreet/class-relational_database/blob/main/Module%2008%20%EC%A0%80%EC%9E%A5%20%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80%EC%99%80%20%ED%95%A8%EC%88%98/code/Table_creation_MSSQL.sql
+https://github.com/gikpreet/class-relational_database/blob/main/Module%2008%20%EC%A0%80%EC%9E%A5%20%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80%EC%99%80%20%ED%95%A8%EC%88%98/code/Table_creation_MySQL.sql
 
 아래 절차에 따릅니다.
 
-1. SQL Server Management Studio(또는 실행 가능한 도구)를 실행하고 Module08 데이터베이스에 접속합니다.
+1. MySQL Workbench(또는 실행 가능한 도구)를 실행하고 Module08 데이터베이스에 접속합니다.
 2. 아래 명령을 실행하여 데이터베이스 연결 컨텍스트를 Module08 데이터베이스로 지정합니다.
 +
 [source, sql]
 ----
-USE Module08
-GO
+USE Module08;
 ----
 
 == 파라미터 없는 저장 프로시저 작성
@@ -27,20 +26,22 @@ GO
 +
 [source, sql]
 ----
-CREATE PROCEDURE GetBoard
-AS
+DELIMITER $$
+CREATE PROCEDURE GetBoard()
+BEGIN
 	SELECT
 		BoardNo, BoardName, Description, CreateDate
 	FROM
-		Board
-GO
+		Board;
+END $$
+DELIMITER ;
 ----
 +
 2. 아래 명령을 실행하여 작성한 저장 프로시저를 실행합니다.
 +
 [source, sql]
 ----
-EXEC GetBoard
+CALL GetBoard();
 ----
 
 == 입력 파라미터가 있는 저장 프로시저 작성
@@ -49,10 +50,11 @@ EXEC GetBoard
 +
 [source, sql]
 ----
-CREATE PROC GetArticle (
-	@no	int
+DELIMITER $$
+CREATE PROCEDURE GetArticle (
+	no	int
 )
-AS
+BEGIN
 SELECT
 	ArticleNo,
 	Title,
@@ -62,15 +64,16 @@ SELECT
 FROM
 	Article AS a INNER JOIN Board AS b ON a.BoardNo = b.BoardNo
 WHERE
-	ArticleNo = @no
-GO
+	ArticleNo = no;
+END $$
+DELIMITER ;
 ----
 +
 2. 아래 명령을 실행하여 작성한 저장 프로시저를 실행합니다.
 +
 [source, sql]
 ----
-EXEC GetArticle 1
+CALL GetArticle(1);
 ----
 
 == 사용자를 추가하는 저장 프로시저 작성
@@ -79,23 +82,14 @@ EXEC GetArticle 1
 +
 [source, sql]
 ----
-CREATE PROCEDURE AddUser
-	@userid	varchar(10),
-	@username varchar(10),
-	@useremail varchar(50),
-	@usernickname varchar(15)
-AS
-DECLARE @maxno int
-SELECT @maxno = MAX(UserNo) FROM Users
-INSERT INTO Users VALUES(@maxno + 1, @userid, @username, @useremail, @usernickname)
-GO
+
 ----
 +
 2. 아래 명령을 실행하여 사용자를 추가합니다.
 +
 [source, sql]
 ----
-EXEC AddUser 'young', '김영랑','young@naver.com', '모란꽃'
+CALL AddUser('young', '김영랑','young@naver.com', '모란꽃');
 ----
 
 == 가장 큰 UserNo를 return하는 함수 작성
@@ -104,20 +98,27 @@ EXEC AddUser 'young', '김영랑','young@naver.com', '모란꽃'
 +
 [source, sql]
 ----
+SET GLOBAL log_bin_trust_function_creators = 1;
+
+DELIMITER $$
 CREATE FUNCTION GetMaxUserNo()
 RETURNS int
-AS
 BEGIN
-	RETURN(SELECT max(UserNo) FROM Users)
-END
-GO
+	DECLARE maxno int;
+    SET maxno = 0;
+    SELECT MAX(UserNo) INTO maxno FROM Users;
+	RETURN maxno;
+END $$
+DELIMITER ;
+
+SET GLOBAL log_bin_trust_function_creators = 0;
 ----
 +
 2. 아래 SQL을 실행하여 작성한 함수를 실행하고 결과를 확인합니다.
 +
 [source, sql]
 ----
-SELECT dbo.GetMaxUserNo()
+SELECT GetMaxUserNo()
 ----
 
 == 저장 프로시저 수정
@@ -126,58 +127,66 @@ SELECT dbo.GetMaxUserNo()
 +
 [source, sql]
 ----
-ALTER PROCEDURE AddUser
-	@userid	varchar(10),
-	@username varchar(10),
-	@useremail varchar(50),
-	@usernickname varchar(15)
-AS
-INSERT INTO Users VALUES(dbo.GetMaxUserNo() + 1, @userid, @username, @useremail, @usernickname)
-GO
+DELIMITER $$
+DROP PROCEDURE IF EXISTS AddUser;
+CREATE PROCEDURE AddUser(
+	userid	varchar(10),
+	username varchar(10),
+	useremail varchar(50),
+	usernickname varchar(15)
+)
+BEGIN
+	INSERT INTO Users VALUES(GetMaxUserNo() + 1, userid, username, useremail, usernickname);
+END $$
+DELIMITER ;
 ----
 +
 2. 아래 명령을 실행하여 수정한 저장 프로시저의 동작을 확인합니다.
 +
 [source, sql]
 ----
-EXEC AddUser 'somonth', '김소월','somonth@daum.net', '소월'
+CALL AddUser('somonth', '김소월','somonth@daum.net', '소월');
 ----
 
 == 출력 파라미터를 사용하는 저장 프로시저 작성
 
-1. 아래 SQL을 실행하여 GetArticle 저장 프로시저가 출력 파라미터를 사용하도록 수정합니다.
+1. 아래 SQL을 실행하여 GetArticle 저장 프로시저를 삭제합니다.
 +
 [source, sql]
 ----
-ALTER PROCEDURE GetArticle
-	@ArticleNo	int,
-	@Title	varchar(300)	OUTPUT,
-	@Contents text	OUTPUT,
-	@WriterNickName varchar(15)	OUTPUT,
-	@WriteDate datetime OUTPUT
-AS
+DROP PROCEDURE GetArticle;
+----
++
+2. 아래 SQL을 실행하여 GetArticle 저장 프로시저가 출력 파라미터를 사용하도록 수정합니다.
++
+[source, sql]
+----
+DELIMITER $$
+CREATE PROCEDURE GetArticle(
+	IN m_ArticleNo	int,
+	OUT m_Title	varchar(300),
+	OUT m_Contents text,
+	OUT m_WriterNickName varchar(15),
+	OUT m_WriteDate datetime
+)
+BEGIN
 	SELECT
-		@Title = Title,
-		@Contents = Contents,
-		@WriterNickName = UserNickName,
-		@WriteDate = WriteDate
+		Title, Contents, UserNickName, WriteDate
+        INTO m_Title, m_Contents, m_WriterNickName, m_WriteDate
 	FROM
 		Article AS a INNER JOIN Users AS u ON a.WriterNo = u.UserNo
 	WHERE
-		ArticleNo = @ArticleNo
+		ArticleNo = m_ArticleNo;
+END $$
+DELIMITER ;
 ----
 +
-2. 아래 명령을 실행하여 수정한 출력 파라미터를 사용하는 저장 프로시저를 테스트합니다.
+3. 아래 명령을 실행하여 수정한 출력 파라미터를 사용하는 저장 프로시저를 테스트합니다.
 +
 [source, sql]
 ----
-DECLARE @ArticleNo	int = 2
-DECLARE @Title	varchar(300)
-DECLARE @Contents varchar(4000)
-DECLARE @WriterNickName varchar(15)
-DECLARE @WriteDate datetime
-EXEC GetArticle @ArticleNo, @Title OUTPUT, @Contents OUTPUT, @WriterNickName OUTPUT, @WriteDate OUTPUT
-SELECT @ArticleNo, @Title, @Contents, @WriterNickName, @WriteDate
+CALL GetArticle(1, @Title, @Contents, @Writer, @WriteDate);
+SELECT @Title, @Contents, @Writer, @WriteDate;
 ----
 
-link:./10_routine_in_mysql.adoc[다음: MySQL에서 SQL 루틴 작성]
+link:./10_routine_in_mysql.adoc[다음: PostgreSQL에서 SQL 루틴 작성]
