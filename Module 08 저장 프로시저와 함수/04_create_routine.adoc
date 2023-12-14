@@ -1,0 +1,192 @@
+SQL 루틴 생성
+
+* CREATE 문으로 생성
+* CREATE PROCEDURE 또는 CREATE FUNCTION등의 표준 SQL 사용
+* 파라미터 지정
+* RETURN 절
+* Body 작성
+
+---
+
+SQL 루틴을 생성할 때는 CREATE 문을 사용합니다. SQL 루틴은 루틴의 종류에 맞는 CREATE 문을 실행하여 작성됩니다. CREATE 문에서 파라미터와 body를 지정하며, body는 DBMS에서 제공하는 SQL 문을 사용할 수 있습니다. 
+
+== SQL 루틴 이름 지정
+SQL 99 표준에서 지정한 SQL 루틴을 지정하는 구문은 아래와 같습니다.
+
+[source, sql]
+----
+<Routine name> ::=
+[ <Schema name>. ] unqualified name |
+[ MODULE. ] unqualified name
+
+<specific name> ::=
+[ <Schema name>. ] unqualified name
+----
+
+<Routine name>과 <specific name>은 모두 identifier이며, <routine name>과 <specific name>은 SQL 루틴이 속한 스키마의 이름을 지정하고 명시적으로 지정하거나 또는 DBMS에서 기본 값을 제공할 수 있습니다.
+
+* <Routine name>이나 <specific name>이 CREATE SCHEMA를 사용하여 정규화되지 않은 경우 현재 속한 스키마를 기본 한정자로 사용합니다.
+
+스키마에서 둘 이상의 SQL 루틴이 동일한 <routine name>을 가질 수 있습니다. DBMS는 다음과 같이 호출되는 루틴을 결정합니다.
+
+* 프로시저와 함수는 별도의 SQL 문으로 생성되므로 동일한 <routine name>으로 식별되는 여러 루틴의 유형을 DBMS에서 고유하게 식별할 수 있습니다.
+* 스키마의 두 프로시저에는 동일한 수의 파라미터가 없는 경우에만 같은 <routine name>이 있을 수 있습니다. 따라서 DBMS는 동일한 <routine name>을 사용하는 각 프로시저의 파라미터를 확인하여 한 프로시저를 다른 프로시저와 구분할 수 있습니다.
+* 스키마의 두 함수에는 고유한 <specific name>이 있어야 합니다. 따라서 DBMS는 동일한 <routine name>을 가진 각 함수의 <specific name>을 확인하여 한 함수를 다른 함수와 고유하게 식별할 수 있습니다.
+
+다음은 <routine name>의 몇 가지 예입니다.
+
+[source, sql]
+----
+ROUTINE_1
+-- a <Routine name>
+
+SCHEMA_1.ROUTINE_1
+-- a simple qualified <Routine name>
+
+CATALOG_1.SCHEMA_1.ROUTINE_1
+-- a fully qualified <Routine name>
+
+MODULE.ROUTINE_1
+-- a local <Routine name>
+---- 
+
+다음은 <specific name>의 몇 가지 예입니다.
+
+[source, sql]
+----
+SPECIFIC_ROUTINE_1
+ -- a <specific name>
+
+SCHEMA_1.SPECIFIC_ROUTINE_1
+-- a simple qualified <specific name>
+
+CATALOG_1.SCHEMA_1.SPECIFIC_ROUTINE_1
+-- a fully qualified <specific name>
+----
+
+== SQL 파라미터 이름 지정
+
+SQL 루틴은 파라미터를 사용할 수 있습니다. SQL 파라미터 이름을 지정하는 SQL 99 구문은 다음과 같습니다.
+
+[source, sql]
+----
+<SQL parameter name> ::= <identifier>
+<SQL Parameter name>은 파라미터가 속한 루틴에서 고유한 identifier 또는 구분된 identifier 입니다. 
+----
+
+== CREATE PROCEDURE / FUNCTION 문
+
+명령문 CREATE PROCEDURE / FUNCTION은 새 SQL 프로시저 또는 함수의 이름을 지정하고 루틴의 SQL 파라미터, 특성 및 루틴 본문을 지정합니다. CREATE PROCEDURE/FUNCTION을 생성하는 SQL 99 구문은 다음과 같습니다.
+
+[source, sql]
+----
+{CREATE PROCEDURE | CREATE FUNCTION}
+<Routine name>                         	/* name of procedure or function */
+( [parameter [{,parameter}...])       /* parameter declaration list */
+[RETURNS <data type> <result cast>] 	/* for function only */
+                                       	/* <routine characteristics> start */
+[LANGUAGE {ADA|C|COBOL|FORTRAN|MUMPS|PASCAL|PLI|SQL}]  	/*language clause*/
+[PARAMETER STYLE {SQL|GENERAL}]                        		/* parameter style */
+[SPECIFIC <specific name>]
+[DETERMINISTIC|NOT DETERMINISTIC]           		/* deterministic characteristic */
+[NO SQL|CONTAINS SQL|READS SQL DATA|MODIFIES SQL DATA] 	/* access indication */
+[RETURN NULL ON NULL INPUT|CALL ON NULL INPUT]         	/* null-call clause */
+[DYNAMIC RESULT SETS unsigned integer                 	/* for procedure only */
+                                       			/* <routine characteristics> end */
+[STATIC DISPATCH]                                     	/* for function only */
+<routine body>
+----
+
+* CREATE <routine name> +
+SQL 루틴을 생성하려면 CREATE PROCEDURE 또는 CREATE FUNCTION 구문을 사용합니다. 이 구문은 저장 프로시저 또는 함수를 생성합니다. 프로시저는 return 값이 없이 절차만을 실행하는 루틴이며, 함수는 값을 반환하는 루틴입니다. 
+* 파라미터 선언 리스트 +
+루틴의 파라미터 선언 리스트는 [IN | OUT | INOUT] 과 <parameter name> <type name> 형식을 가지는 쉼표( , )로 구분된 선언 시퀀스입니다. 다른 언어에서와 마찬가지로 파라미터는 값이나 주소를 전달하는 것이며, <parameter name>은 해당 파라미터가 속한 루틴에서 고유해야 합니다. 
+* RETURN +
+RETURN 절은 RETURN <data type> <result cast> 형식이며, 선언하는 SQL 루틴이 FUNCTION인 경우 필수입니다.
+Microsoft SQL Server에서 Aircraft 테이블의 모든 데이터를 가져오는 SQL 프로시저는 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+CREATE PROCEDURE GetAircraft
+AS
+	SELECT * FROM Aircraft
+---- 
+
+Aircraft 테이블의 투플 수를 반환하는 SQL 함수는 아래와 같이 작성할 수 있습니다.
+
+[source, sql]
+----
+CREATE FUNCTION GetAircraftCount()
+RETURNS int
+AS
+BEGIN
+	RETURN(SELECT COUNT(*) FROM Aircraft)
+END
+----
+
+SQL 루틴 CREATE 구문의 전체 버전은 아래와 같습니다.
+
+[source, sql]
+----
+CREATE PROCEDURE <Routine name>
+<SQL parameter declaration list>
+<routine characteristics>
+<routine body>
+
+CREATE {<function specification> | <method specification>}
+<routine body>
+
+   <function specification> ::=
+   FUNCTION <Routine name>
+   <SQL parameter declaration list>
+   <returns clause>
+   <routine characteristics>
+   STATIC DISPATCH
+
+   <method specification> ::=
+   <partial method signature> FOR <UDT name>
+   [ SPECIFIC <specific name> ]
+
+   <SQL parameter declaration list> ::=
+   ([ <parameter declaration> [ {,<parameter declaration>}... ] ])
+
+      <parameter declaration> ::=
+      [ {IN | OUT | INOUT} ]
+      [ <SQL parameter name> ]
+      <data type> [ AS LOCATOR ]
+      [ RESULT ]
+
+   <routine characteristics> ::=
+   [ <routine characteristic>... ]
+
+      <routine characteristic> ::=
+      LANGUAGE {ADA | C | COBOL | FORTRAN | MUMPS | PASCAL | PLI | SQL} |
+      PARAMETER STYLE {SQL | GENERAL} |
+      SPECIFIC <specific name> |
+      {DETERMINISTIC | NOT DETERMINISTIC} |
+      <SQL-data access indication> |
+      {RETURN NULL ON NULL INPUT | CALL ON NULL INPUT) |
+      DYNAMIC RESULT SETS unsigned integer
+
+         <SQL-data access indication> ::=
+         NO SQL |
+         CONTAINS SQL |
+         READS SQL DATA |
+         MODIFIES SQL DATA
+
+      <returns clause> ::=
+      RETURNS <data type> [ AS LOCATOR ]
+      [ CAST FROM <data type> [ AS LOCATOR ] ]
+
+   <routine body> ::=
+   <SQL routine body> |
+   <external body reference>
+
+      <SQL routine body> ::= SQL procedure statement
+
+      <external body reference> ::=
+      EXTERNAL [ NAME <external routine name> ]
+      [ PARAMETER STYLE {SQL | GENERAL} ]
+      [ TRANSFORM GROUP <group name> ]
+      [ WITH {HOLD | RELEASE} ]
+----

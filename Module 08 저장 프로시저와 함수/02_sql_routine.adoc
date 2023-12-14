@@ -1,0 +1,14 @@
+= SQL 루틴
+
+SQL 루틴은 SQL 절차 언어를 포함하여 SQL statement 만으로만 로직이 구현되어 있는 루틴을 말합니다. SQL 루틴은 스키마에 포함될 수 있으며, SQL 루틴은 표준 SQL을 사용하여 다른 데이터베이스 개체와 마찬가지로 생성, 삭제, 수정될 수 있으며, SQL 프로시저, SQL 함수 및 메소드를 작성할 수 있습니다. 이 단원에서는 SQL 루틴에 대해 알아봅니다. 
+
+== Table of Contents
+
+1. SQL 루틴 개요
+2. SQL 루틴 생성
+3. SQL 루틴 파라미터
+4. 루틴 호출
+5. RETURN
+6. 루틴 수정
+
+link:./03_introduction_routine.adoc[다음: SQL 루틴 개요]
