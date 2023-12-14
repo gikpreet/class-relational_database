@@ -1,0 +1,40 @@
+= SQL 루틴 수정과 삭제
+
+* ALTER 문을 사용하여 SQL 루틴 수정
+** DBMS에 따라 ALTER를 허용하지 않는 경우가 있음
+* DROP 문을 사용하여 SQL 루틴 삭제
+
+---
+
+ALTER 문을 사용하여 SQL 루틴을 수정하고, DROP 문을 사용하여 SQL 루틴을 삭제할 수 있습니다. SQL-99 표준은 아래와 같습니다.
+
+[source, sql]
+----
+ALTER <specific routine designator> <routine characteristics> {CASCADE | RESTRICT}
+
+    <specific routine designator> ::=
+    ROUTINE <Routine name> [ <data type>s ] |
+    PROCEDURE <Routine name> [ <data type>s ] |
+    FUNCTION <Routine name> [ <data type>s ] |
+    [ INSTANCE | STATIC ] METHOD <Routine name> [ <data type>s ] |
+    SPECIFIC ROUTINE <Routine name> <specific name> |
+    SPECIFIC PROCEDURE <Routine name> <specific name> |
+    SPECIFIC FUNCTION <Routine name> <specific name>
+    <data type>s ::=
+    ([ <data type> [ {,<data type>} . . . ] ])
+----
+
+SQL-99 표준에서는 SQL 루틴의 body를 변경할 수 없습니다. 많은 데이터베이스 관리 시스템에서 SQL 루틴에 대한 ALTER를 허용하지 않는 경우가 많으며, DBMS에 따라 CREATE OR REPLACE 문을 사용하여 ALTER를 대체할 수 있도록 구현합니다.
+
+SQL 루틴의 삭제는 DROP 문으로 할 수 있습니다. SQL-99에서 정의한 SQL 루틴의 DROP은 다음과 같습니다.
+
+[source, sql]
+----
+DROP <specific routine designator> {RESTRICT | CASCADE}
+
+   <specific routine designator> ::=
+   {ROUTINE | FUNCTION | PROCEDURE} <Routine name>
+      [ ([ <data type> [ {,<data type>}... ] ]) ]
+----
+
+link:./09_routine_in_mysql.adoc[다음: Lab 8-1 MySQL에서 SQL 루틴 작성]

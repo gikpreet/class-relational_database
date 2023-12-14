@@ -1,0 +1,111 @@
+= 파라미터 선언
+
+* SQL 99 표준에서, 파라미터 선언은 괄호안에 쉼표로 구분하여 선언
+[source, sql]
+----
+<parameter declaration> ::=
+[ {IN | OUT | INOUT} ]                       /* parameter mode */
+[ <SQL parameter name> ]
+<data type> [ AS LOCATOR ]
+[ RESULT ]
+----
+* 입력, 출력, 입/출력 모드를 지정할 수 있음
+
+---
+
+루틴의 파라미터는 목록으로 선언되며, 괄호 안에 쉼표로 구분하여 선언합니다. 프로시저와 함수에서 파라미터 선언을 위한 SQL-99 표준은 아래와 같습니다.
+
+[source, sql]
+----
+<parameter declaration> ::=
+[ {IN | OUT | INOUT} ]                       /* parameter mode */
+[ <SQL parameter name> ]
+<data type> [ AS LOCATOR ]
+[ RESULT ]
+----
+
+== Parameter mode
+
+파라미터에 지정할 수 있는 `[ IN | OUT | INOUT ]` 모드는 `CREATE PROCEDURE` 에서만 사용할 수 있으며, 파라미터의 입력, 출력 용도를 지정합니다. 이는 파라미터의 방향 지정에 해당하며, 지정하지 않을 경우 기본값은 `IN` 으로 지정됩니다.
+
+== 데이터 타입
+
+파라미터의 타입은 항상 SQL 데이터 타입이며 모든 파라미터에 대해 정의되어야 합니다.
+
+== MySQL 예제
+
+MySQL에서 파라미터를 사용하는 저장 프로시저의 예는 아래와 같습니다. getAircraft 저장 프로시저는 파라미터에 지정된  
+
+[source, sql]
+----
+DELIMITER $$
+CREATE PROCEDURE getAircraft 
+(
+	m_aircraftno	int
+)
+BEGIN
+	SELECT * 
+	FROM aircraft
+	WHERE 
+		AircraftNo = m_aircraftno;
+END $$
+DELIMITER ;
+----
+
+== MSSQL 예제
+
+MS-SQL Server에서 파라미터를 사용하는 저장 프로시저의 예는 아래와 같습니다.
+
+[source, sql]
+----
+CREATE PROC GetAircraft (
+	@id	int
+)
+AS
+	SELECT * 
+	FROM Aircraft 
+	WHERE 
+		AircraftNo = @id
+----
+
+
+
+PostgreSQL에서 파라미터를 사용하는 함수의 예는 아래와 같습니다.
+
+[source, sql]
+----
+create or replace function getAircraft (
+	id int
+)
+returns setof aircraft
+language plpgsql
+as $$
+begin
+	return query
+	select *
+	from Aircraft
+	where aircraftNo = id;
+end;
+$$
+----
+
+Oracle에서 파라미터를 사용하는 저장 프로시저의 예는 아래와 같습니다.
+
+[source, sql]
+----
+CREATE or REPLACE PROCEDURE getEmployee (
+	id EMPLOYEES.EMPLOYEE_ID%type
+)
+IS
+	employee_row EMPLOYEES%ROWTYPE;
+	v_result varchar2(2000);
+BEGIN
+	SELECT * INTO employee_row
+	FROM EMPLOYEES
+	WHERE EMPLOYEE_ID = id;
+	v_result := employee_row.EMPLOYEE_ID || ' ' || employee_row.FIRST_NAME || ' ' || employee_row.LAST_NAME;
+	dbms_output.put_line(v_result);
+END;
+----
+
+link:./06_call_routine.adoc[다음: 루틴 호출]

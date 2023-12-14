@@ -1,0 +1,64 @@
+= 루틴 호출
+
+* 생성한 루틴을 호출하여 사용
+** 프로시저의 호출은 CALL 또는 EXECUTE(EXEC) 문을 사용(SQL 99 표준은 CALL)
++
+[source, sql]
+----
+CALL <Routine name> <SQL argument list>
+
+   <SQL argument list> ::=
+   ([ <SQL argument> [ {,<SQL argument>}... ] ])
+
+      <SQL argument> ::=
+      scalar_expression_argument |
+      <host parameter name> [ [ INDICATOR ] <host parameter name> ] |
+----
++
+** 함수 호출은 다른 프로그래밍 언어에서의 호출과 동일한 방법을 사용
++
+[source, sql]
+----
+<Routine name> <SQL argument list>
+
+   <SQL argument list> ::=
+   ([ <SQL argument> [ {,<SQL argument>}... ] ])
+
+      <SQL argument> ::=
+      scalar_expression_argument |
+      scalar_expression_argument AS <UDT name>
+----
+
+---
+
+생성한 루틴은 호출하여 사용할 수 있습니다. 프로시저와 함수의 호출 방법은 다릅니다. 프로시저의 호출은 `CALL` 문 또는 `EXECUTE(EXEC)` 문을 사용하며, 함수의 호출은 다른 프로그래밍 언어에서의 호출과 같이 일상적인 호출(routine invocation)을 사용합니다.
+
+CALL 문을 사용한 프로시저의 호출에 대한 SQL-99 표준은 다음과 같습니다.
+
+[source, sql]
+----
+CALL <Routine name> <SQL argument list>
+
+   <SQL argument list> ::=
+   ([ <SQL argument> [ {,<SQL argument>}... ] ])
+
+      <SQL argument> ::=
+      scalar_expression_argument |
+      <host parameter name> [ [ INDICATOR ] <host parameter name> ] |
+----
+
+MySQL에서 생성한 getAircraft 프로시저의 호출은 아래와 같이 호출할 수 있습니다.
+
+[source, sql]
+----
+CALL GetAircraft(101);
+----
+
+Microsoft SQL Server에서 생성한 MyPi 함수의 호출은 아래와 같이 호출할 수 있습니다.
+
+[source, sql]
+----
+SELECT MyPi()
+----
+
+link:./07_return.adoc[다음: RETURN]

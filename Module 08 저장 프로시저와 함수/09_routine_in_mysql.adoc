@@ -1,0 +1,16 @@
+= Lab 8-1: MySQL에서 SQL 루틴 작성
+
+이 연습에서는 MySQL에서 SQL 루틴을 작성하고 호출합니다. 이 연습에서는 아래와 같은 릴레이션 스키마를 가진 데이터베이스를 사용합니다. 
+
+_Users(UserNo:Integer, UserID:String, UserName:String, UserEmail:String, UserNickName:String) +
+Board(BoardNo:Integer, BoardName:String, Description:String, CreateDate:Date) +
+Article(ArticlaNo:Integer, Title:String, Contents:String, WriteDate:Date, UpdateDate:Date)_
+
+데이터베이스 생성 스크립트는 아래에서 다운로드 할 수 있습니다.
+
+https://github.com/gikpreet/class-relational_database/blob/main/Module%2006%20SQL/code/Table%20Creation_mysql.sql
+
+아래 절차에 따릅니다.
+
+1. MySQL Workbench를 실행하고 Module06 데이터베이스에 접속합니다.
+2. 

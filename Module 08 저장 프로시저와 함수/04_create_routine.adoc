@@ -1,10 +1,23 @@
 = SQL 루틴 생성
 
-* CREATE 문으로 생성
-* CREATE PROCEDURE 또는 CREATE FUNCTION등의 표준 SQL 사용
-* 파라미터 지정
-* RETURN 절
-* Body 작성
+[source, sql]
+----
+{CREATE PROCEDURE | CREATE FUNCTION}
+<Routine name>                         	/* name of procedure or function */
+( [parameter [{,parameter}...])           /* parameter declaration list */
+[RETURNS <data type> <result cast>] 	   /* for function only */
+                                       	/* <routine characteristics> start */
+[LANGUAGE {ADA|C|COBOL|FORTRAN|MUMPS|PASCAL|PLI|SQL}]    /*language clause*/
+[PARAMETER STYLE {SQL|GENERAL}]                        	/* parameter style */
+[SPECIFIC <specific name>]
+[DETERMINISTIC|NOT DETERMINISTIC]           		         /* deterministic characteristic */
+[NO SQL|CONTAINS SQL|READS SQL DATA|MODIFIES SQL DATA] 	/* access indication */
+[RETURN NULL ON NULL INPUT|CALL ON NULL INPUT]         	/* null-call clause */
+[DYNAMIC RESULT SETS unsigned integer                 	/* for procedure only */
+                                       			         /* <routine characteristics> end */
+[STATIC DISPATCH]                                     	/* for function only */
+<routine body>
+----
 
 ---
 
@@ -48,7 +61,7 @@ CATALOG_1.SCHEMA_1.ROUTINE_1
 
 MODULE.ROUTINE_1
 -- a local <Routine name>
----- 
+----
 
 다음은 <specific name>의 몇 가지 예입니다.
 

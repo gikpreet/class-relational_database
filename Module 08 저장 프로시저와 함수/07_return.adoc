@@ -1,0 +1,23 @@
+= RETURN 문
+
+* 함수에서 값을 return
+* SQL 함수의 실행을 종료하고 함수의 결과를 반환
+* return 값은 <value expresssion> 이거나 NULL 일 수 있음
+
+[source, sql]
+----
+RETURN <value expression> | NULL
+----
+
+---
+
+SQL 루틴에서 함수는 반드시 값을 반환해야 합니다. 값을 반환하기 위해 RETURN 문을 사용합니다. SQL-99 표준 구문은 아래와 같습니다.
+
+[source, sql]
+----
+RETURN <value expression> | NULL
+----
+
+RETURN 문은 SQL 함수의 실행을 종료하고 함수의 결과를 즉시 return 합니다. return 되는 값은 <value expression>이거나, return 되는 결과가 null일 경우 키워드 NULL을 사용합니다.
+
+link:./08_modify_routine.adoc[다음: SQL 루틴 수정]
