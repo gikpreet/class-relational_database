@@ -1,4 +1,4 @@
-SQL 루틴 생성
+= SQL 루틴 생성
 
 * CREATE 문으로 생성
 * CREATE PROCEDURE 또는 CREATE FUNCTION등의 표준 SQL 사용
@@ -23,8 +23,8 @@ SQL 99 표준에서 지정한 SQL 루틴을 지정하는 구문은 아래와 같
 [ <Schema name>. ] unqualified name
 ----
 
-<Routine name>과 <specific name>은 모두 identifier이며, <routine name>과 <specific name>은 SQL 루틴이 속한 스키마의 이름을 지정하고 명시적으로 지정하거나 또는 DBMS에서 기본 값을 제공할 수 있습니다.
-
+<Routine name>과 <specific name>은 모두 identifier이며, <routine name>과 <specific name>은 SQL 루틴이 속한 스키마의 이름을 지정하고 명시적으로 지정하거나 또는 DBMS에서 기본 값을 제공할 수 있습니다.b
+g
 * <Routine name>이나 <specific name>이 CREATE SCHEMA를 사용하여 정규화되지 않은 경우 현재 속한 스키마를 기본 한정자로 사용합니다.
 
 스키마에서 둘 이상의 SQL 루틴이 동일한 <routine name>을 가질 수 있습니다. DBMS는 다음과 같이 호출되는 루틴을 결정합니다.
@@ -190,3 +190,5 @@ CREATE {<function specification> | <method specification>}
       [ TRANSFORM GROUP <group name> ]
       [ WITH {HOLD | RELEASE} ]
 ----
+
+link:./05_parameter.adoc[다음: 파라미터 지정]
