@@ -37,4 +37,4 @@ DROP <specific routine designator> {RESTRICT | CASCADE}
       [ ([ <data type> [ {,<data type>}... ] ]) ]
 ----
 
-link:./09_routine_in_mysql.adoc[다음: Lab 8-1 MySQL에서 SQL 루틴 작성]
+link:./09_routine_in_mysql.adoc[다음: Lab 8-1 MS SQL Server에서 SQL 루틴 작성]
