@@ -8,9 +8,16 @@ Article(ArticlaNo:Integer, Title:String, Contents:String, WriteDate:Date, Update
 
 데이터베이스 생성 스크립트는 아래에서 다운로드 할 수 있습니다.
 
-https://github.com/gikpreet/class-relational_database/blob/main/Module%2008%20%EC%A0%80%EC%9E%A5%20%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80%EC%99%80%20%ED%95%A8%EC%88%98/code/Table_createion_MySQL.sql
+https://github.com/gikpreet/class-relational_database/blob/main/Module%2008%20%EC%A0%80%EC%9E%A5%20%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80%EC%99%80%20%ED%95%A8%EC%88%98/code/Table_creation_MSSQL.sql
 
 아래 절차에 따릅니다.
 
 1. SQL Server Management Studio(또는 실행 가능한 도구)를 실행하고 Module08 데이터베이스에 접속합니다.
-2. 
+2. 아래 명령을 실행하여 데이터베이스 연결 컨텍스트를 Module12 데이터베이스로 지정합니다.
++
+[source, sql]
+----
+USE Module12
+GO
+----
++
