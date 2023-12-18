@@ -31,7 +31,7 @@ $ sudo systemctl status mysql
 6. 아래 명령을 실행하여 mysql 보안 설정을 시작합니다.
 +
 ----
-$ sudo mysql_sequre_installation
+$ sudo mysql_secure_installation
 ----
 7. 첫 번째 질문에서, No를 입력하고 Enter 키를 누릅니다.
 +
