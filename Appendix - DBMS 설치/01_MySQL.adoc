@@ -119,3 +119,17 @@ mysql> exit
 ----
 $ sudo systemctl enable mysql
 ----
+
+== Ubuntu에서 MySQL Workbench 설치
+
+여기에서는 MySQL GUI 도구인 MySQL Workbench를 설치합니다. 아래 절차에 따릅니다.
+
+1. 아래 명령을 실행하여 MySQL Workbench를 설치합니다.
++
+----
+$ sudo snap install mysql-workbench-community
+----
+2. Applications 메뉴에서 MySQL Workbench를 검색하여 실행합니다.
++
+image:./images/image01.png[]
++
