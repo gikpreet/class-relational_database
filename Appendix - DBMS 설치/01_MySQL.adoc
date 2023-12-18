@@ -108,3 +108,14 @@ Enter password:
 ----
 mysql> alter user 'root'@'localhost' identified with mysql_native_password by 'new_password_you_want';
 ----
+14. 다음 명령을 입력하여 mysql 접속을 해제하고 빠져나옵니다.
++
+----
+mysql> exit
+----
++
+15. 다음 명령을 실행하여 시스템 재 시작시에도 mysql이 시작되도록 설정합니다.
++
+----
+$ sudo systemctl enable mysql
+----
