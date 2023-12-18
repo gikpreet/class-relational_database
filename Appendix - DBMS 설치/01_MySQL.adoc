@@ -13,7 +13,7 @@ $ sudo apt update
 3. 아래 명령을 실행하여 MySQL Server를 설치합니다.
 +
 ----
-$ sudo apt update mysql-Server
+$ sudo apt install mysql-Server
 ----
 4. 아래 명령을 실행하여 mysql 버전을 체크합니다.
 +
