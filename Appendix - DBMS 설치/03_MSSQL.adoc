@@ -128,6 +128,21 @@ $ sudo systemctl status mssql-server
 ----
 $ /opt/mssql-tools18/bin/sqlcmd -U sa -C
 ----
++
+8. 아래 질의를 실행하여 Microsoft SQL Server의 데이터베이스를 확인합니다.
++
+----
+[source, sql]
+SELECT * FROM Sys.databases
+GO
+----
++
+9. 아래 명령을 실행하여 sqlcmd 도구를 종료합니다.
++
+----
+exit
+----
+
 
 === Azure Data Studio 설치
 
