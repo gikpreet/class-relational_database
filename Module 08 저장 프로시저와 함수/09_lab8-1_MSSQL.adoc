@@ -180,4 +180,4 @@ EXEC GetArticle @ArticleNo, @Title OUTPUT, @Contents OUTPUT, @WriterNickName OUT
 SELECT @ArticleNo, @Title, @Contents, @WriterNickName, @WriteDate
 ----
 
-link:./10_routine_in_mysql.adoc[다음: MySQL에서 SQL 루틴 작성]
+link:./10_lab8-2_mysql.adoc[다음: MySQL에서 SQL 루틴 작성]

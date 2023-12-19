@@ -12,16 +12,16 @@
 ----
 $ sudo apt update
 ----
-3. 아래 명령을 실행하여 공용 리포지토리 GPG 키를 가져옵니다.
+3. 공개키를 다운로드하고, ASCII에서 GPG 형식으로 변환하고 필요한 위치에 씁니다.
 +
 ----
-$ curl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
+$ curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg 
 ----
 +
 4. 아래 명령을 실행하여 SQL Server 리포지토리를 등록합니다.
 +
 ----
-$ sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/20.04/mssql-server-2022.list)"
+$ curl -fsSL https://packages.microsoft.com/config/ubuntu/22.04/mssql-server-2022.list | sudo tee /etc/apt/sources.list.d/mssql-server-2022.list
 ----
 5. 아래 명령을 실행하여 apt를 다시 업데이트합니다.
 +
@@ -85,7 +85,7 @@ Do you accept the license terms? [Yes, No]: Yes
 ----
 +
 10. 아래 지시에서, SA 계정에 대한 암호를 입력합니다. +
-_참고: SA 계정에 대해 강력한 암호를 지정해야 합니다. 대문자와 소문자, 0~9의 숫자 및 / 또는 영 숫자가 아닌 기호를 포함하여 최소 길이 8자가 필요합니다._
+_**참고: SA 계정에 대해 강력한 암호를 지정해야 합니다. 대문자와 소문자, 0~9의 숫자 및 / 또는 영 숫자가 아닌 기호를 포함하여 최소 길이 8자가 필요합니다.**_
 +
 ----
 Enter the SQL Server system administrator password: P@ssw0rd
@@ -131,8 +131,8 @@ $ /opt/mssql-tools18/bin/sqlcmd -U sa -C
 +
 8. 아래 질의를 실행하여 Microsoft SQL Server의 데이터베이스를 확인합니다.
 +
-----
 [source, sql]
+----
 SELECT * FROM Sys.databases
 GO
 ----
