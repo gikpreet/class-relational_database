@@ -145,7 +145,7 @@ ERROR 1062 (23000): Duplicate entry '1' for key 'Product.PRIMARY'
 +
 [source, sql]
 ----
-INSERT INTO Product VALUES (1, 'The Two Towers', 25000, 'Book of Legend', 1);
+INSERT INTO Product VALUES (2, 'The Two Towers', 25000, 'Book of Legend', 1);
 ----
 질의가 성공적으로 수행되면, 메시지는 아래와 같습니다.
 +

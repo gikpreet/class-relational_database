@@ -269,7 +269,7 @@ CREATE TABLE Orders (
 	OrderNo int,
      OrderDate Date, 
      CustomerNo int,
-    
+     
      CONSTRAINT pk_Order PRIMARY KEY(OrderNo),
      CONSTRAINT fk_Order_Customer FOREIGN KEY(CustomerNo) REFERENCES Customer(CustomerNo)
 );
