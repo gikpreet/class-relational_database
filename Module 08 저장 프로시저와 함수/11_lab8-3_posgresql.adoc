@@ -1,0 +1,23 @@
+= Lab 8-3 PostgreSQL에서 SQL 루틴 작성
+
+이 연습에서는 PostgreSQL에서 SQL 루틴을 작성하고 호출합니다. 이 연습에서는 아래 릴레이션과 같은 스키마를 가진 데이터베이스를 사용합니다.
+
+_Users(UserNo:Integer, UserID:String, UserName:String, UserEmail:String, UserNickName:String) +
+Board(BoardNo:Integer, BoardName:String, Description:String, CreateDate:Date) +
+Article(ArticlaNo:Integer, Title:String, Contents:String, WriteDate:Date, UpdateDate:Date)_
+
+데이터베이스 생성 스크립트는 아래에서 다운로드 할 수 있습니다.
+
+https://github.com/gikpreet/class-relational_database/blob/main/Module%2008%20%EC%A0%80%EC%9E%A5%20%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80%EC%99%80%20%ED%95%A8%EC%88%98/code/Table_creation_postgres.sql
+
+아래 절차에 따릅니다.
+
+1. pgAdmin(또는 PostgreSQL에 접근하여 실행 가능한 도구)를 실행하고 Module08 데이터베이스 접속합니다.
+
+== 파라미터 없는 프로시저 작성
+
+1. 아래 SQL을 실행하여 Board 테이블의 모든 데이터를 조회하는 함수를 작성합니다.
+
+_**참고** - PostgreSQL은 저장 프로시저에서 Relation을 반환하는 메커니즘을 제공하지 않습니다._
+
+
