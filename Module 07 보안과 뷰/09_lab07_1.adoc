@@ -20,6 +20,7 @@ mysql> SELECT host, user FROM mysql.User;
 ----
 +
 3.	아래 명령을 수행하여 Michael이라는 사용자를 생성합니다. Michael 사용자의 패스워드는 ‘P@ssw0rd’로 지정합니다.
++
 ----
 mysql> CREATE USER Michael IDENTIFIED BY 'P@ssword'
 ----
@@ -51,6 +52,7 @@ mysql> SELECT host, user FROM mysql.User;
 +
 3.	터미널 1에서, 아래 명령을 실행하여 접속 가능한 데이터베이스를 확인합니다.+
 결과는 아래와 유사할 것입니다.
++
 ----
 mysql> show databases;
 +-------------------------+
@@ -67,9 +69,10 @@ mysql> show databases;
 | sys                     |
 +-------------------------+
 ----
-4.	터미널 2에서, 아래 명령을 실행하여 접속 가능한 데이터베이스를 확인합니다.
-결과는 아래와 같을 것입니다.
 +
+4.	터미널 2에서, 아래 명령을 실행하여 접속 가능한 데이터베이스를 확인합니다. 결과는 아래와 같을 것입니다.
++
+----
 mysql> show databases;
 +-------------------------+
 | Database                |
@@ -77,6 +80,7 @@ mysql> show databases;
 | information_schema      |
 | performance_schema      |
 +-------------------------+
+----
 
 == Michael 사용자에게 특권 부여
 
