@@ -175,7 +175,7 @@ mysql> show grants for Michael;
 +-------------------------------------------------------------------+
 ----
 +
-2.	터미널 1에서, 아래 질의를 수행하여 Michael 사용자의 Aircraft 테이블에 대한 SEELECT 특권을 제거합니다.
+2.	터미널 1에서, 아래 질의를 수행하여 Michael 사용자의 Aircraft 테이블에 대한 SELECT 특권을 제거합니다.
 +
 ----
 mysql> REVOKE SELECT ON Module06.Aircraft FROM Michael;
@@ -188,7 +188,7 @@ mysql> SELECT * FROM Module06.Aircraft;
 ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for table 'aircraft'
 ----
 +
-질의는 수행되지 않습니다. Michael 사용자는 Flight 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
+질의는 수행되지 않습니다. Michael 사용자는 Aircraft 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
 +
 4.	터미널 1에서, 아래 질의를 수행하여 Michael 사용자에게 Module06 데이터베이스의 모든 개체에 대해 모든 특권을 부여합니다.
 +
@@ -221,6 +221,7 @@ mysql> REVOKE ALL privileges ON Module06.* FROM Michael;
 ----
 +
 7.	터미널 2에서, 아래 질의를 수행하여 Flight 테이블의 모든 데이터를 읽습니다.
++
 ----
 mysql> SELECT * FROM Module06.Flight;
 ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for table 'flight'

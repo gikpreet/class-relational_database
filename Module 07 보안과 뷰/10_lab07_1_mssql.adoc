@@ -38,6 +38,140 @@ image:./images/image01.png[]
 3. Michael로 로그인한 두 번째 도구에서, Server Explorer에서 각 데이터베이스를 확장하여 권한을 확인합니다.
 +
 image:./images/image02.png[]
+
+== Michael 사용자에게 특권 부여
+
+1. sa로 로그인 한 첫 번째 도구에서, 아래 질의를 수행하여 Michael 사용자에게 Module06 테이블의 Passenger 테이블에 대한 SELECT 특권을 부여합니다.
 +
+[source, sql]
+----
+GRANT SELECT ON Module06.dbo.Passenger TO Michael
+----
+2. Michael로 로그인 한 두 번째 도구에서, Server Explorer에서 Module06 데이터베이스를 확장하여 Module06 데이터베이스에서 접근 가능한 테이블을 확인합니다.
++
+image:./images/image03.png[]
++
+3. 두 번째 도구에서, Module06 데이터베이스에서 새 쿼리창을 실행하여 아래 질의를 수행하여 Module06 데이터베이스의 Passenger 테이블의 모든 데이터를 읽습니다.
++
+[source, sql]
+----
+SELECT * FROM Passenger
+----
++
+4. 두 번째 도구에서, 아래 질의를 수행합니다.
++
+[source, sql]
+----
+SELECT * FROM Passenger INNER JOIN Reservation ON Passenger.PassengerNo = Reservation.PassengerNo 
+----
++
+질의는 수행되지 않습니다. Michael 사용자는 Reservation 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
+----
+12:58:59 PMStarted executing query at Line 1
+Msg 229, Level 14, State 5, Line 1
+The SELECT permission was denied on the object 'Reservation', database 'Module06', schema 'dbo'.
+Total execution time: 00:00:00.016
+----
++
+6. sa로 로그인한 첫 번째 도구에서, 아래 질의를 수행하여 Michael 사용자에게 Reservation 테이블의 PassengerNo 컬럼에 대한 SELECT 특권을 허여합니다.
++
+[source, sql]
+----
+GRANT SELECT(PassengerNo) ON Module06.dbo.Reservation TO Michael;
+----
++
+7. Michael로 로그인 한 두 번째 도구에서, 아래 질의를 수행하여 Reservation 테이블의 PassengerNo 컬럼을 읽습니다.
++
+[source, sql]
+----
+SELECT PassengerNo FROM Reservation
+----
++
+8. Michael로 로그인 한 두 번째 도구에서, 아래 질의를 수행하여 Reservation 테이블의 모든 컬럼을 읽습니다.
++
+[source, sql]
+----
+SELECT * FROM Reservation
+----
++
+질의는 수행되지 않습니다. Michael 사용자는 Reservation 테이블의 PassengerNo 컬럼을 제외한 컬럼에 대한 SELECT 특권을 가지고 있지 않습니다.
++
+----
+PMStarted executing query at Line 1
+Msg 230, Level 14, State 1, Line 1
+The SELECT permission was denied on the column 'ReservedDate' of the object 'Reservation', database 'Module06', schema 'dbo'.
+Msg 230, Level 14, State 1, Line 1
+The SELECT permission was denied on the column 'FlightNo' of the object 'Reservation', database 'Module06', schema 'dbo'.
+Total execution time: 00:00:00.002
+----
 
+== Michael 사용자에게서 특권 제거
 
+1. sa로 로그인 한 첫 번째 도구에서, 아래 질의를 수행하여 Michael 사용자에게 부여된 특권을 확인합니다.
++
+[source, sql]
+----
+SELECT pr.type_desc,
+    pr.name,
+    ISNULL(pe.state_desc, 'No permission statements') AS state_desc,
+    ISNULL(pe.permission_name, 'No permission statements') AS permission_name
+FROM sys.database_principals AS pr
+LEFT JOIN sys.database_permissions AS pe
+    ON pr.principal_id = pe.grantee_principal_id
+WHERE pr.is_fixed_role = 0 AND pr.name = 'Michael'
+ORDER BY pr.name,
+    type_desc;
+----
++
+2. sa로 로그인 한 첫 번째 도구에서, 아래 질의를 수행하여 Michael 사용자의 Passenger 테이블에 대한 SELECT 특권을 제거합니다.
++
+[source, sql]
+----
+REVOKE SELECT ON Module06.dbo.Passenger FROM Michael
+----
++
+3. Michael로 로그인 한 두 번째 도구에서, 아래 질의를 수행합니다.
++
+[source, sql]
+----
+SELECT * FROM Passenger
+----
++
+질의는 수행되지 않습니다. Michael 사용자는 Passenger 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
++
+----
+Started executing query at Line 1
+Msg 229, Level 14, State 5, Line 1
+The SELECT permission was denied on the object 'Passenger', database 'Module06', schema 'dbo'.
+Total execution time: 00:00:00.010
+----
++
+4. sa로 로그인 한 첫 번째 도구에서, 아래 질의를 수행하여 Michael 사용자에게 Module06 데이터베이스의 dbo 스키마의 모든 개체에 대해 SELECT 권한을 허여합니다.
++
+[source, sql]
+----
+GRANT SELECT ON SCHEMA::dbo TO Michael;
+----
++
+5. Michael로 로그인 한 두 번째 도구에서, 아래 질의를 수행합니다.
++
+[source, sql]
+----
+SELECT * FROM Aircraft
+----
++
+6. sa로 로그인 한 첫 번째 도구에서, 아래 질의를 수행하여 Michael 사용자에게 Module06 데이터베이스의 dbo 스키마의 모든 개체에 대해 SELECT 특권을 제거합니다.
++
+[source, sql]
+----
+REVOKE SELECT ON SCHEMA::dbo FROM Michael;
+----
++
+7. Michael로 로그인 한 두 번째 도구에서, 아래 질의를 수행합니다.
++
+[source, sql]
+----
+SELECT * FROM Aircraft
+----
++
+질의는 수행되지 않습니다. Michael 사용자는 Aircraft 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
