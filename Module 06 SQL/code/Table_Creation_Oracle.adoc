@@ -1,0 +1,131 @@
+== Oracle에서 테이블 생성
+
+1. 아래 명령으로 sqlplus에 접속합니다. (여기서는 Docker, oracle11g 컨테이너에 Oracle 11g Express Edition이 설치되어 있는 것으로 가정합니다)
++
+----
+$ docker exec -it oracle11g sqlplus
+----
++
+2. system 사용자로 로그인 합니다. (기본 패스워드는 oracle)
+3. 아래 명령을 입력하여 시스템 관리자 권한을 얻습니다.
++
+----
+~$ docker exec -it oracle11g sqlplus
+
+SQL*Plus: Release 11.2.0.2.0 Production on Fri Dec 22 07:12:49 2023
+
+Copyright (c) 1982, 2011, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password: 
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+
+SQL> conn sys as sysdba 
+Enter password: 
+Connected.
+SQL> 
+----
++
+4. 아래 질의를 수행하여 Module06 사용자를 생성합니다.
++
+----
+SQL> CREATE USER Module06 IDENTIFIED BY "P@ssw0rd"
+  2  DEFAULT TABLESPACE users
+  3  TEMPORARY TABLESPACE temp
+  4  QUOTA UNLIMITED ON users;
+
+User created.
+----
++
+5. 아래 질의를 수행하여 Module06 사용자에게 접속을 허가합니다.
++
+----
+SQL> GRANT CONNECT TO Module06;
+----
++
+6. 아래 질의를 수행하여 Module06 사용자에게 모든 특권을 부여합니다.
++
+----
+SQL> GRANT ALL PRIVILEGES TO Module06;
+----
++
+7. SQL Developer를 실행합니다.
+8. Module08 사용자로 로그인합니다.
+9. 아래 질의를 수행하여 테이블을 생성하고 데이터를 삽입합니다.
+
+[source, sql]
+----
+CREATE TABLE Passenger (
+	PassengerNo		int,
+    PassengerName 	varchar(10),
+    Grade 			int,
+    Age 			int,
+    
+    CONSTRAINT pk_Passenger PRIMARY KEY(PassengerNo)
+);
+
+CREATE TABLE Aircraft (
+	AircraftNo		int,
+    KindOfAircraft 	varchar(30),
+    Airline 		varchar(20),
+    
+    CONSTRAINT pk_Aircraft PRIMARY KEY(AircraftNo)
+);
+
+CREATE TABLE Flight (
+	FlightNo 	int,
+    AircraftNo 	int,
+    Depareture 	varchar(20),
+    Arrival 	varchar(20),
+    Price		int,
+    FlightDate 	Date,
+    
+    CONSTRAINT pk_Flight PRIMARY KEY(FlightNo),
+    CONSTRAINT fk_Flight_Aircraft FOREIGN KEY(AircraftNo) REFERENCES Aircraft(AircraftNo)
+);
+
+CREATE TABLE Reservation (
+	PassengerNo 	int,
+    FlightNo 		int,
+    ReservedDate 	date,
+    
+    CONSTRAINT pk_Reservation PRIMARY KEY(PassengerNo, FlightNo),
+    CONSTRAINT fk_Reservation_Passenger FOREIGN KEY(PassengerNo) REFERENCES Passenger(PassengerNo),
+    CONSTRAINT fk_Reservation_Flight FOREIGN KEY(FlightNo) REFERENCES Flight(FlightNo)
+);
+
+INSERT INTO Passenger VALUES (1, '홍길동', 1, 44);
+INSERT INTO Passenger VALUES (2, '이순신', 10, 44);
+INSERT INTO Passenger VALUES (3, '안중근', 7, NULL);
+INSERT INTO Passenger VALUES (4, '김영랑', 9, 54);
+INSERT INTO Passenger VALUES (5, '김소월', 9, 45);
+INSERT INTO Passenger VALUES (6, '윤동주', 10, 26);
+INSERT INTO Passenger VALUES (7, '천상병', 8, 55);
+
+INSERT INTO Aircraft VALUES(101, '보잉 747', '대한항공');
+INSERT INTO Aircraft VALUES(102, '보잉 727', '대한항공');
+INSERT INTO Aircraft VALUES(103, '에어버스 A380', '아시아나 항공');
+INSERT INTO Aircraft VALUES(104, '에어버스 A300', '대한항공');
+INSERT INTO Aircraft VALUES(105, '보잉 737-800', '제주항공');
+
+INSERT INTO Flight VALUES(1, 101, '인천', '샌프란시스코', 1230000, '23-10-2022 10:20:00');
+INSERT INTO Flight VALUES(2, 101, '샌프란시스코', '인천', 1320000, '2022-10-26 13:00:00');
+INSERT INTO Flight VALUES(3, 105, '김포', '제주', 72000,  '2022-11-23 09:00:00');
+INSERT INTO Flight VALUES(4, 104, '김포', '김해', 68000, '2022-11-12 17:30:00');
+INSERT INTO Flight VALUES(5, 103, '인천', '프랑크푸르트', 1480000, '2022-12-01 18:00:00');
+INSERT INTO Flight VALUES(6, 103, '프랑크푸르트', '인천', 1560000, '2022-12-10 10:00:00');
+INSERT INTO Flight VALUES(7, 104, '김해', '김포', 70000, '2022-11-13 11:00:00');
+INSERT INTO Flight VALUES(8, 101, '인천', '샌프란시스코', 12300000,  '2022-11-15 10:00:00');
+
+INSERT INTO Reservation VALUES (1, 4, '2022-10-22');
+INSERT INTO Reservation VALUES (3, 1, '2022-10-20');
+INSERT INTO Reservation VALUES (4, 7, '2022-10-11');
+INSERT INTO Reservation VALUES (6, 6, '2022-10-21');
+INSERT INTO Reservation VALUES (2, 1, '2022-10-11');
+INSERT INTO Reservation VALUES (2, 2, '2022-10-11');
+INSERT INTO Reservation VALUES (7, 3, '2022-09-11');
+INSERT INTO Reservation VALUES (1, 3, '2022-11-09');
+----
+
