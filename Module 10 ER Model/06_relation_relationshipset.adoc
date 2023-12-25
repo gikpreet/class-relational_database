@@ -9,9 +9,9 @@
 
 > 만약 E1, E2… En이 개체 집합들일 때 관계집합 R은
 
-stem:[{(e1, e2,… en)| e1 ∈ E1 ... en ∈ En}]
+_{(e1, e2,… en)| e1 ∈ E1 ... en ∈ En}_
 
-> 의 부분집합이다. 여기에서 (e1, e2,… en)은 관계
+> 의 부분집합이다. 여기에서 _(e1, e2,… en)_ 은 관계
 
 * 개체 집합 사이의 연관을 관계 집합에의 참가(participation)라고 함
 * 관계에서 개체가 행하는 기능을 개체의 역할(Role)이라고 함
@@ -67,7 +67,7 @@ CREATE TABLE 근무 (
 	
 	CONSTRAINT pk_근무 PRIMARY KEY(사번, 부서번호),
 	CONSTRAINT fk_근무_직원 FOREIGN KEY(사번) REFERENCES 직원(사번),
-	CONSTRAINT fk_근무_부서 FOREIGN KEY(부서번호) REFERENCS 부서(부서번호)
+	CONSTRAINT fk_근무_부서 FOREIGN KEY(부서번호) REFERENCES 부서(부서번호)
 )
 ----
 

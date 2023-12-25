@@ -41,12 +41,12 @@ ISA 계층을 처리하는 방법에는 두 가지가 있습니다.
 [source, sql]
 ----
 CREATE TABLE 시간제_직원 (
-		사번		int,
-		시간당임금	decimal,
-		근무시간		int, 
+	사번		int,
+	시간당임금	decimal,
+	근무시간		int, 
 
-		CONSTRAINT pk_시간제직원 PRIMARY KEY(사번),
-		CONSTRAINT fk_시간제직원 FOREIGN KEY(사번) REFERENCES 직원(사번)
+	CONSTRAINT pk_시간제직원 PRIMARY KEY(사번),
+	CONSTRAINT fk_시간제직원 FOREIGN KEY(사번) REFERENCES 직원(사번)
 )
 ----
 +
