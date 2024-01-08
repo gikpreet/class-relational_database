@@ -199,3 +199,9 @@ $ docker exec -it mysql82 mysql -u root -p
 ----
 mysql> create database mysqltest;
 ----
++
+7. 아래 명령을 실행하여 생성된 데이터베이스를 확인합니다.
++
+----
+mysql> show databases;
+----
