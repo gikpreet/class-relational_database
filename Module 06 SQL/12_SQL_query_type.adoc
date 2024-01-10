@@ -49,7 +49,7 @@ _{ S.PassengerName, S.Age | ∃S ∈ Passenger ∧ S.Age >= 40)}_
 
 [source, sql]
 ----
-SELECT DISTINCT PilotName, Age
+SELECT DISTINCT PassengerName, Age
 FROM Pilot P
 WHERE P.Age <= 40
 ----
