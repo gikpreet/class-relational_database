@@ -89,9 +89,17 @@ pgAdmin 4 PostgreSQL.pgAdmin 8.0  winget
 % psql postgres
 ----
 
+=== pgAdmin 설치
 
+이 연습에서는 macOS Sonoma에서 PostgreSQL 관리도구인 pgAdmin을 설치합니다. 아래 절차에 따릅니다.
 
-
+1. 터미널에서 아래 명령을 실행합니다.
++
+----
+% brew install --cask pgadmin4
+----
++
+2. Lunchpad에서, 
 
 
 == Ubuntu에서 PostgreSQL 설치
