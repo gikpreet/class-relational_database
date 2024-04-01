@@ -9,7 +9,7 @@
 . 터미널에서 아래 명령을 실행하여 컴퓨터에 homebrew가 설치되어 있는지 확인합니다.
 +
 ----
-% brew –v
+% brew -v
 ----
 +
 image:./images/image08.png[]

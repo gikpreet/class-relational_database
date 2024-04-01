@@ -134,4 +134,4 @@ $ sudo snap install mysql-workbench-community
 2. Applications 메뉴에서 MySQL Workbench를 검색하여 실행합니다.
 +
 image:./images/image01.png[]
-+
+
