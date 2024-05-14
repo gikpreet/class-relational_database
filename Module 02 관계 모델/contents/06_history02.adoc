@@ -1,4 +1,4 @@
-= 관계형 데이터베이스 시스템 역사 (2)
+= 관계 데이터베이스 시스템 역사 (2)
 
 * Informix
 ** System R에 기초를 둔 DBMS로 2001년 IBM에 인수됨
@@ -21,4 +21,5 @@
 == Microsoft SQL Server
 Microsoft는 1980년대 중반부터 Sybase 데이터베이스의 기술 지원을 담당했으며, 이를 위해서 Sybase에서 관계형 데이터베이스 관리 시스템의 기술을 이전 받았습니다. Microsoft 1989년 Sybase로부터 모든 기술을 이전 받았으며, 이 기술을 기반으로 Microsoft SQL Server를 개발하였으며, 현재 상용 솔루션으로 Oralce, DB2와 함께 가장 많은 점유율을 가지고 있습니다.
 
-link:./06_history03.adoc[다음: 관계형 데이터베이스 시스템 역사 3]
+link:./05_history01.adoc[이전: 관계 데이터베이스 시스템 역사 1] +
+link:./06_history03.adoc[다음: 관계 데이터베이스 시스템 역사 3]

@@ -461,7 +461,7 @@ Query OK, 1 row affected (0.01 sec)
 
 현재 `Category` 릴레이션과 `Product` 릴레이션의 데이터는 아래와 같습니다.
 
-image:./images/image11.png[]
+image:../images/image11.png[]
  
 . 아래 질의를 실행하여 `Category` 테이블에서 `CategoryNo` 가 2인 투플 삭제를 시도합니다.
 +

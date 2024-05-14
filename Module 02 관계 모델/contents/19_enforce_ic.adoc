@@ -36,4 +36,4 @@ A. 변경될 Category 투플을 참조하는 모든 Product 투플을 삭제합�
 B. 변경될 Category 릴레이션을 참조하는 Product 투플이 있는 경우, Category 릴레이션의 투플 삭제를 거부합니다.
 C. 변경될 Category 릴레이션을 참조하는 모든 Product 투플의 데이터를 모두 변경되는 값으로 갱신합니다.
 
-link:./19_query.adoc[다음: 관계형 데이터베이스 질의]
+link:./19_query.adoc[다음: 질의어]

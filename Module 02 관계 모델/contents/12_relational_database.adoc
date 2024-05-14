@@ -1,13 +1,13 @@
-= 관계형 데이터베이스
+= 관계 데이터베이스
 
-* 관계형 데이터베이스(Relational Database) +
+* 관계 데이터베이스(Relational Database) +
 서로 다른 릴레이션 이름을 가진 릴레이션들의 모임
-* 관계형 데이터베이스 스키마(Relational Database Schema) +
+* 관계 데이터베이스 스키마(Relational Database Schema) +
 데이터베이스에 속한 릴레이션의 스키마들의 집합
 
 ---
 
-`관계형 데이터베이스(Relational database)` 는 서로 다른 릴레이션 이름을 가진 릴레이션들의 모임입니다. `관계형 데이터베이스 스키마(Relational database schema)` 는 그 데이터베이스에 속한 릴레이션의 스키마들의 집합입니다.
+`관계 데이터베이스(Relational database)` 는 서로 다른 릴레이션 이름을 가진 릴레이션들의 모임입니다. `관계형 데이터베이스 스키마(Relational database schema)` 는 그 데이터베이스에 속한 릴레이션의 스키마들의 집합입니다.
 
 아래와 같은 릴레이션 스키마가 있을 때, 
 

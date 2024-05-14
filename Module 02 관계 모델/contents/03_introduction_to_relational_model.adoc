@@ -1,4 +1,4 @@
-= 관계 모델 개요
+= 관계 모델
 
 * 1970년 Dr. Codd에 의해 제안된 데이터 모델
 * DB2, Informix, Oracle, Sybase, MSSQL Server, MySQL등 많은 DBMS의 데이터 모델
@@ -16,4 +16,5 @@
 
 관계 모델은 그 이전의 데이터 모델과 비교하여 단순한 데이터 표현이 가능하고, 고수준의 언어를 사용하여 복잡한 질의를 쉽게 표현할 수 있는 장점이 있습니다.
 
+link:./02_introduction_to_relational_model.adoc[이전: 관계 모델 개요] +
 link:./04_12_laws.adoc[다음: Dr.codd의 12 법칙]

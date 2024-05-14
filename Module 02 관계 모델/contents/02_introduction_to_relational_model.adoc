@@ -7,4 +7,5 @@
 2.	Dr. Codd의 12법칙
 3.	관계형 데이터베이스 시스템 역사
 
-link:./03_introduction_to_relational_model.adoc[다음: 관계 데이터모델 개요]
+link:./01_introduction.adoc[이전: 관계 모델] +
+link:./03_introduction_to_relational_model.adoc[다음: 관계 데이터 모델 개요]

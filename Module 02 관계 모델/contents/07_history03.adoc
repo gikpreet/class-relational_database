@@ -31,6 +31,7 @@ PostgreSQL은 오픈소스로, 다양한 데이터베이스 관리 시스템의 
 
 관계형 데이터베이스 관리 시스템의 계보는 아래와 같습니다.
  
-image:./images/image01.png[]
+image:../images/image01.png[]
 
-link:./07_relation.adoc[다음: 릴레이션]
+link:./06_history02.adoc[이전: 관계 데이터베이스 시스템 역사 2] +
+link:./08_relation.adoc[다음: 릴레이션]
