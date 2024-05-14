@@ -26,4 +26,5 @@
 * 데이터 제어어(DCL: Data Control Language) +
 데이터베이스에 대한 접근을 제어하기 위한 언어요소로, 데이터에 대해 접근 권한을 허가하고 박탈하는데 사용됩니다.
 
+link:./12_data_independency.adoc[이전: 데이터 독립성] +
 link:./14_concurrency.adoc[다음: 동시 접근 및 복구]

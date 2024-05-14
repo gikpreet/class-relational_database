@@ -12,7 +12,7 @@
 % brew -v
 ----
 +
-image:./images/image08.png[]
+image:../images/image08.png[]
 +
 . homerew가 설치되어 있지 않으면, 아래 명령을 실행하여 homebrew를 설치합니다.
 +
@@ -30,7 +30,7 @@ _참고 위 명령이 동작하지 않으면, https://brew.sh/index_ko 에 방�
 % brew install mysql
 ----
 +
-image:./images/image09.png[]
+image:../images/image09.png[]
 +
 . 아래 명령을 실행하여 MySQL을 시작합니다.
 +
@@ -48,26 +48,26 @@ image:./images/image09.png[]
 +
 A. 비밀번호 복잡도 요구사항을 물어봅니다. N을 입력하고 엔터키를 누릅니다.
 +
-image:./images/image10.png[]
+image:../images/image10.png[]
 +
 B.	root 사용자의 패스워드를 지정합니다.
 +
-image:./images/image11.png[]
+image:../images/image11.png[]
 +
 C. 익명 사용자를 삭제할 것인지 여부를 물어봅니다. Y를 입력하고 엔터키를 누릅니다.
 +
-image:./images/image12.png[]
+image:../images/image12.png[]
 +
 D. Root 사용자의 원격 접속을 허용하지 않을 것인지 여부를 물어봅니다. Y를 입력하고 엔터키를 누릅니다.
 +
-image:./images/image13.png[]
+image:../images/image13.png[]
 +
 E. test 데이터베이스를 삭제할 것인지 물어봅니다. N을 입력하고 엔터키를 누릅니다.
 +
-image:./images/image14.png[]
+image:../images/image14.png[]
 +
 F. prefilege 테이블을 다시 로드할 것인지 물어봅니다. Y를 입력하고 엔터키를 누릅니다. 설정이 완료됩니다.
-image:./images/image15.png[]
+image:../images/image15.png[]
 +
 . 다음 명령을 실행하여 mysql 서비스가 실행중인지 확인합니다.
 ----
@@ -82,7 +82,7 @@ image:./images/image15.png[]
 % mysql -u root -p 
 ----
 +
-image:./images/image16.png[]
+image:../images/image16.png[]
 +
 . 아래 명령을 실행하여 데이터베이스 관리 시스템에 생성된 데이터베이스를 확인합니다.
 +
@@ -90,7 +90,7 @@ image:./images/image16.png[]
 mysql> show databases;
 ----
 + 
-image:./images/image17.png[]
+image:../images/image17.png[]
 +
 . 아래 명령을 실행하여 mysql 콘솔을 종료합니다.
 +
@@ -115,7 +115,7 @@ mysql> exit
 ----
 . 설치가 완료되면 MySQL Workbench를 실행하고 MySQL Connections 옆의 + 아이콛을 클릭합니다.
 +
-image:./images/image18.png[]
+image:../images/image18.png[]
 +
 .	아래와 같이 연결 정보를 입력하고 OK 버튼을 클릭합니다.
 A.	Connection Name: `localhost`
@@ -124,18 +124,19 @@ C.	Hostname: `127.0.0;1`
 D.	Port: `3306`
 E.	Username: `root`
 +
-image:./images/image19.png[]
+image:../images/image19.png[]
 +
 . Welcome 페이지에서 생성된 Connection 패널을 클릭합니다.
 +
-image:./images/image20.png[]
+image:../images/image20.png[]
 +
 . Connection to MySQL Server 창에서 패스워드를 입력하고 OK 버튼을 클릭합니다.
 +
-image:./images/image21.png[]
+image:../images/image21.png[width=500]
 +
 . 연결을 확인합니다.
 +
-image:./images/image22.png[]
+image:../images/image22.png[]
 
-link:./18_review.adoc[다음: 검토]
+link:./17_advantage_of_dbms.adoc[이전: 데이터베이스 관리 시스템의 장점] +
+link:./19_review.adoc[다음: 검토]
