@@ -1,4 +1,4 @@
-link:./01_introduction.adoc[Module 03 디스크와 파일]
+link:./contents/01_introduction.adoc[Module 03 디스크와 파일]
 
 * link:./contents/02_memory_hi.adoc[Chapter 1: 기억장치 계층 구조]
 ** link:./contents/03_overview_disk_and_file.adoc[디스크와 파일 개요]
