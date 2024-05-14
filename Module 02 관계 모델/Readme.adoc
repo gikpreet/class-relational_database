@@ -1,4 +1,4 @@
-link:./contents/introduction.adoc[Module 02: 관계 모델]
+link:./contents/01_introduction.adoc[Module 02: 관계 모델]
 
 * link:./contents/02_introduction_to_relational_model.adoc[Chapter 1: 관계 모델 개요]
 ** link:./contents/03_introduction_to_relational_model.adoc[관계 모델 개요]
