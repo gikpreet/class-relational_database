@@ -25,4 +25,4 @@ Dr. Codd의 법칙 5번에 따라, SQL의 문법은 아래와 같은 세 가지�
 * **데이터 제어 언어(DCL, Data Control Language)** +
 데이터베이스에서 데이터에 대한 액세스를 제어하기 위한 데이터베이스 언어 또는 데이터베이스 언어 요소이며, 기본적인 요소는 `GRANT`, `DENY`, `REVOKE` 입니다.
 
-link:./22_Lab2-2.adoc[다음: Lab 2-2 SQL을 사용한 무결성 제약조건 설정]
+link:./23_Lab2-2.adoc[다음: Lab 2-2 SQL을 사용한 무결성 제약조건 설정]

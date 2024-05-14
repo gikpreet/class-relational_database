@@ -7,4 +7,4 @@ DBMS는 질의를 작성하기 위한 특수 언어인 질의어(Query Language)
 1.	관계 데이터베이스 질의
 2.	SQL
 
-link:./20_introduction_to_query.adoc[다음: 관계형 데이터베이스 질의]
+link:./21_introduction_to_query.adoc[다음: 관계 데이터베이스 질의]

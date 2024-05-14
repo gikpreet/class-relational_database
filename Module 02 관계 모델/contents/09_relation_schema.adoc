@@ -16,6 +16,6 @@
 
 학교 데이터베이스에서 학생 데이터를 저장하고자 설계하는 릴레이션 스키마의 예는 다음과 같습니다.
 
-image:./images/image02.png[]
+image:../images/image02.png[]
 
-link:./09_relation_instance.adoc[다음: 릴레이션 인스턴스]
+link:./10_relation_instance.adoc[다음: 릴레이션 인스턴스]

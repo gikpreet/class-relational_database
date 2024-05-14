@@ -116,16 +116,16 @@ mysql> show tables;
 . MySQL Workbench를 실행합니다.
 . 시작 화면에서 localhost 연결을 클릭합니다.
 +
-image:./images/image03.png[]
+image:../images/image03.png[]
 +
 . 패스워드를 입력하고 MySQL 인스턴스에 접속합니다.
 +
-image:./images/image04.png[]
+image:../images/image04.png[]
 +
 . `Navigator` 창에서, `SCHEMA` 탭을 클릭하고 데이터베이스를 확인합니다.
 . `Module02` 데이터베이스를 더블 클릭합니다. 현재 데이터베이스가 선택되고 굵은 글씨체로 변경됩니다.
 +
-image:./images/image05.png[]
+image:../images/image05.png[]
 +
 . 쿼리 창에서, 아래 질의를 입력하고 `Execute` 버튼을 클릭합니다.
 +
@@ -139,15 +139,15 @@ ProductName	NVARCHAR(30),
 );
 ----
 +
-image:./images/image06.png[]
+image:../images/image06.png[]
 +
 . `Navigator` 창의 `SCHEMA` 탭에서, `Module02` 데이터베이스를 마우스 오른쪽 클릭하고 `Refresh All` 을 클릭합니다.
 +
-image:./images/image07.png[]
+image:../images/image07.png[]
 +
 . `Module02`` 데이터베이스의 `Table` 탭을 확장하고 생성된 릴레이션을 확인합니다.
 +
-image:./images/image08.png[]
+image:../images/image08.png[]
 
 == 연습 2 릴레이션에서 데이터 삽입/조회/수정
 
@@ -295,4 +295,4 @@ mysql> SELECT * FROM Category;
 +------------+--------------+
 ----
 
-link:./13_integrity_constraint.adoc[다음: 무결성 제약조건]
+link:./14_integrity_constraint.adoc[다음: 무결성 제약조건]

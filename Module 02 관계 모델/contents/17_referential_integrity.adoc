@@ -36,4 +36,4 @@ _Product(**ProductNo: Integer**, ModelNumber: String, ProductName: String, Price
 
 image:./images/image09.png[]
 
-link:./17_domain_integrity.adoc[다음: 도메인 무결성]
+link:./18_domain_integrity.adoc[다음: 도메인 무결성]

@@ -10,4 +10,4 @@
 4.	도메인 무결성
 5.	무결성 제약조건 집행
 
-link:./14_introduction_to_ic.adoc[다음: 무결성 제약조건 개요]
+link:./15_introduction_to_ic.adoc[다음: 무결성 제약조건 개요]

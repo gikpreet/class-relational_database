@@ -824,4 +824,4 @@ mysql> UPDATE Category SET CategoryNo = 1 WHERE CategoryNo = 2;
 3 rows in set (0.00 sec)
 ----
 
-link:./23_review.adoc[다음: 검토]
+link:./24_review.adoc[다음: 검토]

@@ -9,4 +9,4 @@
 3.	도메인
 4.	관계형 데이터베이스 
 
-link:./08_relation_schema.adoc[다음: 릴레이션 스키마]
+link:./09_relation_schema.adoc[다음: 릴레이션 스키마]

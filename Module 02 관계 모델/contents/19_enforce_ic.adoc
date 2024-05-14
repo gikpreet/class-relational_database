@@ -19,7 +19,7 @@
 
 참조 무결성을 유지하기 위한 외래 키 제약조건은 복잡해서, 단순히 명령을 거부할 수도 있고 제약조건을 위배하지 않도록 수정될 수 있습니다. 이는 참조 무결성 집행 단계에 따릅니다.
  
-image:./images/image10.png[]
+image:../images/image10.png[]
 
 그림과 같이 Category 릴레이션을 참조하는 Product 릴레이션이 있고, Product 릴레이션의 CategoryNo 필드가 Category 릴레이션의 CategoryName 필드를 참조하는 경우,
 
@@ -36,4 +36,4 @@ A. 변경될 Category 투플을 참조하는 모든 Product 투플을 삭제합�
 B. 변경될 Category 릴레이션을 참조하는 Product 투플이 있는 경우, Category 릴레이션의 투플 삭제를 거부합니다.
 C. 변경될 Category 릴레이션을 참조하는 모든 Product 투플의 데이터를 모두 변경되는 값으로 갱신합니다.
 
-link:./19_query.adoc[다음: 질의어]
+link:./20_query.adoc[다음: 질의어]
