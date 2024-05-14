@@ -2,7 +2,7 @@
 
 * 가용한 주 기억장치 공간을 페이지라는 단위로 분할한 데이터 적재 공간
 
-image:./images/image05.png[]
+image:../images/image05.png[]
 
 ---
 

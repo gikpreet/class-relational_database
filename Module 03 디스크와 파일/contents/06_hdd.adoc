@@ -3,7 +3,7 @@
 * 기계 장치가 포함된 저장장치로, 자기를 이용하여 데이터를 저장하고 읽음
 * 순차 접근 방식이 아닌 직접 접근 방식
 
-image:./images/image03.png[]
+image:../images/image03.png[]
 
 ---
 

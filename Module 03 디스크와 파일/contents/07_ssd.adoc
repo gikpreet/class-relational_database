@@ -3,7 +3,7 @@
 * 플래시 메모리를 기반으로 한 저장 매체로, Random Access 가능한 빠른 속도의 저장 장치
 * 모든 구성요소가 전기장치이며, 기계 장치를 가지지 않음
 
-image:./images/image04.png[]
+image:../images/image04.png[]
  
 ---
 
