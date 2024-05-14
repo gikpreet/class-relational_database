@@ -34,6 +34,6 @@ _Product(**ProductNo: Integer**, ModelNumber: String, ProductName: String, Price
 
 외래 키 제약조건은 이런 두 릴레이션 간의 관계에서 발생할 수 있는 데이터의 불일치를 방지하고 데이터의 무결성을 지킵니다. `Category` 릴레이션과 `Product`` 릴레이션의 관계를 그림으로 도식하면 아래와 같습니다.
 
-image:./images/image09.png[]
+image:../images/image09.png[]
 
 link:./18_domain_integrity.adoc[다음: 도메인 무결성]
