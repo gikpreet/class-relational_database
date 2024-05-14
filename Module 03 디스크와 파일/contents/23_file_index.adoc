@@ -5,7 +5,8 @@ DBMS의 상위 계층 구조는 사실상 페이지를 레코드의 집단으로
 == Table of Contents
 
 1.	힙(Heap) 파일
-2.	ISAM 파일
-3.	인덱스 개요
+2.	인덱스 개요
+3.	ISAM 파일
+4.  B+ 트리
 
 link:./24_heap.adoc[다음: 힙(Heap) 파일]

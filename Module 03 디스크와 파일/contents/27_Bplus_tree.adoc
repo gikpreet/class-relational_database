@@ -6,7 +6,7 @@
 ** 레코드를 탐색할 때 루트로부터 알맞은 단말 까지만 가면 됨
 * 일반적으로 ISAM보다 우수한 구조
 
-image:./images/image12.png[]
+image:../images/image12.png[]
 
 ---
 

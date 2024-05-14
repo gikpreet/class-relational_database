@@ -3,7 +3,7 @@
 * 각 필드의 길이가 고정적이고 필드의 수도 고정된 레코드 형식
 * 필드를 레코드에 연속적으로 저장
 
-image:./images/image06.png[]
+image:../images/image06.png[]
 
 ---
 

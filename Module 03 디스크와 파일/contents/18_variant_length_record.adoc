@@ -3,11 +3,11 @@
 * 필드의 길이가 가변적인 경우 해당 레코드의 길이가 가변적이 됨
 * 필드를 분리자로 구분하여 연속적으로 저장
 
-image:./images/image07.png[]
+image:../images/image07.png[]
 
 * 레코드의 앞부분에 정수로 된 오프셋들을 배열로 저장
 
- image:./images/image08.png[]
+image:../images/image08.png[]
 
 ---
 

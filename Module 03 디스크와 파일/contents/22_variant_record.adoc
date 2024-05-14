@@ -4,7 +4,7 @@
 * 슬롯 마다 <레코드 오프셋, 레코드 길이>의 형태로 슬롯 디렉토리를 유지
 * 빈 공간의 시간을 가리키는 포인터 유지
 
-image:./images/image10.png[]
+image:../images/image10.png[]
  
 ---
 

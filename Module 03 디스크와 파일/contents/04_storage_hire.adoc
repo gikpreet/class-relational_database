@@ -2,7 +2,7 @@
 
 * 컴퓨터 시스템의 기억장치는 계층적으로 구성됨
 
-image:./images/image02.png[]
+image:../images/image02.png[]
 
 ---
 

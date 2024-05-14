@@ -5,7 +5,7 @@
 * 인덱스(Index) +
 선택(Selection) 조건에 맞는 rid를 구할 수 있도록 만든 보조 자료 구조
 
-image:./images/image11.png[]
+image:../images/image11.png[]
 
 ---
 
