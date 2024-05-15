@@ -43,14 +43,14 @@ Parttime_emp(EmpID, Name, Parkingslot, Grade, WagePerHr, Workingtime)
 
 부분적 함수 종속은 다음과 같이 표시할 수 있습니다.
 
-image:./images/image02.png[]
+image:../images/image02.png[]
 
 이행적 함수 종속은 다음과 같이 표시할 수 있습니다.
 
-image:./images/image03.png[A가 키에 속하지 않는 경우] +
+image:../images/image03.png[A가 키에 속하지 않는 경우] +
 A가 키에 속하지 않는 경우
 
-image:./images/image04.png[A가 키에 속하는 경우] +
+image:../images/image04.png[A가 키에 속하는 경우] +
 A가 키에 속하는 경우
 
 제 3차 정규형을 사용하는 이유는 기술적인 측면이 많습니다. 키 속성과 관련한 어떤 형태의 종속성들을 특별히 취급함으로써 바람직한 어떤 성질을 준수하는 분해 작업만으로도 모든 릴레이션 스키마를 3NF 릴레이션들로 분해할 수 있게 됩니다. 이런 요건은 BCNF에는 없습니다. 3NF의 정의는 BCNF의 요건을 완화시켜서 보장이 가능하도록 합니다.

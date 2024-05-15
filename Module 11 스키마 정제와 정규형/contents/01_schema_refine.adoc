@@ -13,10 +13,8 @@
 
 == Table of contents
 
-1. 스키마 정제 개요
-2. 분해법
-3. 함수 종속
-4. 스키마 정제
-5. 함수 종속 이해
+1. 스키마 정제
+2. 정규화와 정규형
+3. 분해
 
 link:./02_introduction_to_schema_refine.adoc[다음: 스키마 정제 개요]

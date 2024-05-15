@@ -39,7 +39,7 @@ _{EmpID} → {EmpID, Name, Parkingslot, Grade, WagePerHr, Workingtime}_
 
 아래와 같이 부품, 공급자, 부서 세 개체집합이 있고, 이 세 개체집합이 모두 관여하는 관계집합 계약이 있는 경우를 생각해봅시다.
 
-image:./images/image01.png[]
+image:../images/image01.png[]
 
 계약 관계집합의 스키마를 _CQPSD_ 로 표현할 수 있습니다. 계약번호가 C인 계약은 공급자 S가 Q 만큼의 부품 P를 부서 D에 공급하기로 했음을 나타냅니다. 
 
