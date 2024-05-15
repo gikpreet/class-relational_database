@@ -1,6 +1,6 @@
 = 판독 - 기록 충돌
 
-image:./images/image03.png[][]
+image:../images/image03.png[][]
 
 ---
 

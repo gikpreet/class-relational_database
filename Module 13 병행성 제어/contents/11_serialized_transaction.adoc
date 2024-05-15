@@ -1,6 +1,6 @@
 == 순차적 트랜잭션
 
-image:./images/image01.png[]
+image:../images/image01.png[]
 
 ---
 

@@ -1,6 +1,6 @@
 = 기록-판독 충돌(WR 충돌)
 
-image:./images/image02.png[]
+image:../images/image02.png[]
 
 ---
 

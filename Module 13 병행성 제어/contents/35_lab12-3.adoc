@@ -137,25 +137,25 @@ CALL insertMembers();
 SELECT COUNT(*) FROM Members;
 ----
 +
-image:./images/image06.png[]
+image:../images/image06.png[]
 
 **프로세스 ID 확인**
 
 1. MySQL Workbench에서, 왼쪽 위의 HOME 탭을 클릭합니다.
 +
-image:./images/image07.png[]
+image:../images/image07.png[]
 +
 2. MySQL Connections 구역에서 Local instance를 클릭하여 연결을 엽니다.
 +
-image:./images/image08.png[]
+image:../images/image08.png[]
 +
 3. 패스워드를 입력하고 로그인합니다.
  +
-image:./images/image09.png[]
+image:../images/image09.png[]
 +
 4. MySQL Workbench에서 두 개의 데이터베이스 연결을 확인합니다.
 +
-image:./images/image10.png[]
+image:../images/image10.png[]
 +
 5. 첫 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 프로세스 ID를 확인합니다.
 +
@@ -163,7 +163,7 @@ image:./images/image10.png[]
 SELECT connection_id();
 ----
 +
-image:./images/image11.png[]
+image:../images/image11.png[]
 +
 6. 두 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 프로세스 ID를 확인합니다.
 +
@@ -171,7 +171,7 @@ image:./images/image11.png[]
 SELECT connection_id();
 ----
 +
-image:./images/image12.png[]
+image:../images/image12.png[]
 +
 7.	첫 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 전체 프로세스를 확인합니다.
 +
@@ -179,7 +179,7 @@ image:./images/image12.png[]
 Show full processlist;
 ----
 +
-image:./images/image13.png[]
+image:../images/image13.png[]
  
 **수행되는 트랜잭션을 두 세션에서 확인**
 
@@ -207,7 +207,7 @@ SELECT * FROM MEMBERS
 WHERE Id BETWEEN 1200 AND 1210;
 ----
 +
-image:./images/image14.png[]
+image:../images/image14.png[]
 +
 4. 첫 번째 탭의 쿼리 창에서, 다음 질의를 수행하여 실행중인 트랜잭션을 확인합니다.
 +
@@ -217,7 +217,7 @@ SELECT count(1) FROM information_schema.innodb_trx
 WHERE trx_mysql_thread_id = CONNECTION_ID();
 ----
 +
-image:./images/image15.png[]
+image:../images/image15.png[]
 +
 5. 첫 번째 탭의 쿼리 창에서, 다음 질의를 수행하여 트랜잭션이 잠근 데이터를 확인합니다.
 +
@@ -226,7 +226,7 @@ image:./images/image15.png[]
 SELECT * FROM performance_schema.data_locks;
 ----
 +
-image:./images/image16.png[]
+image:../images/image16.png[]
 +
 6. 두 번째 탭의 쿼리 창에서, 다음 질의를 수행하여 다른 세션에서 업데이트한 데이터를 확인합니다.
 +
@@ -236,7 +236,7 @@ SELECT * FROM MEMBERS
 WHERE Id BETWEEN 1200 AND 1210;
 ----
 +
-image:./images/image17.png[]
+image:../images/image17.png[]
 +
 7. 첫 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 트랜잭션을 커밋합니다.
 +
@@ -253,7 +253,7 @@ SELECT count(1) FROM information_schema.innodb_trx
 WHERE trx_mysql_thread_id = CONNECTION_ID();
 ----
 +
-image:./images/image18.png[]
+image:../images/image18.png[]
 + 
 9. 두 번째 탭의 쿼리 창에서, 다음 질의를 수행하여 다른 세션에서 업데이트한 데이터를 확인합니다.
 +
@@ -263,7 +263,7 @@ SELECT * FROM MEMBERS
 WHERE Id BETWEEN 1200 AND 1210;
 ----
 +
-image:./images/image19.png[]
+image:../images/image19.png[]
 +
 10.	첫 번째 탭의 쿼리 창에서, 아래 명령을 수행하여 현재 세션의 트랜잭션 격리 수준을 확인합니다.
 +
@@ -272,7 +272,7 @@ image:./images/image19.png[]
 SHOW variables LIKE 'transaction_isolation';
 ----
 +
-image:./images/image20.png[]
+image:../images/image20.png[]
 +
 11.	두 번째 탭의 쿼리 창에서, 아래 명령을 수행하여 현재 세션의 트랜잭션 격리 수준을 확인합니다.
 +
@@ -281,7 +281,7 @@ image:./images/image20.png[]
 SHOW variables LIKE ‘transaction_isolation’;
 ----
 +
-image:./images/image21.png[]
+image:../images/image21.png[]
 
 **READ COMMITTED 트랜잭션 격리 수준**
 
@@ -299,7 +299,7 @@ SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
 SHOW variables LIKE 'transaction_isolation';
 ----
 +
-image:./images/image22.png[]
+image:../images/image22.png[]
 +
 3. 첫 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 트랜잭션을 명시적으로 시작합니다.
 +
@@ -323,7 +323,7 @@ WHERE Id BETWEEN 500 AND 1000;
 SELECT * FROM Members WHERE Id = 600;
 ----
 +
-image:./images/image23.png[]
+image:../images/image23.png[]
 +
 6. 두 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 트랜잭션 격리 수준을 확인합니다.
 +
@@ -332,7 +332,7 @@ image:./images/image23.png[]
 SHOW variables LIKE 'transaction_isolation';
 ----
 +
-image:./images/image24.png[]
+image:../images/image24.png[]
 +
 7. 두 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 업데이트 중인 데이터를 읽습니다.
 +
@@ -341,7 +341,7 @@ image:./images/image24.png[]
 SELECT * FROM Members WHERE Id = 600;
 ----
 +
-image:./images/image25.png[]
+image:../images/image25.png[]
 +
 8. 두 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 트랜잭션 격리 수준을 READ UNCOMMITTED로 변경합니다.
 +
@@ -357,7 +357,7 @@ SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 SELECT * FROM Members WHERE Id = 600;
 ----
 +
-image:./images/image26.png[]
+image:../images/image26.png[]
 +
 10.	두 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 트랜잭션 격리 수준을 READ COMMITTED로 변경합니다.
 +
@@ -373,7 +373,7 @@ SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
 SELECT * FROM Members WHERE Id = 600;
 ----
 +
-image:./images/image27.png[]
+image:../images/image27.png[]
 +
 |===
 |**주의** 이 데이터는 실제 테이블의 데이터가 아닌, UNDO 영역의 백업된 레코드에서 가져온 결과입니다. READ COMMITTED 격리 수준에서는 어떤 트랜잭션에서 변경된 내용이 커밋되기 전까지는 다른 트랜잭션에서 변경 내역을 읽을 수 없습니다.
@@ -393,7 +393,7 @@ SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 SELECT * FROM Members WHERE Id = 600;
 ----
 +
-image:./images/image28.png[]
+image:../images/image28.png[]
 +
 |===
 |**주의** 이 데이터는 실제 테이블의 데이터가 아닌, UNDO 영역의 백업된 레코드에서 가져온 결과입니다. REPEATABLE READ 격리 수준에서는 어떤 트랜잭션에서 변경된 내용이 커밋되기 전까지는 다른 트랜잭션에서 변경 내역을 읽을 수 없습니다.
@@ -413,7 +413,7 @@ SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 SELECT * FROM Members WHERE Id = 600;
 ----
 +
-image:./images/image29.png[]
+image:../images/image29.png[]
 +
 16.	첫 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 트랜잭션을 Commit 합니다.
 +
@@ -429,7 +429,7 @@ COMMIT;
 SELECT * FROM Members WHERE Id = 600;
 ----
 +
-image:./images/image30.png[]
+image:../images/image30.png[]
 
 **REPEATABLE READ 격리 수준**
 
@@ -447,7 +447,7 @@ SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 SHOW Variables LIKE 'transaction_isolation';
 ----
 +
-image:./images/image31.png[]
+image:../images/image31.png[]
 +
 3. 첫 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 트랜잭션 수를 확인합니다.
 +
@@ -457,7 +457,7 @@ SELECT count(1) FROM information_schema.innodb_trx
 WHERE trx_mysql_thread_id = CONNECTION_ID();
 ----
 +
-image:./images/image32.png[]
+image:../images/image32.png[]
 +
 4. 첫 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 트랜잭션을 명시적으로 시작합니다.
 +
@@ -500,7 +500,7 @@ image:./images/image34.png[]
 SELECT * FROM Members WHERE Id = 1000;
 ----
 +
-image:./images/image35.png[]
+image:../images/image35.png[]
 +
 9.	첫 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 트랜잭션을 커밋합니다.
 +
@@ -516,7 +516,7 @@ COMMIT;
 SELECT * FROM Members WHERE Id = 1000;
 ----
 +
-image:./images/image36.png[]
+image:../images/image36.png[]
  
 **SERIALIZABLE 격리 수준**
 
@@ -534,7 +534,7 @@ SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 SHOW Variables LIKE 'transaction_isolation';
 ----
 +
-image:./images/image37.png[]
+image:../images/image37.png[]
 +
 3.	첫 번째 탭의 쿼리 창에서 아래 명령을 수행하여 수행중인 트랜잭션의 수를 확인합니다.
 +
@@ -544,7 +544,7 @@ SELECT count(1) FROM information_schema.innodb_trx
 WHERE trx_mysql_thread_id = CONNECTION_ID();
 ----
 +
-image:./images/image38.png[]
+image:../images/image38.png[]
 + 
 4. 첫 번째 탭의 쿼리 창에서, 아래 명령을 수행하여 트랜잭션을 명시적으로 시작합니다.
 +
@@ -560,7 +560,7 @@ START TRANSACTION;
 SELECT COUNT(*) FROM Members WHERE City = '광주';
 ----
 +
-image:./images/image39.png[]
+image:../images/image39.png[]
 +
 6. 두 번째 탭의 쿼리 창에서, 아래 명령을 수행하여 광주에 사는 회원을 추가합니다.
 +
@@ -571,11 +571,11 @@ INSERT INTO Members (city) VALUES('광주');
 +
 상태를 확인합니다.
 +
-image:./images/image40.png[]
+image:../images/image40.png[]
 +
 잠시 후, 쿼리가 실패하는 것을 확인합니다.
 +
-image:./images/image41.png[]
+image:../images/image41.png[]
 +
 7. 두 번째 탭의 쿼리 창에서, 아래 명령을 수행하여 광주에 사는 회원을 추가합니다.
 +
@@ -593,7 +593,7 @@ COMMIT;
 +
 9.	두 번째 탭에서 쿼리가 성공적으로 수행되었음을 확인합니다.
 +
-image:./images/image42.png[]
+image:../images/image42.png[]
 +
 10.	첫 번째 탭의 쿼리 창에서, 광주에 사는 회원의 수를 확인합니다.
 +
@@ -602,4 +602,4 @@ image:./images/image42.png[]
 SELECT COUNT(*) FROM Members WHERE City = '광주';
 ----
 +
-image:./images/image43.png[]
+image:../images/image43.png[]
