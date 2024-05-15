@@ -473,7 +473,7 @@ START TRANSACTION;
 SELECT * FROM Members WHERE Id = 1000;
 ----
 +
-image:./images/image33.png[]
+image:../images/image33.png[]
 +
 6. 두 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 회원 번호가 1000인 회원의 이름을 이순신으로 업데이트 합니다.
 +
@@ -491,7 +491,7 @@ where id = 1000;
 SELECT * FROM members where id = 1000;
 ----
 +
-image:./images/image34.png[]
+image:../images/image34.png[]
 +
 8. 첫 번째 탭의 쿼리 창에서, 아래 질의를 수행하여 회원 번호가 1000인 회원의 데이터를 읽습니다. 두 번째 탭의 업데이트가 반영되지 않습니다.
 +
