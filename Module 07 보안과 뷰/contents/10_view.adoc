@@ -4,7 +4,8 @@
 
 == Table of Contents
 
-1.	데이터베이스 보안 개요
-2.	문 유형
+1. 뷰(View 개요)
+2. 뷰 생성과 삭제
+3. 뷰에 대한 갱신
 
 link:./11_overview_view.adoc[다음: 뷰 개요]
