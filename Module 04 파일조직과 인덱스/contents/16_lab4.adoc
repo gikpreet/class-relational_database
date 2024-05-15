@@ -275,4 +275,4 @@ mysql> SELECT * FROM Product WHERE CategoryNo > 0;
 +-----------+-------------------------+-----------+-----------------------+------------+
 7 rows in set (0.00 sec)
 ----
-link:./16_review.adoc[다음: 검토]
+link:./17_review.adoc[다음: 검토]

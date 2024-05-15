@@ -1,6 +1,6 @@
-==파일 조직 선택
+= 파일 조직 선택
 
-image:./images/image01.png[]
+image:../images/image01.png[]
 
 ---
 
