@@ -5,6 +5,6 @@ SQL(Structured Query Language)는 현재 가장 널리 사용되는 상용 관�
 == Table of Contents
 
 1.	SQL 개요
-2.	SQL 분류
+2.	SQL 구성
 
 link:./03_introduction_to_sql.adoc[다음: SQL 개요]

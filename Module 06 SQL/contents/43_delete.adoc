@@ -4,7 +4,7 @@
 
 == Table of Contents
 
-1.	UPDATE문
+1.	DELETE문
 2.	SQL1999 표준
 
 link:./44_delete_clause.adoc[다음: DELETE 문]

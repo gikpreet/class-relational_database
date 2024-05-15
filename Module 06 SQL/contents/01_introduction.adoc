@@ -10,4 +10,9 @@ SQL 가장 널리 사용되는 상용 관계 데이터베이스 언어입니다.
 •	집합 관계를 SQL 언어로 표현할 수 있습니다.
 •	포함된 쿼리, 널 값 처리 등 복잡한 문제와 다양한 질의를 처리할 수 있습니다.
 
+== Table of Contents
+
+1. SQL 개요
+2. DDL: Data Definition Language
+
 link:./02_introduction_to_sql.adoc[다음: SQL 개요]
