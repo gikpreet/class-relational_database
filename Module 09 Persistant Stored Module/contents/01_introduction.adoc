@@ -12,9 +12,8 @@ PSM을 사용하면 이런 SQL에서의 부족함을 극복할 수 있습니다.
 
 == Table of Contents
 
-1. SQL 구문
-2. 저장 프로시저
-3. 트리거
-4. 커서
+1. Persistant Stored Module
+2. 트리거
+3. 커서
 
 link:./02_psm.adoc[다음: Persistant Stored Module]

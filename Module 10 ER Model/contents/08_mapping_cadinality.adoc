@@ -1,4 +1,4 @@
-== 대응 수
+= 대응 수
 
 * 참여 제약 조건(Participation Constraint)을 이루는 관계 비율
 * 대응 수(Mapping Cardinality) 또는 수비율(Cardinality Ratio)
@@ -16,6 +16,7 @@ A의 한 개체는 임의의 수(0 또는 그 이상)의 B 개체와 연관을 �
 개체-관계 조직 스키마는 어떤 제약조건을 데이터베이스가 어느 정도까지 준수해야 할 지를 정의할 수 있습니다. 여기에서 **대응 수(Mapping Cardinality)**와 **참여 제약 조건(Participation Constraint)** 개념이 등장합니다.
 
 == 대응 수(Mapping Cardinality)
+
 대응 수는 수비율(Cardinality Ratio)라고도 불리며, 관계 집합을 통하여 다른 개체와 관련될 수 있는 개체의 수를 나타냅니다. 대응 수는 개체 집합이 관련된 관계 집합을 기술하는데 사용될 수도 있지만, 이진 관계 집합을 나타내는데 가장 유용합니다. 
 
 개체 집합 A와 B사이의 이진 관계 집합 R에서 대응 수는 다음 중 하나여야 합니다.

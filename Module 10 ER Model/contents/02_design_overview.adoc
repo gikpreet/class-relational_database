@@ -1,6 +1,6 @@
 = 데이터베이스 설계
 
-image:./images/image01.png[]
+image:../images/image01.png[]
 
 ---
 
