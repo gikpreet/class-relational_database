@@ -116,7 +116,7 @@ mysql> show tables;
 . MySQL Workbench를 실행합니다.
 . 시작 화면에서 localhost 연결을 클릭합니다.
 +
-image:../images/image03.png[]
+image:../images/image03.png[width=600]
 +
 . 패스워드를 입력하고 MySQL 인스턴스에 접속합니다.
 +
@@ -132,8 +132,8 @@ image:../images/image05.png[]
 [source, sql]
 ----
 CREATE TABLE Product (
-ProductNo	INTEGER,
-ProductName	NVARCHAR(30),
+    ProductNo	INTEGER,
+    ProductName	NVARCHAR(30),
     Price		DECIMAL,
     CategoryNo	INTEGER
 );
@@ -248,10 +248,10 @@ mysql> SELECT * FROM Category;
 +
 . 아래 질의를 수행하여 Category 릴레이션의 데이터를 다시 수정합니다.
 +
-[souce, sql]
+[source, sql]
 ----
 mysql> UPDATE Category SET
-    -> CategoryName = Novel
+    -> CategoryName = 'Novel'
     -> WHERE CategoryNo = 1;
 ----
 +
