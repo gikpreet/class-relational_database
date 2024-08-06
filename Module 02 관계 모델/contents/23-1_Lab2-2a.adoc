@@ -293,7 +293,7 @@ mysql> SELECT * FROM Product;
 
 여기에서는 `Product` 릴레이션의 `CategoryNo` 속성이 `Category` 릴레이션의 `CategoryNo` 속성을 참조하도록 제약조건을 설정합니다. 아래 절차에 따릅니다.
 
-. 아래 질의를 실행하여 `Product` 테이블의 `CategoryNo` 필드에 외래 키 제약조건을 적용합니다. `Product` 테이블의 CategoryNo 필드를 참조합니다.
+. 아래 질의를 실행하여 `Product` 테이블의 `CategoryNo` 필드에 외래 키 제약조건을 적용합니다. 이 제약조건은 `Category` 테이블의 `CategoryNo` 필드를 참조합니다.
 +
 [source, sql]
 ----
@@ -338,7 +338,7 @@ mysql> UPDATE Product SET
 ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`Module02`.`Product`, CONSTRAINT `fk_Product_Category` FOREIGN KEY (`CategoryNo`) REFERENCES `Category` (`CategoryNo`))
 ----
 +
-. 아래 질의를 실행하여 Product 테이블의 ProductNo가 20101927인 투플의 CategoryNo 필드의 값을 2로 변경합니다.
+. 아래 질의를 실행하여 Product 테이블의 ProductNo가 20101927인 투플의 CategoryNo 필드의 값을 3으로 변경합니다.
 +
 [source, sql]
 ----
