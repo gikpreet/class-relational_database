@@ -49,7 +49,7 @@ GRANT ALL PRIVILEGES TO celine;
 +
 [source, sql]
 ----
-GRANT CONNECT TO celine;
+CONNECT celine/celnie;
 ----
 +
 6. 아래 쿼리를 실행하여 테이블을 확인합니다.
@@ -149,10 +149,12 @@ SELECT * FROM Category;
 +
 아래와 같은 결과가 표시됩니다.
 +
+----
 CATEGORYNO CATEGORYNAME
 ---------- --------------------
          1 Novel
          2 Poem
+----
 +
 4. 다음 쿼리를 실행하여 Category 릴레이션에 데이터를 삽입합니다.
 +
