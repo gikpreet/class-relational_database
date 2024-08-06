@@ -1,4 +1,4 @@
-= Lab 2-1a: SQL을 사용한 를레이션 생셩 및 수정 (MS-SQL Server)
+= Lab 2-1b: SQL을 사용한 를레이션 생셩 및 수정 (MS-SQL Server)
 
 == 연습 1: SQL을 사용한 릴레이션 생성
 
