@@ -204,7 +204,6 @@ mysql> desc Product;
 | Field       | Type          | Null | Key | Default | Extra |
 +-------------+---------------+------+-----+---------+-------+
 | ProductNo   | int           | YES  |     | NULL    |       |
-| ModelNumber | char(12)      | YES  |     | NULL    |       |
 | ProductName | varchar(30)   | YES  |     | NULL    |       |
 | Price       | decimal(10,0) | YES  |     | NULL    |       |
 | CategoryNo  | int           | YES  |     | NULL    |       |
@@ -212,7 +211,7 @@ mysql> desc Product;
 5 rows in set (0.01 sec)
 ----
 +
-. 아래 질의를 실행하여 `Category` 테이블의 `CategoryNo` 컬럼에 기본 키 제약조건을 추가합니다.
+. 아래 질의를 실행하여 `Product` 테이블의 `ProductNo` 컬럼에 기본 키 제약조건을 추가합니다.
 +
 [source, sql]
 ----
