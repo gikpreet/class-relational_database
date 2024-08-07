@@ -1,10 +1,10 @@
-= Lab 3 : 테이블 생성
+= Lab 3 : 테이블 생성 (MySQL)
 
 == 연습 1 MySQL 콘솔에서 테이블 생성
 
 이 연습에서는 아래와 같은 스키마를 가진 릴레이션(테이블)을 생성합니다.
 
-_Category(CategoryNo: 정수, CategoryName 문자열) +
+Category(CategoryNo: 정수, CategoryName 문자열) +
 Product(ProductNo: 정수,: ProductName:문자열, UnitPrice: 정수, Description: 문자열, CategoryNo: 정수) +
 Customer(CustomerNo: 정수, CustomerName: 문자열, email: 문자열, Password: 문자열)_
 
@@ -264,16 +264,16 @@ ALTER TABLE Customer ENGINE=INNODB;
 8.	쿼리 창에서 아래 질의를 입력하고 다시 실행합니다.
 +
 [source, sql]
----
+----
 CREATE TABLE Orders (
-	OrderNo int,
-     OrderDate Date, 
-     CustomerNo int,
+  OrderNo int,
+  OrderDate Date, 
+  CustomerNo int,
      
-     CONSTRAINT pk_Order PRIMARY KEY(OrderNo),
-     CONSTRAINT fk_Order_Customer FOREIGN KEY(CustomerNo) REFERENCES Customer(CustomerNo)
+  CONSTRAINT pk_Order PRIMARY KEY(OrderNo),
+  CONSTRAINT fk_Order_Customer FOREIGN KEY(CustomerNo) REFERENCES Customer(CustomerNo)
 );
----
+----
 +
 테이블이 생성됩니다. 메시지는 아래와 같습니다.
 +
@@ -282,17 +282,19 @@ CREATE TABLE Orders (
 ----
 
 === OrderDetail 테이블 생성
+
 1.	쿼리 창에서, 아래 질의를 입력하고 Ctrl + Enter 키를 누릅니다.
 +
 [source, sql]
 ----
 CREATE TABLE OrderDetail (
 	ProductNo	int,
-     OrderNo	int,
-     Quantity int,
+  OrderNo	int,
+  Quantity int,
     
-     CONSTRAINT pk_OrderDetail PRIMARY KEY(ProductNo, OrderNo),
-     CONSTRAINT fk_OrderDetail_Order FOREIGN KEY(OrderNo) REFERENCES Orders(OrderNo)
+  CONSTRAINT pk_OrderDetail PRIMARY KEY(ProductNo, OrderNo),
+  CONSTRAINT fk_OrderDetail_Order FOREIGN KEY(OrderNo) REFERENCES Orders(OrderNo),
+  CONSTRAINT fk_OrderDetail_Product FOREIGN KEY(ProductNo) REFERENCES Orders(ProductNo)
 );
 ----
 +
