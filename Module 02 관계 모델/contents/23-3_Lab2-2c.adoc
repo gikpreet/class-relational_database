@@ -584,7 +584,7 @@ ALTER TABLE Product ADD CONSTRAINT fk_Product_Category FOREIGN KEY(CategoryNo) R
 DELETE FROM Category WHERE CategoryNo = 1;
 ----
 +
-외래 키 제약조건이 ON DELETE NO ACTION 으로 적용되면 삭제를 시도하는 릴레이션의 투플의 해당 필드를 참조하는 다른 릴레이션의 데이터가 존재할 경우 질의 실행이 거부됩니다. 결과는 아래와 유사할 것입니다.
+Oracle의 외래키 집행의 기본 값은 child record 레코드가 존재할 시 parent record의 삭제를 불허하는 것입니다. 외래 키가 CASCADE, SET NULL등의 조건으로 만들어지지 않았으니, parent record의 삭제는 허가되지 않습니다.
 +
 ----
 DELETE FROM Category WHERE CategoryNo = 1
@@ -593,3 +593,7 @@ ERROR at line 1:
 ORA-02292: integrity constraint (CELINE.FK_PRODUCT_CATEGORY) violated - child
 record found
 ----
+
+=== 참조 릴레이션의 데이터가 갱신되는 경우
+
+ORACLE 데이터베이스는 ON UPDATE CASCADE를 지원하지 않습니다. ORACLE 데이터베이스에서는 참조 릴레이션의 데이터가 갱신되는 경우에 대한 대처가 필요한 경우 Trigger를 사용해야 합니다.
