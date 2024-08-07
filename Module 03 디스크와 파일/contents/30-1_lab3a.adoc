@@ -294,7 +294,7 @@ CREATE TABLE OrderDetail (
     
   CONSTRAINT pk_OrderDetail PRIMARY KEY(ProductNo, OrderNo),
   CONSTRAINT fk_OrderDetail_Order FOREIGN KEY(OrderNo) REFERENCES Orders(OrderNo),
-  CONSTRAINT fk_OrderDetail_Product FOREIGN KEY(ProductNo) REFERENCES Orders(ProductNo)
+  CONSTRAINT fk_OrderDetail_Product FOREIGN KEY(ProductNo) REFERENCES Product(ProductNo)
 );
 ----
 +
