@@ -508,16 +508,88 @@ SELECT * FROM Category;
 +
 7. 아래 질의를 수행하여 `Product` 테이블의 데이터를 확인합니다.
 +
+외래 키 제약조건이 `ON DELETE CASCADE` 로 적용되면 참조 테이블의 투플이 삭제될 때 이를 참조하는 모든 테이블의 모든 투플이 삭제됩니다. 경과는 아래와 유사할 것입니다.
++
 [source, sql]
 ----
-SELECT * FROM Category;
+SELECT * FROM Product;
 ----
 +
 결과는 아래와 같을 것입니다.
 +
 ----
-CATEGORYNO CATEGORYNAME
----------- --------------------
-         1 Novel
-         3 History
+ PRODUCTNO PRODUCTNAME                         PRICE CATEGORYNO
+---------- ------------------------------ ---------- ----------
+  20101927 The Second World War                37800          3
+  97422537 Hobbit                              28800          1
+  97422515 Lord of the Rings 1                 28800          1
+----
++
+8. 아래 질의를 수행하여 `Product` 테이블의 `fk_product_category` 제약조건을 삭제합니다.
++
+[source, sql]
+----
+ALTER TABLE Product DROP CONSTRAINT fk_Product_Category;
+----
++
+9. 아래 질의를 수행하여 `Product` 테이블에 외래 키 제약 조건을 다시 적용합니다. 제약조건에 ON DELETE SET NULL 을 추가하여 참조 릴레이션의 투플이 삭제되면 외래 키가 존재하는 테이블의 해당 투플의 데이터가 NULL 로 지정되도록 적용합니다.
++
+[source, sql]
+----
+ALTER TABLE Product ADD CONSTRAINT fk_Product_Category FOREIGN KEY(CategoryNo) REFERENCES Category(CategoryNo) ON DELETE SET NULL;
+----
++
+10. 아래 질의를 수행하여 `Category` 테이블에서 `CategoryNo` 값이 3인 투플을 삭제합니다.
++
+[source, sql]
+----
+DELETE FROM Category WHERE CategoryNo = 3;
+----
++
+11. 아래 질의를 수행하여 `Product` 테이블의 데이터를 확인합니다.
++
+[source, sql]
+----
+SELECT * FROM Product;
+----
++
+외래 키 제약조건이 `ON DELETE SET NULL` 로 적용되면 참조 테이블의 투플이 삭제될 때 이를 참조하는 테이블의 모든 투플의 해당 값이 `NULL` 로 지정됩니다. 결과는 아래와 유사할 것입니다.
++
+----
+ PRODUCTNO PRODUCTNAME                         PRICE CATEGORYNO
+---------- ------------------------------ ---------- ----------
+  20101927 The Second World War                37800
+  97422537 Hobbit                              28800          1
+  97422515 Lord of the Rings 1                 28800          1
+----
++
+12. 아래 질의를 수행하여 `Product` 테이블의 `fk_Product_Category` 제약 조건을 삭제합니다.
++
+[source, sql]
+----
+ALTER TABLE Product DROP CONSTRAINT fk_Product_Category;
+----
++
+13. 아래 질의를 수행하여 `Product` 테이블에 외래 키 제약 조건을 다시 적용합니다. 제약조건에 `ON DELETE NO ACTION` 을 추가하여 삭제를 시도하는 릴레이션의 투플의 해당 필드를 참조하는 다른 릴레이션의 데이터가 존재할 경우 질의 실행이 거부되도록 적용합니다.
++
+[source, sql]
+----
+ALTER TABLE Product ADD CONSTRAINT fk_Product_Category FOREIGN KEY(CategoryNo) REFERENCES Category(CategoryNo);
+----
++
+14. 아래 질의를 수행하여 `Category` 테이블에서 `CategoryNo` 필드의 값이 1인 투플의 삭제를 시도합니다.
++
+[source, sql]
+----
+DELETE FROM Category WHERE CategoryNo = 1;
+----
++
+외래 키 제약조건이 ON DELETE NO ACTION 으로 적용되면 삭제를 시도하는 릴레이션의 투플의 해당 필드를 참조하는 다른 릴레이션의 데이터가 존재할 경우 질의 실행이 거부됩니다. 결과는 아래와 유사할 것입니다.
++
+----
+DELETE FROM Category WHERE CategoryNo = 1
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (CELINE.FK_PRODUCT_CATEGORY) violated - child
+record found
 ----
