@@ -93,10 +93,10 @@ image::../images/image18.png[]
 [source, sql]
 ----
 CREATE TABLE Product (
-	ProductNo	int,
+  ProductNo	int,
 	ProductName	VARCHAR2(30),
-    Price		NUMBER(19,4),
-    CategoryNo	int
+  Price		NUMBER(19,4),
+  CategoryNo	int
 );
 ----
 +

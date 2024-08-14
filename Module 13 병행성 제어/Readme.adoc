@@ -1,20 +1,22 @@
-Module 13 병행성 제어
+link:.//contents/01_concurrency_control.adoc[Module 13 병행성 제어]
 
-* Chapter 1: 트랜잭션
-** 트랜잭션 개요
-** 트랜잭션과 일관성
-** 트랜잭션과 스케줄
-* Lab 12-1: 트랜잭션 제어
-* Chapter 2: 일관성
-** 직렬 가능성
-** 교차수행에 의한 이상
-** 기록-판독 충돌(WR Conflict)
-** 순차적 트랜잭션
-** 판독-기록 충돌(RW Conflict)
-** 기록-기록 충돌(WW Conflict)
-* Chapter 3: 잠금
-** 잠금 모드
-** 공유 잠금 모드(Shared Lock Mode)
+* link:./contents/02_transaction.adoc[Chapter 1: 트랜잭션]
+** link:./contents/03_introduction_to_transaction.adoc[트랜잭션 개요]
+** link:./contents/04_transaction_consistency.adoc[트랜잭션과 일관성]
+** link:./contents/05_transaction_and_schedule.adoc[트랜잭션과 스케줄]
+* link:./contents/06-1_lab12-1a_transaction_control.adoc[Lab 12-1a: 트랜잭션 제어 (MySQL)]
+* link:./contents/07_consistency.adoc[Chapter 2: 일관성]
+** link:./contents/08_serializable.adoc[직렬 가능성]
+** link:./contents/09_cross_operation.adoc[교차수행에 의한 일부 이상]
+** link:./contents/10_wr_collision.adoc[기록-판독 충돌(WR Conflict)]
+** link:./contents/11_serialized_transaction.adoc[순차적 트랜잭션]
+** link:./contents/12_wr_collision.adoc[기록-판독 충돌(RW Conflict)]
+** link:./contents/13_rw_collision.adoc[판독-기록 충돌(WR Conflict)]
+** link:./contents/14_rw_collision.adoc[판독-기록 충돌(WR Conflict)]
+** link:./contents/15_ww_collision.adoc[기록-기록 충돌(WW Conflict)]
+* link:./contents/16_lock.adoc[Chapter 3: 잠금]
+** link:./contents/17_lock_mode.adoc[잠금 모드]
+** link:./contents/18_shared_lock_mode.adoc[공유 잠금 모드(Shared Lock Mode)]
 ** 전용 잠금 모드(Exclusive Lock Mode)
 ** Strict 2 Phase Lock
 * Chapter 4: 잠금 기반 병행 제어
