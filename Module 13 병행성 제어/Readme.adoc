@@ -17,18 +17,20 @@ link:.//contents/01_concurrency_control.adoc[Module 13 병행성 제어]
 * link:./contents/16_lock.adoc[Chapter 3: 잠금]
 ** link:./contents/17_lock_mode.adoc[잠금 모드]
 ** link:./contents/18_shared_lock_mode.adoc[공유 잠금 모드(Shared Lock Mode)]
-** 전용 잠금 모드(Exclusive Lock Mode)
-** Strict 2 Phase Lock
-* Chapter 4: 잠금 기반 병행 제어
-** 잠금 관리
-** 교착 상태
-** 교착 상태 예방
-** 교착 상태 탐지
-* Lab 12-2: Deadlock
-* Chapter 5: 특수한 잠금 기법
-** 동적 데이터베이스와 Phantom 문제
-** 그외 잠금 기법
-* Chapter 6: SQL의 트랜잭션 지원
-** 트랜잭션 특성
-** Isolation Level
-* Lab 12-3: 트랜잭션 격리 수준과 잠금
+** link:./contents/19_exclusive_lock_mode[전용 잠금 모드(Exclusive Lock Mode)]
+** link:./contents/20_strict_2_phase_lock.adoc[Strict 2 Phase Lock]
+* link:./contents/21_concurrency_control.adoc[Chapter 4: 잠금 기반 병행 제어]
+** link:./contents/22_control_lock.adoc[잠금 관리]
+** link:./contents/23_deadlock.adoc[교착 상태]
+** link:./contents/24_deadlock_prevention.adoc[교착 상태 예방]
+** link:./contents/25_deadlock_detection.adoc[교착 상태 탐지]
+* link:./contents/26_lab12-2.adoc[Lab 12-2: Deadlock]
+* link:./contents/27_special_lock.adoc[Chapter 5: 특수한 잠금 기법]
+** link:./contents/28_phantom_problem.adoc[동적 데이터베이스와 Phantom 문제]
+** link:./contents/29_another_lock.adoc[그외 잠금 기법]
+* link:./contents/30_transaction_support_on_sql.adoc[Chapter 6: SQL의 트랜잭션 지원]
+** link:./contents/31_characteristic_of_transaction.adoc[트랜잭션 특성]
+** link:./contents/32_isolation_level.adoc[Isolation Level]
+** link:./contents/33_isolation_level.adoc[Isolation Level]
+** link:./contents/34_isolation_level.adoc[Isolation Level]
+* link:./contents/35_lab12-3.adoc[Lab 12-3: 트랜잭션 격리 수준과 잠금]
