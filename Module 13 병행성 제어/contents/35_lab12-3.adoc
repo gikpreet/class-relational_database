@@ -14,8 +14,12 @@ Enter password:
 +
 3. 아래 질의를 수행하여 현재 세션의 프로세스 ID를 확인합니다.
 +
+[source, sql]
 ----
-mysql> SELECT connection_id();
+SELECT connection_id();
+----
++
+----
 +-----------------+
 | connection_id() |
 +-----------------+
@@ -27,8 +31,10 @@ mysql> SELECT connection_id();
 4. 아래 질의를 수행하여 현재 세션의 트랜잭션 개수를 확인합니다.
 +
 ----
-mysql> SELECT count(1) FROM information_schema.innodb_trx
-    -> WHERE trx_mysql_thread_id = CONNECTION_ID();
+SELECT count(1) FROM information_schema.innodb_trx WHERE trx_mysql_thread_id = CONNECTION_ID();
+----
++
+----
 +----------+
 | count(1) |
 +----------+
