@@ -125,6 +125,7 @@ module02=# \dt
 ----
 +
 명령이 성공적으로 수행되면, 아래와 같은 메시지가 표시됩니다.
++
 ----
           List of relations
  Schema |   Name   | Type  |  Owner
