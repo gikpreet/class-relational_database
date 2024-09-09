@@ -154,7 +154,7 @@ CREATE TABLE Product (
 	ProductNo int,
 	ProductName varchar(30),
 	Price Money,
-	Category int
+	CategoryNo int
 );
 ----
 +
