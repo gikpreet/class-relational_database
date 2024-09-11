@@ -1,4 +1,4 @@
-= 테이블 생성 (Microsoft SQL Server)
+= 테이블 생성 (Oracle)
 
 == 연습 1 Oracle Development Studio 에서 테이블 생성
 
@@ -97,7 +97,7 @@ CREATE TABLE Customer (
 	CustomerNo NUMBER,
 	CustomerName varchar2(10),
 	Email varchar(40),
-	Password varchar(16),
+	Password varchar(16)
 );
 ----
 +
@@ -121,20 +121,31 @@ CREATE TABLE Orders (
 
     CONSTRAINT pk_Order PRIMARY KEY(OrderNo),
     CONSTRAINT fk_Order_Customer FOREIGN KEY(CustomerNo) REFERENCES Customer(CustomerNo)
-)
+);
 ----
 
 === OrderDetail 테이블 생성
-+
+
+1. 다음 쿼리를 실행하여 OrderDetail 테이블을 생성합니다.
+
 [source, sql]
 ----
 CREATE TABLE OrderDetail (
     ProductNo int,
-    OrderNo	int,
+    OrderNo int,
     Quantity int,
-
+    
     CONSTRAINT pk_OrderDetail PRIMARY KEY(ProductNo, OrderNo),
     CONSTRAINT fk_OrderDetail_Order FOREIGN KEY(OrderNo) REFERENCES Orders(OrderNo),
-    CONSTRAINT fk_OrderDetail_Product FOREIGN KEY(ProductNo) REFERENCES Orders(ProductNo)
-)
+    CONSTRAINT fk_OrderDetail_Product FOREIGN KEY(ProductNo) REFERENCES Product(ProductNo)
+);
 ----
+
+=== 생성된 개체 확인
+
+1. 접속 창에서 테이블을 확장한 후, 테이블을 마우스 오른쪽 클릭하고 `새로 고침` 을 클릭합니다.
+2. 생성된 테이블을 확인합니다.
++
+image:../images/image18.png[]
++
+3. 각 테이블을 확장하여 생성된 테이블의 정보를 확인합니다.
