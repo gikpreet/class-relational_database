@@ -1,4 +1,4 @@
-= Lab 3 : 테이블 생성 (MySQL)
+= Lab 3a : 테이블 생성 (MySQL)
 
 == 연습 1 MySQL 콘솔에서 테이블 생성
 
