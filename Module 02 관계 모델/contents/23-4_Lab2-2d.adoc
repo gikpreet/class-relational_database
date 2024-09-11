@@ -363,6 +363,7 @@ DETAIL:  Key (categoryno)=(2) is not present in table "category".
 +
 2. 아래 질의를 실행하여 `Category` 테이블에 데이터를 삽입합니다.
 +
+[source, sql]
 ----
 INSERT INTO Category VALUES (2, 'Science');
 ----
@@ -422,16 +423,16 @@ DETAIL:  Key (categoryno)=(2) is still referenced from table "product".
 [source, sql]
 ----
 SELECT
-    tc.constraint_name,
+  tc.constraint_name,
 	tc.table_name AS child_table,
-    kcu.column_name AS child_column,
-    ccu.table_name AS parent_table,
-    ccu.column_name AS parent_column
+  kcu.column_name AS child_column,
+  ccu.table_name AS parent_table,
+  ccu.column_name AS parent_column
 FROM
-    information_schema.table_constraints AS tc JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name AND tc.table_schema = kcu.table_schema
+  information_schema.table_constraints AS tc JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name AND tc.table_schema = kcu.table_schema
 	JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name AND ccu.table_schema = tc.table_schema
 WHERE
-    tc.constraint_type = 'FOREIGN KEY'
+  tc.constraint_type = 'FOREIGN KEY'
 ----
 +
 ----
