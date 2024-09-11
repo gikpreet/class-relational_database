@@ -1,4 +1,4 @@
-= = Lab 3b : 테이블 생성 (Microsoft SQL Server)
+= Lab 3b : 테이블 생성 (Microsoft SQL Server)
 
 == 연습 1 SQL Server Management Studio에서 테이블 생성
 

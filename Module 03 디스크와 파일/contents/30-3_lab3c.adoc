@@ -1,4 +1,4 @@
-= = Lab 3c : 테이블 생성 (Oracle)
+= Lab 3c : 테이블 생성 (Oracle)
 
 == 연습 1 Oracle Development Studio 에서 테이블 생성
 

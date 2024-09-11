@@ -1,4 +1,4 @@
-= = Lab 3d : 테이블 생성 (Postgres)
+= Lab 3d : 테이블 생성 (Postgres)
 
 == 연습 1 pgAdmin 에서 테이블 생성
 
