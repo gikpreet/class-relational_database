@@ -68,7 +68,7 @@ INSERT INTO Product VALUES (1, 'Fellowship of the Rings', 25000, 'Book of Legend
 INSERT INTO Product VALUES (1, 'The Two Towers', 25000, 'Book of Legend', 1)
 ----
 +
-PRIUMARY KEY로 지정된 `ProductNo` 컬럼에 중복값의 삽입이 시도되었으로 쿼리는 실패합니다.
+PRIMARY KEY로 지정된 `ProductNo` 컬럼에 중복값의 삽입이 시도되었으로 쿼리는 실패합니다.
 +
 ----
 메시지 2627, 수준 14, 상태 1, 줄 1
