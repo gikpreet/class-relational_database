@@ -1,0 +1,322 @@
+= Lab 4d: 인덱스 생성 (Postgres)
+
+== 연습 1 클러스터드 인덱스 확인
+
+이 연습에서는 Module03에 생성한 테이블에 인덱스를 생성하고 데이터를 삽입한 후 동작을 확인합니다. 아래 절차에 따릅니다.
+
+=== Product 테이블에 데이터 삽입
+
+1. macOS와 Ubuntu에서는 터미널, Windows에서는 명령 프롬프트를 실행합니다.
+2. 아래 명령을 실행하여 Postgres 콘솔에 접근합니다.
++
+----
+psql -U postgres
+----
++
+3. 아래 명령을 실행하여 DBMS에 생성된 데이터베이스를 확인합니다.
++
+----
+SELECT datname FROM pg_database;
+----
++
+----
+  datname
+-----------
+ postgres
+ module02
+ template1
+ template0
+ Module03
+(5 rows)
+----
++
+4. 아래 질의를 수행하여 연결 컨텍스트를 Module03 데이터베이스로 변경합니다.
++
+----
+\c Module03
+----
++
+5. 아래 질의를 수행하여 Product 테이블의 스키마를 확인합니다.
++
+[source, sql]
+----
+SELECT column_name, data_type, character_maximum_length FROM information_schema.columns WHERE table_name='product';
+----
++
+----
+ column_name |     data_type     | character_maximum_length
+-------------+-------------------+--------------------------
+ productno   | integer           |
+ unitprice   | money             |
+ categoryno  | integer           |
+ productname | character varying |                      100
+ description | character varying |                     4000
+(5 rows)
+----
++
+6. 아래 질의를 수행하여 Product 테이블에 데이터를 삽입합니다.
++
+[source, sql]
+----
+INSERT INTO Product VALUES (1, 'Fellowship of the Rings', 25000, 'Book of Legend', 1);
+----
++
+질의는 실패합니다. 오류 메시지는 아래와 같습니다.
++
+----
+ERROR:  insert or update on table "product" violates foreign key constraint "fk_product_category"
+DETAIL:  Key (categoryno)=(1) is not present in table "category".
+----
++
+7. 아래 두 질의를 수행하여 Category 테이블에 데이터를 삽입합니다.
++
+[source, sql]
+----
+INSERT INTO Category VALUES(1, 'Novel');
+INSERT INTO Category VALUES(2, 'Science');
+----
++
+8. 아래 질의를 수행하여 삽입된 데이터를 확인합니다.
++
+----
+SELECT * FROM Category;
+----
++
+----
+ categoryno | categoryname
+------------+--------------
+          1 | Novel
+          2 | Science
+(2 rows)
+----
++
+9. 다음 질의를 수행하여 Product 테이블에 데이터를 삽입합니다.
++
+[source, sql]
+----
+INSERT INTO Product VALUES (1, 'Fellowship of the Rings', 25000, 'Book of Legend', 1);
+----
++
+10. 아래 질의를 수행하여 삽입된 데이터를 확인합니다.
++
+[source, sql]
+----
+SELECT * FROM Product;
+----
++
+----
+ productno |       productname       | unitprice  |  description   | categoryno
+-----------+-------------------------+------------+----------------+------------
+         1 | Fellowship of the Rings | $25,000.00 | Book of Legend |          1
+(1 row)
+----
++
+11. 아래 질의를 수행하여 Product 테이블에 데이터를 삽입합니다.
++
+[source, sql]
+----
+INSERT INTO Product VALUES (1, 'The Two Towers', 25000, 'Book of Legend', 1);
+----
++
+질의는 실패합니다. 오류 메시지는 아래와 같습니다.
++
+----
+ERROR:  duplicate key value violates unique constraint "pk_product"
+DETAIL:  Key (productno)=(1) already exists.
+----
++
+12. 아래 질의를 수행하여 Product 테이블에 데이터를 삽입합니다.
++
+[source, sql]
+----
+INSERT INTO Product VALUES (2, 'The Two Towers', 25000, 'Book of Legend', 1);
+----
++
+13. 아래 질의를 순서대로 수행하여 Product 테이블에 데이터를 삽입합니다.
++
+[source, sql]
+----
+INSERT INTO Product VALUES (4, 'Science', 45000, 'Book of Legend', 2);
+INSERT INTO Product VALUES (5, 'Newton', 8000, 'Science Magazine', 2);
+INSERT INTO Product VALUES (3, 'Return of the King', 25000, 'Book of Legend', 1);
+----
++
+14. 아래 질의를 수행하여 Product 테이블에 삽입된 데이터를 확인합니다.
++
+[source, sql]
+----
+SELECT * FROM Product;
+----
++
+결과는 아래와 같습니다. 데이터 삽입 순서대로 데이터를 출력합니다.
++
+----
+ productno |       productname       | unitprice  |   description    | categoryno
+-----------+-------------------------+------------+------------------+------------
+         1 | Fellowship of the Rings | $25,000.00 | Book of Legend   |          1
+         2 | The Two Towers          | $25,000.00 | Book of Legend   |          1
+         4 | Science                 | $45,000.00 | Book of Legend   |          2
+         5 | Newton                  |  $8,000.00 | Science Magazine |          2
+         3 | Return of the King      | $25,000.00 | Book of Legend   |          1
+(5 rows)
+----
++
+15. 다음 쿼리를 수랭하여 Product 테이블의 인덱스를 확인합니다.
++
+[source, sql]
+----
+SELECT tablename, indexname, indexdef FROM pg_indexes WHERE tablename = 'product';
+----
++
+----
+ tablename | indexname  |                                 indexdef
+-----------+------------+--------------------------------------------------------------------------
+ product   | pk_product | CREATE UNIQUE INDEX pk_product ON public.product USING btree (productno)
+(1 row)
+----
++
+16. 다음 쿼리를 실행하여 클러스터를 생성합니다.
++
+[source, sql]
+----
+CLUSTER product USING pk_product;
+----
++
+17. 아래 질의를 수행하여 Product 테이블에 삽입된 데이터를 확인합니다.
++
+[source, sql]
+----
+SELECT * FROM Product;
+----
++
+결과는 아래와 같습니다. 데이터 삽입 순서와 관계없이 생성된 클러스터에 지정된 인덱스를 기준으로 정렬됩니다.
++
+----
+ productno |       productname       | unitprice  |   description    | categoryno
+-----------+-------------------------+------------+------------------+------------
+         1 | Fellowship of the Rings | $25,000.00 | Book of Legend   |          1
+         2 | The Two Towers          | $25,000.00 | Book of Legend   |          1
+         3 | Return of the King      | $25,000.00 | Book of Legend   |          1
+         4 | Science                 | $45,000.00 | Book of Legend   |          2
+         5 | Newton                  |  $8,000.00 | Science Magazine |          2
+(5 rows)
+----
++
+> *참고* PostgreSQL의 클러스터는 클러스터 생성 이후에 삽입된 데이터에 대한 정렬을 보장하지 않습니다.
+
+== 연습 2 넌 클러스터드 인덱스 생성 및 확인
+
+이 연습에서는 Module03 데이터베이스의 Product 테이블의 CategoryNo 컬럼에 대해 인덱스를 생성하고 확인합니다. 아래 절차에 따릅니다.
+
+1. 아래 질의를 수행하여 현재 데이터베이스 컨텍스트를 확인합니다.
++
+[source, sql]
+----
+SELECT current_database();
+----
++
+----
+ current_database
+------------------
+ Module03
+(1 row)
+----
++
+2. 아래 질의를 수행하여 Product 테이블의 CategoyNo 컬럼에 인덱스를 생성합니다.
++
+[source, sql]
+----
+CREATE INDEX idx_Product_CategoryNo ON Product(CategoryNo);
+----
++
+3. 아래 질의를 수행하여 Product 테이블의 인덱스를 확인합니다.
++
+[source, sql]
+----
+SELECT tablename, indexname, indexdef FROM pg_indexes WHERE tablename = 'product';
+----
++
+----
+ tablename |       indexname        |                                    indexdef
+-----------+------------------------+--------------------------------------------------------------------------------
+ product   | pk_product             | CREATE UNIQUE INDEX pk_product ON public.product USING btree (productno)
+ product   | idx_product_categoryno | CREATE INDEX idx_product_categoryno ON public.product USING btree (categoryno)
+(2 rows)
+----
++
+4. 아래 두 질의를 순서대로 실행하여 Product 테이블에 데이터를 삽입합니다.
++
+[source, sql]
+----
+INSERT INTO Product VALUES (7, 'World War Z', 20000, 'Most interesting book', 1);
+INSERT INTO Product VALUES (6, 'Bourne Identity', 18000, 'Spy Novel', 1);
+----
++
+5. 아래 질의를 질의하여 Product 테이블의 데이터를 확인합니다.
++
+[source, sql]
+----
+SELECT * FROM Product;
+----
++
+----
+ productno |       productname       | unitprice  |      description      | categoryno
+-----------+-------------------------+------------+-----------------------+------------
+         1 | Fellowship of the Rings | $25,000.00 | Book of Legend        |          1
+         2 | The Two Towers          | $25,000.00 | Book of Legend        |          1
+         3 | Return of the King      | $25,000.00 | Book of Legend        |          1
+         4 | Science                 | $45,000.00 | Book of Legend        |          2
+         5 | Newton                  |  $8,000.00 | Science Magazine      |          2
+         7 | World War Z             | $20,000.00 | Most interesting book |          1
+         6 | Bourne Identity         | $18,000.00 | Spy Novel             |          1
+(7 rows)
+----
++
+6. 아래 질의를 수행하여 Cluster를 다시 클러스터링 합니다.
++
+[source, sql]
+----
+CLUSTER product USING pk_product;
+----
++
+7. 아래 질의를 질의하여 Product 테이블의 데이터를 확인합니다.
++
+[source, sql]
+----
+SELECT * FROM Product;
+----
++
+----
+ productno |       productname       | unitprice  |      description      | categoryno
+-----------+-------------------------+------------+-----------------------+------------
+         1 | Fellowship of the Rings | $25,000.00 | Book of Legend        |          1
+         2 | The Two Towers          | $25,000.00 | Book of Legend        |          1
+         3 | Return of the King      | $25,000.00 | Book of Legend        |          1
+         4 | Science                 | $45,000.00 | Book of Legend        |          2
+         5 | Newton                  |  $8,000.00 | Science Magazine      |          2
+         6 | Bourne Identity         | $18,000.00 | Spy Novel             |          1
+         7 | World War Z             | $20,000.00 | Most interesting book |          1
+(7 rows)
+----
++
+8. 아래 질의를 수행하여 Product 테이블의 데이터를 확인합니다.
++
+[source, sql]
+----
+SELECT * FROM Product WHERE CategoryNo > 0;
+----
++
+----
+ productno |       productname       | unitprice  |      description      | categoryno
+-----------+-------------------------+------------+-----------------------+------------
+         1 | Fellowship of the Rings | $25,000.00 | Book of Legend        |          1
+         2 | The Two Towers          | $25,000.00 | Book of Legend        |          1
+         3 | Return of the King      | $25,000.00 | Book of Legend        |          1
+         4 | Science                 | $45,000.00 | Book of Legend        |          2
+         5 | Newton                  |  $8,000.00 | Science Magazine      |          2
+         6 | Bourne Identity         | $18,000.00 | Spy Novel             |          1
+         7 | World War Z             | $20,000.00 | Most interesting book |          1
+(7 rows)
+----
++
+> *참고* PostgreSQL에서 인덱스의 사용은 전적으로 Query Optimizer가 결정합니다. PostgreSQL에서 인덱스의 사용에 대해서는 link:https://www.postgresql.org/docs/current/indexes-examine.html[]를 참조하십시오.

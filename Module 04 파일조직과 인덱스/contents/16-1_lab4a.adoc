@@ -86,6 +86,7 @@ INSERT INTO Category VALUES(2, 'Science');
 ----
 8.	아래 질의를 수행하여 삽입된 데이터를 확인합니다.
 +
+[source, sql]
 ----
 mysql> SELECT * FROM Category;
 ----
@@ -103,6 +104,7 @@ mysql> SELECT * FROM Category;
 +
 9. 다음 질의를 수행하여 Product 테이블에 데이터를 삽입합니다.
 +
+[source, sql]
 ----
 INSERT INTO Product VALUES (1, 'Fellowship of the Rings', 25000, 'Book of Legend', 1);
 ----
@@ -115,6 +117,7 @@ Query OK, 1 row affected (0.02 sec)
 +
 10.	아래 질의를 수행하여 삽입된 데이터를 확인합니다.
 +
+[source, sql]
 ----
 mysql> SELECT * FROM Product;
 ----

@@ -54,7 +54,7 @@ SELECT 2, 'Science' FROM DUAL;
 SELECT * FROM Category;
 ----
 +
-image:../images/image19.png[]
+image:../images/image19.png[width=300]
 +
 6. 다음 쿼리를 실행하여 Product 테이블에 데이터를 삽입합니다.
 +
@@ -100,7 +100,7 @@ INSERT INTO Product VALUES (3, 'Return of the King', 25000, 'Book of Legend', 1)
 SELECT * FROM Product;
 ----
 +
-image:../images/image21.png[]
+image:../images/image21.png[width=700]
 
 == 연습 2 Index Organized Table 생성
 
@@ -113,7 +113,7 @@ image:../images/image21.png[]
 SELECT constraint_name, constraint_type, table_name FROM USER_CONSTRAINTS WHERE TABLE_NAME = 'PRODUCT';
 ----
 +
-image:../images/image20.png[]
+image:../images/image20.png[width=600]
 +
 2. 아래 쿼리를 수행하여 OrderDetail 테이블의 외래 키 제약조건을 삭제합니다.
 +
@@ -167,7 +167,7 @@ SELECT * FROM Product;
 +
 결과는 아래와 같습니다. 데이터 삽입 순서와 관계없이 Product 테이블의 기본 키(Primary Key)인 ProductNo 필드를 기준으로 정렬됩니다.
 +
-image:../images/image22.png[]
+image:../images/image22.png[width=700]
 +
 7. 아래 쿼리를 수행하여 OrderDetail 테이블에 외래 키 제약조건을 생성합니다.
 +
@@ -189,7 +189,7 @@ FROM all_ind_columns
 WHERE table_name = 'PRODUCT';
 ----
 +
-image:../images/image23.png[]
+image:../images/image23.png[width=400]
 +
 2. 다음 쿼리를 실행하여 Product 테이블의 CategoryNo 컬럼에 인덱스를 생성합니다.
 +
@@ -207,7 +207,7 @@ FROM all_ind_columns
 WHERE table_name = 'PRODUCT';
 ----
 +
-image:../images/image24.png[]
+image:../images/image24.png[width=500]
 +
 4. 아래 두 질의를 순서대로 실행하여 Product 테이블에 데이터를 삽입합니다.
 +
@@ -226,7 +226,7 @@ SELECT * FROM Product
 +
 결과는 아래와 같습니다. Product 테이블의 기본 키 인덱스인 ProductNo 를 기준으로 정렬됩니다.
 +
-image:../images/image25.png[]
+image:../images/image25.png[width=700]
 +
 6. 아래 질의를 수행하여 Product 테이블의 데이터를 확인합니다.
 +
@@ -237,4 +237,4 @@ SELECT * FROM Product WHERE CategoryNo > 0;
 +
 위 쿼리는 Product 테이블의 CategoryNo 컬럼을 기준으로 생성된 idx_product_category 인덱스를 사용하여 수행되도록 작성되었습니다. 따라서, 결과는 Product 테이블의 CategoryNo 컬럼을 기준으로 정렬된 결과를 보여줍니다.
 +
-image:../images/image26.png[]
+image:../images/image26.png[width=700]
