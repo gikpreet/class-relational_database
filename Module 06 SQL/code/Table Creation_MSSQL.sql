@@ -7,9 +7,9 @@ GO
 
 CREATE TABLE Passenger (
 	PassengerNo		int,
-    PassengerName 	nvarchar(10),
-    Grade 			int,
-    Age 			int
+    PassengerName 	nvarchar(10)    NOT NULL,
+    Grade 			int CHECK (Grade >= 1 AND Grade <= 10) default 1,
+    Age 			int     NULL
     
     CONSTRAINT pk_Passenger PRIMARY KEY(PassengerNo)
 );
