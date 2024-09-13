@@ -58,7 +58,7 @@ CREATE TABLE Passenger (
     PassengerNo	int,
     PassengerName nvarchar(10)    NOT NULL,
     Grade 	int CHECK (Grade >= 1 AND Grade <= 10) default 1,
-    Age int     NULL
+    Age     int     NULL
     
     CONSTRAINT pk_Passenger PRIMARY KEY(PassengerNo)
 );
@@ -338,87 +338,72 @@ CREATE TABLE Flight (
 ----
 +
 3. 아래 질의를 수행하여 `Module06` 데이터베이스의 테이블을 확인합니다.
-
-mysql> show tables;
-결과는 아래와 같을 것입니다.
-
-+--------------------+
-| Tables_in_module06 |
-+--------------------+
-| passenger          |
-| flight             |
-| aircraft           |
-+--------------------+
-3 row in set (0.00 sec)
-아래 질의를 수행하여 Flight 테이블의 상세 정보를 확인합니다.
-
-mysql> desc Flight;
-결과는 아래와 같을 것입니다.
-
-+-------------+-------------+------+-----+---------+-------+
-| Field       | Type        | Null | Key | Default | Extra |
-+-------------+-------------+------+-----+---------+-------+
-| FlightNo    | int         | NO   | PRI | NULL    |       |
-| AircraftNo  | int         | YES  | MUL | NULL    |       |
-| Deparetures | varchar(10) | NO   |     | NULL    |       |
-| Arrival     | varchar(10) | NO   |     | NULL    |       |
-| Price       | int         | YES  |     | 0       |       |
-| FlightDate  | datetime    | NO   |     | NULL    |       |
-+-------------+-------------+------+-----+---------+-------+
-6 rows in set (0.00 sec)
-아래 질의를 수행하여 Flight 테이블에 데이터를 삽입합니다.
-
-mysql> INSERT INTO Flight VALUES(1, 101, ‘인천’, ‘샌프란시스코’, 1230000, ‘2022-10-23 10:20’);
-Query OK, 1 row affected (0.00 sec)
-아래 질의를 수행하여 Flight 테이블의 데이터를 확인합니다.
-
-mysql> SELECT * FROM Flight;
-결과는 아래와 같습니다.
-
-+----------+------------+-------------+--------------+---------+---------------+
-| FlightNo | AircraftNo | Deparetures | Arrival      | Price   | FlightDate    |
-+----------+------------+-------------+--------------+---------+---------------+
-|        1 |      101   | 인천        | 샌프란시스코  | 1230000 |    2022-10-23 |
-+----------+------------+-------------+--------------+---------+---------------+
-1 row in set (0.00 sec)
-아래 질의를 수행하여 Flight 테이블에 데이터를 삽입합니다.
-
-mysql> INSERT INTO Flight VALUES(2, 106, '샌프란시스코', '인천', 1320000, '2022-10-26 13:00');
++
+[source, sql]
+----
+SELECT * FROM information_schema.TABLES WHERE table_type = 'BASE TABLE'
+----
++
+image:../images/image16.png[]
++
+4. 아래 질의를 수행하여 Flight 테이블의 상세 정보를 확인합니다.
++
+[source, sql]
+----
+SELECT column_name, data_type, CHARACTER_MAXIMUM_LENGTH, is_nullable FROM information_schema.COLUMNS WHERE table_name = 'Flight'
+----
++
+image:../images/image17.png[]
++
+5. 아래 질의를 수행하여 Flight 테이블에 데이터를 삽입합니다.
++
+[source, sql]
+----
+INSERT INTO Flight VALUES(1, 101, '인천', '샌프란시스코', 1230000, '2022-10-23 10:20');
+----
++
+6. 아래 질의를 수행하여 Flight 테이블의 데이터를 확인합니다.
++
+[source, sql]
+----
+SELECT * FROM Flight;
+----
++
+image:../images/image18.png[]
++
+7. 아래 질의를 수행하여 Flight 테이블에 데이터를 삽입합니다.
++
+[source, sql]
+----
+INSERT INTO Flight VALUES(2, 106, '샌프란시스코', '인천', 1320000, '2022-10-26 13:00');
+----
++
 질의의 수행은 실패합니다. Aircraft 테이블의 AircraftNo 컬럼은 항공기 번호가 106인 데이터가 존재하지 않으므로, 참조 무결성을 위반합니다. 오류 메시지는 아래와 같습니다.
++
+----
+메시지 547, 수준 16, 상태 0, 줄 1
+INSERT 문이 FOREIGN KEY 제약 조건 "fk_Flight_Aircraft"과(와) 충돌했습니다. 데이터베이스 "Module06", 테이블 "dbo.Aircraft", column 'AircraftNo'에서 충돌이 발생했습니다.
+문이 종료되었습니다.
+----
+8. 아래 질의를 수행하여 Flight 테이블에 데이터를 삽입합니다.
++
+[source, sql]
+----
+INSERT INTO Flight VALUES(2, 101, '샌프란시스코', '인천', 1320000, '2022-10-26 13:00');
+INSERT INTO Flight VALUES(3, 105, '김포', '제주', 72000, '2022-11-23 09:00');
+INSERT INTO Flight VALUES(4, 105, '김포', '김해', 68000, '2022-11-12 17:30');
+INSERT INTO Flight VALUES(5, 103, '인천', '프랑크푸르트', 1480000, '2022-12-01 18:00');
+INSERT INTO Flight VALUES(6, 103, '프랑크푸르트', '인천', 1560000, '2022-12-10 10:00');
+INSERT INTO Flight VALUES(7, 104, '김해', '김포', 70000, '2022-11-13 11:00');
+INSERT INTO Flight VALUES(8, 101, '인천', '샌프란시스코', 1230000, '2022-11-15 10:00');
+----
++
+9. 아래 질의를 수행하여 Flight 테이블의 데이터를 확인합니다.
++
+[source, sql]
+----
+SELECT * FROM Flight;
+----
++
+image:../images/image19.png[]
 
-ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`module06`.`flight`, CONSTRAINT `fk_Flight_Aircraft` FOREIGN KEY (`AircraftNo`) REFERENCES `aircraft` (`AircraftNo`))
-아래 질의를 수행하여 Flight 테이블에 데이터를 삽입합니다.
-
-mysql> INSERT INTO Flight VALUES(2, 101, '샌프란시스코', '인천', 1320000, '2022-10-26 13:00');
-Query OK, 1 row affected (0.00 sec)
-8.	아래 질의를 수행하여 Flight 테이블에 데이터를 삽입합니다.
-mysql> INSERT INTO Flight VALUES(3, 105, '김포', '제주', 72000, '2022-11-23 09:00');
-Query OK, 1 row affected (0.00 sec)
-mysql> INSERT INTO Flight VALUES(4, 105, '김포', '김해', 68000, '2022-11-12 17:30');
-Query OK, 1 row affected (0.00 sec)
-mysql> INSERT INTO Flight VALUES(5, 103, '인천', '프랑크푸르트', 1480000, '2022-12-01 18:00');
-Query OK, 1 row affected (0.00 sec)
-mysql> INSERT INTO Flight VALUES(6, 103, '프랑크푸르트', '인천', 1560000, '2022-12-10 10:00');
-Query OK, 1 row affected (0.00 sec)
-mysql> INSERT INTO Flight VALUES(7, 104, '김해', '김포', 70000, '2022-11-13 11:00');
-Query OK, 1 row affected (0.00 sec)
-mysql> INSERT INTO Flight VALUES(8, 101, '인천', '샌프란시스코', 1230000, '2022-11-15 10:00');
-Query OK, 1 row affected (0.00 sec)
-아래 질의를 수행하여 Flight 테이블의 데이터를 확인합니다.
-
-mysql> SELECT * FROM Flight;
-결과는 아래와 유사할 것입니다.
-
-+----------+------------+-------------+--------------+---------+---------------+
-| FlightNo | AircraftNo | Deparetures | Arrival      | Price   | FlightDate    |
-+----------+------------+-------------+--------------+---------+---------------+
-|        1 |       101  | 인천         | 샌프란시스코   | 1230000 | 2022-10-23    |
-|        2 |       101  | 샌프란시스코  | 인천          | 1320000 | 2022-10-26    |
-|        3 |       105  | 김포         | 제주          |   72000 | 2022-11-23    |
-|        4 |       105  | 김포         | 김해          |   68000 | 2022-11-12    |
-|        5 |       103  | 인천         | 프랑크푸르트   | 1480000 | 2022-12-01    |
-|        6 |       103  | 프랑크푸르트  | 인천          | 1560000 | 2022-12-10    |
-|        7 |       104  | 김해         | 김포          |   70000 | 2022-11-13    |
-|        8 |       101  | 인천         | 샌프란시스코   | 1230000 | 2022-11-15    |
-+----------+------------+-------------+--------------+---------+---------------+
-1 row in set (0.00 sec)
