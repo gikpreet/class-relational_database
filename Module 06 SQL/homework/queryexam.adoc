@@ -1,0 +1,17 @@
+= 영화 데이터베이스에서 쿼리 작성
+
+* 주어진 데이터베이스는 https://movie.datamotion.co.kr/ 웹 사이트의 데이터베이스입니다.
+* 데이터베이스를 MYSQL 또는 Microsoft SQL Server에서 복원하고 주어진 질의에 대해 올바른 결과를 산출하는 쿼리를 작성하세요.
+
+== 데이터베이스 복원
+
+* MYSQL 및 Microsoft SQL Server에서 백업한 파일이 주어집니다.
+* 해당 DBMS에서 데이터베이스를 복원하세요.
+
+=== MYSQL
+
+MySQL 백업 파일 link:https://onedrive.live.com/?authkey=%21AKf6StxDdivnvik&cid=AB9BD89F1554471A&id=AB9BD89F1554471A%211005933&parId=AB9BD89F1554471A%21162&o=OneUp[다운로드]
+
+1. 터미널을 실행하고, MYSQL에 로그인합니다.
+2. 아래 질의를 수행하여 DatamotionMovieDatabase 데이터베이스를 생성합니다.
+
