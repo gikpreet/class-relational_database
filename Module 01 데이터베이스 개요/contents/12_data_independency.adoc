@@ -1,7 +1,7 @@
 = 데이터 독립성
 
 * DBMS의 데이터는 3단계의 추상화로 표현됨 +
-image:./images/image04.png[]
+image:../images/image04.png[]
 +
 * 각 추상화 단계 별로 응용 프로그램의 데이터 구성 및 저장 방식으로부터 격리
 * 논리적 데이터 독립성(Logical Data Independency)
