@@ -824,34 +824,52 @@ FROM 서비스 A
 WHERE A.서비스ID IN (SELECT 서비스ID FROM 서비스이용);
 ----
 +
-a. + 
-SELECT B.서비스ID, A.서비스명, B.서비스URL + 
-FROM 서비스A, 서비스이용B + 
+a. 
++
+[source, sql]
+----
+SELECT B.서비스ID, A.서비스명, B.서비스URL +
+FROM 서비스A, 서비스이용B +
 WHERE A.서비스ID = B.서비스ID;
-b. + 
-SELECT X.서비스ID, X.서비스명, X.서비스URL + 
-FROM 서비스 X + 
-WHERE NOT EXISTS ( + 
-    SELECT 1 + 
-    FROM ( + 
-            SELECT 서비스ID + 
-            FROM 서비스 + 
-            WHERE 서비스ID NOT IN (SELECT 서비스ID FROM 서비스이용) + 
-    ) Y + 
-    WHERE X.서비스ID = Y. 서비스ID + 
-);
-c. +
-SELECT B.서비스ID, A.서비스명, A.서비스URL + 
-FROM 서비스 A  + 
-LEFT JOIN 서비스이용 B ON A.서비스ID = B.서비스ID + 
-WHERE B.서비스ID IS NULL + 
-GROUP BY B.서비스ID, A.서비스명, A.서비스URL;
-d.  
-SELECT A.서비스ID, A.서비스명, A.서비스URL + 
-FROM 서비스 A + 
-WHERE 서비스ID IN (SELECT serviceID FROM serviceUse) AND  + 
-    serviceID NOT IN (SELECT serviceID FROM service);
+----
++
+b. 
++ 
+[source, sql]
+----
 
+SELECT X.서비스ID, X.서비스명, X.서비스URL  
+FROM 서비스 X + 
+WHERE NOT EXISTS ( +
+    SELECT 1  
+    FROM ( +
+            SELECT 서비스ID 
+            FROM 서비스 
+            WHERE 서비스ID NOT IN (SELECT 서비스ID FROM 서비스이용) 
+    ) Y 
+    WHERE X.서비스ID = Y. 서비스ID 
+);
+----
+c. 
++
+[source, sql]
+----
+SELECT B.서비스ID, A.서비스명, A.서비스URL 
+FROM 서비스 A  
+LEFT JOIN 서비스이용 B ON A.서비스ID = B.서비스ID 
+WHERE B.서비스ID IS NULL 
+GROUP BY B.서비스ID, A.서비스명, A.서비스URL;
+----
+d. 
++
+[source, sql]
+----
+SELECT A.서비스ID, A.서비스명, A.서비스URL 
+FROM 서비스 A 
+WHERE 서비스ID IN (SELECT serviceID FROM serviceUse) AND  
+    serviceID NOT IN (SELECT serviceID FROM service);
+----
++
 36. 아래 SQL의 실행 결과를 적으시오.
 +
 TBL1
@@ -968,38 +986,57 @@ HAVING COUNT(CASE WHEN B.동의여부 = 'N' THEN 0 ELSE NULL END) >= 1
 ORDER BY A.회원번호;
 ----
 +
-a. +
-SELECT A.회원번호, A.회원명 +
-FROM 회원 A +
-WHERE EXISTS ( +
-    SELECT 1 +
-    FROM 동의항목 B +
-    WHERE A.회원번호 = B.회원번호 +
-      AND B.동의여부 = ‘N’) +
+a. 
++
+[source, sql]
+----
+SELECT A.회원번호, A.회원명 
+FROM 회원 A 
+WHERE EXISTS ( 
+    SELECT 1 
+    FROM 동의항목 B 
+    WHERE A.회원번호 = B.회원번호 
+      AND B.동의여부 = ‘N’) 
 ORDER BY A.회원번호;
-b. + 
-SELECT A.회원번호, A.회원명 +
-FROM 회원 A +
-WHERE A.회원번호 IN ( +
-    SELECT B.회원번호 +
-    FROM 동의항목 B +
-    WHERE B.동의여부 = ‘N’) +
+----
++
+b. 
++
+[source, sql]
+----
+SELECT A.회원번호, A.회원명 
+FROM 회원 A 
+WHERE A.회원번호 IN ( 
+    SELECT B.회원번호 
+    FROM 동의항목 B 
+    WHERE B.동의여부 = ‘N’) 
 ORDER BY A.회원번호;
-c.  + 
-SELECT A.회원번호, A.회원명 +
-FROM 회원 A +
-WHERE 0 < ( +
-    SELECT COUNT(*) +
-    FROM 동의항목 B +
-    WHERE B.동의여부 = ‘N’ +
+----
++
+c.
++ 
+[source, sql]
+----
+SELECT A.회원번호, A.회원명 
+FROM 회원 A 
+WHERE 0 < ( 
+    SELECT COUNT(*) 
+    FROM 동의항목 B 
+    WHERE B.동의여부 = ‘N’ 
 );
-d. 
-SELECT A.회원번호, A.회원명 +
-FROM 회원 A, 동의항목 B +
-WHERE A.회원번호 = B.회원번호 AND B.동의여부 = ‘N’ +
-GROUP BY A.회원번호, A.회원명 +
-ORDER BY A.회원번호; +
-
+----
++
+d.
++
+[source, sql]
+----
+SELECT A.회원번호, A.회원명 
+FROM 회원 A, 동의항목 B 
+WHERE A.회원번호 = B.회원번호 AND B.동의여부 = ‘N’ 
+GROUP BY A.회원번호, A.회원명 
+ORDER BY A.회원번호; 
+----
++
 41. 뷰에 대한 설명으로 가장 적절하지 않은 것은?
 a. 뷰는 단지 정의만을 가지고 있으며, 실행 시점에 질의를 재작성하여 수행한다.
 b. 뷰는 복잡한 SQL 문장을 단순화하는 장점이 있는 반면, 테이블 구조가 변경되면 응용 프로그램을 변경해 주어야 한다.
@@ -1114,7 +1151,7 @@ d. RESTRICT
 a. 여러 개의 SQL문의 결과에 대한 합집합으로, 중복된 행은 하나의 행으로 출력한다.
 b. 여러 개의 SQL문의 결과에 대한 합집합으로, 중복된 행도 그대로 결과로 출력한다.
 c. 여러 개의 SQL문의 결과에 대한 교집합으로, 중복된 행은 하나의 행으로 출력한다.
-d SQL문 결과간의 차집합으로, 중복된 행은 하나의 행으로 출력한다.
+d. SQL문 결과간의 차집합으로, 중복된 행은 하나의 행으로 출력한다.
 
 48. 속성에 대한 설명으로 가장 적절하지 않은 것은?
 a. 엔터티에 대한 자세하고 구체적인 정보를 나타낸다.
