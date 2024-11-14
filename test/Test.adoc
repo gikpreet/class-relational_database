@@ -57,7 +57,6 @@ d. ㉠ HAVING ㉡ ASC
 7. 아래를 참고할 때 광고매체 ID별 최초로 게시한 광고명과 광고시작일자를 출력하기 위하여 빈칸 ㉠에 들어갈 SQL로 가장 적절한 것은?
 +
 image:./image/7.png[]
-![image.png](image/7.png)
 +
 [source, sql]
 ----
@@ -115,16 +114,16 @@ FROM 광고게시
      SAVEPOINT a;
      
 (나) DELETE emp WHERE empno = 202;
-    SAVEPOINT b;
+     SAVEPOINT b;
     
 (다) UPDATE emp SET ename = 'Clark';
-		ROLLBACK TO SAVEPOINT a;
+	 ROLLBACK TO SAVEPOINT a;
 		
 (라) INSERT INTO emp (empno, ename, deptno) VALUES (300, 'Thomas', 30);
     SAVEPOINT c;
     
 (마) DELETE emp WHERE deptno = 20;
-    COMMIT;
+     COMMIT;
 ----
 +
 a. (가), (나), (다), (라), (마)
@@ -596,7 +595,7 @@ b. RESTRICT
 c. AUTOMATIC
 d. DEPENDENT
 
-26. 아래를 참고할 때 오류가 발생하지 않는 SQL을 a ~ e 중 모두 고르시오
+26. 아래를 참고할 때 오류가 발생하지 않는 SQL을 1 ~ 5 중 모두 고르시오
 +
 [source, sql]
 ----
@@ -631,7 +630,7 @@ e. INSERT INTO TBL VALUES(5, 500, NULL);
 
 a. INSERT INTO BOARD VALUES (1, 'Q&A', 'Y', SYSDATE, 'Q&A 게시판’);
 b. INSERT INTO BOARD (BOARD_ID, BOARD_NM, USE_YN, BOARD_DESC) 
-VALUES ('100', 'FAQ, 'Y', 'FAQ AZE);
+VALUES ('100', 'FAQ', 'Y', 'FAQ  게시판');
 c. UPDATE BOARD SET USE_YN = 'N' WHERE BOARD_ID = '1';
 d. UPDATE BOARD SET BOARD_ID = 200 WHERE BOARD_ID = '100';
 
