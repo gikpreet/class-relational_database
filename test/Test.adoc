@@ -775,6 +775,7 @@ ORDER BY 승리건수 DESC;
 |===
 +
 a.
++
 [source, python]
 ----
 UPDATE 부서 A SET 담당자 = ( 
@@ -831,7 +832,7 @@ UPDATE 부서 A SET 담당자 = (
     WHERE B.부서코드 = A.부서코드 
         AND B.변경일자 = '2015.01.25');
 ----
-+
+
 33. 아래 데이터 모델에 표현된 FK(Foreign Key)에 대한 설명으로 가장 적절한 것은?
 +
 image:./image/33.png[]
