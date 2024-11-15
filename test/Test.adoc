@@ -690,22 +690,41 @@ d. 지속성(Durability) : 트랜잭션을 취소하더라도 트랜잭션이 �
 | G팀 | 70 | 130
 |===
 +
-a. +
-SELECT TOP(3) 팀명, 승리건수 +
-FROM 팀별성적 +
+a.
++
+[source, python]
+----
+SELECT TOP(3) 팀명, 승리건수 
+FROM 팀별성적 
 ORDER BY 승리건수 DESC;
-b. +
-SELECT TOP(3) 팀명, 승리건수 +
+----
++
+b.
++
+[source, python]
+----
+SELECT TOP(3) 팀명, 승리건수 
 FROM 팀별성적;
-c. +
-SELECT 팀명, 승리건수 +
-FROM 팀별성적 +
-WHERE ROWNUM <= 3 +
+----
++
+c. 
++
+[source, python]
+----
+SELECT 팀명, 승리건수 
+FROM 팀별성적 
+WHERE ROWNUM <= 3 
 ORDER BY 승리건수 DESC;
-d. +
-SELECT TOP(3) WITH TIES 팀명, 승리건수 +
-FROM 팀별성적 +
+----
++
+d. 
++
+[source, python]
+----
+SELECT TOP(3) WITH TIES 팀명, 승리건수 
+FROM 팀별성적 
 ORDER BY 승리건수 DESC;
+----
 
 32. 부서 테이블의 담당자 변경을 위해 부서임시 테이블에 입력된 데이터를 활용하여 주기적으로 부서 테이블을 실행 결과와 같이 반영하기 위한 SQL로 가장 적절한 것은? (단, 부서임시 테이블에서 변경일자를 기준으로 가장 최근에 변경된 데이터를 기준으로 부서 테이블에 반영되어야 한다.)
 +
@@ -755,46 +774,64 @@ ORDER BY 승리건수 DESC;
 | A010 | 국내마케팅팀 | A004 | 차승원 
 |===
 +
-a. +
-UPDATE 부서 A SET 담당자 = ( +
-    SELECT C.부서코드  +
-	FROM ( +
-	    SELECT 부서코드, MAX(변경일자) AS 변경일자 +
-	    FROM 부서임시 +
-	    GROUP BY 부서코드) B, 부서임시 C +
-	WHERE B.부서코드 = C.부서코드 +
-	  AND B.변경일자 = C.변경일자 +
+a.
+[source, python]
+----
+UPDATE 부서 A SET 담당자 = ( 
+    SELECT C.부서코드  
+	FROM ( 
+	    SELECT 부서코드, MAX(변경일자) AS 변경일자 
+	    FROM 부서임시 
+	    GROUP BY 부서코드) B, 부서임시 C 
+	WHERE B.부서코드 = C.부서코드 
+	  AND B.변경일자 = C.변경일자 
 	  AND B.부서코드 = C.부서코드);
-b. + 
-UPDATE 부서 A SET 담당자 = ( +
-    SELECT C.부서코드 +
-    FROM ( +
-        SELECT 부서코드, MAX(변경일자) AS 변경일자 +
-        FROM 부서임시 +
-        GROUP BY 부서코드) B,  +
-        부서임시 C WHERE B.부서코드 = C.부서코드 +
-            AND B.변경일자 = C.변경일자 +
-            AND A.부서코드 = C.부서코드 +
-    ) +
+----
++
+b. 
++ 
+[source, python]
+----
+UPDATE 부서 A SET 담당자 = ( 
+    SELECT C.부서코드 
+    FROM ( 
+        SELECT 부서코드, MAX(변경일자) AS 변경일자 
+        FROM 부서임시 
+        GROUP BY 부서코드) B,  
+        부서임시 C WHERE B.부서코드 = C.부서코드 
+            AND B.변경일자 = C.변경일자 
+            AND A.부서코드 = C.부서코드 
+    ) 
 WHERE EXISTS (SELECT 1 FROM 부서 X WHERE A.부서코드 = X.부서코드);
-c. + 
-UPDATE 부서 A SET 담당자 = ( +
-    SELECT B.담당자 +
-    FROM 부서임시 B +
-    WHERE B.부서코드 = A.부서코드 +
-        AND B.변경일자 = ( +
-        SELECT MAX(C.변경일자)  +
-        FROM 부서임시 C +
-        WHERE C.부서코드 = B.부서코드) +
-    ) +
+----
++
+c. 
++ 
+[source, python]
+----
+UPDATE 부서 A SET 담당자 = ( 
+    SELECT B.담당자 
+    FROM 부서임시 B 
+    WHERE B.부서코드 = A.부서코드 
+        AND B.변경일자 = ( 
+        SELECT MAX(C.변경일자)  
+        FROM 부서임시 C 
+        WHERE C.부서코드 = B.부서코드) 
+    ) 
 WHERE 부서코드 IN (SELECT 부서코드 FROM 부서임시);
-d. + 
-UPDATE 부서 A SET 담당자 = ( +
-    SELECT B.담당자 +
-    FROM 부서임시 B +
-    WHERE B.부서코드 = A.부서코드 +
-        AND B.변경일자 = '2015.01.25'); +
-
+----
++
+d.
++ 
+[source, python]
+----
+UPDATE 부서 A SET 담당자 = ( 
+    SELECT B.담당자 
+    FROM 부서임시 B 
+    WHERE B.부서코드 = A.부서코드 
+        AND B.변경일자 = '2015.01.25');
+----
++
 33. 아래 데이터 모델에 표현된 FK(Foreign Key)에 대한 설명으로 가장 적절한 것은?
 +
 image:./image/33.png[]
