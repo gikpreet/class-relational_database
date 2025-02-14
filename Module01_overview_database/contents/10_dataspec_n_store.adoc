@@ -25,5 +25,7 @@ DBMS의 데이터 모델이 세부적인 내역들을 상당히 감추어 주기
 
 개념적인 데이터 모델의 대표적인 예로는 `개체 관계 데이터 모델(Entity Relationship Data Model)` 이 있으며, ER 모델은 개체들과 개체간의 관계를 그림으로 묘사하여 설명하므로 이해하기 쉬워 널리 사용됩니다.
 
+---
+
 link:./09_filesystem_n_db.adoc[이전: 파일시스템과 DBMS] +
 link:./11_data_model.adoc[다음: 데이터 모델]

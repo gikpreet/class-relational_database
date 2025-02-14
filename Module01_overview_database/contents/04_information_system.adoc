@@ -22,5 +22,7 @@
 
 하나의 전문적인 목적보다는 여러가지 복합적이고 광범위한 목적을 위해 통합적인 기능을 수행하는 정보 시스템을 구축할 수 있는데, 이런 시스템을 `DSS(Decision Support System – 의사 결정 지원 시스템)` 이라고 합니다. 
 
+---
+
 link:./03_data_and_information.adoc[이전: 데이터와 정보] +
 link:./05_database.adoc[다음: 데이터베이스]

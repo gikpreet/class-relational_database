@@ -9,7 +9,9 @@
 
 == Table of contents
 
-. 데이터베이스 시스템 개요
-. 데이터베이스 관리 시스템 개요
+. link:./02_introduction_to_database_system.adoc[데이터베이스 시스템 개요]
+. link:./08_dbms.adoc[데이터베이스 관리 시스템 개요]
 
-link:./02_introduction_to_database_system.adoc[다음: 데이터베이스 시스템 개요]
+---
+
+link:./02_chapter1_introduction_to_database_system.adoc[다음: 데이터베이스 시스템 개요]

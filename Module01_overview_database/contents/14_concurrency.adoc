@@ -28,5 +28,7 @@
 
 이런 문제를 해결하기 위해 데이터베이스 관리 시스템은 `트랜잭션(Transaction)` 이라는 사용자 응용 프로그램 실행 단위를 사용합니다.
 
-link:./12_data_independency.adoc[이전: 데이터 독립성] +
-link:./14_transaction.adoc[다음: 트랜잭션]
+---
+
+link:./13_database_query.adoc[이전: 데이터베이스 질의] +
+link:./15_transaction.adoc[다음: 트랜잭션]

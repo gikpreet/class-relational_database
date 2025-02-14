@@ -29,5 +29,7 @@
 == 응용 프로그램 개발 시간 감소
 고수준의 데이터 인터페이스를 제공합니다.
 
+---
+
 link:./16_dbms_architecture.adoc[이전: 데이터베이스 관리 시스템 구조] +
-link:./18_lab01.adoc[다음: Lab1: mySQL 설치]
+link:./18_lab01.adoc[다음: Lab1: MySQL 설치]
