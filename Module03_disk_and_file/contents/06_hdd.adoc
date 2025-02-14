@@ -24,4 +24,7 @@ HDD는 전통적인 방식의 자기 디스크입니다. 자기를 이용해서 
 * 전송 시간(Transfer time) +
 헤드가 위치한 곳에서 데이터를 판독하거나 기록하는데 소요되는 시간으로, 디스크가 해당 블록위를 회전해 지나가는 시간을 의미합니다.
 
+---
+
+link:./05_chapter2_disk.adoc[이전: Chapter 2: 디스크] +
 link:./07_ssd.adoc[다음: SSD(Solid State Drive)]

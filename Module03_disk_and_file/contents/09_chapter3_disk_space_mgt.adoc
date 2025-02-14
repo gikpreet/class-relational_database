@@ -4,7 +4,10 @@ DBMS 소프트웨어 구성요소의 가장 아래에는 디스크 관리자가 
 
 == Table of Contents
 
-1.	비어있는 블록의 추적 감시
-2.	운영체제 파일 시스템을 이용한 디스크 공간 관리
+1.	link:./10_block.adoc[비어있는 블록의 추적 감시]
+2.	link:./11_disk_space.adoc[운영체제 파일 시스템을 이용한 디스크 공간 관리]
 
+---
+
+link:./08_performance_storage.adoc[이전: 디스크의 성능] +
 link:./10_block.adoc[다음: 비어있는 블록의 추적 감시]
