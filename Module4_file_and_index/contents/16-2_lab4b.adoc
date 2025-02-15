@@ -182,3 +182,8 @@ SELECT * FROM Product WITH (INDEX(idx_product_categoryno))
 위 쿼리는 Product 테이블의 CategoryNo 컬럼을 기준으로 생성된 idx_product_category 인덱스를 사용하여 수행되도록 작성되었습니다. 따라서, 결과는 Product 테이블의 CategoryNo 컬럼을 기준으로 정렬된 결과를 보여줍니다. 
 +
 image:../images/image12.png[]
+
+---
+
+link:./16-1_lab4a.adoc[이전: Lab 4a: 인덱스 생성(MySQL)] +
+link:./16-3_lab4c.adoc[다음: Lab 4c: 인덱스 생성(Oracle)]

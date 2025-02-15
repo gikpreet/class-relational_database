@@ -320,3 +320,8 @@ SELECT * FROM Product WHERE CategoryNo > 0;
 ----
 +
 > *참고* PostgreSQL에서 인덱스의 사용은 전적으로 Query Optimizer가 결정합니다. PostgreSQL에서 인덱스의 사용에 대해서는 link:https://www.postgresql.org/docs/current/indexes-examine.html[]를 참조하십시오.
+
+---
+
+link:./16-3_lab4c.adoc[이전: Lab 4c: 인덱스 생성(Oracle)] +
+link:./17_review.adoc[다음: 검토]

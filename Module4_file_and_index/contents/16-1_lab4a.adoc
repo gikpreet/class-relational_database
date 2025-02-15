@@ -278,4 +278,8 @@ mysql> SELECT * FROM Product WHERE CategoryNo > 0;
 +-----------+-------------------------+-----------+-----------------------+------------+
 7 rows in set (0.00 sec)
 ----
-link:./17_review.adoc[다음: 검토]
+
+---
+
+link:./15_compounded_index.adoc[이전: 복합 인덱스] +
+link:./16-2_lab4b.adoc[다음: Lab 4b: 인덱스 생성(Microsoft SQL Server)]

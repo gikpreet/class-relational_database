@@ -9,8 +9,8 @@
 
 == Table of Contents
 1.	link:./02_chapter1_cost_file.adoc[비용 모델과 파일 조직법]
-2.	link:./09_index.adoc[인덱스]
+2.	link:./09_chapter2_index.adoc[인덱스]
 
 ---
 
-link:./02_cost_file.adoc[다음: 비용 모델과 파일 조직법]
+link:./02_chapter1_cost_file.adoc[다음: 비용 모델과 파일 조직법]
