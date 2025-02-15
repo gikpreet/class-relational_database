@@ -10,4 +10,7 @@
 
 <페이지 번호>, <슬롯 번호>의 쌍을 RID(Record ID)라고 하며, 레코드의 포인터 역할을 수행하게 됩니다. 
 
+---
+
+link:./19_chapter6_page.adoc[이전: Chapter 6: 페이지] +
 link:./21_fixed_record.adoc[다음: 고정 길이 레코드]

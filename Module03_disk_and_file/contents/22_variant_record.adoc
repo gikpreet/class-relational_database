@@ -18,4 +18,7 @@ image:../images/image10.png[]
 
 이 조직법은 고정 길이 레코드라도 레코드를 자주 이동시켜야 하는 경우에도 역시 유용한 방법입니다.
 
+---
+
+link:./21_fixed_record.adoc[이전: 고정길이 레코드] +
 link:./23_file_index.adoc[다음: 파일과 인덱스]

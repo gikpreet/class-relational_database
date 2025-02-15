@@ -132,3 +132,8 @@ CREATE TABLE OrderDetail (
     CONSTRAINT fk_OrderDetail_Product FOREIGN KEY(ProductNo) REFERENCES Product(ProductNo)
 );
 ----
+
+---
+
+link:./30-3_lab3c.adoc[이전: Lab 3c: 테이블 생성(Postgres)] +
+link:./31_review.adoc[다음: 검토]

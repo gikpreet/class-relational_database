@@ -16,10 +16,10 @@ DBMS 내부의 데이터는 디스크나 테이프 같은 저장장치에 저장
 2.	link:./05_chapter2_disk.adoc[디스크]
 3.	link:./09_chapter3_disk_space_mgt.adoc[디스크 공간 관리]
 4.	link:./12_chapter4_buffer_manager.adoc[버퍼 관리자]
-5.	레코드 형식
-6.	페이지 형식
-7.	파일과 인덱스
-8.	시스템 카탈로그
+5.	link:./16_chapter5_record.adoc[레코드 형식]
+6.	link:./19_chapter6_page.adoc[페이지 형식]
+7.	link:./23_chapter7_file_index.adoc[파일과 인덱스]
+8.	link:./28_chapter8_system_cat.adoc[시스템 카탈로그]
 
 ---
 

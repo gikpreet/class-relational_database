@@ -305,8 +305,12 @@ CREATE TABLE OrderDetail (
 ----
 
 === 생성된 개체 확인
+
 1.	Navigator창의 SCHEMA 탭에서, Module03 데이터베이스를 마우스 오른쪽 클릭하고 Refresh All을 클릭합니다.
 2.	생성된 테이블을 확인합니다.
 3.	테이블을 확장하여 생성된 테이블의 정보를 확인합니다.
- 
+
+---
+
+link:./29_system_catalog.adoc[이전: 시스템 카탈로그] +
 link:./31_review.adoc[다음: 검토]

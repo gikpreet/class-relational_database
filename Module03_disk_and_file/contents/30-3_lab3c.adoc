@@ -149,3 +149,8 @@ CREATE TABLE OrderDetail (
 image:../images/image18.png[]
 +
 3. 각 테이블을 확장하여 생성된 테이블의 정보를 확인합니다.
+
+---
+
+link:./30-2_lab3b.adoc[이전: Lab 3c: 테이블 생성(Oracle)] +
+link:./30-4_lab3d.adoc[다음: Lab 3d: 테이블 생성(Postgres)]

@@ -26,4 +26,4 @@
 ---
 
 link:./10_block.adoc[이전: 비어있는 블록의 추적감시] +
-link:./12_buffer_manager.adoc[다음: 버퍼 관리자]
+link:./12_buffer_manager.adoc[다음: Chapter 4: 버퍼 관리자]

@@ -22,4 +22,7 @@ image:../images/image09.png[]
 
 페이지에서는 페이지에 탑재되어 있는 레코드에 대한 정보 이외에도 파일 내의 다음 페이지 번호 등의 정보도 포함합니다. 
 
+---
+
+link:./20_page_type.adoc[이전: 페이지 형식] +
 link:./22_variant_record.adoc[다음: 가변 길이 레코드]

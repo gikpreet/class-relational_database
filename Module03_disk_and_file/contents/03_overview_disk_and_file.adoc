@@ -12,5 +12,5 @@ DBMS 내부의 데이터는 디스크나 테이프와 같은 저장 장치에 �
 
 ---
 
-link:./02_memory_hi.adoc[이전: Chapter 1: 기억장치 계층 구조] +
+link:./02_chapter1_memory_hi.adoc[이전: Chapter 1: 기억장치 계층 구조] +
 link:./04_storage_hire.adoc[다음: 기억장치 계층 구조]
