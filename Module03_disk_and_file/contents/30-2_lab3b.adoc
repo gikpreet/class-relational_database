@@ -243,5 +243,5 @@ image::../images/image17.png[]
 
 ---
 
-link:./30-1_lab3a.adoc[이전: 테이블 생성(MySQL)] +
-link:./30-3_lab3c.adoc[디음: 테이블 생성(Oracle)]
+link:./30-1_lab3a.adoc[이전: Lab 3a: 테이블 생성(MySQL)] +
+link:./30-3_lab3c.adoc[디음: Lab 3b: 테이블 생성(Oracle)]

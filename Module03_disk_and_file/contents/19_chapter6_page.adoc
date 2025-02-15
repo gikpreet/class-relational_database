@@ -4,9 +4,9 @@
 
 == Table of Contents
 
-1.	페이지 형식
-2.	고정 길이 레코드
-3.	가변 길이 레코드
+1.	link:./20_page_type.adoc[페이지 형식]
+2.	link:./21_fixed_record.adoc[고정 길이 레코드]
+3.	link:./22_variant_record.adoc[가변 길이 레코드]
 
 ---
 
