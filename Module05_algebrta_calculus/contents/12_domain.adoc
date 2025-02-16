@@ -55,4 +55,7 @@ Pilot1
 
 _{<N, T>| < <N, T> ∈ Pilot1 ∧ 파일럿 T > 5>}_
 
+---
+
+link:./11_quiz.adoc[이전: Quiz: 투플 관계 해석 질의] +
 link:./13_quiz.adoc[다음: Quiz 도메인 관계 해석 질의]

@@ -49,4 +49,7 @@ _π~파일럿이름,ρ(Grade(등급))~(σ~등급>5~(Pilot1))_
 |안중근	|7
 |===
 
+---
+
+link:./05_set_operation.adoc[이전: 집합 연산] +
 link:./07_join.adoc[다음: 조인]

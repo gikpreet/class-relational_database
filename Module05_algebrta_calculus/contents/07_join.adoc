@@ -137,4 +137,8 @@ _Pilot ⟗ pilot.파일럿번호=Flight.파일럿번호 Flight_
 |44	|안중근	|7	|32	|13	|101	|2022-10-19
 |===
 
+
+---
+
+link:./06_row.adoc[이전: 이름 바꾸기] +
 link:./08_quiz.adoc[다음: Quiz 관계 대수 질의]

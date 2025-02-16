@@ -11,8 +11,10 @@
 * 상용 SQL 언어들에서 절차적 방법과 명세형 방법을 사용하여 질의를 만드는 방법을 설명할 수 있습니다.
 
 == Table of COntents
-1.	관계 대수
-2.	관계 해석
-3.	관계 대수와 관계 해석
+
+1.	link:./02_chapter1_algebra.adoc[관계 대수]
+2.	link:./09_clapter2_calcurus.adoc[관계 해석]
+
+---
 
 link:./02_algebra.adoc[다음: 관계대수]

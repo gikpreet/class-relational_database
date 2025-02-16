@@ -47,4 +47,7 @@ image:../images/image01.png[]
 |외부 조인 Full|⟗|이항
 |===
 
+---
+
+link:./02_chapter1_algebra.adoc[이전: 관계 대수] +
 link:./04_selection_projection.adoc[다음: 셀렉션과 프로젝션]

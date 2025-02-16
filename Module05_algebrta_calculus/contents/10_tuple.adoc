@@ -91,5 +91,8 @@ _{ S.이름, S.나이 | ∃S ∈ 파일럿 S.등급>=5) }_
 
 _{ S.이름, S.나이 | Pilot1(S) and S.등급 >= 5 }_
 
+---
+
+link:./09_chapter2_calcurus.adoc[이전: Chapter 2: 관계 해석] +
 link:./11_quiz.adoc[다음: Quiz 투플 관계 해석 질의]
 

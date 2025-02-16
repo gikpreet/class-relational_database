@@ -85,4 +85,7 @@ _π~파일럿이름,등급~(δ~등급>5~(Pilot1))_
 
 위 대수식은 Pilot1에 셀렉션을 먼저 적용하고 프로젝션을 적용합니다.
 
+---
+
+link:./03_algebra_overview.adoc[이전: 관계 대수 개요] +
 link:./05_set_operation.adoc[다음: 집합연산]
