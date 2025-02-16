@@ -130,4 +130,7 @@ CASCADED
 <view column list> ::= <column name list>
 ----
 
+---
+
+link:./11_overview_view.adoc[이전: 뷰(View) 개요] +
 link:./13_view_update.adoc[다음: 뷰에 대한 갱신]

@@ -1,4 +1,4 @@
-= Lab 7-2 : 뷰의 생성과 사용 및 보안 설정
+= Lab 7-2 : 뷰의 생성과 사용 및 보안 설정 (MySQL)
 
 이 연습에서는 뷰를 생성하고, 생성된 뷰를 사용하며, 뷰를 기반으로 보안을 적용하여 사용자에게 릴레이션의 존재를 숨기는 형식의 외부 스키마를 구성하여 보안을 설정합니다.
 
@@ -375,3 +375,7 @@ mysql> SELECT * FROM Passenger;
 ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for table 'passenger'
 ----
 10.	연습이 종료되었습니다.
+
+---
+
+link:./13_view_update.adoc[이전: 뷰에 대한 갱신] +

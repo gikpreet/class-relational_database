@@ -1,6 +1,6 @@
-= Lab 7-1 : 사용자 생성 및 권한 제어
+= Lab 7-1a : 사용자 생성 및 권한 제어 (MySQL)
 
-이 연습에서는 데이터베이스에 사용자 개체를 생성하고 권한을 부여합니다. 아래 절차에 따릅니다.
+이 연습에서는 MySQL 데이터베이스에서 사용자 개체를 생성하고 권한을 부여합니다. 아래 절차에 따릅니다.
 
 == 사용자 생성
 
@@ -231,4 +231,7 @@ ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for tabl
 +
 8.	연습이 종료되었습니다.
 
-link:./10_view.adoc[다음: 뷰(View)]
+---
+
+link:./08_nece.adoc[이전: 필수 접근 제어] +
+link:./09-2_lab7b.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (Microsoft SQL Server)]

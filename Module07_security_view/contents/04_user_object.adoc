@@ -24,4 +24,7 @@ CREATE USER <User ID> IDENTIFIED BY <Password>
 CREATE USER <User ID> IDENTIFIED BY <Password>
 ----
 
+---
+
+link:./03_overview_security.adoc[이전: 데이터베이스 보안 개요] +
 link:./05_access_control.adoc[다음: 접근 제어]

@@ -54,4 +54,7 @@ CURRENT_USER
 | CURRENT_ROLE
 ----
 
+---
+
+link:./06_dac.adoc[이전: 재량 접근 제어] +
 link:./08_nece.adoc[다음: 필수 특권 제어]

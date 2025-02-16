@@ -37,4 +37,7 @@ _TS(Top Secret) > S > C > U_
 
 SQL 1999 표준은 필수 특권 제어를 SQL의 기능에 포함시킬 것을 명세하지 않습니다. 따라서, 대부분의 관계 데이터베이스는 필수 특권 제어를 지원하지 않지만, MS-SQL Server와 같은 경우 필수 특권 제어의 개념을 사용해 다중 수준 보안(MLS – Multi-Level Secure)를 구현하고 있습니다.
 
-link:./09_lab07_1.adoc[다음: 연습 7-1 사용자 생성 및 권한 제어]
+---
+
+link:./07_privilege.adoc[이전: 특권] +
+link:./09-1_lab7a.adoc[다음: 연습 7-1a 사용자 생성 및 권한 제어 (MySQL)]

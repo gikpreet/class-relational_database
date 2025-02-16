@@ -1,4 +1,4 @@
-= Lab 07-1 : 사용자 생성 및 권한 제어
+= Lab 7-1b : 사용자 생성 및 권한 제어 (Microsoft SQL Server)
 
 이 연습에서는 Microsoft SQL Server 데이터베이스에서 사용자 개체를 생성하고 권한을 부여합니다. 아래 절차에 따릅니다.
 
@@ -175,3 +175,8 @@ SELECT * FROM Aircraft
 ----
 +
 질의는 수행되지 않습니다. Michael 사용자는 Aircraft 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
+
+---
+
+link:./09-1_lab7a.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (MySQL)] +
+link:./09-3_lab7c.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (Oracle)]

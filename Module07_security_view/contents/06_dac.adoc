@@ -41,4 +41,7 @@ GRANT <특권> ON <개체> TO <사용자> [WITH GRANT OPTIONS]
 
 사용자가 허가권(GRANT OPTION)이 부여된 특권을 가지면 GRANT 명령을 사용해서 다른 사람들에게 같은 특권을 전달해 줄 수 있습니다. 기반 테이블을 생성한 사용자는 그 객체에 대해 모든 적용 가능한 특권들을 가지며 이 특권들을 다른 사용자에게 허가할 수 있는 허가권도 가집니다. 
 
+---
+
+link:./05_access_control.adoc[이전: 접근 제어] +
 link:./07_privilege.adoc[다음: 특권]
