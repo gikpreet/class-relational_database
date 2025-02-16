@@ -1,0 +1,13 @@
+= Lab 6-1d: 테이블 생성 (Postgres)
+
+이 연습에서는 Postgres에서 아래 릴레이션 스키마를 가지는 릴레이션 인스턴스(테이블)을 생성합니다.
+
+_Passenger(PassengerNo: Integer, PassengerName: String, Grade: Integer, Age: Integer) +
+Aircraft(AircraftNo: Integer, KindOfAircraft: String, Airline: String) +
+Flight(FlightNo: Integer, AircraftNo: Integer, Departure: Int, Arrival:String, FlightDate: Date, AircraftNo: Integer) +
+Reservation(PassengerNo: Integer, FlightNo: Integer, ReservedDate: Date, FlightNo: Integer, PassengerNo: Integer)_
+
+---
+
+link:./09-3_lab6-1c.adoc[이전: 테이블 생성 (Oracle)] +
+link:./10_chapter3_dml.adoc[DML: Data Manipulation Language, SQL 질의 기본 구조]

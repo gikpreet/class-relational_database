@@ -1,0 +1,13 @@
+= Chapter 10: 삭제
+
+데이터베이스에 데이터를 삽입하고 산출할 수 있다면 삭제도 가능해야 합니다. DBMS는 데이터의 삭제을 위해 UPDATE 문을 사용합니다. 이 단원에서는 DELETE 문을 사용한 데이터 삭제에 대해 학습합니다.
+
+== Table of Contents
+
+1. link:./41_delete_clause.adoc[DELETE문]
+2. link:./42_sql92.adoc[SQL1999 표준]
+
+---
+
+link:./39_sql92_standard.adoc[이전: UPDATE SQL 92 표준] +
+link:./41_delete_clause.adoc[다음: DELETE 문]

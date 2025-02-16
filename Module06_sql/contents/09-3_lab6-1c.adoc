@@ -1,0 +1,13 @@
+= Lab 6-1c: 테이블 생성 (Oracle)
+
+이 연습에서는 Oracle에서 아래 릴레이션 스키마를 가지는 릴레이션 인스턴스(테이블)을 생성합니다.
+
+_Passenger(PassengerNo: Integer, PassengerName: String, Grade: Integer, Age: Integer) +
+Aircraft(AircraftNo: Integer, KindOfAircraft: String, Airline: String) +
+Flight(FlightNo: Integer, AircraftNo: Integer, Departure: Int, Arrival:String, FlightDate: Date, AircraftNo: Integer) +
+Reservation(PassengerNo: Integer, FlightNo: Integer, ReservedDate: Date, FlightNo: Integer, PassengerNo: Integer)_
+
+---
+
+link:./09-2_lab6-1b.adoc[이전: Lab 6-1b: 테이블 생성 (Microsoft SQL Server)] +
+link:./09-4_lab6-1d.adoc[다음: Lab 6-1d: 테이블 생성 (Postgres)]
