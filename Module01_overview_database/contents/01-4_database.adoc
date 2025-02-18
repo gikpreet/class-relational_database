@@ -43,5 +43,5 @@
 
 ---
 
-link:./04_information_system.adoc[이전: 정보 시스템] +
-link:./06_database_management_system.adoc[다음: 데이터베이스 관리 시스템]
+link:./01-3_information_system.adoc[이전: 정보 시스템] +
+link:./01-5_database_management_system.adoc[다음: 데이터베이스 관리 시스템]

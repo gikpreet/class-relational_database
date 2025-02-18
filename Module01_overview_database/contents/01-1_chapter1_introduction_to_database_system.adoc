@@ -12,5 +12,5 @@
 
 ---
 
-link:./01_introduction.adoc[이전: 데이터베이스 시스템 개요] +
-link:./03_data_and_information.adoc[다음: 데이터와 정보]
+link:./00_introduction.adoc[이전: 데이터베이스 시스템 개요] +
+link:./01-2_data_and_information.adoc[다음: 데이터와 정보]

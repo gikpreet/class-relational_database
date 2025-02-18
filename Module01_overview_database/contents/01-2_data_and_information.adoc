@@ -23,5 +23,5 @@ image:../images/image01.png[]
 
 ---
 
-link:./02_chapter1_introduction_to_database_system.adoc[이전: 데이터베이스 시스템 개요] +
-link:./04_information_system.adoc[다음: 정보 시스템]
+link:./01-1_chapter1_introduction_to_database_system.adoc[이전: 데이터베이스 시스템 개요] +
+link:./01-3_information_system.adoc[다음: 정보 시스템]

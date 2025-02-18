@@ -14,4 +14,4 @@
 
 ---
 
-link:./02_chapter1_introduction_to_database_system.adoc[다음: 데이터베이스 시스템 개요]
+link:./01-1_chapter1_introduction_to_database_system.adoc[다음: 데이터베이스 시스템 개요]
