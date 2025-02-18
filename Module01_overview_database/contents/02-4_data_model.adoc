@@ -48,5 +48,5 @@ CSV 형태로 저장된 파일 역시 계층적 데이터와 테이블을 포함
 
 ---
 
-link:./10_dataspec_n_store.adoc[이전: DBMS에서 데이터의 명세 및 저장] +
-link:./12_data_independency.adoc[다음: 데이터 독립성]
+link:./02-3_dataspec_n_store.adoc[이전: DBMS에서 데이터의 명세 및 저장] +
+link:./02-5_data_independency.adoc[다음: 데이터 독립성]

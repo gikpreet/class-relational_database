@@ -28,5 +28,5 @@
 
 ---
 
-link:./12_data_independency.adoc[이전: 데이터 독립성] +
-link:./14_concurrency.adoc[다음: 동시 접근 및 복구]
+link:./02-5_data_independency.adoc[이전: 데이터 독립성] +
+link:./02-7_concurrency.adoc[다음: 동시 접근 및 복구]

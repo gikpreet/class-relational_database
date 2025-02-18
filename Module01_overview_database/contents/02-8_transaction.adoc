@@ -39,5 +39,5 @@ image:../images/image06.png[]
 
 ---
 
-link:./14_concurrency.adoc[이전: 동시 접근 및 복구] +
-link:./16_dbms_architecture.adoc[다음: 데이터베이스 구조]
+link:./02-7_concurrency.adoc[이전: 동시 접근 및 복구] +
+link:./02-9_dbms_architecture.adoc[다음: 데이터베이스 구조]

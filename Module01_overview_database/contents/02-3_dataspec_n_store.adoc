@@ -27,5 +27,5 @@ DBMS의 데이터 모델이 세부적인 내역들을 상당히 감추어 주기
 
 ---
 
-link:./09_filesystem_n_db.adoc[이전: 파일시스템과 DBMS] +
-link:./11_data_model.adoc[다음: 데이터 모델]
+link:./02-2_filesystem_n_db.adoc[이전: 파일시스템과 DBMS] +
+link:./02-4_data_model.adoc[다음: 데이터 모델]

@@ -30,5 +30,5 @@
 
 ---
 
-link:./13_database_query.adoc[이전: 데이터베이스 질의] +
-link:./15_transaction.adoc[다음: 트랜잭션]
+link:./02-6_database_query.adoc[이전: 데이터베이스 질의] +
+link:./02-8_transaction.adoc[다음: 트랜잭션]

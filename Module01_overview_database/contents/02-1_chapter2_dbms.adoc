@@ -16,5 +16,5 @@
 
 ---
 
-link:./07_function_dbms[이전: 데이터베이스 관리 시스템 기능] +
-link:./09_filesystem_n_db.adoc[다음: 파일 시스템과 데이터베이스]
+link:./01-6_function_dbms[이전: 데이터베이스 관리 시스템 기능] +
+link:./02-2_filesystem_n_db.adoc[다음: 파일 시스템과 데이터베이스]

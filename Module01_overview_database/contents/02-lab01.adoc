@@ -140,5 +140,5 @@ image:../images/image22.png[]
 
 ---
 
-link:./17_advantage_of_dbms.adoc[이전: 데이터베이스 관리 시스템의 장점] +
-link:./19_review.adoc[다음: 검토]
+link:./02-10_advantage_of_dbms.adoc[이전: 데이터베이스 관리 시스템의 장점] +
+link:./99_review.adoc[다음: 검토]
