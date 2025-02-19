@@ -66,5 +66,5 @@ SQL 92 표준에서는 하나의 기반 테이블에 대해 셀렉션 및 프로
 
 ---
 
-link:./12_view_creation.adoc[이전: 뷰 생성과 삭제] +
-link:./14-1_lab7-2a.adoc[다음: 연습 7-1 뷰의 사용 및 보안 설정(MySQL)]
+link:./02-3_view_creation.adoc[이전: 뷰 생성과 삭제] +
+link:./02-lab7-2a.adoc[다음: 연습 7-1 뷰의 사용 및 보안 설정(MySQL)]

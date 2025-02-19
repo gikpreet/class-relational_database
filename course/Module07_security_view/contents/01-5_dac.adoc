@@ -43,5 +43,5 @@ GRANT <특권> ON <개체> TO <사용자> [WITH GRANT OPTIONS]
 
 ---
 
-link:./05_access_control.adoc[이전: 접근 제어] +
-link:./07_privilege.adoc[다음: 특권]
+link:./01-4_access_control.adoc[이전: 접근 제어] +
+link:./01-6_privilege.adoc[다음: 특권]

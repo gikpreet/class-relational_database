@@ -56,5 +56,5 @@ CURRENT_USER
 
 ---
 
-link:./06_dac.adoc[이전: 재량 접근 제어] +
-link:./08_nece.adoc[다음: 필수 특권 제어]
+link:./01-5_dac.adoc[이전: 재량 접근 제어] +
+link:./01-7_nece.adoc[다음: 필수 특권 제어]

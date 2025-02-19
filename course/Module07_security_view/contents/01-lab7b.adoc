@@ -178,5 +178,5 @@ SELECT * FROM Aircraft
 
 ---
 
-link:./09-1_lab7a.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (MySQL)] +
-link:./09-3_lab7c.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (Oracle)]
+link:./01-lab7a.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (MySQL)] +
+link:./01-lab7c.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (Oracle)]

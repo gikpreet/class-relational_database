@@ -26,5 +26,5 @@
 
 ---
 
-link:./02_chapter1_security.adoc[이전: Chapter 1: 데이터베이스 보안] +
-link:./04_user_object.adoc[다음: User 개체]
+link:./01-1_chapter1_security.adoc[이전: Chapter 1: 데이터베이스 보안] +
+link:./01-3_user_object.adoc[다음: User 개체]

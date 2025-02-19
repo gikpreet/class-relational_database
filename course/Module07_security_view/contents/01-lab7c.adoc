@@ -4,5 +4,5 @@
 
 ---
 
-link:./09-2_lab7b.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (Microsoft SQL Server)] +
-link:./09-4_lab7d.adoc[다음: 연습 7-1d 사용자 생성 및 권한 제어 (Postgres)]
+link:./01-lab7b.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (Microsoft SQL Server)] +
+link:./01-lab7d.adoc[다음: 연습 7-1d 사용자 생성 및 권한 제어 (Postgres)]

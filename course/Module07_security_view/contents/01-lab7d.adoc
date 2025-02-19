@@ -4,5 +4,5 @@
 
 ---
 
-link:./09-3_lab7c.adoc[이전: 연습 7-1b 사용자 생성 및 권한 제어 (Oracle)] +
-link:./10_chapter2_view.adoc[다음: Chapter 2: View]
+link:./01-lab7c.adoc[이전: 연습 7-1b 사용자 생성 및 권한 제어 (Oracle)] +
+link:./02-1_chapter2_view.adoc[다음: Chapter 2: View]

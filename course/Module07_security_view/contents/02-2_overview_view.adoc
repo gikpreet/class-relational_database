@@ -16,5 +16,5 @@
 
 ---
 
-link:./10_chapter2_view.adoc[이전: Chapter 2: View] +
-link:./12_view_creation.adoc[다음: 뷰 생성과 삭제]
+link:./02-1_chapter2_view.adoc[이전: Chapter 2: View] +
+link:./02-3_view_creation.adoc[다음: 뷰 생성과 삭제]

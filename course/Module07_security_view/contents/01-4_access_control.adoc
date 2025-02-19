@@ -22,5 +22,5 @@ SQL 1999 표준은 필수 접근 제어를 전혀 제공하지 않습니다. 일
 
 ---
 
-link:./04_user_object.adoc[이전: User 개체] +
-link:./06_dac.adoc[다음: 재량 접근 제어]
+link:./01-3_user_object.adoc[이전: User 개체] +
+link:./01-5_dac.adoc[다음: 재량 접근 제어]

@@ -233,5 +233,5 @@ ERROR 1142 (42000): SELECT command denied to user 'Michael'@'localhost' for tabl
 
 ---
 
-link:./08_nece.adoc[이전: 필수 접근 제어] +
-link:./09-2_lab7b.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (Microsoft SQL Server)]
+link:./01-7_nece.adoc[이전: 필수 접근 제어] +
+link:./01-lab7b.adoc[다음: 연습 7-1b 사용자 생성 및 권한 제어 (Microsoft SQL Server)]

@@ -3,14 +3,14 @@
 데이터베이스 관리 시스템은 한 기업체의 거의 모든 측면에 대한 데이터를 저장하는데 사용됩니다. DBMS에 저장되어 있는 데이터는 조직의 사업을 유지하는 생명과도 같은 것으로 취급되고, 회사의 자산으로 취급됩니다. DBMS는 데이터의 본질적인 가치를 유지하기 위해 데이터에 대해 접근을 통제할 수 있는 여러 방안들을 제공합니다. 이 단원에서는 보안과 사용자별 접근을 제어할 수 있는 뷰에 대해 알아봅니다.
 
 == Table of Contents
-1. link:./03_overview_security.adoc[데이터베이스 보안 개요]
-2. link:./04_user_object.adoc[User 개체]
-3. link:./05_access_control.adoc[접근 제어]
-4. link:./06_dac.adoc[재량 접근 제어]
-5. link:./07_privilege.adoc[특권]
-6. link:./08_nece.adoc[필수 접근 제어]
+1. link:./01-2_overview_security.adoc[데이터베이스 보안 개요]
+2. link:./01-3_user_object.adoc[User 개체]
+3. link:./01-4_access_control.adoc[접근 제어]
+4. link:./01-5_dac.adoc[재량 접근 제어]
+5. link:./01-6_privilege.adoc[특권]
+6. link:./01-7_nece.adoc[필수 접근 제어]
 
 ---
 
-link:./01_security_view.adoc[이전: Module 07: 보안과 뷰] +
-link:./03_overview_security.adoc[다음: 데이터베이스 보안 개요]
+link:./00_security_view.adoc[이전: Module 07: 보안과 뷰] +
+link:./01-2_overview_security.adoc[다음: 데이터베이스 보안 개요]

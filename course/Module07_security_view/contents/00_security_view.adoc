@@ -8,9 +8,9 @@
 
 == Table of contents
 
-1. link:./02_chapter1_security.adoc[데이터베이스 보안]
-2. link:./10_chapter2_view.adoc[뷰]
+1. link:./01-1_chapter1_security.adoc[데이터베이스 보안]
+2. link:./02-1_chapter2_view.adoc[뷰]
 
 ---
 
-link:./02_security.adoc[다음: 데이터베이스 보안]
+link:./01-1_chapter1_security.adoc[다음: 데이터베이스 보안]
