@@ -24,5 +24,5 @@ SSD에서 데이터는 페이지 단위로 기록되어야 합니다. 단일 바
 
 ---
 
-link:./06_hdd.adoc[이전: HDD] +
-link:./08_performance_storage.adoc[다음: 디스크의 성능]
+link:./02-2_hdd.adoc[이전: HDD] +
+link:./02-4_performance_storage.adoc[다음: 디스크의 성능]

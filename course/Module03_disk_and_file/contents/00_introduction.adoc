@@ -12,15 +12,15 @@ DBMS 내부의 데이터는 디스크나 테이프 같은 저장장치에 저장
 * 관계형 데이터 모델과 같은 형식으로 저장되는 시스템 카탈로그에 대해 설명할 수 있습니다.
 
 == Table of Contents
-1.	link:./02_chapter1_memory_hi.adoc[기억장치 계층 구조]
-2.	link:./05_chapter2_disk.adoc[디스크]
-3.	link:./09_chapter3_disk_space_mgt.adoc[디스크 공간 관리]
-4.	link:./12_chapter4_buffer_manager.adoc[버퍼 관리자]
-5.	link:./16_chapter5_record.adoc[레코드 형식]
-6.	link:./19_chapter6_page.adoc[페이지 형식]
-7.	link:./23_chapter7_file_index.adoc[파일과 인덱스]
-8.	link:./28_chapter8_system_cat.adoc[시스템 카탈로그]
+1.	link:./01-1_chapter1_memory_hi.adoc[기억장치 계층 구조]
+2.	link:./02-1_chapter2_disk.adoc[디스크]
+3.	link:./03-1_chapter3_disk_space_mgt.adoc[디스크 공간 관리]
+4.	link:./04-1_chapter4_buffer_manager.adoc[버퍼 관리자]
+5.	link:./05-1_chapter5_record.adoc[레코드 형식]
+6.	link:./06-1_chapter6_page.adoc[페이지 형식]
+7.	link:./07-1_chapter7_file_index.adoc[파일과 인덱스]
+8.	link:./08-1_chapter8_system_cat.adoc[시스템 카탈로그]
 
 ---
 
-link:./02_chapter1_memory_hi.adoc[다음: 기억장치 계층 구조]
+link:./01-1_chapter1_memory_hi.adoc[다음: 기억장치 계층 구조]

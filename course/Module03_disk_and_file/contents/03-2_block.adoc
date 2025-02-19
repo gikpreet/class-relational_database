@@ -18,5 +18,5 @@
 
 ---
 
-link:./09_chapter3_disk_space_mgt.adoc[이전: Chapter 3: 디스크 공간 관리] +
-link:./11_disk_space.adoc[다음: 운영체제 파일 시스템을 이용한 디스크 공간 관리]
+link:./03-1_chapter3_disk_space_mgt.adoc[이전: Chapter 3: 디스크 공간 관리] +
+link:./03-3_disk_space.adoc[다음: 운영체제 파일 시스템을 이용한 디스크 공간 관리]

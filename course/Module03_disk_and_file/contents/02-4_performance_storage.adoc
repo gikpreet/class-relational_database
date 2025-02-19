@@ -27,5 +27,5 @@ HDD의 경우 데이터가 디스크에 저장되어 있는 형태에 따라 데
 
 ---
 
-link:./07_ssd.adoc[이전: SSD] +
-link:./09_disk_space_mgt.adoc[다음: 디스크 공간 관리]
+link:./02-3_ssd.adoc[이전: SSD] +
+link:./03-1_chapter3_disk_space_mgt.adoc[다음: Chapter 3: 디스크 공간 관리]

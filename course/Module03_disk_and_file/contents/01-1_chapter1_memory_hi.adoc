@@ -9,5 +9,5 @@
 
 ---
 
-link:./01_introduction.adoc[이전: Module 03: 디스크와 파일] +
-link:./03_overview_disk_and_file.adoc[다음: 디스크와 파일 구조]
+link:./00_introduction.adoc[이전: Module 03: 디스크와 파일] +
+link:./01-2_overview_disk_and_file.adoc[다음: 디스크와 파일 구조]

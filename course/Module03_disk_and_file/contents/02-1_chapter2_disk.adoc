@@ -9,5 +9,5 @@
 
 ---
 
-link:./04_storage_hire.adoc[이전: 기억장치 계층구조] +
-link:./06_hdd.adoc[다음: HDD(Hard Disk Drive)]
+link:./01-3_storage_hire.adoc[이전: 기억장치 계층구조] +
+link:./02-2_hdd.adoc[다음: HDD(Hard Disk Drive)]

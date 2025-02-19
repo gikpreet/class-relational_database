@@ -18,5 +18,5 @@ image:../images/image02.png[]
 
 ---
 
-link:./03_overview_disk_and_file.adoc[이전: 디스크와 파일 개요] +
-link:./05_disk.adoc[다음: 디스크]
+link:./01-2_overview_disk_and_file.adoc[이전: 디스크와 파일 개요] +
+link:./02-1_chapter2_disk.adoc[다음: Chapter 2: 디스크]

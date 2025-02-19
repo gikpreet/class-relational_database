@@ -9,5 +9,5 @@ DBMS 소프트웨어 구성요소의 가장 아래에는 디스크 관리자가 
 
 ---
 
-link:./08_performance_storage.adoc[이전: 디스크의 성능] +
-link:./10_block.adoc[다음: 비어있는 블록의 추적 감시]
+link:./02-4_performance_storage.adoc[이전: 디스크의 성능] +
+link:./03-2_block.adoc[다음: 비어있는 블록의 추적 감시]

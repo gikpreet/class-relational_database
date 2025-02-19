@@ -26,5 +26,5 @@ HDD는 전통적인 방식의 자기 디스크입니다. 자기를 이용해서 
 
 ---
 
-link:./05_chapter2_disk.adoc[이전: Chapter 2: 디스크] +
-link:./07_ssd.adoc[다음: SSD(Solid State Drive)]
+link:./02-1_chapter2_disk.adoc[이전: Chapter 2: 디스크] +
+link:./02-3_ssd.adoc[다음: SSD(Solid State Drive)]
