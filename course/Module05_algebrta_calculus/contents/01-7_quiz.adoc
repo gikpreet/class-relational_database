@@ -49,5 +49,5 @@ Flight
 
 ---
 
-link:./07_join.adoc[이전: 조인] +
-link:./09_chapter2_calcurus.adoc[다음: 관계 해석]
+link:./01-6_join.adoc[이전: 조인] +
+link:./02-1_chapter2_calcurus.adoc[다음: 관계 해석]

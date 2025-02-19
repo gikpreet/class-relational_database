@@ -12,9 +12,9 @@
 
 == Table of COntents
 
-1.	link:./02_chapter1_algebra.adoc[관계 대수]
-2.	link:./09_clapter2_calcurus.adoc[관계 해석]
+1.	link:./01-1_chapter1_algebra.adoc[관계 대수]
+2.	link:./02-1_chapter2_calcurus.adoc[관계 해석]
 
 ---
 
-link:./02_algebra.adoc[다음: 관계대수]
+link:./01-1_chapter1_algebra.adoc[다음: Chapter 1: 관계대수]

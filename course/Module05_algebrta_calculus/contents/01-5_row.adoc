@@ -51,5 +51,5 @@ _π~파일럿이름,ρ(Grade(등급))~(σ~등급>5~(Pilot1))_
 
 ---
 
-link:./05_set_operation.adoc[이전: 집합 연산] +
-link:./07_join.adoc[다음: 조인]
+link:./01-4_set_operation.adoc[이전: 집합 연산] +
+link:./01-6_join.adoc[다음: 조인]

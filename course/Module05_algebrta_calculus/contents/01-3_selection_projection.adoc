@@ -87,5 +87,5 @@ _π~파일럿이름,등급~(δ~등급>5~(Pilot1))_
 
 ---
 
-link:./03_algebra_overview.adoc[이전: 관계 대수 개요] +
-link:./05_set_operation.adoc[다음: 집합연산]
+link:./01-2_algebra_overview.adoc[이전: 관계 대수 개요] +
+link:./01-4_set_operation.adoc[다음: 집합연산]

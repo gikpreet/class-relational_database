@@ -49,5 +49,5 @@ image:../images/image01.png[]
 
 ---
 
-link:./02_chapter1_algebra.adoc[이전: 관계 대수] +
-link:./04_selection_projection.adoc[다음: 셀렉션과 프로젝션]
+link:./01-1_chapter1_algebra.adoc[이전: Chapter 1: 관계 대수] +
+link:./01-3_selection_projection.adoc[다음: 셀렉션과 프로젝션]

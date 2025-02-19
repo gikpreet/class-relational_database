@@ -4,10 +4,10 @@
 
 == Table of Contents
 
-1.	투플 관계 해석
-2.	도메인 관계 해석
+1. link:./02-2_tuple.adoc[투플 관계 해석]
+2. link:./02-4_domain.adoc[도메인 관계 해석]
 
 ---
 
-link:./08_quiz.adoc[이전: Quiz: 관계 대수 질의] +
-link:./10_tuple.adoc[다음: 투플 관계 해석]
+link:./01-7_quiz.adoc[이전: Quiz: 관계 대수 질의] +
+link:./02-2_tuple.adoc[다음: 투플 관계 해석]

@@ -120,5 +120,5 @@ _Pilot1 X Flight_ 는 아래와 같습니다.
 
 ---
 
-link:./04_selection_projection.adoc[이전: 셀렉션과 프로젝션] +
-link:./06_row.adoc[다음: 이름 바꾸기]
+link:./01-3_selection_projection.adoc[이전: 셀렉션과 프로젝션] +
+link:./01-5_row.adoc[다음: 이름 바꾸기]
