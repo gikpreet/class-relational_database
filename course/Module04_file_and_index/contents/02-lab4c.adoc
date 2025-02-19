@@ -241,5 +241,5 @@ image:../images/image26.png[width=700]
 
 ---
 
-link:./16-2_lab4b.adoc[이전: Lab 4b: 인덱스 생성(Microsoft SQL Server)] +
-link:./16-4_lab4d.adoc[다음: Lab 4d: 인덱스 생성(Postgres)]
+link:./02-lab4b.adoc[이전: Lab 4b: 인덱스 생성(Microsoft SQL Server)] +
+link:./02-lab4d.adoc[다음: Lab 4d: 인덱스 생성(Postgres)]

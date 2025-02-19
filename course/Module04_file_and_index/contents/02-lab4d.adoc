@@ -323,5 +323,5 @@ SELECT * FROM Product WHERE CategoryNo > 0;
 
 ---
 
-link:./16-3_lab4c.adoc[이전: Lab 4c: 인덱스 생성(Oracle)] +
-link:./17_review.adoc[다음: 검토]
+link:./02-lab4c.adoc[이전: Lab 4c: 인덱스 생성(Oracle)] +
+link:./99_review.adoc[다음: 검토]

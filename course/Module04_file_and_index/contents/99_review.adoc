@@ -23,4 +23,4 @@ C.	밀집 인덱스와 희소 인덱스
 
 ---
 
-link:./16-4_lab4d.adoc[이전: Lab 4d: 인덱스 생성(Postgres)]
+link:./02-lab4d.adoc[이전: Lab 4d: 인덱스 생성(Postgres)]

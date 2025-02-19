@@ -28,5 +28,5 @@ RID로 명세된 레코드를 삭제합니다. 해당 레코드가 있는 페이
 
 ---
 
-link:./03_cost_model.adoc[이전: 비용 모델 개요] +
-link:./05_heap_file.adoc[다음: 힙(Heap) 파일]
+link:./01-2_cost_model.adoc[이전: 비용 모델 개요] +
+link:./01-4_heap_file.adoc[다음: 힙(Heap) 파일]

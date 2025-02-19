@@ -30,5 +30,5 @@
 
 ---
 
-link:./05_heap_file.adoc[이전: 힙(Heap) 파일] +
-link:./07_hash_file.adoc[다음: 해시(Hash) 파일]
+link:./01-4_heap_file.adoc[이전: 힙(Heap) 파일] +
+link:./01-6_hash_file.adoc[다음: 해시(Hash) 파일]

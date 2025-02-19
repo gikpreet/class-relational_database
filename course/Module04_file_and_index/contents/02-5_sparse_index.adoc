@@ -17,5 +17,5 @@ image:../images/image05.png[]
 
 ---
 
-link:./12_nonclustered_index.adoc[이전: 넌 클래스터드 인덱스] +
-link:./14_primary_index.adoc[다음: 기본 인덱스와 보조 인덱스]
+link:./02-4_nonclustered_index.adoc[이전: 넌 클러스터드 인덱스] +
+link:./02-6_primary_index.adoc[다음: 기본 인덱스와 보조 인덱스]

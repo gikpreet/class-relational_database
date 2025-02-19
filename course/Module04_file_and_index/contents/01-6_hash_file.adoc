@@ -28,5 +28,5 @@
 
 ---
 
-link:./06_sorted_file.adoc[이전: 정렬 파일] +
-link:./08_file_choice.adoc[다음: 퍄일 조직 선택]
+link:./01-5_sorted_file.adoc[이전: 정렬 파일] +
+link:./01-7_file_choice.adoc[다음: 퍄일 조직 선택]

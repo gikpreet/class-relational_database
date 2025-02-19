@@ -10,5 +10,5 @@ image:../images/image01.png[]
 
 ---
 
-link:./07_hash_file.adoc[이전: 해시 파일] +
-link:./09_chapter2_index.adoc[다음: 인덱스]
+link:./01-6_hash_file.adoc[이전: 해시 파일] +
+link:./02-1_chapter2_index.adoc[다음: Chapter 2: 인덱스]

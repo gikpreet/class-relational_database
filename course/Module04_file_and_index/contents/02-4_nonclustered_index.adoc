@@ -16,5 +16,5 @@ image:../images/image04.png[]
 
 ---
 
-link:./11_clustered_index.adoc[이전: 클러스터드 인덱스] +
-link:./13_sparse_index.adoc[다음: 밀집 인덱스와 희소 인덱스]
+link:./02-3_clustered_index.adoc[이전: 클러스터드 인덱스] +
+link:./02-5_sparse_index.adoc[다음: 밀집 인덱스와 희소 인덱스]

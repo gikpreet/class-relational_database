@@ -9,5 +9,5 @@
 
 ---
 
-link:./14_primary_index.adoc[이전: 기본 인덱스와 보조 인덱스] +
-link:./16-1_lab4a.adoc[다음: Lab 4a: 인덱스 생성(MySQL)]
+link:./02-6_primary_index.adoc[이전: 기본 인덱스와 보조 인덱스] +
+link:./02-lab4a.adoc[다음: Lab 4a: 인덱스 생성(MySQL)]

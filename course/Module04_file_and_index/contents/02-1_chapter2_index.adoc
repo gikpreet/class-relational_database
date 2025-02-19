@@ -4,14 +4,14 @@
 
 == Table of Contents
 
-1. link:./10_index_overview.adoc[인덱스 개요]
-2. link:./11_clustered_index.adoc[클러스터드 인덱스]
-3. link:./12_nonclustered_index.adoc[넌 클러스터드 인덱스]
-4. link:./13_sparse_index.adoc[밀집 인덱스와 희소 인덱스]
-5. link:./14_primary_index.adoc[기본 인덱스와 보조 인덱스]
-6. link:./15_compounded_index.adoc[복합 인덱스]
+1. link:./02-2_index_overview.adoc[인덱스 개요]
+2. link:./02-3_clustered_index.adoc[클러스터드 인덱스]
+3. link:./02-4_nonclustered_index.adoc[넌 클러스터드 인덱스]
+4. link:./02-5_sparse_index.adoc[밀집 인덱스와 희소 인덱스]
+5. link:./02-6_primary_index.adoc[기본 인덱스와 보조 인덱스]
+6. link:./02-7_compounded_index.adoc[복합 인덱스]
 
 ---
 
-link:./08_file_choice.adoc[이전: 파일 조직 선택] +
-link:./10_index_overview.adoc[다음: 인덱스 개요]
+link:./01-7_file_choice.adoc[이전: 파일 조직 선택] +
+link:./02-2_index_overview.adoc[다음: 인덱스 개요]

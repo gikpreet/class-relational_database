@@ -29,5 +29,5 @@
 
 ---
 
-link:./02_chapter1_cost_file.adoc[이전: Chapter 1: 비용 모델과 파일 조직법] +
-link:./04_file_org.adoc[다음: 파일 조직법 비교 기준 연산]
+link:./01-1_chapter1_cost_file.adoc[이전: Chapter 1: 비용 모델과 파일 조직법] +
+link:./01-3_file_org.adoc[다음: 파일 조직법 비교 기준 연산]

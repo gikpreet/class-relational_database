@@ -185,5 +185,5 @@ image:../images/image12.png[]
 
 ---
 
-link:./16-1_lab4a.adoc[이전: Lab 4a: 인덱스 생성(MySQL)] +
-link:./16-3_lab4c.adoc[다음: Lab 4c: 인덱스 생성(Oracle)]
+link:./02-lab4a.adoc[이전: Lab 4a: 인덱스 생성(MySQL)] +
+link:./02-lab4c.adoc[다음: Lab 4c: 인덱스 생성(Oracle)]

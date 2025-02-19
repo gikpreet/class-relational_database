@@ -33,5 +33,5 @@ B의 페이지를 각각 검색해야 하는데 페이지 당 D의 시간이 소
 
 ---
 
-link:./04_file_org.adoc[이전: 파일 조직법 비교 기준 연산] +
-link:./06_sorted_file.adoc[다음: 정렬 파일]
+link:./01-3_file_org.adoc[이전: 파일 조직법 비교 기준 연산] +
+link:./01-5_sorted_file.adoc[다음: 정렬 파일]

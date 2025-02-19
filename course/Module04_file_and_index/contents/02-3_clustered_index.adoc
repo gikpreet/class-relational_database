@@ -19,5 +19,5 @@ image:../images/image03.png[]
 
 ---
 
-link:./10_index_overview.adoc[이전: 인덱스 개요] +
-link:./12_nonclustered_index.adoc[다음: 넌 클러스터드 인덱스]
+link:./02-2_index_overview.adoc[이전: 인덱스 개요] +
+link:./02-4_nonclustered_index.adoc[다음: 넌 클러스터드 인덱스]
