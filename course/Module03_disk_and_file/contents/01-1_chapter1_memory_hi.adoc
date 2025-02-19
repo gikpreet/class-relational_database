@@ -4,8 +4,8 @@
 
 == Table of Contents
 
-1.	link:./03_overview_disk_and_file.adoc[디스크와 파일 개요]
-2.	link:./04_storage_hire.adoc[기억장치 계층구조 개요]
+1.	link:./01-2_overview_disk_and_file.adoc[디스크와 파일 개요]
+2.	link:./01-3_storage_hire.adoc[기억장치 계층구조 개요]
 
 ---
 

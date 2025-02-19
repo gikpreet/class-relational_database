@@ -24,5 +24,5 @@ image:../images/image09.png[]
 
 ---
 
-link:./20_page_type.adoc[이전: 페이지 형식] +
-link:./22_variant_record.adoc[다음: 가변 길이 레코드]
+link:./06-2_page_type.adoc[이전: 페이지 형식] +
+link:./06-4_variant_record.adoc[다음: 가변 길이 레코드]

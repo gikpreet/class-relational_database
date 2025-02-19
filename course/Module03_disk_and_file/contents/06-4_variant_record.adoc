@@ -20,5 +20,5 @@ image:../images/image10.png[]
 
 ---
 
-link:./21_fixed_record.adoc[이전: 고정길이 레코드] +
-link:./23_file_index.adoc[다음: 파일과 인덱스]
+link:./06-3_fixed_record.adoc[이전: 고정길이 레코드] +
+link:./07-1_chapter7_file_index.adoc[다음: Chapter 7: 파일과 인덱스]

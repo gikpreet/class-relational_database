@@ -25,5 +25,5 @@ image:../images/image08.png[]
 
 ---
 
-link:./17_fixed_length_record.adoc[이전: Chapter 5: 고정 길이 레코드] +
-link:./19_page.adoc[다음: 페이지 형식]
+link:./05-2_fixed_length_record.adoc[이전: Chapter 5: 고정 길이 레코드] +
+link:./06-1_chapter6_page.adoc[다음: 페이지 형식]

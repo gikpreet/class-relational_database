@@ -25,5 +25,5 @@ DBMS는 페이지를 디스크에 강제적으로 출력할 수 있어야 합니
 
 ---
 
-link:./14_buffer_paging.adoc[이전: 버퍼 관리 전략] +
-link:./16_record.adoc[다음: 레코드 형식]
+link:./04-3_buffer_paging.adoc[이전: 버퍼 관리 전략] +
+link:./05-1_chapter5_record.adoc[다음: Chapter 5: 레코드 형식]

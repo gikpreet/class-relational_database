@@ -28,5 +28,5 @@ pin_count를 증가시키는 것을 `Pinning` 이라고 합니다. 버퍼 관리
 
 ---
 
-link:./12_chapter4_buffer_manager.adoc[이전: Chapter 4: 버퍼 관리자] +
-link:./14_buffer_paging.adoc[다음: 버퍼 교체 전략]
+link:./04-1_chapter4_buffer_manager.adoc[이전: Chapter 4: 버퍼 관리자] +
+link:./04-3_buffer_paging.adoc[다음: 버퍼 교체 전략]

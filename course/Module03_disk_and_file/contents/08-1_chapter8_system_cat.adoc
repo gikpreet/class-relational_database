@@ -4,9 +4,9 @@
 
 == Table of Contents
 
-1.	link:./29_system_catalog.adoc[시스템 카탈로그]
+1. link:./08-2_system_catalog.adoc[시스템 카탈로그]
 
 ---
 
-link:./27_bplus_tree.adoc[이전: B+ 트리] +
-link:./29_system_catalog.adoc[다음: 시스템 카탈로그]
+link:./07-5_bplus_tree.adoc[이전: B+ 트리] +
+link:./08-2_system_catalog.adoc[다음: 시스템 카탈로그]

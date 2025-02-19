@@ -4,12 +4,12 @@ DBMS의 상위 계층 구조는 사실상 페이지를 레코드의 집단으로
 
 == Table of Contents
 
-1. link:./24_heap.adoc[힙(Heap) 파일]
-2. link:./25_index.adoc[인덱스 개요]
-3. link:./26_isam.adoc[ISAM 파일]
-4. link:./27_bplus_tree.adoc[B+ 트리]
+1. link:./07-2_heap.adoc[힙(Heap) 파일]
+2. link:./07-3_index.adoc[인덱스 개요]
+3. link:./07-4_isam.adoc[ISAM 파일]
+4. link:./07-5_bplus_tree.adoc[B+ 트리]
 
 ---
 
-link:./22_variant_record.adoc[이전: 가변 길이 레코드] +
-link:./24_heap.adoc[다음: 힙(Heap) 파일]
+link:./06-4_variant_record.adoc[이전: 가변 길이 레코드] +
+link:./07-2_heap.adoc[다음: 힙(Heap) 파일]

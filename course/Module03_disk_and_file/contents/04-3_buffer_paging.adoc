@@ -23,5 +23,5 @@ LRU 전략과 Clock 전략이 항상 좋은 성능을 나타내는 것은 아닙
 
 ---
 
-link:./13_buffer_pool.adoc[이전: 버퍼 풀] +
-link:./15_buffer_management.adoc[다음: 버퍼 관리 기법 비교]
+link:./04-2_buffer_pool.adoc[이전: 버퍼 풀] +
+link:./04-4_buffer_management.adoc[다음: 버퍼 관리 기법 비교]

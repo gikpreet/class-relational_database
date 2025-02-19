@@ -38,5 +38,5 @@
 
 ---
 
-link:./28_chapter8_system_cat.adoc[이전: Chapter 8: 시스템 카탈로그] +
-link:./30-1_lab3a.adoc[다음: Lab 3a: 테이블 생성(MySQL)]
+link:./08-1_chapter8_system_cat.adoc[이전: Chapter 8: 시스템 카탈로그] +
+link:./08-lab3a.adoc[다음: Lab 3a: 테이블 생성(MySQL)]

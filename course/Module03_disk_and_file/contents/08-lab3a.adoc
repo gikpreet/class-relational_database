@@ -312,5 +312,5 @@ CREATE TABLE OrderDetail (
 
 ---
 
-link:./29_system_catalog.adoc[이전: 시스템 카탈로그] +
-link:./30-2_lab3b.adoc[다음: Lab 3b: 테이블 생성(Microsoft SQL Server)]
+link:./08-2_system_catalog.adoc[이전: 시스템 카탈로그] +
+link:./08-lab3b.adoc[다음: Lab 3b: 테이블 생성(Microsoft SQL Server)]

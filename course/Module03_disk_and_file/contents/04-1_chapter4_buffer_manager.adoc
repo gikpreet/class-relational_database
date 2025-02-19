@@ -4,11 +4,11 @@
 
 == Table of Contents
 
-1.	link:./13_buffer_pool.adoc[버퍼 풀]
-2.	link:./14_buffer_paging.adoc[버퍼 교체 전략]
-3.	link:./15_buffer_management.adoc[버퍼 관리 기법]
+1.	link:./04-2_buffer_pool.adoc[버퍼 풀]
+2.	link:./04-3_buffer_paging.adoc[버퍼 교체 전략]
+3.	link:./04-4_buffer_management.adoc[버퍼 관리 기법]
 
 ---
 
-link:./11_disk_space.adoc[이전: 운영체제 파일 시스템을 이용한 디스크 공간 관리] +
-link:./13_buffer_pool.adoc[다음: 버퍼 풀]
+link:./03-3_disk_space.adoc[이전: 운영체제 파일 시스템을 이용한 디스크 공간 관리] +
+link:./04-2_buffer_pool.adoc[다음: 버퍼 풀]

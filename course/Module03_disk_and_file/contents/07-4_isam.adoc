@@ -37,5 +37,5 @@ ISAM에서 삽입과 삭제는 단말 페이지의 내용에만 영향을 주게
 
 ---
 
-link:./25_index.adoc[이전: 인덱스 개요] +
-link:./27_bplus_tree.adoc[다음: B+ 트리]
+link:./07-3_index.adoc[이전: 인덱스 개요] +
+link:./07-5_bplus_tree.adoc[다음: B+ 트리]

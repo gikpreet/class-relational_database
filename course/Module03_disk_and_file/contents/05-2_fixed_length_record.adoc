@@ -11,5 +11,5 @@ image:../images/image06.png[]
 
 ---
 
-link:./16_chapter5_record.adoc[이전: 레코드 형식] +
-link:./18_variant_length_record.adoc[다음: 가변 길이 레코드]
+link:./05-1_chapter5_record.adoc[이전: Chapter 5: 레코드 형식] +
+link:./05-3_variant_length_record.adoc[다음: 가변 길이 레코드]

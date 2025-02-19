@@ -23,5 +23,5 @@ B+ 트리의 주요 특징은 다음과 같습니다.
 
 ---
 
-link:./26_isam.adoc[이전: ISAM 파일] +
-link:./28_chapter8_system_cat.adoc[다음: 시스템 카탈로그]
+link:./07-4_isam.adoc[이전: ISAM 파일] +
+link:./08-1_chapter8_system_cat.adoc[다음: Chapter 8: 시스템 카탈로그]

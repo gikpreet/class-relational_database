@@ -15,5 +15,5 @@
 
 ---
 
-link:./23_chapter7_file_index.adoc[이전: Chapter 7: 파일 조직과 인덱스] +
-link:./25_index.adoc[다음: 인덱스 개요]
+link:./07-1_chapter7_file_index.adoc[이전: Chapter 7: 파일 조직과 인덱스] +
+link:./07-3_index.adoc[다음: 인덱스 개요]

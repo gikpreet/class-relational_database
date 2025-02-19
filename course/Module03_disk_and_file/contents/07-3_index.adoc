@@ -17,5 +17,5 @@ image:../images/image11.png[]
 
 ---
 
-link:./24_heap.adoc[이전: Heap 파일] +
-link:./26_isam.adoc[다음: ISAM 파일]
+link:./07-2_heap.adoc[이전: Heap 파일] +
+link:./07-4_isam.adoc[다음: ISAM 파일]

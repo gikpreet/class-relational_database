@@ -4,10 +4,10 @@
 
 == Table of Contents
 
-1.	link:./17_fixed_length_record.adoc[고정 길이 레코드]
-2.	link:./18_variant_length_record.adoc[가변 길이 레코드]
+1.	link:./05-2_fixed_length_record.adoc[고정 길이 레코드]
+2.	link:./05-3_variant_length_record.adoc[가변 길이 레코드]
 
 ---
 
-link:./15_buffer_management.adoc[이전: 버퍼 관리 기법 비교] +
-link:./17_fixed_length_record.adoc[다음: 고정 길이 레코드]
+link:./04-4_buffer_management.adoc[이전: 버퍼 관리 기법 비교] +
+link:./05-2_fixed_length_record.adoc[다음: 고정 길이 레코드]

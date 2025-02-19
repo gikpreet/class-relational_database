@@ -28,4 +28,4 @@
 
 ---
 
-link:./30-4_lab3d.adoc[이전: Lab 3d: 테이블 생성(Postgres)]
+link:./08-lab3d.adoc[이전: Lab 3d: 테이블 생성(Postgres)]

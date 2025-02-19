@@ -12,5 +12,5 @@
 
 ---
 
-link:./19_chapter6_page.adoc[이전: Chapter 6: 페이지] +
-link:./21_fixed_record.adoc[다음: 고정 길이 레코드]
+link:./06-1_chapter6_page.adoc[이전: Chapter 6: 페이지] +
+link:./06-3_fixed_record.adoc[다음: 고정 길이 레코드]

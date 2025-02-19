@@ -135,5 +135,5 @@ CREATE TABLE OrderDetail (
 
 ---
 
-link:./30-3_lab3c.adoc[이전: Lab 3c: 테이블 생성(Postgres)] +
-link:./31_review.adoc[다음: 검토]
+link:./08-lab3c.adoc[이전: Lab 3c: 테이블 생성(Postgres)] +
+link:./99_review.adoc[다음: 검토]

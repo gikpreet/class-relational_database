@@ -4,11 +4,11 @@
 
 == Table of Contents
 
-1.	link:./20_page_type.adoc[페이지 형식]
-2.	link:./21_fixed_record.adoc[고정 길이 레코드]
-3.	link:./22_variant_record.adoc[가변 길이 레코드]
+1.	link:./06-2_page_type.adoc[페이지 형식]
+2.	link:./06-3_fixed_record.adoc[고정 길이 레코드]
+3.	link:./06-4_variant_record.adoc[가변 길이 레코드]
 
 ---
 
-link:./18_variant_length_record.adoc[이전: 가변 길이 레코드] +
-link:./20_page_type.adoc[다음: 페이지 형식]
+link:./05-3_variant_length_record.adoc[이전: 가변 길이 레코드] +
+link:./06-2_page_type.adoc[다음: 페이지 형식]
