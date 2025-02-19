@@ -4,14 +4,14 @@
 
 == Table of Contents
 
-1. link:./03_cost_model.adoc[비용 모델 개요]
-2. link:./04_file_org.adoc[파일 조직법 개요]
-3. link:./05_heap_file.adoc[힙 파일]
-4. link:./06_sorted_file.adoc[정렬 파일]
-5. link:./07_hash_file.adoc[해시 파일]
-6. link:./08_file_choice.adoc[파일 조직 선택]
+1. link:./01-2_cost_model.adoc[비용 모델 개요]
+2. link:./01-3_file_org.adoc[파일 조직법 개요]
+3. link:./01-4_heap_file.adoc[힙 파일]
+4. link:./01-5_sorted_file.adoc[정렬 파일]
+5. link:./01-6_hash_file.adoc[해시 파일]
+6. link:./01-7_file_choice.adoc[파일 조직 선택]
 
 ---
 
-link:./01_file_and_index.adoc[이전: Module 04: 파일 조직과 인덱스] +
-link:./03_cost_model.adoc[다음: 비용 모델 개요]
+link:./00_file_and_index.adoc[이전: Module 04: 파일 조직과 인덱스] +
+link:./01-2_cost_model.adoc[다음: 비용 모델 개요]
