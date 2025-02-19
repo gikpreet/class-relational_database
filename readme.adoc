@@ -7,3 +7,4 @@
 5. link:./course/Module05_algebra_calcurus/contents/00_algebra_calcurus.adoc[Module 05: 관계대수와 관계해석]
 6. link:./course/Module06_sql/contents/00_introduction.adoc[Module 06: SQL]
 7. link:./course/Module07_security_view/contents/00_security_view.adoc[Module 07: 보안과 뷰]
+8. link:./course/Module08_sp_function_trigger/contents/00_introduction.adoc[Module 08: 저장 프로시저와 함수, 트리거]
