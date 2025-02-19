@@ -244,5 +244,5 @@ CATEGORYNO CATEGORYNAME
 ----
 
 ---
-link:./13-2_lab2-1b.adoc[다음: Lab 2-1b SQL을 사용한 릴레이션 생성 및 수정(Microsoft SQL Server)] +
-link:./13-4_lab2-1d.adoc[다음: Lab 2-1d SQL을 사용한 릴레이션 생성 및 수정(Postgres)]
+link:./02-lab2-1b.adoc[다음: Lab 2-1b SQL을 사용한 릴레이션 생성 및 수정(Microsoft SQL Server)] +
+link:./02-lab2-1d.adoc[다음: Lab 2-1d SQL을 사용한 릴레이션 생성 및 수정(Postgres)]

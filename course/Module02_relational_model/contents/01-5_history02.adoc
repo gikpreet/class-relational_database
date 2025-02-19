@@ -23,5 +23,5 @@ Microsoft는 1980년대 중반부터 Sybase 데이터베이스의 기술 지원�
 
 ---
 
-link:./05_history01.adoc[이전: 관계 데이터베이스 시스템 역사 1] +
-link:./07_history03.adoc[다음: 관계 데이터베이스 시스템 역사 3]
+link:./01-4_history01.adoc[이전: 관계 데이터베이스 시스템 역사 1] +
+link:./01-6_history03.adoc[다음: 관계 데이터베이스 시스템 역사 3]

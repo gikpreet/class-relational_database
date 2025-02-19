@@ -19,5 +19,5 @@
 
 ---
 
-link:./10_relation_instance.adoc[이전: 릴레이션 인스턴스] +
-link:./12_relational_database.adoc[다음: 관계 데이터베이스]
+link:./02-3_relation_instance.adoc[이전: 릴레이션 인스턴스] +
+link:./02-5_relational_database.adoc[다음: 관계 데이터베이스]

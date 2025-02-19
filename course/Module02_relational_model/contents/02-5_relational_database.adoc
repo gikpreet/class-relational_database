@@ -22,5 +22,5 @@ _상품분류(분류번호: 정수, 분류이름: 문자열) +
 
 ---
 
-link:./11_domain.adoc[이전: 도메인] +
-link:./13-1_lab2-1a.adoc[다음: Lab 2-1a SQL을 사용한 릴레이션 생성 및 수정(MySQL)]
+link:./02-4_domain.adoc[이전: 도메인] +
+link:./02-lab2-1a.adoc[다음: Lab 2-1a SQL을 사용한 릴레이션 생성 및 수정(MySQL)]

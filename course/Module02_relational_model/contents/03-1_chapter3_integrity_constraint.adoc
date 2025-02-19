@@ -12,5 +12,5 @@
 
 ---
 
-link:./13-4_lab2-1d.adoc[다음: Lab 2-1 SQL을 사용한 릴레이션 생성 및 수정(Postgres)] +
+link:./02-lab2-1d.adoc[다음: Lab 2-1 SQL을 사용한 릴레이션 생성 및 수정(Postgres)] +
 link:./15_introduction_to_ic.adoc[다음: 무결성 제약조건 개요]

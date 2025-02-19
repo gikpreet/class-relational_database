@@ -18,5 +18,5 @@
 
 ---
 
-link:./02_chapter1_introduction_to_relational_model.adoc[이전: 관계 모델 개요] +
-link:./04_12_laws.adoc[다음: Dr.codd의 12 법칙]
+link:./01-1_chapter1_introduction_to_relational_model.adoc[이전: 관계 모델 개요] +
+link:./01-3_12_laws.adoc[다음: Dr.codd의 12 법칙]

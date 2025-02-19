@@ -9,5 +9,5 @@
 
 ---
 
-link:./01_introduction.adoc[이전: 관계 모델] +
-link:./03_introduction_to_relational_model.adoc[다음: 관계 데이터 모델 개요]
+link:./00_introduction.adoc[이전: 관계 모델] +
+link:./01-2_introduction_to_relational_model.adoc[다음: 관계 데이터 모델 개요]

@@ -20,5 +20,5 @@
 
 ---
 
-link:./09_relation_schema.adoc[이전: 릴레이션 스키마] +
-link:./11_domain.adoc[다음: 도메인]
+link:./02-2_relation_schema.adoc[이전: 릴레이션 스키마] +
+link:./02-4_domain.adoc[다음: 도메인]

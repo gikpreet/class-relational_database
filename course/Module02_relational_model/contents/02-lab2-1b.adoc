@@ -250,5 +250,5 @@ SELECT * FROM Category
 image::../images/image17.png[]
 
 ---
-link:./13-1_lab2-1a.adoc[이전: Lab 2-1a SQL을 사용한 릴레이션 생성 및 수정(MySQL)] +
-link:./13-3_lab2-1c.adoc[다음: Lab 2-1c SQL을 사용한 릴레이션 생성 및 수정(Oracle)]
+link:./02-lab2-1a.adoc[이전: Lab 2-1a SQL을 사용한 릴레이션 생성 및 수정(MySQL)] +
+link:./02-lab2-1c.adoc[다음: Lab 2-1c SQL을 사용한 릴레이션 생성 및 수정(Oracle)]

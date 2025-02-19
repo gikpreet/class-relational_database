@@ -34,5 +34,5 @@ Oracle DBMS는 3번쨰 버전에서 C언어로 포팅되면서 다양한 플랫�
 
 ---
 
-link:./04_12_laws.adoc[Dr. Codd의 12법칙] +
-link:./06_history02.adoc[다음: 관계 데이터베이스 시스템 역사 2]
+link:./01-3_12_laws.adoc[Dr. Codd의 12법칙] +
+link:./01-5_history02.adoc[다음: 관계 데이터베이스 시스템 역사 2]

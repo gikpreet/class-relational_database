@@ -11,5 +11,5 @@
 
 ---
 
-link:./07_history03.adoc[관계 데이터베이스 시스템의 역사] +
-link:./09_relation_schema.adoc[다음: 릴레이션 스키마]
+link:./01-6_history03.adoc[관계 데이터베이스 시스템의 역사 3] +
+link:./02-2_relation_schema.adoc[다음: 릴레이션 스키마]

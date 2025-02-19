@@ -35,5 +35,5 @@ image:../images/image01.png[]
 
 ---
 
-link:./06_history02.adoc[이전: 관계 데이터베이스 시스템 역사 2] +
-link:./08_chapter2_relation.adoc[다음: 릴레이션]
+link:./01-5_history02.adoc[이전: 관계 데이터베이스 시스템 역사 2] +
+link:./02-1_chapter2_relation.adoc[다음: 릴레이션]
