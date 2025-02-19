@@ -61,4 +61,7 @@ Microsoft SQL Server에서 생성한 MyPi 함수의 호출은 아래와 같이 �
 SELECT MyPi()
 ----
 
-link:./07_return.adoc[다음: RETURN]
+---
+
+link:./01-4_parameter.adoc[이전: 파라미터 선언] +
+link:./01-6_return.adoc[다음: RETURN]

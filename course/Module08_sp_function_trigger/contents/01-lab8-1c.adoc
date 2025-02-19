@@ -1,0 +1,14 @@
+= Lab 8-1c: Oracle에서 SQL 루틴 작성
+
+이 연습에서는 Microsoft SQL Server에서 SQL 루틴을 작성하고 호출합니다. 이 연습에서는 아래와 같은 릴레이션 스키마를 가진 데이터베이스를 사용합니다. 
+
+_Users(UserNo:Integer, UserID:String, UserName:String, UserEmail:String, UserNickName:String) +
+Board(BoardNo:Integer, BoardName:String, Description:String, CreateDate:Date) +
+Article(ArticlaNo:Integer, Title:String, Contents:String, WriteDate:Date, UpdateDate:Date)_
+
+데이터베이스 생성 스크립트는 아래에서 다운로드 할 수 있습니다.
+
+---
+
+link:./01-lab8-1b.adoc[이전: Microsoft SQL Server에서 SQL 루틴 작성] +
+link:./01-lab8-1d.adoc[다음: Postgres에서 SQL 루틴 작성]

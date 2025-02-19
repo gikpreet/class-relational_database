@@ -108,4 +108,7 @@ BEGIN
 END;
 ----
 
-link:./06_call_routine.adoc[다음: 루틴 호출]
+---
+
+link:./01-3_create_routine.adoc[이전: SQL 루틴 생성] +
+link:./01-5_call_routine.adoc[다음: 루틴 호출]

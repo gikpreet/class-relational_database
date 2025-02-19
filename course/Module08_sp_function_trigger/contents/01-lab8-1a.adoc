@@ -189,4 +189,7 @@ CALL GetArticle(1, @Title, @Contents, @Writer, @WriteDate);
 SELECT @Title, @Contents, @Writer, @WriteDate;
 ----
 
-link:./11_lab8-3_posgresql.adoc[다음: PostgreSQL에서 SQL 루틴 작성]
+---
+
+link:./01-7_modify_routine.adoc[이전: SQL 루틴 수정과 삭제] +
+link:./01-lab8-1b.adoc[다음: Microsoft SQL Server 에서 SQL 루틴 작성]

@@ -57,5 +57,5 @@ SQL 루틴에는 크게 아래 세 가지 종류가 있으며, 프로시저와 �
 * SQL METHOD
 
 ---
-link:./02_sql_routine.adoc[이전: ] +
-link:./04_create_routine.adoc[다음: SQL 루틴 생성]
+link:./01-1_chapter1_sql_routine.adoc[이전: Chapter 1: SQL 루틴] +
+link:./01-3_create_routine.adoc[다음: SQL 루틴 생성]

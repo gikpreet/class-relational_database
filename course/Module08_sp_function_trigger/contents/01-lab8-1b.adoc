@@ -1,4 +1,4 @@
-= Lab 8-1: MS SQL Server에서 SQL 루틴 작성
+= Lab 8-1b: MS SQL Server에서 SQL 루틴 작성
 
 이 연습에서는 Microsoft SQL Server에서 SQL 루틴을 작성하고 호출합니다. 이 연습에서는 아래와 같은 릴레이션 스키마를 가진 데이터베이스를 사용합니다. 
 
@@ -180,4 +180,7 @@ EXEC GetArticle @ArticleNo, @Title OUTPUT, @Contents OUTPUT, @WriterNickName OUT
 SELECT @ArticleNo, @Title, @Contents, @WriterNickName, @WriteDate
 ----
 
-link:./10_lab8-2_mysql.adoc[다음: MySQL에서 SQL 루틴 작성]
+---
+
+link:./01-lab8-1a.adoc[이전: MySQL에서 SQL 루틴 작성] +
+link:./01-lab8-1c.adoc[다음: Oracle에서 SQL 루틴 작성]

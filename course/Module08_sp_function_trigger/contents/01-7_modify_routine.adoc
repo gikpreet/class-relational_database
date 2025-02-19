@@ -37,4 +37,7 @@ DROP <specific routine designator> {RESTRICT | CASCADE}
       [ ([ <data type> [ {,<data type>}... ] ]) ]
 ----
 
-link:./09_lab8-1_MSSQL.adoc[다음: Lab 8-1 MS SQL Server에서 SQL 루틴 작성]
+---
+
+link:./01-6_return.adoc[이전: RETURN 문] +
+link:./01-lab8-1a.adoc[다음: Lab 8-1 MySQL에서 SQL 루틴 작성]

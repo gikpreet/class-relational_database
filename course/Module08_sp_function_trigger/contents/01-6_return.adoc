@@ -20,4 +20,7 @@ RETURN <value expression> | NULL
 
 RETURN 문은 SQL 함수의 실행을 종료하고 함수의 결과를 즉시 return 합니다. return 되는 값은 <value expression>이거나, return 되는 결과가 null일 경우 키워드 NULL을 사용합니다.
 
-link:./08_modify_routine.adoc[다음: SQL 루틴 수정]
+---
+
+link:./01-5_call_routine.adoc[이전: 루틴 호출] +
+link:./01-7_modify_routine.adoc[다음: SQL 루틴 수정과 삭제]

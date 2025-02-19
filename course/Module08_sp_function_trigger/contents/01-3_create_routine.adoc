@@ -204,4 +204,7 @@ CREATE {<function specification> | <method specification>}
       [ WITH {HOLD | RELEASE} ]
 ----
 
-link:./05_parameter.adoc[다음: 파라미터 지정]
+---
+
+link:./01-2_introduction_routine.adoc[이전: SQL 루틴 개요] +
+link:./01-4_parameter.adoc[다음: 파라미터 지정]

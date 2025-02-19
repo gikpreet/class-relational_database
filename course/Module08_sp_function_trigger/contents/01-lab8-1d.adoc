@@ -20,4 +20,6 @@ https://github.com/gikpreet/class-relational_database/blob/main/Module%2008%20%E
 
 _**참고** - PostgreSQL은 저장 프로시저에서 Relation을 반환하는 메커니즘을 제공하지 않습니다._
 
+---
 
+link:./01-lab8-1c.adoc[이전: Oracle에서 SQL 루틴 작성]
