@@ -27,5 +27,5 @@ Dr. Codd의 법칙 5번에 따라, SQL의 문법은 아래와 같은 세 가지�
 
 ---
 
-link:./21_introduction_to_query.adoc[이전: 관계 데이터베이스 질의] +
-link:./23-1_Lab2-2a.adoc[다음: Lab 2-2a SQL을 사용한 무결성 제약조건 설정(MySQL)]
+link:./04-2_introduction_to_query.adoc[이전: 관계 데이터베이스 질의] +
+link:./04-Lab2-2a.adoc[다음: Lab 2-2a SQL을 사용한 무결성 제약조건 설정(MySQL)]

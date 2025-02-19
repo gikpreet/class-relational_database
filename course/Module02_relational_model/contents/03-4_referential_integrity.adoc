@@ -38,5 +38,5 @@ image:../images/image09.png[]
 
 ---
 
-link:./16_entity_integrity.adoc[이전: 개체 무결성] +
-link:./18_domain_integrity.adoc[다음: 도메인 무결성]
+link:./03-3_entity_integrity.adoc[이전: 개체 무결성] +
+link:./03-5_domain_integrity.adoc[다음: 도메인 무결성]

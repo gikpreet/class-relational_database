@@ -46,5 +46,5 @@ _학생 (학번: 문자열, 이름: 문자열, 로그인: 문자열, 나이: 정
 
 ---
 
-link:./15_introduction_to_ic.adoc[이전: 무결성 제약조건 개요] +
-link:./17_referential_integrity.adoc[다음: 참조 무결성]
+link:./03-2_introduction_to_ic.adoc[이전: 무결성 제약조건 개요] +
+link:./03-4_referential_integrity.adoc[다음: 참조 무결성]

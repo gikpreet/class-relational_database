@@ -38,5 +38,5 @@ C. 변경될 Category 릴레이션을 참조하는 모든 Product 투플의 데�
 
 ---
 
-link:./18_domain_integrity.adoc[이전: 도메인 무결성] +
-link:./20_chapter4_query.adoc[다음: Chapter 4: 질의어]
+link:./03-5_domain_integrity.adoc[이전: 도메인 무결성] +
+link:./04-1_chapter4_query.adoc[다음: Chapter 4: 질의어]

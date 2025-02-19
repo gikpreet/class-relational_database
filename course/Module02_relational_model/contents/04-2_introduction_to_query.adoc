@@ -21,5 +21,5 @@ Dr. Codd의 12법칙 중 5번 규칙을 다시 살펴보면 다음과 같습니�
 
 ---
 
-link:./20_chapter4_query.adoc[이전: Chapter 4: 질의어] +
-link:./22_sql.adoc[다음: SQL]
+link:./04-1_chapter4_query.adoc[이전: Chapter 4: 질의어] +
+link:./04-3_sql.adoc[다음: SQL]

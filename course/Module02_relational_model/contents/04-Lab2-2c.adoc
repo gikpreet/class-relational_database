@@ -600,5 +600,5 @@ ORACLE 데이터베이스는 ON UPDATE CASCADE를 지원하지 않습니다. ORA
 
 ---
 
-link:./23-2_lab2-2b.adoc[Lab 2-2b : SQL을 사용한 무결성 제약조건 설정 (Microsoft SQL Server)] +
-link:./23-4_lab2-2d.adoc[Lab 2-2d : SQL을 사용한 무결성 제약조건 설정 (Postgres)]
+link:./04-lab2-2b.adoc[Lab 2-2b : SQL을 사용한 무결성 제약조건 설정 (Microsoft SQL Server)] +
+link:./04-lab2-2d.adoc[Lab 2-2d : SQL을 사용한 무결성 제약조건 설정 (Postgres)]

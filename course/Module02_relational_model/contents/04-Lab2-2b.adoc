@@ -617,5 +617,5 @@ image:../images/image43.png[]
 
 ---
 
-link:./23-1_lab2-2a.adoc[Lab 2-2a : SQL을 사용한 무결성 제약조건 설정 (MySQL)] +
-link:./23-3_lab2-2c.adoc[Lab 2-2c : SQL을 사용한 무결성 제약조건 설정 (Oracle)]
+link:./04-lab2-2a.adoc[Lab 2-2a : SQL을 사용한 무결성 제약조건 설정 (MySQL)] +
+link:./04-lab2-2c.adoc[Lab 2-2c : SQL을 사용한 무결성 제약조건 설정 (Oracle)]

@@ -700,5 +700,5 @@ SELECT * FROM Product;
 
 ---
 
-link:./23-3_lab2-2c.adoc[Lab 2-2c : SQL을 사용한 무결성 제약조건 설정 (Oracle)] +
-link:./24_review.adoc[다음: 검토]
+link:./04-lab2-2c.adoc[Lab 2-2c : SQL을 사용한 무결성 제약조건 설정 (Oracle)] +
+link:./99_review.adoc[다음: 검토]

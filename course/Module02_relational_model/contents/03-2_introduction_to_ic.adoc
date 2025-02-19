@@ -25,5 +25,5 @@
 
 ---
 
-link:./14_chapter3_integrity_constraint.adoc[이전: Chapter 3: 무결성 제약 조건] +
-link:./16_entity_integrity.adoc[다음: 개체 무결성]
+link:./03-1_chapter3_integrity_constraint.adoc[이전: Chapter 3: 무결성 제약 조건] +
+link:./03-3_entity_integrity.adoc[다음: 개체 무결성]

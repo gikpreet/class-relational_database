@@ -826,5 +826,5 @@ mysql> UPDATE Category SET CategoryNo = 1 WHERE CategoryNo = 2;
 
 ---
 
-link:./22_sql.adoc[이전: SQL] +
-link:./23-2_lab2-2b.adoc[Lab 2-2b : SQL을 사용한 무결성 제약조건 설정 (Microsoft SQL Server)]
+link:./04-3_sql.adoc[이전: SQL] +
+link:./04-lab2-2b.adoc[Lab 2-2b : SQL을 사용한 무결성 제약조건 설정 (Microsoft SQL Server)]
