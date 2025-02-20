@@ -4,11 +4,13 @@
 
 == Table of Contents
 
-1. 트랜잭션
+1. link:./01-1_transaction.adoc[트랜잭션]
 2. 일관성
 3. 잠금
 4. 잠금 기반 병행 제어
 5. 특수한 잠금 기법
 6. SQL의 트랜잭션 지원
 
-link:./02_transaction.adoc[다음: 트랜잭션]
+---
+
+link:./01-1_transaction.adoc[다음: 트랜잭션]
