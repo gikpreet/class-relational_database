@@ -10,3 +10,4 @@
 8. link:./course/Module08_sp_function_trigger/contents/00_introduction.adoc[Module 08: 저장 프로시저와 함수, 트리거]
 9. link:./course/Module09_persistant_stored_module/contents/01_introduction.adoc[Module 09: Persistant Stored Module]
 10. link:./course/Module10_er_model/contents/00_introduction.adoc[Module 10: ER 모델]
+11. link:./course/Module11_schema_refine_and_normal_form/contents/01_schema_refine.adoc[Module 11: 스키마 정제와 정규형]
