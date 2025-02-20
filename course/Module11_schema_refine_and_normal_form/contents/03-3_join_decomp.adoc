@@ -72,5 +72,7 @@ _어떤 릴레이션 R에 FD X → Y가 존재하고 X ∩ Y가 공집합이면 
 
 _X는 R - Y와 XY에 모두 나타나며, (X ∩ Y)가 공집합이므로), XY에 대해 키입니다. 따라서 무손실 조인 분해를 위한 검사법으로부터 위와 같은 사실에 도달할 수 있습니다._
 
+---
 
-link:./17_dependency_decomp.adoc[다음: 종속성 유지 분해]
+link:./03-2_overview_decomposition.adoc[이전: 분해 개요] +
+link:./03-4_dependency_decomp.adoc[다음: 종속성 유지 분해]

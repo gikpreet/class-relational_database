@@ -66,4 +66,7 @@ Contract 릴레이션의 스키마를 CSJDPQV로 나타냅시다. 이 릴레이�
 
 C → C, C → S, C → K, C → D 등
 
-link:./08_normalization_and_nf.adoc[다음: 정규화와 정규형]
+---
+
+link:./01-5_schema_refine.adoc[이전: 스키마 정제] +
+link:./02-1_chapter2_normalization_and_nf.adoc[다음: 정규화와 정규형]

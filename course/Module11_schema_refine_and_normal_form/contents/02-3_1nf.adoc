@@ -31,4 +31,7 @@
 |400	|김영랑	|수학과	|F201	|C
 |===
 
-link:./11_2nf.adoc[다음: 제 2차 정규형(Second Normal Form)]
+---
+
+link:./02-2_normalization.adoc[이전: 정규화] +
+link:./02-4_2nf.adoc[다음: 제 2차 정규형(Second Normal Form)]

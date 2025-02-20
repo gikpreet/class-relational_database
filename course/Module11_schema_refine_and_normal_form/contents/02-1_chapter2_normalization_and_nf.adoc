@@ -10,4 +10,7 @@
 4.	제 3정규형(Third Normal Form)
 5.	BCNF(Boyce-Code Normal Form)
 
-link:./09_normalization.adoc[다음: 정규화]
+---
+
+link:./01-6_functional_dependency.adoc[이전: 함수 종속 이해] +
+link:./02-2_normalization.adoc[다음: 정규화]

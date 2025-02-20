@@ -47,4 +47,7 @@ Parttime_emp(EmpID, Name, Parkingslot, Grade, WagePerHr, Workingtime)
 
 설계를 다시 해서, 속성이 EMGPT인 릴레이션과 속성이 GW인 릴레이션을 만들면 됩니다. EMPGT에서는 E → EMPGT가 만족되고 E가 키이며, GW에서는 G → W가 만족되고 G가 키입니다. 이 두 스키마에서 만족되는 다른 함수 종속은은 첨가 법칙으로 얻어지는 것 들 뿐입니다. 따라서 두 스키마는 모두 BCNF에 속합니다.
 
-link:./14_decompsotion.adoc[다음: 분해]
+---
+
+link:./02-6_3nf.adoc[이전: 제 3정규형(Third Normal Form] +
+link:./03-1_chapter3_decomposition.adoc[다음: Chapter 3: 분해]

@@ -66,4 +66,7 @@ Reservation(FlightNo, PassengerNo, Date, CreditCardNo)
 
 함수 종속 P → C 가 존재하여 한 승객이 예약에 대한 지불을 위해 하나의 신용카드만 사용해야 한다는 조건이 있다고 할 때, P는 키가 아니고 C도 키가 아닙니다. (여기에서 키는 FPD 입니다) 따라서 이 릴레이션은 3NF가 아닙니다. 하지만 신용카드가 소유주를 유일하게 식별한다면 함수 종속 C → P를 얻게되고, CDP도 키가 됩니다. 따라서 종속성 C → P는 3NF를 위배하지 않게 되므로 Reservation 릴레이션은 3NF에 속하게 되지만, F 값이 같은 투플들은 (P, C) 쌍들을 중복해서 저장하게 됩니다.
 
-link:./13_bcnf.adoc[다음: BCNF 정규형]
+---
+
+link:./02-4_2nf.adoc[이전: 제 2정규형(Second Normal Form)] +
+link:./02-6_bcnf.adoc[다음: BCNF 정규형]

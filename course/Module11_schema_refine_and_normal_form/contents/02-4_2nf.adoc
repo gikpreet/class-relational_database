@@ -59,4 +59,7 @@ _Grade(StudentNo, Grade)_
 |400	|F201	|C
 |===
 
-link:./12_3nf.adoc[다음: 제 3정규화(Third Normal Form)]
+---
+
+link:./02-3_1nf.adoc[이전: 제 1정규형(First Normal Form)] +
+link:./02-5_3nf.adoc[다음: 제 3정규형(Third Normal Form)]

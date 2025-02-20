@@ -35,4 +35,7 @@ Dr. Codd가 처음 제안한 정규화 과정은 어떤 릴레이션 스키마�
 
 다른 알아야 할 사항은 릴레이션을 항상 최상의 정규형으로 정규화 할 필요는 없다는 것입니다. 성능과 편의성을 위해서 릴레이션을 낮은 수준의 정규형으로 둘 수도 있습니다. 더 높은 정규형 릴레이션들을 조인한 결과를 기본 릴레이션으로 저장하는 과정을 **비정규화(Denormalization)**이라고 합니다.
 
-link:./10_1nf.adoc[다음: 제 1정규형(First Normal Form)]
+---
+
+link:./02-1_chapter2_normalization_and_nf.adoc[이전: 정규화와 정규형] +
+link:./02-3_1nf.adoc[다음: 제 1정규형(First Normal Form)]

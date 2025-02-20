@@ -48,4 +48,7 @@ Partime_emp의 키는 EmpID입니다. WagePerHr 속성이 Grade 속성에 의해
 * 한 직원의 투플을 삽입하려면 직원의 Grade 값에 따른 WagePerHr 값을 알아야 합니다. 삽입 이상이 발생합니다.
 * 어떤 등급 값에 대한 모든 투플을 삭제한다면 그 등급 값과 그에 따른 WagePerHr의 연관성을 잃어버리게 됩니다. 삭제 이상이 발생합니다.
 
-link:./04_decomposition.adoc[다음: 분해법]
+---
+
+link:./01-1_chapter1_introduction_to_schema_refine.adoc[이전: Chapter 1: 스키마 정제 개요] +
+link:./01-3_decomposition.adoc[다음: 분해법]

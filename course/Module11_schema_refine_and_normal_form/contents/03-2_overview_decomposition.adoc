@@ -26,4 +26,7 @@ EMPGWT를 예를 들어 GMPG와 PGWT로 분해하지 않고 EMPGT와 GW로 분�
 
 이 시점에서 중요한 것은 릴레이션 스키마 EMPGWT의 적법한 인스턴스 R을 그에 대한 두 개의 인스턴스 EMPGT(R1)과 GW(R2)로 대치했을 때 이 R1과 R2로부터 R을 복원해 낼 수 있는 것인지 하는 것입니다. EMPGWT를 EMPGT과 GW로 분해하겠다는 것은 인스턴스 R을 R1과 R2를 나누어서 저장하는 다는 말과 같습니다. 원래 의도하던 인스턴스 R을 R1과 R2로부터 구할 수 없으면 안됩니다.
 
-link:./16_join_decomp.adoc[다음: 무손실 조인 분해]
+---
+
+link:./03-1_chapter3_decomposition.adoc[이전: Chapter 3: 분해] +
+link:./03-3_join_decomp.adoc[다음: 무손실 조인 분해]

@@ -6,4 +6,4 @@
 
 ---
 
-
+link:./03-5_BCNF.adoc[이전: BCNF로 분해]

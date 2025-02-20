@@ -1,0 +1,15 @@
+= 스키마 정제 개요
+
+개념 설계에서 표현하지 못하는 문제들은 스키마 정제를 통해 해결할 수 있습니다. 정보를 중복해서 저장하는 것이 이러한 문제의 근본 원인이 되는데, 여기에서는 분해를 이용해 이 문제들과 그 에서 비롯되는 또 다른 문제를 해결하는 방법을 학습합니다.
+
+== Table of Contents
+1. link:./01-2_introduction_to_schema_refine.adoc[스키마 정제 개요]
+2. link:./01-3_decomposition.adoc[분해법]
+3. link:./01-4_functional_dependency.adoc[함수 종속]
+4. link:./01-5_schema_refine.adoc[스키마 정제]
+5. link:./01-6_functional_dependency.adoc[함수 종속 이해]
+
+---
+
+link:./00_schema_refine.adoc[이전: Module 11: 스키마 정제와 정규형] +
+link:./01-2_introduction_to_schema_refine.adoc[다음: 스키마 정제 개요]

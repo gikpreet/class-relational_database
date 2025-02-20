@@ -26,6 +26,9 @@ Contract 릴레이션의 함수 종속은 C → CSJDPQV, JP → C, SD → P가 �
 
 이런 분해 과정상의 단계들을 아래와 같이 트리 형태로 나타낼 수 있습니다.
 
-image:./images/image05.png[]
+image:../images/image05.png[]
 
-link:./19_review.adoc[다음: 검토]
+---
+
+link:./03-4_dependency_decomp.adoc[이전: 종속성 유지 분해] +
+link:./99_review.adoc[다음: 검토]
