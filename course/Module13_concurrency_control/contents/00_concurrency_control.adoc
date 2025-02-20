@@ -5,7 +5,7 @@
 == Table of Contents
 
 1. link:./01-1_transaction.adoc[트랜잭션]
-2. 일관성
+2. link:./일관성
 3. 잠금
 4. 잠금 기반 병행 제어
 5. 특수한 잠금 기법
@@ -13,4 +13,4 @@
 
 ---
 
-link:./01-1_transaction.adoc[다음: 트랜잭션]
+link:./01-1_transaction.adoc[다음: Chapter 1: 트랜잭션]

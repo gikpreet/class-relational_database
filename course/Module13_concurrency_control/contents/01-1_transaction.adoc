@@ -1,9 +1,14 @@
-= 트랜잭션
+= Chapter 1: 트랜잭션
+
+트랜잭션(Transaction)은 데이터베이스에서 하나의 작업 단위를 의미하며, 논리적으로 묶인 일련의 연산들을 포함합니다. 트랜잭션은 데이터 무결성을 유지하고, 안전한 데이터 처리를 보장하는 중요한 개념입니다. 여기에서는 트랜잭션의 개요에 대해 알아봅니다.
 
 == Table of Contents
 
-1. 트랜잭션 개요
-2. 트랜잭션과 일관성
-3. 트랜잭션과 스케줄
+1. link:./01-2_introduction_to_transaction.adoc[트랜잭션 개요]
+2. link:./01-3_transaction_consistency.adoc[트랜잭션과 일관성]
+3. link:./01-4_transaction_and_schedule.adoc[트랜잭션과 스케줄]
 
-link:./03_introduction_to_transaction.adoc[다음: 트랜잭션 개요]
+---
+
+link:./00_concurrency_control.adoc[Module 13: 동시성 제어] +
+link:./01-2_introduction_to_transaction.adoc[다음: 트랜잭션 개요]

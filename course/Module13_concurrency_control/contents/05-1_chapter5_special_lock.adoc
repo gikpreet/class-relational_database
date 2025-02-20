@@ -1,0 +1,9 @@
+= 특수한 잠금 기법
+
+* link:./05-2_phantom_problem.adoc[동적 데이터베이스와 Phantom 문제]
+* link:./05-3_another_lock.adoc[그외 잠금 기법]
+
+---
+
+link:./04-lab12-2d.adoc[이전: Lab 12-2d: 잠금 (Postgres)] +
+link:./05-2_phantom_problem.adoc[다음: 동적 데이터베이스의 팬텀 문제]

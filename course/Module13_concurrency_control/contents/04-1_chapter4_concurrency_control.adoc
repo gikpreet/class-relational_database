@@ -1,0 +1,11 @@
+= Chapter 4: 잠금 기반 병행 제어
+
+* link:./04-2_control_lock.adoc[잠금 관리]
+* link:./04-3_deadlock.adoc[교착 상태]
+* link:./04-4_deadlock_prevention.adoc[교착 상태 예방]
+* link:./04-5_deadlock_detection.adoc[교착 상태 탐지]
+
+---
+
+link:./03-5_strict_2_phase_lock.adoc[이전: Strict2 Phase Lock] +
+link:./04-2_control_lock.adoc[다음: 잠금 관리]

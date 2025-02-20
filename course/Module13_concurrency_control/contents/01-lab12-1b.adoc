@@ -1,0 +1,8 @@
+= Lab 12-1b: 트랜잭션 제어 (Microsoft SQL Server)
+
+이 연습에서는 Microsoft SQL Server에서 제공하는 트랜잭션 문법을 사용하여 명시적/암시적 트랜잭션을 제어하는 것을 연습합니다. 아래 절차에 따릅니다.
+
+---
+
+link:./01-lab12-1a.adoc[이전: Lab 12-1a: 트랜잭션 제어 (MySQL)] +
+link:./01-lab12-1c.adoc[다음: Lab 12-1c: 트랜잭션 재어 (Oracle)]

@@ -1,0 +1,9 @@
+= Chapter 6: SQL의 트랜잭션 지원
+
+* link:./06-2_characteristic_of_transaction.adoc[트랜잭션 특성]
+* link:./06-3_isolation_level.adoc[Isolation Level]
+
+---
+
+link:./05-3_another_lock.adoc[이전: 그외 잠금 기법] +
+link:./06-2_characteristic_of_transaction.adoc[다음: 트랜잭션 특성]

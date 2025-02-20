@@ -1,7 +1,0 @@
-= 기록-판독 충돌(WR 충돌)
-
-image:../images/image02.png[]
-
----
-
-link:./13_RW_collision.adoc[다음: 판독-기록 충돌]

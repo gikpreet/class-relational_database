@@ -1,0 +1,31 @@
+= Isolation Level (1)
+
+* SERIALIZABLE (Level 3)
+** 트랜잭션 T는 완결된 트랜잭션들이 만들어 놓은 변경만 판독
+** T가 판독하거나 기록한 값은 T가 종료된 후에 변경할 수 있음
+* REPEATABLE READ (Level 2)
+** 트랜잭션 T는 완결된 트랜잭션들이 만들어 놓은 변경만 판독
+** T가 판독하거나 기록한 값은 T가 종료된 후에 변경할 수 있으나, Index Locking은 하지 않음
+* READ COMMITTED (Level 1)
+** 트랜잭션 T는 완결된 트랜잭션들이 만들어 놓은 변경만 판독
+** T가 판독하거나 기록한 값은 T가 종료된 후에 변경할 수 있으나, T가 판독한 Row는 다른 트랜잭션이 접근가능
+* READ UNCOMITTED (Level 0)
+** 트랜잭션 T는 진행중인 트랜잭션이 만들어 놓은 변경도 판독할 수 있음
+
+---
+
+트랜잭션 격리 수준(Transaction Isolation Level)은 트랜잭션들이 얼마나 고립되어 있는지를 나타내는 것으로, 특정 트랜잭션이 다른 트랜잭센에 의해 변경된 데이터를 볼 수 있도록 허용할 지 말지를 결정합니다.
+
+트랜잭션 격리 수준은 4가지로 나눕니다.
+
+* SERIALIZABLE (Transaction Level 3)
+* REPEATABLE READ (Transaction Level 2)
+* READ UNCOMMITTE (Transaction Level 1)
+* READ COMMITTED (Transaction Level 0)
+
+트랜잭션 격리 수준은 트랜잭션 수준 읽기 일관성(Transaction-Level Read Consistency)를 지키기 위해서입니다. 즉, 
+
+---
+
+link:./06-2_characteristic_of_transaction.adoc[이전: 트랜잭션 특성] +
+link:./06-4_isolation_level.adoc[다음: Isolation Level (2)]
