@@ -13,4 +13,5 @@
 
 ---
 
-link:./04_transaction_consistency.adoc[다음: 트랜잭션과 일관성]
+link:./01-1_chapter1_transaction.adoc[이전: Chapter 1: 트랜잭션] +
+link:./01-2_transaction_consistency.adoc[다음: 트랜잭션과 일관성]

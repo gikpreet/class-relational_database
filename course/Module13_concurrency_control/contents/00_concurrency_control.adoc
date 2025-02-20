@@ -4,13 +4,13 @@
 
 == Table of Contents
 
-1. link:./01-1_transaction.adoc[트랜잭션]
-2. link:./일관성
-3. 잠금
-4. 잠금 기반 병행 제어
-5. 특수한 잠금 기법
-6. SQL의 트랜잭션 지원
+1. link:./01-1_chapter1_transaction.adoc[트랜잭션]
+2. link:./02-1_chapter2_consistency.adoc[일관성]
+3. link:./03-1_chapter3_lock.adoc[잠금]
+4. link:./04-1_chapter4_concurrency_control.adoc[잠금 기반 병행 제어]
+5. link:./05-1_chapter5_special_lock.adoc[특수한 잠금 기법]
+6. link:./06-1_chapter6_transaction_support_on_sql.adoc[SQL의 트랜잭션 지원]
 
 ---
 
-link:./01-1_transaction.adoc[다음: Chapter 1: 트랜잭션]
+link:./01-1_chapter1_transaction.adoc[다음: Chapter 1: 트랜잭션]
