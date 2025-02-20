@@ -30,4 +30,7 @@ A의 한 개체는 B의 한 개체와 연관을 갖는다. 그러나 B개체는 
 * 다대다(Many to Many) +
 A의 한 개체는 임의의 수((0 또는 그 이상)의 B의 개체와 연관을 갖고 B의 한 개체도 임의의 수(0또는 그 이상)의 A의 개체와 연관을 갖는다.
 
-link:./09_key_constraint.adoc[다음: 키 제약조건]
+---
+
+link:./03-1_chapter3_er_model_function.adoc[이전: ER 모델 기능] +
+link:./03-3_key_constraint.adoc[다음: 키 제약조건]

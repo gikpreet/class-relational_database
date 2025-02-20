@@ -4,10 +4,13 @@ ER 모델은 데이터의 중요한 특징들을 표현할 수 있는 요소들�
 
 == Table of Contents
 
-1.	대응 수
-2.	키 제약조건
-3.	참여 제약 조건
-4.	약 개체 집합
-5.	전문화와 일반화
+1. link:./03-2_mapping_cadinality.adoc[대응 수]
+2. link:./03-3_key_constraint.adoc[키 제약조건]
+3. link:./03-4_participation_constraint.adoc[참여 제약 조건]
+4. link:./03-5_weakly_entityset.adoc[약 개체 집합]
+5. link:./03-6_specialization.adoc[전문화와 일반화]
 
-link:./08_mapping_cadinality.adoc[다음: 대응 수]
+---
+
+link:./02-4_relation_relationshipset.adoc[이전: 관계, 관계 집합] +
+link:./03-2_mapping_cadinality.adoc[다음: 대응 수]

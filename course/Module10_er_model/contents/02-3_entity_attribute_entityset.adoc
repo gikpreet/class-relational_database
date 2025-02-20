@@ -14,7 +14,7 @@
 
 Diagram Convention
 
-image:./images/image02.png[]
+image:../images/image02.png[]
 
 ---
 
@@ -56,4 +56,7 @@ CREATE TABLE 직원 (
 )
 ----
 
-link:./06_relation_relationshipset.adoc[다음: 관계, 관계집합]
+---
+
+link:./02-2_er_model.adoc[이전: 개체 관계 데이터모델] +
+link:./02-4_relation_relationshipset.adoc[다음: 관계, 관계집합]

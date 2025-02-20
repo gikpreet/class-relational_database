@@ -1,0 +1,14 @@
+= 개체 관계 데이터모델
+
+ER 모델이라고 부르는 개체 관계 데이터모델은 개체(Entity), 애트리뷰트(Attribute), 관계(Relationship)을 사용하여 데이터베이스를 모델링하는 기법의 총칭입니다. 이 단원에서는 개체 관계 모델에 대해 알아봅니다.
+
+== Table of Contents
+
+1. link:./02-2_er_model.adoc[개체 관계 데이터 모델]
+2. link:./02-3_entity_attribute_entityset.adoc[개체, 속성, 개체 집합]
+3. link:./02-4_relation_relationshipset.adoc[관계, 관계 집합]
+
+---
+
+link:./01-1_chapter1_design_overview.adoc[이전: Chapter 1: 데이터베이스 설계] +
+link:./02-2_er_model.adoc[다음: 개체 관계 데이터모델]

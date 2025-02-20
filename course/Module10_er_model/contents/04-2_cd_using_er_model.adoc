@@ -12,4 +12,7 @@
 2. ER 다이어그램은 데이터를 최대한 비슷하게 설명할 뿐이며 요구되는 모든 의미를 다 표현할 수는 없다.
 3. ER 모델링은 데이터 설계에 대한 완벽한 방식이 아니며, ER 다이어그램을 변환하여 얻은 릴레이션은 스키마 정제가 필요하다.
 
-link:./15_entity_or_attribute.adoc[다음: 개체 or 속성]
+---
+
+link:./04-1_chapter4_conceptual_design.adoc[이전: Chapter 4: 개념적 설계 고려사항] +
+link:./04-3_entity_or_attribute.adoc[다음: 개체 or 속성]

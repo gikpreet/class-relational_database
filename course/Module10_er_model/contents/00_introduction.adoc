@@ -11,11 +11,11 @@
 
 == Table of contents
 
-1.	관계형 데이터베이스 설계 개요
-2.	ER 모델
-3.	ER 모델의 기타 기능
-4.	개념적 설계 고려사항
+1.	link:./01-1_chapter1_design_overview.adoc[관계형 데이터베이스 설계 개요]
+2.	link:./02-1_chapter2_ER_model.adoc[ER 모델]
+3.	link:./03-1_chapter3_er_model_function.adoc[ER 모델의 기타 기능]
+4.	link:./04-1_chapter4_conceptural_design.adoc[개념적 설계 고려사항]
 
 ---
 
-link:./02_design_overview.adoc[다음: 데이터베이스 설계 개요]
+link:./01-1_chapter1_design_overview.adoc[다음: 데이터베이스 설계 개요]

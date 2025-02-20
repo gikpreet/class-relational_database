@@ -21,4 +21,7 @@ image:../images/image12.png[]
 
 image:../images/image13.png[]
 
-link:./17_binary_or_triage.adoc[다음: 이진관계 or 삼진관계]
+---
+
+link:./04-3_entity_or_attribute.adoc[이전: 개체 or 속성] +
+link:./04-5_binary_or_triage.adoc[다음: 이진관계 or 삼진관계]

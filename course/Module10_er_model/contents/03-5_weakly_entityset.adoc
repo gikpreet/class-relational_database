@@ -45,4 +45,7 @@ CREATE TABLE 보험 (
 
 피 부양자는 약 개체이므로 기본 키는 <피부양자이름, 사번>이 됩니다. NOT NULL 제약조건에 의하여 모든 피부양자들은 하나의 직원 개체와 연관되게 되어 피부양자에 대한 전체 참여 제약조건을 만족하게 됩니다. CASCADE 조건을 붙여 직원 레코드가 삭제되면 피부양자 레코드 역시 삭제됩니다.
 
-link:./12_specialization.adoc[다음: 전문화와 일반화]
+---
+
+link:./03-4_participation_constraint.adoc[이전: 참여 제약조건] +
+link:./03-6_specialization.adoc[다음: 전문화와 일반화]

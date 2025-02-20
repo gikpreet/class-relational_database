@@ -11,4 +11,7 @@ ER 데이터 모델의 기반이 되는 개념은 개체(Entity), 속성(Attribu
 
 ER 모델은 실세계의 조직의 의미와 상호 작용을 개념적 스키마로 나타내는데 매우 유용합니다.
 
-link:./05_entity_attribute_entityset.adoc[다음: 개체, 속성, 개체 집합]
+---
+
+link:./02-1_chapter2_ER_model.adoc[이전: 개체 관계 데이터모델] +
+link:./02-3_entity_attribute_entityset.adoc[다음: 개체, 속성, 개체 집합]

@@ -4,9 +4,12 @@
 
 == Table of Contents
 
-1.	ER 모델을 이용한 개념적 설계
-2.	개체 or 속성
-3.	개체 or 관계
-4.	이진 관계 or 삼진 관계
+1. link:./04-2_cd_using_er_model.adoc[ER 모델을 이용한 개념적 설계]
+2. link:./04-3_entity_or_attribute.adoc[개체 or 속성]
+3. link:./04-4_entity_or_relationship.adoc[개체 or 관계]
+4. link:./04-5_binary_or_triage.adoc[이진 관계 or 삼진 관계]
 
-link:./14_cd_using_er_model.adoc[다음: ER 모델을 이용한 개념적 설계]
+---
+
+link:./03-6_specialization.adoc[이전: 전문화와 일반화] +
+link:./04-2_cd_using_er_model.adoc[다음: ER 모델을 이용한 개념적 설계]

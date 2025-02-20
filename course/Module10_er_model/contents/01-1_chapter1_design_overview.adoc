@@ -1,4 +1,4 @@
-= 데이터베이스 설계
+= Chapter 1: 데이터베이스 설계
 
 image:../images/image01.png[]
 
@@ -12,4 +12,7 @@ image:../images/image01.png[]
 
 처음부터 순서대로 개념적 설계, 스키마 정제, 물리적 설계를 수행해 나간다 하더라도 결국은 그 후에 이 세 종류의 설계 단계를 반복적으로 교차 수행하는 **조정(Tuning, 튜닝)** 과정을 거쳐야 합니다.
 
-link:./03_ER_model.adoc[다음: 개체 관계 데이터모델]
+---
+
+link:./00_introduction.adoc[이전: Module 10: 개념적 설계와 ER 모델] +
+link:./02-2_er_model.adoc[다음: 개체 관계 데이터모델]

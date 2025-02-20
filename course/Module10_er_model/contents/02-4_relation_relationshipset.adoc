@@ -84,4 +84,7 @@ CREATE TABLE 보고 (
 )
 ----
 
-link:./07_er_model_function.adoc[다음: ER 모델 기능]
+---
+
+link:./02-3_entity_attribute_entityset.adoc[이전: 개체, 속성, 개체 집합] +
+link:./03-1_chapter3_er_model_function.adoc[다음: ER 모델 기능]

@@ -58,4 +58,7 @@ CREATE TABLE 부서 (
 
 이 개념을 세 개 이상의 개체집합이 참여하는 관계집합으로 확장 적용할 수 있습니다. 일반적으로 말해서, 어떤 관계집합에 n개의 개체집합이 참여하고 그 중 m개는 ER 다이어그램 상에서 화살표로 연결된다면 이 m개의 개체집합을 표현한 어떠한 릴레이션에도 이 관계의 정보를 나타낼 수 있습니다.
 
-link:./10_participation_constraint.adoc[다음: 참여 제약조건]
+---
+
+link:./03-2_mapping_cadinality.adoc[이전: 대응 수] +
+link:./03-4_participation_constraint.adoc[다음: 참여 제약조건]
