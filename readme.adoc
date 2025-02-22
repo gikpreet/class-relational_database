@@ -12,3 +12,5 @@
 10. link:./course/Module10_er_model/contents/00_introduction.adoc[Module 10: ER 모델]
 11. link:./course/Module11_schema_refine_and_normal_form/contents/01_schema_refine.adoc[Module 11: 스키마 정제와 정규형]
 12. link:./course/Module13_concurrency_control/contents/00_concurrency_control.adoc[Module 13: 병행성 제어]
+
+Appendex link:./course/n1_appendix_setup_dbms/readme.adoc[실습을 위한 DBMS 설치]
