@@ -4,11 +4,11 @@
 
 == Table of Contents
 
-1.	link:./15_introduction_to_ic.adoc[무결성 제약조건 개요]
-2.	link:./16_entity_integrity.adoc[개체 무결성]
-3.	link:./17_referential_integrity.adoc[참조 무결성]
-4.	link:./18_domain_integrity.adoc[도메인 무결성]
-5.	link:./19_enforce_ic.adoc[무결성 제약조건 집행]
+1.	link:./03-2_introduction_to_ic.adoc[무결성 제약조건 개요]
+2.	link:./03-3_entity_integrity.adoc[개체 무결성]
+3.	link:./03-4_referential_integrity.adoc[참조 무결성]
+4.	link:./03-5_domain_integrity.adoc[도메인 무결성]
+5.	link:./03-6_enforce_ic.adoc[무결성 제약조건 집행]
 
 ---
 

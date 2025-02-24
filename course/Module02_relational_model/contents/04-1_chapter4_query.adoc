@@ -4,8 +4,8 @@ DBMS는 질의를 작성하기 위한 특수 언어인 질의어(Query Language)
 
 == Table of Contents
 
-1.	link:./21_introduction_to_query.adoc[관계 데이터베이스 질의]
-2.	link:./22_sql.adoc[SQL]
+1.	link:./04-2_introduction_to_query.adoc[관계 데이터베이스 질의]
+2.	link:./04-3_sql.adoc[SQL]
 
 ---
 
