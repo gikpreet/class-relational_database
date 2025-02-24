@@ -4,7 +4,7 @@
 
 == Table of Contents
 1.	link:./01-2_introduction_to_relational_model.adoc[관계 모델 개요]
-2.	link:./01-3_laws.adoc[Dr. Codd의 12법칙]
+2.	link:./01-3_12_laws.adoc[Dr. Codd의 12법칙]
 3.	link:./01-4_history01.adoc[관계 데이터베이스 시스템 역사]
 
 ---

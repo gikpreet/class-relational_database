@@ -12,9 +12,9 @@
 == Table of contents
 
 1.	link:./01-1_chapter1_introduction_to_relational_model.adoc[관계 모델 개요]
-2.	link:./08_chapter2_relation.adoc[릴레이션]
-3.	link:./14_chapter3_integrity_constraint.adoc[제약조건]
-4.	link:./20_chapter4_query.adoc[질의어]
+2.	link:./02-1_chapter2_relation.adoc[릴레이션]
+3.	link:./03-1_chapter3_integrity_constraint.adoc[제약조건]
+4.	link:./04-1_chapter4_query.adoc[질의어]
 
 ---
 

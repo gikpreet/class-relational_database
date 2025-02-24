@@ -13,15 +13,15 @@ SQL 가장 널리 사용되는 상용 관계 데이터베이스 언어입니다.
 == Table of Contents
 
 1. link:./01-1_chapter1_introduction_to_sql.adoc[SQL 개요]
-2. link:./05_chapter2_ddl.adoc[DDL: Data Definition Language]
-3. link:./10_chapter3_dml.adoc[DML: Data Manipulation Language]
-4. link:./17_chapter4_set_operation.adoc[집합 연산]
-5. link:./21_chapter5_subquery.adoc[서브 쿼리]
-6. link:./27_chapter6_aggregate_calculation.adoc[집단 연산]
-7. link:./30_chapter7_order.adoc[정렬]
-8. link:./33_chapter8_insert.adoc[삽입]
-9. link:./40_chapter9_update.adoc[갱신]
-10. link:./43_chapter10_delete.adoc[삭제]
+2. link:./02-1_chapter2_ddl.adoc[DDL: Data Definition Language]
+3. link:./03-1_chapter3_dml.adoc[DML: Data Manipulation Language]
+4. link:./04-1_chapter4_set_operation.adoc[집합 연산]
+5. link:./05-1_chapter5_subquery.adoc[서브 쿼리]
+6. link:./06-1_chapter6_aggregate_calculation.adoc[집단 연산]
+7. link:./07-1_chapter7_order.adoc[정렬]
+8. link:./08-1_chapter8_insert.adoc[삽입]
+9. link:./09-1_chapter9_update.adoc[갱신]
+10. link:./10-1_chapter10_delete.adoc[삭제]
 
 ---
 

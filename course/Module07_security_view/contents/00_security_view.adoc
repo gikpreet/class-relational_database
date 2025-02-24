@@ -13,4 +13,4 @@
 
 ---
 
-link:./01-1_chapter1_security.adoc[다음: 데이터베이스 보안]
+link:./01-1_chapter1_security.adoc[다음: Chapter 1: 데이터베이스 보안]

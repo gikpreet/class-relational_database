@@ -14,4 +14,4 @@
 
 ---
 
-link:./02_chapter1_cost_file.adoc[다음: 비용 모델과 파일 조직법]
+link:./02_chapter1_cost_file.adoc[다음: Chapter 1: 비용 모델과 파일 조직법]

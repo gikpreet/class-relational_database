@@ -15,7 +15,7 @@
 
 1. link:./01-1_chapter1_introduction_to_schema_refine.adoc[스키마 정제]
 2. link:./02-1_chapter2_normalization_and_nf.adoc[정규화와 정규형]
-3. link:./03-1_decomposition.adoc[분해]
+3. link:./03-1_chapter3_decomposition.adoc[분해]
 
 ---
 

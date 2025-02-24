@@ -11,5 +11,5 @@
 
 ---
 
-link:./03-6_specialization.adoc[이전: 전문화와 일반화] +
+link:./03-6_specialization.adoc[이전: Chapter 4: 전문화와 일반화] +
 link:./04-2_cd_using_er_model.adoc[다음: ER 모델을 이용한 개념적 설계]

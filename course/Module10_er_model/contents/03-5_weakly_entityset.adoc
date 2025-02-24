@@ -48,4 +48,4 @@ CREATE TABLE 보험 (
 ---
 
 link:./03-4_participation_constraint.adoc[이전: 참여 제약조건] +
-link:./03-6_specialization.adoc[다음: 전문화와 일반화]
+link:./03-6_specialization.adoc[다음: Chapter 4: 전문화와 일반화]

@@ -16,5 +16,5 @@ link:./contents/00_introduction.adoc[Module 01: 데이터베이스 시스템 개
 ** link:./contents/02-8_transaction.adoc[트랜잭션]
 ** link:./contents/02-9_dbms_architecture.adoc[DBMS의 구조]
 ** link:./contents/02-10_advantage_of_dbms.adoc[데이터베이스 관리 시스템의 장점]
-* link:./contents/18_lab01.adoc[Lab 1: MySQL 설치]
+* link:./contents/02-lab01.adoc[Lab 1: MySQL 설치]
 * link:./contents/99_review.adoc[검토]

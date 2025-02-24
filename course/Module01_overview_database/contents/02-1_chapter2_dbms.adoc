@@ -10,7 +10,7 @@
 4.	link:./02-5_data_independency.adoc[데이터 독립성]
 5.	link:./02-6_database_query.adoc[데이터베이스 질의]
 6.	link:./02-7_concurrency.adoc[동시 접근 및 복구]
-7.	link:./02-8transaction.adoc[트랜잭션]
+7.	link:./02-8_transaction.adoc[트랜잭션]
 8.	link:./02-9_dbms_architecture.adoc[DBMS의 구조]
 9.	link:./02-10_advantage_of_dbms.adoc[데이터베이스 관리 시스템의 장점]
 

@@ -59,4 +59,4 @@ CREATE TABLE 시간제_직원 (
 ---
 
 link:./03-5_weakly_entityset.adoc[이전: 약 개체집합] +
-link:./04-1_chapter4_conceptural_design.adoc[다음: 개념적 설계 고려사항]
+link:./04-1_chapter4_conceptural_design.adoc[다음: Chapter 4: 개념적 설계 고려사항]

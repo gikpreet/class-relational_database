@@ -18,4 +18,4 @@
 
 ---
 
-link:./01-1_chapter1_design_overview.adoc[다음: 데이터베이스 설계 개요]
+link:./01-1_chapter1_design_overview.adoc[다음: Chapter 1: 데이터베이스 설계 개요]

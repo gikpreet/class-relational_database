@@ -6,7 +6,7 @@
 
 1.	link:./02-2_relation_schema.adoc[릴레이션 스키마]
 2.	link:./02-3_relation_instance.adoc[릴레이션 인스턴스]
-3.	link:./02-4domain.adoc[도메인]
+3.	link:./02-4_domain.adoc[도메인]
 4.	link:./02-5_relational_database.adoc[관계 데이터베이스]
 
 ---
