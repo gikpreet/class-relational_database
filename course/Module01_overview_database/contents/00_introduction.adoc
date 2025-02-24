@@ -9,8 +9,8 @@
 
 == Table of contents
 
-. link:./02_introduction_to_database_system.adoc[데이터베이스 시스템 개요]
-. link:./08_dbms.adoc[데이터베이스 관리 시스템 개요]
+. link:./01-1_chapter1_introduction_to_database_system.adoc[데이터베이스 시스템 개요]
+. link:./02-1_chapter2_dbms.adoc[데이터베이스 관리 시스템 개요]
 
 ---
 
