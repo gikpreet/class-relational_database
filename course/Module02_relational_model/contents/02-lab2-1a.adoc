@@ -298,4 +298,4 @@ mysql> SELECT * FROM Category;
 ---
 
 link:./02-5relational_database.adoc[이전: 관계 데이터베이스] +
-link:./02-lab2-1b.adoc[다음: Lab 2-1b: SQL을 사용한 릴레이션 생셩 및 수정 (Microsoft SQL Server) ]
+link:./02-lab2-1b.adoc[다음: Lab 2-1b: SQL을 사용한 릴레이션 생성 및 수정 (Microsoft SQL Server) ]
