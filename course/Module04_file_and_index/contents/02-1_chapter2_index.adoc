@@ -9,7 +9,7 @@
 3. link:./02-4_nonclustered_index.adoc[넌 클러스터드 인덱스]
 4. link:./02-5_sparse_index.adoc[밀집 인덱스와 희소 인덱스]
 5. link:./02-6_primary_index.adoc[기본 인덱스와 보조 인덱스]
-6. link:./02-7_compounded_index.adoc[복합 인덱스]
+6. link:./02-7_composite_index.adoc[복합 인덱스]
 
 ---
 

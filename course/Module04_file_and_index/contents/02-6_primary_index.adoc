@@ -19,4 +19,4 @@
 ---
 
 link:./02-5_sparse_index.adoc[이전: 밀집 인덱스와 희소 인덱스] +
-link:./02-7_compounded_index.adoc[다음: 복합 키 인덱스]
+link:./02-7_composite_index.adoc[다음: 복합 키 인덱스]
