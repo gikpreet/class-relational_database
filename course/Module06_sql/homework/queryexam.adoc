@@ -10,8 +10,40 @@
 
 === MYSQL
 
-MySQL 백업 파일 link:https://onedrive.live.com/?authkey=%21AKf6StxDdivnvik&cid=AB9BD89F1554471A&id=AB9BD89F1554471A%211005933&parId=AB9BD89F1554471A%21162&o=OneUp[다운로드]
+MySQL 백업 파일 link:https://onedrive.live.com/?id=AB9BD89F1554471A%211005933&resid=AB9BD89F1554471A%211005933&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBaHBIVkJXZjJKdXJ2Ykp0cF9wSzNFTjJLLWUtS1E%5FZT14V1VlM0s&migratedtospo=true&cid=ab9bd89f1554471a&v=validatepermission[다운로드]
 
 1. 터미널을 실행하고, MYSQL에 로그인합니다.
 2. 아래 질의를 수행하여 DatamotionMovieDatabase 데이터베이스를 생성합니다.
++
+[source, sql]
+----
+CREATE DATABASE DatamotionMovieDatabase;
+----
++
+3. 데이터베이스가 생성되면 아래 명령을 실행하여 MySQL 클라이언트를 종료합니다.
++
+----
+exit
+----
++
+4. 터미널에서 아래 명령을 수행하여 백업 받은 파일을 DatamotionMovieDatabase 데이터베이스에 복원합니다.
++
+----
+mysql -u root -p DatamotionMovieDatabase < DMMDB-20231012.sql
+----
++
+5. 복원이 완료되면, MySQL에 접근합니다.
++
+----
+mysql -u root -p
+----
++
+6. 아래 명령을 실행하여 복원된 데이터베이스를 확인합니다.
++
+[source, sql]
+----
+show databases;
+use datamotionmoviedatabase;
+show tables;
+----
 
