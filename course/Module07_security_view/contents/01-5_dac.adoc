@@ -14,7 +14,7 @@ GRANT <특권> ON <개체> TO <사용자> [WITH GRANT OPTIONS]
 
 [source, sql]
 ----
-GRANT <특권> ON <개체> FROM <사용자> [CASCADE]
+REVOKE <특권> ON <개체> FROM <사용자> [CASCADE]
 ----
 
 ---
