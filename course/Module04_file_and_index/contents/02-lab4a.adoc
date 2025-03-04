@@ -5,6 +5,7 @@
 이 연습에서는 Module03에서 생성한 테이블에 인덱스를 생성하고 데이터를 삽입한 후 동작을 확인합니다. 아래 절차에 따릅니다.
 
 === Product 테이블에 데이터 삽입
+
 1.	macOS와 Ubuntu에서는 터미널, Windows에서는 명령 프롬프트를 실행합니다.
 2.	아래 명령을 실행하여 MySQL 콘솔에 접근합니다.
 +
@@ -281,5 +282,5 @@ mysql> SELECT * FROM Product WHERE CategoryNo > 0;
 
 ---
 
-link:./02-7_compounded_index.adoc[이전: 복합 인덱스] +
+link:./02-7_composite_index.adoc[이전: 복합 인덱스] +
 link:./02-lab4b.adoc[다음: Lab 4b: 인덱스 생성(Microsoft SQL Server)]

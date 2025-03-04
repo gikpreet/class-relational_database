@@ -1,6 +1,6 @@
-== 함수 종속
-:stem: asciimath
+= 함수 종속
 
+:stem: asciimath
 * 함수 종속(Functional Dependency)는 일종의 제약 조건
 * 어떤 릴레이션 스키마를 R이라고 하고 X와 Y를 R에 속한 속성 집합이라고 하고, R의 인스턴스 r에 속한 투플 t1과 t2가 다음의 조건을 만족하면 FD X → Y가 존재한다고 한다
 +
