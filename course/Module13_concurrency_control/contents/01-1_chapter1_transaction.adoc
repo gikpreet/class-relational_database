@@ -10,5 +10,5 @@
 
 ---
 
-link:./00_concurrency_control.adoc[Module 13: 동시성 제어] +
+link:./00_concurrency_control.adoc[이전: Module 13: 동시성 제어] +
 link:./01-2_introduction_to_transaction.adoc[다음: 트랜잭션 개요]

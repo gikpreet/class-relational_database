@@ -9,4 +9,4 @@
 ---
 
 link:./03-4_exclusive_lock_mode.adoc[이전: Exclusive Lock Mode] +
-link:./04-1_concurrency_control.adoc[다음: 잠금 기반 병행 제어]
+link:./04-1_chapter4_concurrency_control.adoc[다음: Chapter 4: 잠금 기반 병행 제어]

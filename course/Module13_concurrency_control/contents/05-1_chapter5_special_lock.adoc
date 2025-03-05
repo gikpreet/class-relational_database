@@ -1,4 +1,4 @@
-= 특수한 잠금 기법
+= Chapter 5: 특수한 잠금 기법
 
 * link:./05-2_phantom_problem.adoc[동적 데이터베이스와 Phantom 문제]
 * link:./05-3_another_lock.adoc[그외 잠금 기법]

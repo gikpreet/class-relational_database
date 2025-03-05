@@ -11,5 +11,5 @@
 
 ---
 
-link:./06-4_isolation_level.adoc[이전: Isolation Level (2)]
+link:./06-4_isolation_level.adoc[이전: Isolation Level (2)] +
 link:./35_lab12-3.adoc[다음: 연습 12-3 트랜잭션 격리 수준과 잠금]
