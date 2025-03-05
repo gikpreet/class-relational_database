@@ -33,11 +33,11 @@ WHERE type_desc IN ('SQL_LOGIN', 'WINDOWS_GROUP', 'WINDOWS_LOGIN')
 1. 새 SQL Management Studio 또는 Azure Data Studio를 실행하고 Michael로 로그인합니다.
 2. sa로 로그인 한 첫 번째 도구에서, Server Explorer에서 각 데이터베이스를 확장하여 연결을 확인합니다.
 +
-image:./images/image01.png[]
+image:../images/image01.png[]
 +
 3. Michael로 로그인한 두 번째 도구에서, Server Explorer에서 각 데이터베이스를 확장하여 권한을 확인합니다.
 +
-image:./images/image02.png[]
+image:../images/image02.png[]
 
 == Michael 사용자에게 특권 부여
 
@@ -49,7 +49,7 @@ GRANT SELECT ON Module06.dbo.Passenger TO Michael
 ----
 2. Michael로 로그인 한 두 번째 도구에서, Server Explorer에서 Module06 데이터베이스를 확장하여 Module06 데이터베이스에서 접근 가능한 테이블을 확인합니다.
 +
-image:./images/image03.png[]
+image:../images/image03.png[]
 +
 3. 두 번째 도구에서, Module06 데이터베이스에서 새 쿼리창을 실행하여 아래 질의를 수행하여 Module06 데이터베이스의 Passenger 테이블의 모든 데이터를 읽습니다.
 +
@@ -66,6 +66,7 @@ SELECT * FROM Passenger INNER JOIN Reservation ON Passenger.PassengerNo = Reserv
 ----
 +
 질의는 수행되지 않습니다. Michael 사용자는 Reservation 테이블에 대한 SELECT 특권을 가지고 있지 않습니다.
++
 ----
 12:58:59 PMStarted executing query at Line 1
 Msg 229, Level 14, State 5, Line 1
