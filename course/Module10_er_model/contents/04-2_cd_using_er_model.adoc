@@ -14,5 +14,5 @@
 
 ---
 
-link:./04-1_chapter4_conceptual_design.adoc[이전: Chapter 4: 개념적 설계 고려사항] +
+link:./04-1_chapter4_conceptural_design.adoc[이전: Chapter 4: 개념적 설계 고려사항] +
 link:./04-3_entity_or_attribute.adoc[다음: 개체 or 속성]

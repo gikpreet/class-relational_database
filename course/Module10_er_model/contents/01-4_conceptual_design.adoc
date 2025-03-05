@@ -84,4 +84,4 @@ ER 모델링을 통해 ER 다이어그램을 작성합니다. ER 다이어그램
 ---
 
 link:./01-3_requirement_analysis.adoc[이전: 요건 분석] +
-link:./01-5_logical_deaign.adoc[다음: 논리 설계]
+link:./01-5_logical_design.adoc[다음: 논리 설계]

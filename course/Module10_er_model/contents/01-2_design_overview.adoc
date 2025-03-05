@@ -14,5 +14,5 @@ image:../images/image01.png[]
 
 ---
 
-link:./00_introduction.adoc[이전: Module 10: 개념적 설계와 ER 모델] +
-link:./01-1_requirement_analysis.adoc[다음: 요건 분석]
+link:./01-1_chapter1_design_overview.adoc[이전: Module 10: 개념적 설계와 ER 모델] +
+link:./01-3_requirement_analysis.adoc[다음: 요건 분석]

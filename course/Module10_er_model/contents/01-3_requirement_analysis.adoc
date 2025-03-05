@@ -126,3 +126,4 @@
 ---
 
 link:./01-2_design_overview.adoc[이전: 데이터베이스 설계 개요] +
+link:./01-4_conceptual_design.adoc[다음: 개념 설계]
