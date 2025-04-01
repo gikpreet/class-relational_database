@@ -1,3 +1,6 @@
+= 답은 나중에 공개됩니다.
+
+////
 # 01. 영화 '퍼스트 맨'의 제작 연도, 영문 제목, 러닝 타임, 플롯을 출력하세요
 SELECT ReleaseYear, Title, RunningTime, Plot FROM movie WHERE KoreanTitle = '퍼스트 맨';
 
@@ -322,3 +325,4 @@ FROM person AS P NATURAL JOIN appear AS A NATURAL JOIN movie AS M
 WHERE P.KoreanName = '휴 잭맨';
 SELECT CONCAT(@Revenue / @Budget * 100, '%');
 
+////

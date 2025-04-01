@@ -1,4 +1,7 @@
-# 1. 영화 '퍼스트 맨'의 제작 연도, 영문 제목, 러닝 타임, 플롯을 출력하세요.
+= 답은 나중에 공개됩니다.
+
+////
+# 1. 영화 '퍼스트 맨'의 제작 연도, 영문 제목, 러닝 타임, 플롯을 출력하세요.0
 SELECT ReleaseYear, Title, RunningTime, Plot
 FROM Movie
 WHERE Movie.KoreanTitle = '퍼스트 맨';
@@ -288,3 +291,4 @@ SELECT TIMESTAMPDIFF(YEAR, AwardYear.Date, CURDATE()) AS result
 FROM AwardYear
 ORDER BY result DESC
 LIMIT 1;
+////
